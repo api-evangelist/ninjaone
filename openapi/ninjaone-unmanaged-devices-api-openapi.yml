@@ -1,0 +1,176 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Unmanaged Devices API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Unmanaged Devices
+paths:
+  /v2/itam/unmanaged-device:
+    post:
+      tags:
+      - Unmanaged Devices
+      summary: Create an Unmanaged Device
+      description: Create an Unmanaged Device with the provided details
+      operationId: createUnmanagedDevicePublicApi
+      requestBody:
+        description: The Unmanaged Device to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUnmanagedDevicePublicApiRequest'
+      responses:
+        '200':
+          description: The id of the Unmanaged Device that was created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUnmanagedDevicePublicApiResponseDTO'
+  /v2/itam/unmanaged-device/{nodeId}:
+    put:
+      tags:
+      - Unmanaged Devices
+      summary: Update an Unmanaged Device
+      description: Update an Unmanaged Device with the provided details
+      operationId: updateUnmanagedDevicePublicApi
+      parameters:
+      - name: nodeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Details of the Unmanaged Device to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUnmanagedDevicePublicApiRequest'
+      responses:
+        '202':
+          description: The Unmanaged Device was successfully updated
+        '404':
+          description: An Unmanaged Device with the provided nodeId was not found
+    delete:
+      tags:
+      - Unmanaged Devices
+      summary: Delete an Unmanaged Device
+      description: Delete an Unmanaged Device with the provided id
+      operationId: deleteUnmanagedDevicePublicApi
+      parameters:
+      - name: nodeId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Unmanaged Device was successfully deleted
+        '404':
+          description: An Unmanaged Device with the provided nodeId was not found
+components:
+  schemas:
+    UpdateUnmanagedDevicePublicApiRequest:
+      required:
+      - locationId
+      - name
+      - orgId
+      - serialNumber
+      type: object
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+          description: The display name of the device to be updated
+        orgId:
+          type: integer
+          description: The id of the organization the device belongs to
+          format: int32
+        locationId:
+          type: integer
+          description: The id of the location the device belongs to
+          format: int32
+        serialNumber:
+          type: string
+          description: The serial number of the device
+        assignedUserUid:
+          type: string
+          description: The UUID of the user this device is assigned to
+          format: uuid
+        warrantyStartDate:
+          type: number
+          description: The warranty start date for the device, in unix epoch seconds
+          format: double
+        warrantyEndDate:
+          type: number
+          description: The warranty end date for the device, in unix epoch seconds
+          format: double
+    CreateUnmanagedDevicePublicApiResponseDTO:
+      type: object
+      properties:
+        nodeId:
+          type: integer
+          format: int32
+    CreateUnmanagedDevicePublicApiRequest:
+      required:
+      - locationId
+      - name
+      - orgId
+      - roleId
+      - serialNumber
+      type: object
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+          description: The display name of the device to be created
+        orgId:
+          type: integer
+          description: The id of the organization the device belongs to
+          format: int32
+        locationId:
+          type: integer
+          description: The id of the location the device belongs to
+          format: int32
+        roleId:
+          type: integer
+          description: 'The id of the role to use for this device. Must be a sub-role of Unmanaged Device '
+          format: int32
+        serialNumber:
+          type: string
+          description: The serial number of the device
+        assignedUserUid:
+          type: string
+          description: The UUID of the user this device is assigned to
+          format: uuid
+        warrantyStartDate:
+          type: number
+          description: The warranty start date for the device, in unix epoch seconds
+          format: double
+        warrantyEndDate:
+          type: number
+          description: The warranty end date for the device, in unix epoch seconds
+          format: double
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

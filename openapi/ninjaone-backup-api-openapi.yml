@@ -1,0 +1,270 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Backup API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Backup
+  description: Backup
+paths:
+  /v2/backup/integrity-check-jobs:
+    get:
+      tags:
+      - Backup
+      summary: Integrity check jobs.
+      description: Returns a list of integrity check jobs.
+      operationId: getIntegrityCheckJobs
+      parameters:
+      - name: df
+        in: query
+        description: Device filter.
+        schema:
+          type: string
+      - name: ddf
+        in: query
+        description: Deleted device filter.
+        schema:
+          type: string
+      - name: sf
+        in: query
+        description: Backup job status filter.
+        schema:
+          type: string
+      - name: ptf
+        in: query
+        description: Backup job planType filter.
+        schema:
+          type: string
+      - name: stf
+        in: query
+        description: Backup job startTime filter.
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: Which devices include (active|deleted|all) default value active.
+        schema:
+          type: string
+          default: active
+      - name: cursor
+        in: query
+        description: Cursor name.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Limit number of records per page.
+        schema:
+          maximum: 10000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 10000
+      responses:
+        '200':
+          description: The integrity check job report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BackupJobReport'
+    post:
+      tags:
+      - Backup
+      summary: Create an integrity check job
+      description: Creates an integrity check job
+      operationId: submitIntegrityCheckJob
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LockhartIntegrityCheckJobCreationRequest'
+      responses:
+        '200':
+          description: Returns SUCCESS if the job was saved correctly, FAILURE otherwise.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockhartIntegrityCheckJobCreationResponse'
+  /v2/backup/jobs:
+    get:
+      tags:
+      - Backup
+      summary: Backup jobs
+      description: Returns list of backup jobs
+      operationId: getBackupJobs
+      parameters:
+      - name: df
+        in: query
+        description: Device filter
+        schema:
+          type: string
+      - name: ddf
+        in: query
+        description: Deleted device filter
+        schema:
+          type: string
+      - name: sf
+        in: query
+        description: Backup job status filter
+        schema:
+          type: string
+      - name: ptf
+        in: query
+        description: Backup job planType filter
+        schema:
+          type: string
+      - name: stf
+        in: query
+        description: Backup job startTime filter
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: Which devices include (active|deleted|all) default value active
+        schema:
+          type: string
+          default: active
+      - name: cursor
+        in: query
+        description: Cursor name
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Limit number of records per page
+        schema:
+          maximum: 10000
+          minimum: 1
+          type: integer
+          format: int32
+          default: 10000
+      responses:
+        '200':
+          description: Returns a backup job report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BackupJobReport'
+components:
+  schemas:
+    BackupJobReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/BackupJob'
+    LockhartIntegrityCheckJobCreationResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+          - UNSUPPORTED
+          - UNCOMPLETED
+        jobUid:
+          type: string
+          format: uuid
+        deviceId:
+          type: integer
+          format: int32
+        planGuid:
+          type: string
+          format: uuid
+        planName:
+          type: string
+        planType:
+          type: string
+      description: Response of the Integrity Check Job creation.
+    BackupJob:
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: Job id
+          format: uuid
+        jobStartTime:
+          type: number
+          description: Job start time
+          format: double
+        jobEndTime:
+          type: number
+          description: Job end time
+          format: double
+        jobStatus:
+          type: string
+          description: Job status
+        planGuid:
+          type: string
+          description: Plan id
+          format: uuid
+        planName:
+          type: string
+          description: Plan name
+        planType:
+          type: string
+          description: Plan type
+        totalActualStorageBytes:
+          type: integer
+          description: Total bytes
+          format: int64
+        organizationId:
+          type: integer
+          description: Organization id
+          format: int32
+        locationId:
+          type: integer
+          description: Location id
+          format: int32
+        deviceId:
+          type: integer
+          description: Device id
+          format: int32
+    Cursor:
+      type: object
+      properties:
+        name:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+        expires:
+          type: number
+          format: double
+    LockhartIntegrityCheckJobCreationRequest:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        planUid:
+          type: string
+          format: uuid
+      description: Request of the Integrity Check Job creation.
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

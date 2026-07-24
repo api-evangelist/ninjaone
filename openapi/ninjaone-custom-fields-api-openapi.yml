@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Custom Fields API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Custom Fields
+  description: Custom Fields
+paths:
+  /v2/custom-fields/entity-type/{entityType}/{entityId}/signed-urls:
+    get:
+      tags:
+      - Custom Fields
+      summary: Get custom field signed urls
+      description: Get custom field signed urls
+      operationId: getNodeAttributeSignedUrls
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - NODE
+          - END_USER
+          - LOCATION
+          - ORGANIZATION
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a map of content ids and their corresponding signed urls
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

@@ -1,0 +1,95 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Location API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Location
+  description: Location
+paths:
+  /v2/organization/{id}/location/{locationId}/custom-fields:
+    get:
+      tags:
+      - Location
+      summary: Location custom fields
+      description: Returns list of location custom fields
+      operationId: getNodeCustomFields_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: withInheritance
+        in: query
+        description: Retrieve values using definition scope hierarchy
+        schema:
+          type: boolean
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+      - Location
+      summary: Update Field Values
+      description: Update location custom field values
+      operationId: updateNodeAttributeValues_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+components:
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

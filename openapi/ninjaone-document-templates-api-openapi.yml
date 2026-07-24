@@ -1,0 +1,788 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Document Templates API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Document Templates
+  description: Document Templates
+paths:
+  /v2/document-templates/{documentTemplateId}/archive:
+    post:
+      tags:
+      - Document Templates
+      summary: Archive a document template
+      description: Archives a document template by id
+      operationId: archiveDocumentTemplate
+      parameters:
+      - name: documentTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/document-templates/archive:
+    post:
+      tags:
+      - Document Templates
+      summary: Archive multiple document templates
+      description: Archives multiple document template by ids
+      operationId: archiveDocumentTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/document-templates:
+    get:
+      tags:
+      - Document Templates
+      summary: List document templates with fields
+      description: List document templates with fields
+      operationId: getDocumentTemplatesWithAttributes
+      parameters:
+      - name: templateName
+        in: query
+        schema:
+          type: string
+      - name: includeTechnicianRoles
+        in: query
+        description: Includes allowed technician roles.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Returns a list of all document templates with fields
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+    post:
+      tags:
+      - Document Templates
+      summary: Create document template
+      description: Create document template
+      operationId: createDocumentTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewDocumentTemplatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns the document template created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+  /v2/document-templates/{documentTemplateId}:
+    get:
+      tags:
+      - Document Templates
+      summary: Get document template
+      description: Get document template
+      operationId: getDocumentTemplate
+      parameters:
+      - name: documentTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: includeTechnicianRoles
+        in: query
+        description: Includes allowed technician roles.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Returns a document template
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+    put:
+      tags:
+      - Document Templates
+      summary: Update document template
+      description: Updates a document template by id
+      operationId: updateDocumentTemplate
+      parameters:
+      - name: documentTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDocumentTemplatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns the document template updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+    delete:
+      tags:
+      - Document Templates
+      summary: Delete a document template
+      description: Deletes a document template by id
+      operationId: deleteDocumentTemplate
+      parameters:
+      - name: documentTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/document-templates/{documentTemplateId}/restore:
+    post:
+      tags:
+      - Document Templates
+      summary: Restore a document template
+      description: Restores a document template by id
+      operationId: restoreDocumentTemplate
+      parameters:
+      - name: documentTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns the document template restored
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+  /v2/document-templates/restore:
+    post:
+      tags:
+      - Document Templates
+      summary: Restore a document template
+      description: Restores a document template by id
+      operationId: restoreDocumentTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '200':
+          description: Returns the document template restored
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
+components:
+  schemas:
+    AttributeContentAdvancedSettingsNumericRange:
+      type: object
+      properties:
+        min:
+          type: number
+        max:
+          type: number
+    AttributeContentAdvancedSettingsComplexityRules:
+      type: object
+      properties:
+        mustContainOneInteger:
+          type: boolean
+        mustContainOneLowercaseLetter:
+          type: boolean
+        mustContainOneUppercaseLetter:
+          type: boolean
+        greaterOrEqualThanSixCharacters:
+          type: boolean
+    UpdateDocumentTemplatePublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the template (must be unique)
+        description:
+          type: string
+          description: Description of the template
+        mandatory:
+          type: boolean
+          description: Indicates if the document template is mandatory
+        fields:
+          type: array
+          description: List of fields and ui elements
+          items:
+            $ref: '#/components/schemas/UpdateDocumentItemPublicApiRequest'
+        availableToAllTechnicians:
+          type: boolean
+          description: States if the document template is available to all technicians
+        allowedTechnicianRoles:
+          type: array
+          description: List of allowed technician role ids
+          items:
+            type: integer
+            description: List of allowed technician role ids
+            format: int32
+    UpdateDocumentItemPublicApiRequest:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          description: Field identifier (Used to identify existing fields)
+          format: int32
+        fieldLabel:
+          type: string
+          description: Field or UI element name
+        fieldName:
+          type: string
+          description: Field name (Immutable except for new fields)
+        fieldDescription:
+          type: string
+          description: Field description
+        fieldType:
+          type: string
+          description: Field type (Immutable except for new fields)
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        fieldTechnicianPermission:
+          type: string
+          description: Field technician permission
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        fieldScriptPermission:
+          type: string
+          description: Field script permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldApiPermission:
+          type: string
+          description: Field public API permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldDefaultValue:
+          type: string
+          description: Default value
+        fieldContent:
+          $ref: '#/components/schemas/DocumentAttributeContentPublicApi'
+        uiElementUid:
+          type: string
+          description: UI element identifier
+          format: uuid
+        uiElementName:
+          type: string
+          description: UI element name
+        uiElementType:
+          type: string
+          description: UI element type
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: UI element value
+      description: List of fields and ui elements
+    NewDocumentItemPublicApiRequest:
+      required:
+      - fieldLabel
+      - fieldName
+      type: object
+      properties:
+        fieldLabel:
+          type: string
+          description: Field label
+        fieldName:
+          type: string
+          description: Field name (Immutable value)
+        fieldDescription:
+          type: string
+          description: Field description
+        fieldType:
+          type: string
+          description: Field type (Immutable value)
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        fieldTechnicianPermission:
+          type: string
+          description: Field technician permission
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        fieldScriptPermission:
+          type: string
+          description: Field script permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldApiPermission:
+          type: string
+          description: Field public API permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldDefaultValue:
+          type: string
+          description: Default value
+        fieldContent:
+          $ref: '#/components/schemas/NewDocumentAttributeContentPublicApi'
+        uiElementName:
+          type: string
+          description: UI element name
+        uiElementType:
+          type: string
+          description: UI element type
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: UI element value
+      description: List of fields and ui elements
+    AttributeContentAdvancedSettings:
+      type: object
+      properties:
+        fileMaxSize:
+          type: integer
+          format: int32
+        fileExtensions:
+          type: array
+          items:
+            type: string
+        dateFilters:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
+        maxCharacters:
+          type: integer
+          format: int32
+        complexityRules:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
+        numericRange:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
+        org:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+        nodeClass:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - WINDOWS_SERVER
+            - WINDOWS_WORKSTATION
+            - LINUX_WORKSTATION
+            - MAC
+            - ANDROID
+            - APPLE_IOS
+            - APPLE_IPADOS
+            - VMWARE_VM_HOST
+            - VMWARE_VM_GUEST
+            - HYPERV_VMM_HOST
+            - HYPERV_VMM_GUEST
+            - LINUX_SERVER
+            - MAC_SERVER
+            - CLOUD_MONITOR_TARGET
+            - NMS_SWITCH
+            - NMS_ROUTER
+            - NMS_FIREWALL
+            - NMS_PRIVATE_NETWORK_GATEWAY
+            - NMS_PRINTER
+            - NMS_SCANNER
+            - NMS_DIAL_MANAGER
+            - NMS_WAP
+            - NMS_IPSLA
+            - NMS_COMPUTER
+            - NMS_VM_HOST
+            - NMS_APPLIANCE
+            - NMS_OTHER
+            - NMS_SERVER
+            - NMS_PHONE
+            - NMS_VIRTUAL_MACHINE
+            - NMS_NETWORK_MANAGEMENT_AGENT
+            - UNMANAGED_DEVICE
+            - MANAGED_DEVICE
+        ipAddressType:
+          type: string
+          enum:
+          - ALL
+          - IPV4
+          - IPV6
+        expandLargeValueOnRender:
+          type: boolean
+    DocumentItemPublicApiDTO:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          description: Field identifier
+          format: int32
+        fieldLabel:
+          type: string
+          description: Field or UI element name
+        fieldName:
+          type: string
+          description: Field name
+        fieldDescription:
+          type: string
+          description: Field description
+        fieldType:
+          type: string
+          description: Field type
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        fieldTechnicianPermission:
+          type: string
+          description: Field technician permission
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        fieldScriptPermission:
+          type: string
+          description: Field script permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldApiPermission:
+          type: string
+          description: Field public API permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldDefaultValue:
+          type: string
+          description: Default value
+        fieldContent:
+          $ref: '#/components/schemas/DocumentAttributeContentPublicApi'
+        uiElementUid:
+          type: string
+          description: UI element identifier
+          format: uuid
+        uiElementName:
+          type: string
+          description: UI element name
+        uiElementType:
+          type: string
+          description: UI element type
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: UI element value
+        createdTime:
+          type: number
+          description: Creation time
+          format: double
+        updatedTime:
+          type: number
+          description: Last updated time
+          format: double
+      description: Document template fields
+    NewDocumentAttributeContentPublicApi:
+      type: object
+      properties:
+        values:
+          type: array
+          description: Used for dropdown options
+          items:
+            $ref: '#/components/schemas/NewDocumentAttributeContentValuePublicApi'
+        required:
+          type: boolean
+          description: Indicates if the field is required
+        footerText:
+          type: string
+          description: Footer text
+        tooltipText:
+          type: string
+          description: Tooltip text
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: Field content
+    ArchiveUserInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        displayName:
+          type: string
+        deleted:
+          type: boolean
+      description: Indicates who archived the template
+    NewDocumentTemplatePublicApiRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the template (must be unique)
+        description:
+          type: string
+          description: Description of the template
+        allowMultiple:
+          type: boolean
+          description: States if multiple instances of the document template is allowed
+        mandatory:
+          type: boolean
+          description: Indicates if the document template is mandatory
+        fields:
+          type: array
+          description: List of fields and ui elements
+          items:
+            $ref: '#/components/schemas/NewDocumentItemPublicApiRequest'
+        availableToAllTechnicians:
+          type: boolean
+          description: States if the document template is available to all technicians
+        allowedTechnicianRoles:
+          type: array
+          description: List of allowed technician role ids
+          items:
+            type: integer
+            description: List of allowed technician role ids
+            format: int32
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    DocumentAttributeContentValuePublicApi:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        name:
+          type: string
+          description: Dropdown option name
+        active:
+          type: boolean
+          description: Indicates if a dropdown option is active
+      description: Used for dropdown options
+    NewDocumentAttributeContentValuePublicApi:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Dropdown option name
+      description: Used for dropdown options
+    DocumentTemplatePublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Name of the template (must be unique)
+        description:
+          type: string
+          description: Description of the template
+        allowMultiple:
+          type: boolean
+          description: Indicates if multiple instances of the document template is allowed
+        mandatory:
+          type: boolean
+          description: Indicates if the document template is mandatory
+        createTime:
+          type: number
+          description: Creation time
+          format: double
+        updateTime:
+          type: number
+          description: Last updated time
+          format: double
+        fields:
+          type: array
+          description: Document template fields
+          items:
+            $ref: '#/components/schemas/DocumentItemPublicApiDTO'
+        availableToAllTechnicians:
+          type: boolean
+          description: Indicates if the document template is available to all technicians
+        allowedTechnicianRoles:
+          type: array
+          description: List of allowed technician role ids
+          items:
+            type: integer
+            description: List of allowed technician role ids
+            format: int32
+        archived:
+          type: boolean
+          description: Indicates if the document template is archived
+        archivedTime:
+          type: number
+          description: Indicates the time the template was archived
+          format: double
+        archivedBy:
+          $ref: '#/components/schemas/ArchiveUserInfo'
+    DocumentAttributeContentPublicApi:
+      type: object
+      properties:
+        values:
+          type: array
+          description: Used for dropdown options
+          items:
+            $ref: '#/components/schemas/DocumentAttributeContentValuePublicApi'
+        required:
+          type: boolean
+          description: Indicates if the field is required
+        footerText:
+          type: string
+          description: Footer text
+        tooltipText:
+          type: string
+          description: Tooltip text
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: Field content
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

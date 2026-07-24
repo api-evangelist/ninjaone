@@ -1,0 +1,474 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Organization Documents API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Organization Documents
+  description: Organization Documents
+paths:
+  /v2/organization/document/{clientDocumentId}/archive:
+    post:
+      tags:
+      - Organization Documents
+      summary: Archive an organization document
+      description: Archives an organization document by id
+      operationId: archiveClientDocument
+      parameters:
+      - name: clientDocumentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns the organization document archived
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/documents/archive:
+    post:
+      tags:
+      - Organization Documents
+      summary: Archives organization documents
+      description: Archives multiple organization documents by id
+      operationId: archiveMultiPageClientDocuments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '200':
+          description: Returns a list of archived organization documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/{organizationId}/template/{documentTemplateId}/document:
+    post:
+      tags:
+      - Organization Documents
+      summary: Create organization document
+      description: Creates an organization document and returns the document created
+      operationId: createOrganizationDocument
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: documentTemplateId
+        in: path
+        description: Document template identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiRequest'
+      responses:
+        '200':
+          description: Returns the organization document created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/documents:
+    get:
+      tags:
+      - Organization Documents
+      summary: List all organization documents with field values
+      description: List all organization documents with field values
+      operationId: getClientDocumentsWithAttributeValues
+      parameters:
+      - name: groupBy
+        in: query
+        schema:
+          type: string
+          enum:
+          - TEMPLATE
+          - ORGANIZATION
+      - name: organizationIds
+        in: query
+        schema:
+          type: string
+      - name: templateIds
+        in: query
+        schema:
+          type: string
+      - name: templateName
+        in: query
+        schema:
+          type: string
+      - name: documentName
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a list of all organization documents with field values grouped by organization identifier
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+    post:
+      tags:
+      - Organization Documents
+      summary: Create organization documents
+      description: Creates organization documents and returns the documents created
+      operationId: createOrganizationDocuments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of created organization documents with field values
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+    patch:
+      tags:
+      - Organization Documents
+      summary: Update organization documents
+      description: Updates organization documents and returns the documents updated
+      operationId: updateOrganizationDocuments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of updated organization documents with field values
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
+  /v2/organization/document/{clientDocumentId}:
+    delete:
+      tags:
+      - Organization Documents
+      summary: Delete an archived organization document
+      description: Deletes an archived organization document by id
+      operationId: deleteClientDocument
+      parameters:
+      - name: clientDocumentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/organization/document/{clientDocumentId}/signed-urls:
+    get:
+      tags:
+      - Organization Documents
+      summary: Get organization document signed urls
+      description: Get organization document signed urls
+      operationId: getClientDocumentSignedUrls
+      parameters:
+      - name: clientDocumentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a map of content ids and their corresponding signed urls
+          content:
+            application/json:
+              schema:
+                type: string
+  /v2/organization/{organizationId}/documents:
+    get:
+      tags:
+      - Organization Documents
+      summary: List organization documents with field values
+      description: List organization documents with field values
+      operationId: getOrganizationDocuments
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a list of organization documents with field values
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/document/{clientDocumentId}/restore:
+    post:
+      tags:
+      - Organization Documents
+      summary: Restore an organization document
+      description: Restores an organization document by id
+      operationId: restoreClientDocument
+      parameters:
+      - name: clientDocumentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns the organization document restored
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/documents/restore:
+    post:
+      tags:
+      - Organization Documents
+      summary: Restore multiple multi page organization documents
+      description: Restores multiple organization documents by id
+      operationId: restoreMultiPageClientDocuments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '200':
+          description: Returns a list of restored organization documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiDTO'
+  /v2/organization/{organizationId}/document/{clientDocumentId}:
+    post:
+      tags:
+      - Organization Documents
+      summary: Update organization document
+      description: Updates an organization document and returns the updated version
+      operationId: updateOrganizationDocument
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: clientDocumentId
+        in: path
+        description: Organization document identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientDocumentWithAttributeValuesPublicApiRequest'
+      responses:
+        '200':
+          description: Returns the organization document updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
+components:
+  schemas:
+    ClientDocumentWithUpdatedAttributeValuesPublicApiDTO:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        documentUpdateTime:
+          type: number
+          description: Document Last Updated
+          format: double
+        updatedFields:
+          type: array
+          description: Updated Fields
+          items:
+            $ref: '#/components/schemas/ClientDocumentAttributeWithValuePublicApiDTO'
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        documentTemplateName:
+          type: string
+          description: Document Template Name
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+    ClientDocumentAttributeWithValuePublicApiDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        value:
+          type: object
+          description: Value
+        valueUpdateTime:
+          type: number
+          description: Value Last Updated
+          format: double
+      description: Updated Fields
+    ClientDocumentWithAttributeValuesPublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+    ClientDocumentWithAttributeValuesPublicApiDTO:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        documentUpdateTime:
+          type: number
+          description: Document Last Updated
+          format: double
+        fields:
+          type: array
+          description: Fields
+          items:
+            $ref: '#/components/schemas/ClientDocumentAttributeWithValuePublicApiDTO'
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        documentTemplateName:
+          type: string
+          description: Document Template Name
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

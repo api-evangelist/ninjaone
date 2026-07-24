@@ -1,0 +1,716 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Related Items API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Related Items
+  description: Related Items
+paths:
+  /v2/related-items/entity/{entityType}/{entityId}/attachment:
+    post:
+      tags:
+      - Related Items
+      summary: Create Attachment Relation
+      description: Relate an attachment to an entity
+      operationId: createRelatedItem
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  $ref: '#/components/schemas/FormDataBodyPart'
+      responses:
+        '200':
+          description: Returns the attachment related item created for an entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/entity/{entityType}/{entityId}/relation:
+    post:
+      tags:
+      - Related Items
+      summary: Create entity relation
+      description: Create a relation between two entities
+      operationId: createRelatedItemForEntity
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewRelatedItemEntityRequest'
+      responses:
+        '200':
+          description: Returns the relation created for an entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/entity/{entityType}/{entityId}/relations:
+    post:
+      tags:
+      - Related Items
+      summary: Create entity relations
+      description: Create multiple relations between two entities
+      operationId: createRelatedItemForEntity_1
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/NewRelatedItemEntityRequest'
+      responses:
+        '200':
+          description: Returns list of relations created for an entity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/entity/{entityType}/{entityId}/secure:
+    post:
+      tags:
+      - Related Items
+      summary: Create Secure Relation
+      description: Create a relation to a secure value
+      operationId: createSecureRelatedItemForEntity
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewRelatedItemSecureValueRequest'
+      responses:
+        '200':
+          description: Returns the secure related item created for an entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/{relatedItemId}:
+    delete:
+      tags:
+      - Related Items
+      summary: Delete related item
+      description: Deletes related item
+      operationId: deleteRelatedItem
+      parameters:
+      - name: relatedItemId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/related-items/{entityType}/{entityId}:
+    delete:
+      tags:
+      - Related Items
+      summary: Delete related items
+      description: Deletes related items associated with an entity
+      operationId: deleteRelatedItems
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - ATTACHMENT
+          - TECHNICIAN
+          - CREDENTIAL
+          - CHECKLIST
+          - END_USER
+          - CONTACT
+          - KB_DOCUMENT
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/related-items:
+    get:
+      tags:
+      - Related Items
+      summary: List all related items
+      description: List all related items
+      operationId: getAllRelatedItems
+      responses:
+        '200':
+          description: Returns a list of all related items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/with-entity/{entityType}/{entityId}:
+    get:
+      tags:
+      - Related Items
+      summary: List host entity related items by scope
+      description: List related items for a specific host entity filterable by scope
+      operationId: getRelatedItemsForHostEntity
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: scope
+        in: query
+        schema:
+          type: string
+          enum:
+          - ALL
+          - HOSTING
+          - HOSTED_BY
+      responses:
+        '200':
+          description: Returns list of the related items for an entity filterable by scope
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/with-related-entity/{relEntityType}/{relEntityId}:
+    get:
+      tags:
+      - Related Items
+      summary: List related entity related items
+      description: List related items for a specific related entity
+      operationId: getRelatedItemsWithEntity
+      parameters:
+      - name: relEntityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - ATTACHMENT
+          - TECHNICIAN
+          - CREDENTIAL
+          - CHECKLIST
+          - END_USER
+          - CONTACT
+          - KB_DOCUMENT
+      - name: relEntityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns list of the related items for a specific related entity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/with-related-entity-type/{relatedEntityType}:
+    get:
+      tags:
+      - Related Items
+      summary: List related entity type related items
+      description: List related entities for a related entity type
+      operationId: getRelatedItemsWithEntityType
+      parameters:
+      - name: relatedEntityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - ATTACHMENT
+          - TECHNICIAN
+          - CREDENTIAL
+          - CHECKLIST
+          - END_USER
+          - CONTACT
+          - KB_DOCUMENT
+      responses:
+        '200':
+          description: Returns list of references for a related entity type
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+  /v2/related-items/with-entity-type/{entityType}:
+    get:
+      tags:
+      - Related Items
+      summary: List host entity type related items
+      description: List relations and references for a host entity type
+      operationId: getRelatedItemsWithHostEntityType
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      responses:
+        '200':
+          description: Returns a list of relations and references for an entity type
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RelatedItemPublicApiDTO'
+components:
+  schemas:
+    BodyPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    FormDataContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+        name:
+          type: string
+    MessageBodyWorkers:
+      type: object
+    ContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+    MultiPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        bodyParts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BodyPart'
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    NewRelatedItemSecureValueRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        url:
+          type: string
+          description: URL
+        notes:
+          type: string
+          description: Notes
+        username:
+          type: string
+          description: Username
+        password:
+          type: string
+          description: Password
+        totpSecret:
+          type: string
+          description: TOTP Secret
+    ParameterizedHeader:
+      type: object
+      properties:
+        value:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+    FormDataBodyPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        simple:
+          type: boolean
+        name:
+          type: string
+        value:
+          type: string
+        formDataContentDisposition:
+          $ref: '#/components/schemas/FormDataContentDisposition'
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    RelatedItemPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        type:
+          type: string
+          description: Type of Relation
+          enum:
+          - VALUE
+          - ENTITY
+        entity:
+          type: object
+          description: Entity
+        entityId:
+          type: integer
+          description: Entity Identifier
+          format: int32
+        entityType:
+          type: string
+          description: Entity Type
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+        relEntity:
+          type: object
+          description: Related Entity
+        relEntityId:
+          type: integer
+          description: Related Entity Identifier
+          format: int32
+        relEntityType:
+          type: string
+          description: Related Entity Type
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - ATTACHMENT
+          - TECHNICIAN
+          - CREDENTIAL
+          - CHECKLIST
+          - END_USER
+          - CONTACT
+          - KB_DOCUMENT
+          - SECURE
+        value:
+          type: object
+          description: Related item value (Attachment meta data / Secure information)
+        createTime:
+          type: number
+          description: Creation time
+          format: double
+        updateTime:
+          type: number
+          description: Last update time
+          format: double
+        createdByAppUserId:
+          type: integer
+          description: The identifier of the user who created the related item
+          format: int32
+        updatedByAppUserId:
+          type: integer
+          description: The identifier of the last user to update the related item
+          format: int32
+    NewRelatedItemEntityRequest:
+      type: object
+      properties:
+        relEntityType:
+          type: string
+          description: Related Entity Type
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - ATTACHMENT
+          - TECHNICIAN
+          - CREDENTIAL
+          - CHECKLIST
+          - END_USER
+          - CONTACT
+          - KB_DOCUMENT
+        relEntityId:
+          type: integer
+          description: Related Entity Identifier
+          format: int32
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

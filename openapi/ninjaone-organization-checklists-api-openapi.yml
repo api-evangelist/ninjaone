@@ -1,0 +1,537 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Organization Checklists API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Organization Checklists
+  description: Organization Checklists
+paths:
+  /v2/organization/archive:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Archive organization checklists
+      description: Archive multiple organization checklists
+      operationId: archiveOrganizationChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveClientChecklistRequest'
+      responses:
+        '200':
+          description: Returns a list of archive organization checklists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+  /v2/organization/checklists:
+    get:
+      tags:
+      - Organization Checklists
+      summary: List client checklists
+      description: List client checklists with given criteria
+      operationId: getClientChecklists
+      parameters:
+      - name: checklistIds
+        in: query
+        schema:
+          type: string
+      - name: organizationIds
+        in: query
+        schema:
+          type: string
+      - name: checklistName
+        in: query
+        schema:
+          type: string
+      - name: assignedToUserId
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: completed
+        in: query
+        schema:
+          type: boolean
+      - name: required
+        in: query
+        schema:
+          type: boolean
+      - name: includeArchived
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Returns a list of client checklists with given criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+    put:
+      tags:
+      - Organization Checklists
+      summary: Update organization checklists
+      description: Updates multiple organization checklists
+      operationId: updateOrganizationChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateClientChecklistAndTasksPublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of updated organization checklists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+    post:
+      tags:
+      - Organization Checklists
+      summary: Create organization checklists
+      description: Creates multiple organization checklists
+      operationId: createOrganizationChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateClientChecklistAndTasksPublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of created organization checklists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+  /v2/organization/{organizationId}/checklists-from-templates:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Create organization checklists from templates
+      description: Creates multiple organization checklists from templates
+      operationId: createOrganizationChecklistsFromTemplates
+      parameters:
+      - name: organizationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '200':
+          description: Returns a list of created organization checklists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+  /v2/organization/checklist/{checklistId}:
+    get:
+      tags:
+      - Organization Checklists
+      summary: Get client checklist
+      description: Get a client checklist by id
+      operationId: getClientChecklist
+      parameters:
+      - name: checklistId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a client checklist with given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+    delete:
+      tags:
+      - Organization Checklists
+      summary: Delete an organization checklist
+      description: Deletes an organization checklist by id
+      operationId: deleteClientChecklist
+      parameters:
+      - name: checklistId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/organization/checklists/delete:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Delete organization checklists
+      description: Deletes organization checklists by id
+      operationId: deleteClientChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/organization/checklist/{checklistId}/signed-urls:
+    get:
+      tags:
+      - Organization Checklists
+      summary: Get organization checklist signed urls
+      description: Get organization checklist signed urls
+      operationId: getClientChecklistSignedUrls
+      parameters:
+      - name: checklistId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a map of content ids and their corresponding signed urls
+          content:
+            application/json:
+              schema:
+                type: string
+  /v2/organization/checklists/promote-with-name:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Promote organization checklists
+      description: Promote organization checklists by id
+      operationId: promoteClientChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PromoteClientChecklistWithNamePublicApiRequest'
+      responses:
+        '204':
+          description: No Content
+  /v2/organization/checklists/promote:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Promote organization checklists
+      description: Promote organization checklists by id
+      operationId: promoteClientChecklists_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/organization/restore:
+    post:
+      tags:
+      - Organization Checklists
+      summary: Restore organization checklists
+      description: Restore multiple organization checklists
+      operationId: restoreOrganizationChecklists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveClientChecklistRequest'
+      responses:
+        '200':
+          description: Returns a list of restore organization checklists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
+components:
+  schemas:
+    PromoteClientChecklistWithNamePublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name
+    ClientChecklistPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name (must be unique)
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        completed:
+          type: boolean
+          description: Indicates if the checklist is completed
+        completedOn:
+          type: number
+          description: Date of completion
+          format: double
+        assignedTo:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        lastUpdatedOn:
+          type: number
+          description: Last updated on
+          format: double
+        lastUpdatedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        completedTaskCount:
+          type: integer
+          description: Last updated by user
+          format: int32
+        totalTaskCount:
+          type: integer
+          description: Checklist's total tasks count
+          format: int32
+        tasks:
+          type: array
+          description: Checklist's tasks
+          items:
+            $ref: '#/components/schemas/ClientChecklistTaskPublicApiDTO'
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        clientName:
+          type: string
+          description: Client name
+        archived:
+          type: boolean
+          description: Indicates if the checklist is archived
+        archivedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        archiveTime:
+          type: number
+          description: Archive time
+          format: double
+    ChecklistUserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        deleted:
+          type: boolean
+      description: Archive by user
+    ClientChecklistTaskPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        assignedTo:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        completed:
+          type: boolean
+          description: Indicates if the checklist is completed
+        completedOn:
+          type: number
+          description: Date of completion
+          format: double
+        completedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+      description: Checklist's tasks
+    ClientChecklistTaskPublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Identifier
+          format: int32
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist task
+          format: int32
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        completed:
+          type: boolean
+          description: Indicates if the checklist is completed
+      description: Checklist tasks
+    ArchiveClientChecklistRequest:
+      type: object
+      properties:
+        clientChecklistIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+    ChecklistDescription:
+      type: object
+      properties:
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
+    CreateClientChecklistAndTasksPublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Checklist name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist
+          format: int32
+        organizationId:
+          minimum: 1
+          type: integer
+          description: Organization identifier
+          format: int32
+        checklistTemplateId:
+          minimum: 1
+          type: integer
+          description: Checklist template identifier
+          format: int32
+        tasks:
+          type: array
+          description: Checklist tasks
+          items:
+            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
+    UpdateClientChecklistAndTasksPublicApiRequest:
+      type: object
+      properties:
+        checklistId:
+          minimum: 1
+          type: integer
+          description: Checklist identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist
+          format: int32
+        tasks:
+          type: array
+          description: Checklist tasks
+          items:
+            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

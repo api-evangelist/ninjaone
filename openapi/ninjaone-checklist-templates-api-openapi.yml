@@ -1,0 +1,321 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Checklist Templates API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Checklist Templates
+  description: Checklist Templates
+paths:
+  /v2/checklist/archive:
+    post:
+      tags:
+      - Checklist Templates
+      summary: Archive a checklist template
+      description: Archive a checklist template by id
+      operationId: archiveChecklistTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveChecklistTemplatesRequest'
+      responses:
+        '200':
+          description: Returns a list of archive checklist templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
+  /v2/checklist/templates:
+    get:
+      tags:
+      - Checklist Templates
+      summary: List checklist templates
+      description: List checklists templates with given criteria
+      operationId: getChecklistTemplates
+      parameters:
+      - name: checklistTemplateIds
+        in: query
+        schema:
+          type: string
+      - name: checklistTemplateName
+        in: query
+        schema:
+          type: string
+      - name: required
+        in: query
+        schema:
+          type: boolean
+      - name: includeArchived
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Returns a list of checklist templates with given criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
+    put:
+      tags:
+      - Checklist Templates
+      summary: Update checklist templates
+      description: Updates multiple checklist templates
+      operationId: updateChecklistTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateChecklistTemplatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of updated checklist templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
+    post:
+      tags:
+      - Checklist Templates
+      summary: Create checklist templates
+      description: Creates multiple checklist templates
+      operationId: createChecklistTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateChecklistTemplatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of created checklist templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
+  /v2/checklist/template/{checklistTemplateId}:
+    delete:
+      tags:
+      - Checklist Templates
+      summary: Delete a checklist template
+      description: Delete a checklist template by id
+      operationId: deleteChecklistTemplate
+      parameters:
+      - name: checklistTemplateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/checklist/templates/delete:
+    post:
+      tags:
+      - Checklist Templates
+      summary: Delete checklist templates
+      description: Deletes checklist templates by id
+      operationId: deleteChecklistTemplates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/checklist/restore:
+    post:
+      tags:
+      - Checklist Templates
+      summary: Restore a checklist template
+      description: Restore a checklist template by id
+      operationId: restoreChecklistTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreChecklistTemplatesRequest'
+      responses:
+        '200':
+          description: Returns a list of restore checklist templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
+components:
+  schemas:
+    ChecklistTemplatePublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist template name (must be unique)
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        tasks:
+          type: array
+          description: Checklist template tasks
+          items:
+            $ref: '#/components/schemas/ChecklistTemplateTaskPublicApiDTO'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        lastUpdatedOn:
+          type: number
+          description: Last updated on
+          format: double
+        lastUpdatedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        archived:
+          type: boolean
+          description: Indicates if the checklist template is archived
+        archivedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        archiveTime:
+          type: number
+          description: Archive time
+          format: double
+    ChecklistUserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        deleted:
+          type: boolean
+      description: Archive by user
+    ChecklistTemplateTaskPublicApiRequest:
+      type: object
+      properties:
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+      description: Checklist's tasks
+    ChecklistTemplateTaskPublicApiDTO:
+      type: object
+      properties:
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+      description: Checklist template tasks
+    RestoreChecklistTemplatesRequest:
+      type: object
+      properties:
+        checklistTemplateIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+    CreateChecklistTemplatePublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Checklist template name (must be unique)
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        tasks:
+          type: array
+          description: Checklist's tasks
+          items:
+            $ref: '#/components/schemas/ChecklistTemplateTaskPublicApiRequest'
+        required:
+          type: boolean
+          description: Checklist's tasks
+    UpdateChecklistTemplatePublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Checklist template identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist template name (must be unique)
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        tasks:
+          type: array
+          description: Checklist's tasks
+          items:
+            $ref: '#/components/schemas/ChecklistTemplateTaskPublicApiRequest'
+        required:
+          type: boolean
+          description: Indicates if the checklist is required
+    ChecklistDescription:
+      type: object
+      properties:
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
+    ArchiveChecklistTemplatesRequest:
+      type: object
+      properties:
+        checklistTemplateIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

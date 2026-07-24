@@ -1,0 +1,926 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Knowledge Base Articles API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Knowledge Base Articles
+  description: Knowledge Base Articles
+paths:
+  /v2/attachments/temp/upload:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Upload temporary attachments
+      description: Upload temporary attachment
+      operationId: uploadTempAttachments
+      parameters:
+      - name: entityType
+        in: query
+        schema:
+          type: string
+          enum:
+          - TICKET
+          - NODE
+          - DOCUMENT
+          - RELATED_ITEM
+          - CHECKLIST
+          - AUTOMATION
+          - LOCATION
+          - ORGANIZATION
+          - TRIGGER
+          - TECHNICIAN
+          - FILE_TRANSFER_AUTOMATION
+          - END_USER
+          - EMAIL_TEMPLATE
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/FormDataBodyPart'
+      responses:
+        '200':
+          description: Returns a list of uploaded attachments metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentMetadataPublicApiDTO'
+  /v2/knowledgebase/articles/archive:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Archive knowledge base articles
+      description: Archive knowledge base articles
+      operationId: archiveKnowledgeBaseArticles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/folders/archive:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Archive knowledge base folders
+      description: Archive knowledge base folders
+      operationId: archiveKnowledgeBaseFolders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/articles:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Create knowledge base articles
+      description: Create knowledge base articles
+      operationId: createKnowledgeBaseArticles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/KnowledgeBaseArticleBulkCreatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of created knowledge base articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiDTO'
+    patch:
+      tags:
+      - Knowledge Base Articles
+      summary: Update knowledge base articles
+      description: Update knowledge base articles
+      operationId: updateKnowledgeBaseArticles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/KnowledgeBaseArticleBulkUpdatePublicApiRequest'
+      responses:
+        '200':
+          description: Returns a list of updated knowledge base articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiDTO'
+  /v2/knowledgebase/articles/delete:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Delete knowledge base articles
+      description: Delete knowledge base articles
+      operationId: deleteKnowledgeBaseArticles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/folders/delete:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Delete knowledge base folders
+      description: Delete knowledge base folders
+      operationId: deleteKnowledgeBaseFolders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/article/{articleId}/download:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Download knowledge base article
+      description: Download knowledge base article
+      operationId: downloadKnowledgeBaseArticle
+      parameters:
+      - name: articleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/organization/articles:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Lists organization knowledge base articles
+      description: Lists organization knowledge base articles
+      operationId: getClientKnowledgeBaseArticles
+      parameters:
+      - name: organizationIds
+        in: query
+        schema:
+          type: string
+      - name: articleName
+        in: query
+        schema:
+          type: string
+      - name: includeArchived
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Returns a list of organization knowledge base articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiDTO'
+  /v2/knowledgebase/global/articles:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Lists global knowledge base articles
+      description: Lists global knowledge base articles
+      operationId: getGlobalKnowledgeBaseArticles
+      parameters:
+      - name: articleName
+        in: query
+        schema:
+          type: string
+      - name: includeArchived
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Returns a list of global knowledge base articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiDTO'
+  /v2/knowledgebase/article/{articleId}/signed-urls:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Get knowledge base article signed urls
+      description: Get knowledge base article signed urls
+      operationId: getKnowledgeBaseArticleSignedUrls
+      parameters:
+      - name: articleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a map of content ids and their corresponding signed urls
+          content:
+            application/json:
+              schema:
+                type: string
+  /v2/knowledgebase/folder/{folderId}:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Returns knowledge base folder
+      description: Returns knowledge base folder and its content
+      operationId: getKnowledgeBaseFolderContent
+      parameters:
+      - name: folderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: includeArchived
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Returns knowledge base folder and its content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBaseFolderPublicApiDTO'
+  /v2/knowledgebase/folder:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Returns knowledge base folder
+      description: Returns knowledge base folder and its content
+      operationId: getKnowledgeBaseFolderPathContent
+      parameters:
+      - name: folderPath
+        in: query
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: organizationId
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns knowledge base folder and its content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeBaseFolderPublicApiDTO'
+  /v2/knowledgebase/folders/move:
+    patch:
+      tags:
+      - Knowledge Base Articles
+      summary: Move knowledge base items
+      description: Move knowledge base folders and documents to another knowledge base folder
+      operationId: move
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovePublicApiRequest'
+      responses:
+        '204':
+          description: No content
+  /v2/knowledgebase/articles/restore:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Restore archive knowledge base articles
+      description: Restore archived knowledge base articles
+      operationId: restoreKnowledgeBaseArticles
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/folders/restore:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Restore archived knowledge base folders
+      description: Restore archived knowledge base folders
+      operationId: restoreKnowledgeBaseFolders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              uniqueItems: true
+              type: array
+              items:
+                type: integer
+                format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/knowledgebase/articles/upload:
+    post:
+      tags:
+      - Knowledge Base Articles
+      summary: Upload knowledge base articles
+      description: Upload knowledge base articles
+      operationId: uploadKnowledgeBaseArticles
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                organizationId:
+                  type: integer
+                  format: int32
+                folderId:
+                  type: integer
+                  format: int32
+                folderPath:
+                  type: string
+                files:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/FormDataBodyPart'
+      responses:
+        '200':
+          description: Returns a list of created knowledge base articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiDTO'
+  /v2/related-items/{relatedItemId}/attachment/download:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Download related item attachment
+      description: Download related item attachment
+      operationId: downloadRelatedItemAttachment
+      parameters:
+      - name: relatedItemId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '204':
+          description: No Content
+  /v2/related-items/with-entity/{entityType}/{entityId}/attachments/signed-urls:
+    get:
+      tags:
+      - Knowledge Base Articles
+      summary: Get related item attachments signed urls
+      description: Get related item attachments signed urls for an entity
+      operationId: getRelatedItemAttachmentsSignedUrls
+      parameters:
+      - name: entityType
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - ORGANIZATION
+          - DOCUMENT
+          - LOCATION
+          - NODE
+          - CHECKLIST
+          - KB_DOCUMENT
+          - END_USER
+      - name: entityId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a map of content ids and their corresponding signed urls
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    KnowledgeBaseFolderItemPublicApiDTO:
+      type: object
+      properties:
+        archived:
+          type: boolean
+        folder:
+          type: boolean
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        parentFolderId:
+          type: integer
+          description: Parent folder identifier
+          format: int32
+        isFolder:
+          type: boolean
+          description: Indicates if this item is a folder
+        isArchived:
+          type: boolean
+          description: Indicates if this item is archived
+        name:
+          type: string
+          description: Article name (In the case of uploaded articles this will be the file name)
+        fileSize:
+          type: string
+          description: Article file size (Only for uploaded knowledge base articles)
+        fileExtension:
+          type: string
+          description: Article file extension (For native kb articles the extension will be 'ninja')
+        fileUploadStatus:
+          type: string
+          description: Article file upload status (Only for uploaded knowledge base articles)
+          enum:
+          - PROCESSING
+          - SUCCESS
+          - FAILURE
+          - SUSPICIOUS
+        createTime:
+          type: number
+          description: Item created time
+          format: double
+        updateTime:
+          type: number
+          description: Item last updated time
+          format: double
+      description: Folder content
+    KnowledgeBaseFolderPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        parentFolderId:
+          type: integer
+          description: Parent folder identifier
+          format: int32
+        name:
+          type: string
+          description: Article name
+        isArchived:
+          type: boolean
+          description: Indicates if the article is archived
+        createTime:
+          type: number
+          description: Folder created time
+          format: double
+        updateTime:
+          type: number
+          description: Folder last updated time
+          format: double
+        archivedTime:
+          type: number
+          description: Folder archived time
+          format: double
+        content:
+          type: array
+          description: Folder content
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseFolderItemPublicApiDTO'
+    BodyPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    FormDataContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+        name:
+          type: string
+    KnowledgeBaseArticlePublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        parentFolderId:
+          type: integer
+          description: Parent folder identifier
+          format: int32
+        name:
+          type: string
+          description: Article name
+        isNinjaArticle:
+          type: boolean
+          description: Indicates if the article was created in ninja
+        isArchived:
+          type: boolean
+          description: Indicates if the article is archived
+        attachments:
+          type: array
+          description: Lists the files associated with the article
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseAttachmentPublicApiDTO'
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
+        createTime:
+          type: number
+          description: Article created time
+          format: double
+        updateTime:
+          type: number
+          description: Article last updated time
+          format: double
+        archivedTime:
+          type: number
+          description: Article archived time
+          format: double
+        path:
+          type: string
+          description: Article path
+    MessageBodyWorkers:
+      type: object
+    ContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+    KnowledgeBaseArticlePublicApiContent:
+      type: object
+      properties:
+        html:
+          type: string
+          description: Article content html
+        text:
+          type: string
+          description: Article content text
+      description: Article content
+    KnowledgeBaseArticleBulkCreatePublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Article name
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+        destinationFolderId:
+          type: integer
+          description: Destination folder identifier
+          format: int32
+        destinationFolderPath:
+          type: string
+          description: Folder path, each folder name separated by '|'
+          example: Folder 1|Folder 2|Folder 3|Folder 4
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
+    MultiPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        bodyParts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BodyPart'
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    AttachmentMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+        mimeType:
+          type: string
+        size:
+          type: string
+        extension:
+          type: string
+        contentId:
+          type: string
+        inline:
+          type: boolean
+      description: Attachment metadata
+    ParameterizedHeader:
+      type: object
+      properties:
+        value:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+    MovePublicApiRequest:
+      type: object
+      properties:
+        folderIds:
+          type: array
+          description: Folders to move
+          items:
+            type: integer
+            description: Folders to move
+            format: int32
+        documentIds:
+          type: array
+          description: Documents to move
+          items:
+            type: integer
+            description: Documents to move
+            format: int32
+        destinationFolderId:
+          type: integer
+          description: Destination folder
+          format: int32
+        destinationOrganizationId:
+          type: integer
+          description: Destination client. Use when the root folder of the client does not exist.
+          format: int32
+    AttachmentMetadataPublicApiDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: name
+        mimeType:
+          type: string
+          description: Mime type
+        size:
+          type: string
+          description: Size in bytes
+        extension:
+          type: string
+          description: File extension
+        contentId:
+          type: string
+          description: Content identifier
+    KnowledgeBaseAttachmentPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        uploadStatus:
+          type: string
+          description: Upload status
+          enum:
+          - PROCESSING
+          - SUCCESS
+          - FAILURE
+          - SUSPICIOUS
+        metadata:
+          $ref: '#/components/schemas/AttachmentMetadata'
+      description: Lists the files associated with the article
+    FormDataBodyPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        simple:
+          type: boolean
+        name:
+          type: string
+        value:
+          type: string
+        formDataContentDisposition:
+          $ref: '#/components/schemas/FormDataContentDisposition'
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    KnowledgeBaseArticleBulkUpdatePublicApiRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Article identifier
+          format: int32
+        name:
+          type: string
+          description: Article name
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

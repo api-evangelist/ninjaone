@@ -1,0 +1,748 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Custom Tabs API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Custom Tabs
+paths:
+  /v2/tab:
+    post:
+      tags:
+      - Custom Tabs
+      summary: Create a new Custom Tab
+      description: Create a Custom Tab with the provided details
+      operationId: createCustomTabPublicApi
+      requestBody:
+        description: The Custom Tab to be created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewCustomTabPublicApiRequest'
+      responses:
+        '200':
+          description: The Custom Tab that was created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTabPublicApiDTO'
+  /v2/tab/{tabId}:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve a Custom Tab
+      description: 'Gets a custom tab. NOTE: This will _not_ fetch tab extensions. You must use the GET tab/{tabId}/role/{roleId} for that'
+      operationId: getCustomTabPublicApi
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Custom Tab that was requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTabPublicApiDTO'
+        '404':
+          description: No custom tab could be found with that ID
+    delete:
+      tags:
+      - Custom Tabs
+      summary: Delete a Custom Tab
+      description: Delete a Custom Tab
+      operationId: deleteUnmanagedDevicePublicApi_1
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Custom Tab was successfully deleted
+        '404':
+          description: The Custom Tab could not be found
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Update a Custom Tab
+      description: Update a Custom Tab. This API can be used to either update existing tabs, or create tab 'role extensions' for existing tabs
+      operationId: updateCustomTabPublicApi
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Details of the Custom Tab to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomTabPublicApiRequest'
+      responses:
+        '200':
+          description: The Custom Tab was successfully updated
+        '404':
+          description: The Custom Tab could not be found
+  /v2/tab/{tabId}/end-user:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve the requested tab along with any extensions for end-user tabs
+      description: Retrieve the requested tab along with any extensions for end-user tabs
+      operationId: getTabHierarchyForEndUser
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Custom Tabs and extensions as viewed by end-user tabs
+        '404':
+          description: The Custom Tab could not be found
+  /v2/tab/{tabId}/organization:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve the requested tab along with any extensions for organization and location tabs
+      description: Retrieve the requested tab along with any extensions for organization and location tabs
+      operationId: getTabHierarchyForOrganization
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Custom Tabs and extensions as viewed by organization and location tabs
+        '404':
+          description: The Custom Tab could not be found
+  /v2/tab/{tabId}/role/{roleId}:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve the requested tab along with any extensions based on the supplied roleId
+      description: Retrieve the requested tab along with any extensions based on the supplied roleId
+      operationId: getTabHierarchyForRole
+      parameters:
+      - name: tabId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: roleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Custom Tabs and extensions as viewed by the specified role
+        '404':
+          description: The Custom Tab or Role could not be found
+  /v2/tab/summary/end-user:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve all of the custom tabs available to end user views
+      description: Retrieve a summary of the tabs available to end user views
+      operationId: getTabSummaryForEndUser
+      responses:
+        '200':
+          description: Returns a list of the available custom tabs available to end user views
+  /v2/tab/summary/organization:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve all of the custom tabs available to organizations and locations
+      description: Retrieve a summary of the tabs available to organizations and locations
+      operationId: getTabSummaryForOrganization
+      responses:
+        '200':
+          description: Returns a list of the available custom tabs available to organizations and locations
+  /v2/tab/summary/role/{roleId}:
+    get:
+      tags:
+      - Custom Tabs
+      summary: Retrieve all of the custom tabs that would appear for the given role
+      description: Retrieve a summary of the tabs available to a given role
+      operationId: getTabSummaryForRole
+      parameters:
+      - name: roleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Returns a list of the available custom tabs for the specified role, and the role hierarchy (used for sorting, if desired)
+        '404':
+          description: The RoleId could not be found
+  /v2/tab/rename:
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Rename a Custom Tab
+      description: Renames a Custom Tab
+      operationId: renameCustomTabPublicApi
+      requestBody:
+        description: Tab id and new name for the tab
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTabNamePublicApiRequest'
+      responses:
+        '200':
+          description: The Custom Tab was successfully rename
+        '404':
+          description: The Custom Tab could not be found
+  /v2/tab/role/{roleId}/visibility:
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Set the tab visibility of the specified tab
+      description: Using this API it is possible to configure tabs to be hidden for roles and their children
+      operationId: updateCustomTabsDisplay
+      parameters:
+      - name: roleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Payload specifying the tab visibility changes
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomTabsVisibilityPublicApiDTO'
+      responses:
+        '200':
+          description: Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated visibility data
+  /v2/tab/end-user/order:
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Update the order of custom tabs for end-user tabs
+      description: 'Update the order of custom tabs for end-user tabs. NOTE: All tabs defined for end-users must be specified in the payload'
+      operationId: updateEndUserCustomTabsOrder
+      requestBody:
+        description: Payload specifying the tab ordering
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomTabsOrderPublicApiDTO'
+      responses:
+        '200':
+          description: Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data
+  /v2/tab/organization/order:
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Update the order of custom tabs for organizations and locations
+      description: 'Update the order of custom tabs for organizations and locations. NOTE: All tabs defined for organizations must be specified in the payload'
+      operationId: updateOrganizationCustomTabsOrder
+      requestBody:
+        description: Payload specifying the tab ordering
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomTabsOrderPublicApiDTO'
+      responses:
+        '200':
+          description: Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data
+  /v2/tab/role/{roleId}/order:
+    patch:
+      tags:
+      - Custom Tabs
+      summary: Update the order of custom tabs for a specific role
+      description: 'Update the order of custom tabs for a specific role. NOTE: Only tabs created on this role can be ordered. All tabs defined on the role must be specified in the payload'
+      operationId: updateRoleCustomTabsOrder
+      parameters:
+      - name: roleId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Payload specifying the tab ordering
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CustomTabsOrderPublicApiDTO'
+      responses:
+        '200':
+          description: Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data
+components:
+  schemas:
+    CustomTabsOrderPublicApiDTO:
+      type: object
+      properties:
+        tabId:
+          type: integer
+          format: int32
+        position:
+          type: integer
+          format: int32
+    AttributeContentPublicApiDTO:
+      type: object
+      properties:
+        customizeForEndUser:
+          type: boolean
+          description: Whether the attribute should be customized for end users
+        endUserCustomization:
+          $ref: '#/components/schemas/EndUserCustomization'
+        values:
+          type: array
+          description: For multi-select attributes, this is the list of values available
+          items:
+            $ref: '#/components/schemas/AttributeContentValue'
+        required:
+          type: boolean
+          description: Boolean representing whether the attribute is required or not
+        footerText:
+          type: string
+          description: Text to include after rendering the attribute
+        tooltipText:
+          type: string
+          description: Text to use as a tooltip for the attribute
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: For multi-select attributes, these are the available content options
+    AttributeContentValue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        active:
+          type: boolean
+        system:
+          type: boolean
+    UpdateTabNamePublicApiRequest:
+      required:
+      - name
+      type: object
+      properties:
+        tabId:
+          minimum: 1
+          type: integer
+          format: int32
+        name:
+          type: string
+    UpdateCustomTabPublicApiRequest:
+      type: object
+      properties:
+        roleId:
+          minimum: 1
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeFormContentItemPublicApiDTO'
+        position:
+          type: integer
+          format: int32
+    AttributeFormContentCommonItemPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of an attribute
+          format: int32
+        name:
+          type: string
+          description: Name of the content item
+        fieldName:
+          type: string
+          description: Field name of the attribute
+        description:
+          type: string
+          description: Description of the content item
+        entityType:
+          type: string
+          description: If the attribute references a specific entity, its type will be specified in this field
+          enum:
+          - USER
+          - NODE
+          - TICKET
+          - DOCUMENT
+        attributeType:
+          type: string
+          description: Type of the attribute
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        attributeScope:
+          type: string
+          description: 'Scope of the attribute. NOTE: This field is being depricated'
+          enum:
+          - NODE_GLOBAL
+          - NODE_ROLE
+          - NODE_CLASS
+        definitionScope:
+          uniqueItems: true
+          type: array
+          description: Definition scopes of the attribute
+          items:
+            type: string
+            description: Definition scopes of the attribute
+            enum:
+            - NODE
+            - END_USER
+            - LOCATION
+            - ORGANIZATION
+        technicianPermission:
+          type: string
+          description: Type of technician permission on the attribute
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        scriptPermission:
+          type: string
+          description: Type of script permission on the attribute
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        apiPermission:
+          type: string
+          description: Type of API permission on the attribute
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        defaultValue:
+          type: string
+          description: For multi-select attributes, this is the id of the default value
+        content:
+          $ref: '#/components/schemas/AttributeContentPublicApiDTO'
+        active:
+          type: boolean
+          description: Whether the attribute is active or not
+        createTime:
+          type: number
+          description: The time that the attribute was created (unix epoch)
+          format: double
+        updateTime:
+          type: number
+          description: The time that the attribute was last updated (unix epoch)
+          format: double
+        uiElementUid:
+          type: string
+          description: For UI elements, the uuid of the element
+          format: uuid
+        uiElementType:
+          type: string
+          description: For UI elements, type of the element
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: For UI elements, value of the element
+        uiElementCreateTime:
+          type: number
+          description: For UI elements, timestamp of when the element was created (unix epoch)
+          format: double
+        uiElementUpdateTime:
+          type: number
+          description: For UI elements, timestamp of when the element was last updated (unix epoch)
+          format: double
+      description: This object represents either an attribute, or a UI Element. The available attributes will depend on which type it is
+    AttributeContentAdvancedSettingsNumericRange:
+      type: object
+      properties:
+        min:
+          type: number
+        max:
+          type: number
+    CustomTabPublicApiDTO:
+      type: object
+      properties:
+        default:
+          type: boolean
+        id:
+          type: integer
+          description: Tab ID
+          format: int32
+        name:
+          type: string
+          description: Display name of tab
+        entityType:
+          type: string
+          description: The type of object the tab is for (ie, NODE_ROLE, ORGANIZATION, END_USER, etc)
+          enum:
+          - NODE_ROLE
+          - ORGANIZATION
+          - END_USER
+        entityId:
+          type: integer
+          description: For entity types that are bound to an ID, this will be the id of the object. Otherwise, omitted
+          format: int32
+        parentTabId:
+          type: integer
+          description: For tab extensions, this will be the id of the tab that was extended (ie, the 'root tab')
+          format: int32
+        items:
+          type: array
+          description: The content of the tab
+          items:
+            $ref: '#/components/schemas/AttributeFormContentCommonItemPublicApiDTO'
+        position:
+          type: integer
+          description: Integer representing the position of the tab. Used when ordering multiple tabs
+          format: int32
+        isDefault:
+          type: boolean
+          description: True if this is a default tab, false otherwise
+    NewCustomTabPublicApiRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: The display name to use for the custom tab
+        entityType:
+          type: string
+          description: The type to use for the custom tab. Organizations and Locations share the same type of tab
+          enum:
+          - NODE_ROLE
+          - ORGANIZATION
+          - END_USER
+        entityId:
+          minimum: 1
+          type: integer
+          description: For tab types that require an id to create (currently, only NODE_ROLE types), this field is the ID of the entity
+          format: int32
+        items:
+          type: array
+          description: The initial list of content items to include in the tab
+          items:
+            $ref: '#/components/schemas/AttributeFormContentItemPublicApiDTO'
+        position:
+          type: integer
+          format: int32
+    AttributeContentAdvancedSettingsComplexityRules:
+      type: object
+      properties:
+        mustContainOneInteger:
+          type: boolean
+        mustContainOneLowercaseLetter:
+          type: boolean
+        mustContainOneUppercaseLetter:
+          type: boolean
+        greaterOrEqualThanSixCharacters:
+          type: boolean
+    AttributeContentAdvancedSettings:
+      type: object
+      properties:
+        fileMaxSize:
+          type: integer
+          format: int32
+        fileExtensions:
+          type: array
+          items:
+            type: string
+        dateFilters:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
+        maxCharacters:
+          type: integer
+          format: int32
+        complexityRules:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
+        numericRange:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
+        org:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+        nodeClass:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - WINDOWS_SERVER
+            - WINDOWS_WORKSTATION
+            - LINUX_WORKSTATION
+            - MAC
+            - ANDROID
+            - APPLE_IOS
+            - APPLE_IPADOS
+            - VMWARE_VM_HOST
+            - VMWARE_VM_GUEST
+            - HYPERV_VMM_HOST
+            - HYPERV_VMM_GUEST
+            - LINUX_SERVER
+            - MAC_SERVER
+            - CLOUD_MONITOR_TARGET
+            - NMS_SWITCH
+            - NMS_ROUTER
+            - NMS_FIREWALL
+            - NMS_PRIVATE_NETWORK_GATEWAY
+            - NMS_PRINTER
+            - NMS_SCANNER
+            - NMS_DIAL_MANAGER
+            - NMS_WAP
+            - NMS_IPSLA
+            - NMS_COMPUTER
+            - NMS_VM_HOST
+            - NMS_APPLIANCE
+            - NMS_OTHER
+            - NMS_SERVER
+            - NMS_PHONE
+            - NMS_VIRTUAL_MACHINE
+            - NMS_NETWORK_MANAGEMENT_AGENT
+            - UNMANAGED_DEVICE
+            - MANAGED_DEVICE
+        ipAddressType:
+          type: string
+          enum:
+          - ALL
+          - IPV4
+          - IPV6
+        expandLargeValueOnRender:
+          type: boolean
+    EndUserCustomization:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        label:
+          type: string
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    CustomTabsVisibilityPublicApiDTO:
+      type: object
+      properties:
+        tabId:
+          type: integer
+          format: int32
+        hidden:
+          type: boolean
+    AttributeFormContentItemPublicApiDTO:
+      type: object
+      properties:
+        itemType:
+          type: string
+          description: Specifies whether this item is an ATTRIBUTE or a UI_ELEMENT
+          enum:
+          - ATTRIBUTE
+          - UI_ELEMENT
+        id:
+          type: integer
+          description: If the content item is an attribute, then this will be the id of that attribute otherwise this should be omitted
+          format: int32
+        name:
+          type: string
+        uiElementUid:
+          type: string
+          format: uuid
+        uiElementType:
+          type: string
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+        uiElementCreateTime:
+          type: number
+          format: double
+        uiElementUpdateTime:
+          type: number
+          format: double
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

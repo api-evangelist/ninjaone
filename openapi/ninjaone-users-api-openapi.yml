@@ -1,0 +1,282 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags Users API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: Users
+  description: Users
+paths:
+  /v2/user/end-user/{id}:
+    get:
+      tags:
+      - Users
+      summary: End user details
+      description: Get details for a specific end user identifier
+      operationId: getEndUser
+      parameters:
+      - name: id
+        in: path
+        description: End user identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: End user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EndUser'
+        '404':
+          description: User not found
+        '400':
+          description: Bad request or invalid user type
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/user/end-user/{id}/custom-fields:
+    get:
+      tags:
+      - Users
+      summary: End user custom fields
+      description: Returns list of end user custom fields
+      operationId: getNodeCustomFields_3
+      parameters:
+      - name: id
+        in: path
+        description: End user identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+    patch:
+      tags:
+      - Users
+      summary: Update Field Values
+      description: Update end user custom field values
+      operationId: updateNodeAttributeValues_3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /v2/user/technician/{id}:
+    get:
+      tags:
+      - Users
+      summary: Technician details
+      description: Get details for a specific technician identifier
+      operationId: getTechnician
+      parameters:
+      - name: id
+        in: path
+        description: Technician identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Technician
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Technician'
+        '404':
+          description: Technician not found
+        '400':
+          description: Bad request or invalid user type
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    Technician:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        enabled:
+          type: boolean
+          description: User access status
+        firstName:
+          type: string
+          description: First name
+        lastName:
+          type: string
+          description: Last name
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+        mustChangePw:
+          type: boolean
+          description: Must change password during next login
+        mfaConfigured:
+          type: boolean
+          description: At least one MFA method is configured
+        scimUser:
+          type: boolean
+          description: User is created by SCIM?
+        authType:
+          type: string
+          description: Native or SSO authentication
+        userType:
+          type: string
+          description: User type
+          enum:
+          - TECHNICIAN
+          - END_USER
+        invitationStatus:
+          type: string
+          description: User invitation status
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        notifyAllClients:
+          type: boolean
+          description: Notifications for all clients
+        administrator:
+          type: boolean
+          description: Technician is a System Administrator
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        roles:
+          type: array
+          description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
+    EndUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        enabled:
+          type: boolean
+          description: User access status
+        firstName:
+          type: string
+          description: First name
+        lastName:
+          type: string
+          description: Last name
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+        organizationId:
+          type: integer
+          description: Identifier of organization for end-users
+          format: int32
+        fullPortalAccess:
+          type: boolean
+          description: Has full portal access
+        mustChangePw:
+          type: boolean
+          description: Must change password during next login
+        mfaConfigured:
+          type: boolean
+          description: At least one MFA method is configured
+        scimUser:
+          type: boolean
+          description: User created by SCIM
+        authType:
+          type: string
+          description: Authentication type, NATIVE or SSO
+        invitationStatus:
+          type: string
+          description: User invitation status
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        accessibleDeviceIds:
+          type: array
+          description: Device IDs which user has access to
+          items:
+            type: integer
+            description: Device IDs which user has access to
+            format: int32
+        roles:
+          type: array
+          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

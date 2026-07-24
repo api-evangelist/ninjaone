@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags groups API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: groups
+  description: Groups/Search
+paths:
+  /v2/group/{id}/device-ids:
+    get:
+      tags:
+      - groups
+      summary: Group members
+      description: Returns list of device identifiers that match group criteria
+      operationId: getGroupDeviceIds
+      parameters:
+      - name: id
+        in: path
+        description: Group identifier
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: integer
+                  format: int32
+components:
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie

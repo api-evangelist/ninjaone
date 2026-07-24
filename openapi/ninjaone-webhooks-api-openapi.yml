@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  title: NinjaOne Public API 2.0 Asset Tags webhooks API
+  description: NinjaOne Public API documentation.
+  contact:
+    email: api@ninjarmm.com
+  version: 2.0.9-draft
+security:
+- oauth2:
+  - monitoring
+  - management
+  - control
+- sessionKey:
+  - monitoring
+  - management
+  - control
+tags:
+- name: webhooks
+  description: Webhook Endpoints
+paths:
+  /v2/webhook:
+    put:
+      tags:
+      - webhooks
+      summary: Update API Webhook configuration
+      description: Creates or updates Webhook configuration for current application/client
+      operationId: configureWebhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookConfiguration'
+      responses:
+        '204':
+          description: No Content
+        '403':
+          description: Only system administrators can configure webhooks
+    delete:
+      tags:
+      - webhooks
+      summary: Remove Webhook API channel
+      description: Disables Webhook configuration for current application/client
+      operationId: disableWebhook
+      responses:
+        '204':
+          description: No Content
+        '403':
+          description: Different PSA is already configured
+        '500':
+          description: Failed to disable PSA
+components:
+  schemas:
+    HTTPHeader:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Header name
+        value:
+          type: string
+          description: Header value
+      description: Custom HTTP Headers (i.e. Authorization)
+    WebhookConfiguration:
+      type: object
+      properties:
+        url:
+          type: string
+          description: Callback (WebHook) URL for activity notifications
+        activities:
+          type: object
+          additionalProperties:
+            type: array
+            description: Activity filter
+            items:
+              type: string
+              description: Activity filter
+          description: Activity filter
+        expand:
+          type: array
+          description: Which references to expand in payloads
+          items:
+            type: string
+            description: Which references to expand in payloads
+        headers:
+          type: array
+          description: Custom HTTP Headers (i.e. Authorization)
+          items:
+            $ref: '#/components/schemas/HTTPHeader'
+        organizationIds:
+          uniqueItems: true
+          type: array
+          description: List of organization id to be filtered
+          items:
+            type: integer
+            description: List of organization id to be filtered
+            format: int32
+  securitySchemes:
+    oauth2:
+      type: http
+      scheme: bearer
+      bearerFormat: bearer
+    sessionKey:
+      type: apiKey
+      name: sessionKey
+      in: cookie
