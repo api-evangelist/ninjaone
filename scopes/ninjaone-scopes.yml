@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: https://app.ninjarmm.com/.well-known/oauth-authorization-server
+docs: https://www.ninjaone.com/docs/application-programming-interface-api/oauth-token-configuration/
+schemes:
+- name: oauth2
+  source: openapi/ninjaone-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://app.ninjarmm.com/ws/oauth/token
+  - flow: authorizationCode
+    authorizationUrl: https://app.ninjarmm.com/ws/oauth/authorize
+    tokenUrl: https://app.ninjarmm.com/ws/oauth/token
+scopes:
+- scope: monitoring
+  description: >-
+    Read-only access to monitoring data and organization structure — devices,
+    alerts, activities, and reports. Grants GET access across the platform.
+  flows: [clientCredentials, authorizationCode]
+- scope: management
+  description: >-
+    Modify device and organization information — create organizations, add
+    devices, run scripts, manage policies, tickets, and custom fields.
+  flows: [clientCredentials, authorizationCode]
+- scope: control
+  description: >-
+    Enable remote access / remote control of endpoints via the API.
+  flows: [clientCredentials, authorizationCode]
+- scope: offline_access
+  description: >-
+    Request a refresh token (authorization-code flow) so an access token can be
+    renewed without re-authenticating.
+  flows: [authorizationCode]

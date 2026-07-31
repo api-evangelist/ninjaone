@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+source: https://trustpage.ninjaone.com/
+url: https://trustpage.ninjaone.com/
+certifications:
+- HIPAA
+- FedRAMP
+- GDPR
+evidence:
+- source: https://trustpage.ninjaone.com/
+  keywords:
+  - hipaa
+  - fedramp
+  - trust center
+  - gdpr

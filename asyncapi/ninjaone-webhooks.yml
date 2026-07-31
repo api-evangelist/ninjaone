@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/ninjaone-openapi-original.yml
+docs: https://app.ninjarmm.com/apidocs-beta/core-resources/articles/webhooks/overview
+spec_type: Webhooks
+summary: >-
+  NinjaOne delivers activity notifications to a customer-configured webhook (HTTP
+  callback). A single webhook configuration per tenant is managed through the
+  Public API. When activities matching the configured filter occur, NinjaOne
+  POSTs the activity payload to the callback URL.
+configuration:
+  configure_operation: configureWebhook
+  disable_operation: disableWebhook
+  endpoints:
+  - method: PUT
+    path: /v2/webhook
+    operation: configureWebhook
+    summary: Create/update the webhook configuration.
+  - method: DELETE
+    path: /v2/webhook
+    operation: disableWebhook
+    summary: Remove the webhook configuration.
+  request_schema: WebhookConfiguration
+  fields:
+  - name: url
+    description: Callback (webhook) URL that receives activity notifications.
+  - name: activities
+    description: Activity filter map selecting which activity classes/types are delivered.
+  - name: expand
+    description: Which references to expand inline in the delivered payloads.
+  - name: headers
+    description: Custom headers NinjaOne includes on each callback request (for auth/verification).
+delivery:
+  transport: https-post
+  payload: NinjaOne activity notification objects
+  note: >-
+    Subscribers filter by activity class/type via the activities map; the
+    delivered payload is the activity record (optionally expanded).

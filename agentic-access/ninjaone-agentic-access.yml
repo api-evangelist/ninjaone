@@ -1,0 +1,4128 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/ninjaone-openapi-original.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 244
+  by_action_class:
+    connected: 128
+    acting: 116
+  by_consequence:
+    read: 128
+    write: 107
+    safety-critical: 6
+    physical: 3
+  human_in_the_loop_required: 6
+operations:
+- path: /v2/contacts
+  method: get
+  operationId: getContacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/contacts
+  method: post
+  operationId: createContact
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/contact/{id}
+  method: get
+  operationId: getContactById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/contact/{id}
+  method: delete
+  operationId: deleteContact
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/contact/{id}
+  method: patch
+  operationId: updateContact
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/custom-fields
+  method: get
+  operationId: getCustomFieldsPolicyConditions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/custom-fields
+  method: post
+  operationId: createCustomFieldsPolicyCondition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/windows-event
+  method: get
+  operationId: getWindowsEventPolicyConditions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/windows-event
+  method: post
+  operationId: createWindowsEventPolicyCondition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/{condition_id}
+  method: delete
+  operationId: deletePolicyCondition
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/custom-fields/{condition_id}
+  method: get
+  operationId: getCustomFieldsPolicyCondition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies/{policy_id}/condition/windows-event/{condition_id}
+  method: get
+  operationId: getWindowsEventPolicyCondition
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/webhook
+  method: put
+  operationId: configureWebhook
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/webhook
+  method: delete
+  operationId: disableWebhook
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organizations
+  method: get
+  operationId: getOrganizations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organizations
+  method: post
+  operationId: createOrganization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/devices/approval/{mode}
+  method: post
+  operationId: nodeApprovalOperation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/alert/{uid}
+  method: delete
+  operationId: resetAlert
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/alert/{uid}/reset
+  method: post
+  operationId: resetAlertSetActivityData
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/attachments/temp/upload
+  method: post
+  operationId: uploadTempAttachments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/archive
+  method: post
+  operationId: archiveChecklistTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/templates
+  method: get
+  operationId: getChecklistTemplates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/templates
+  method: put
+  operationId: updateChecklistTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/templates
+  method: post
+  operationId: createChecklistTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/template/{checklistTemplateId}
+  method: delete
+  operationId: deleteChecklistTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/templates/delete
+  method: post
+  operationId: deleteChecklistTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/checklist/restore
+  method: post
+  operationId: restoreChecklistTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/archive
+  method: post
+  operationId: archiveOrganizationChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists
+  method: get
+  operationId: getClientChecklists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists
+  method: put
+  operationId: updateOrganizationChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists
+  method: post
+  operationId: createOrganizationChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{organizationId}/checklists-from-templates
+  method: post
+  operationId: createOrganizationChecklistsFromTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklist/{checklistId}
+  method: get
+  operationId: getClientChecklist
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklist/{checklistId}
+  method: delete
+  operationId: deleteClientChecklist
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists/delete
+  method: post
+  operationId: deleteClientChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklist/{checklistId}/signed-urls
+  method: get
+  operationId: getClientChecklistSignedUrls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists/promote-with-name
+  method: post
+  operationId: promoteClientChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/checklists/promote
+  method: post
+  operationId: promoteClientChecklists_1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/restore
+  method: post
+  operationId: restoreOrganizationChecklists
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/document/{clientDocumentId}/archive
+  method: post
+  operationId: archiveClientDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/documents/archive
+  method: post
+  operationId: archiveMultiPageClientDocuments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{organizationId}/template/{documentTemplateId}/document
+  method: post
+  operationId: createOrganizationDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/documents
+  method: get
+  operationId: getClientDocumentsWithAttributeValues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/documents
+  method: post
+  operationId: createOrganizationDocuments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/documents
+  method: patch
+  operationId: updateOrganizationDocuments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/document/{clientDocumentId}
+  method: delete
+  operationId: deleteClientDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/document/{clientDocumentId}/signed-urls
+  method: get
+  operationId: getClientDocumentSignedUrls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{organizationId}/documents
+  method: get
+  operationId: getOrganizationDocuments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/document/{clientDocumentId}/restore
+  method: post
+  operationId: restoreClientDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/documents/restore
+  method: post
+  operationId: restoreMultiPageClientDocuments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{organizationId}/document/{clientDocumentId}
+  method: post
+  operationId: updateOrganizationDocument
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/{documentTemplateId}/archive
+  method: post
+  operationId: archiveDocumentTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/archive
+  method: post
+  operationId: archiveDocumentTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates
+  method: get
+  operationId: getDocumentTemplatesWithAttributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates
+  method: post
+  operationId: createDocumentTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/{documentTemplateId}
+  method: get
+  operationId: getDocumentTemplate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/{documentTemplateId}
+  method: put
+  operationId: updateDocumentTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/{documentTemplateId}
+  method: delete
+  operationId: deleteDocumentTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/{documentTemplateId}/restore
+  method: post
+  operationId: restoreDocumentTemplate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/document-templates/restore
+  method: post
+  operationId: restoreDocumentTemplates
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/{assetType}
+  method: post
+  operationId: batchUpdateTags
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag
+  method: get
+  operationId: getTags
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag
+  method: post
+  operationId: createTag
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/{tagId}
+  method: put
+  operationId: updateTag
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/{tagId}
+  method: delete
+  operationId: deleteTag
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/delete
+  method: post
+  operationId: deleteTags
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/merge
+  method: post
+  operationId: mergeTags
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tag/{assetType}/{assetId}
+  method: put
+  operationId: setTagsForAsset
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles/archive
+  method: post
+  operationId: archiveKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folders/archive
+  method: post
+  operationId: archiveKnowledgeBaseFolders
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles
+  method: post
+  operationId: createKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles
+  method: patch
+  operationId: updateKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles/delete
+  method: post
+  operationId: deleteKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folders/delete
+  method: post
+  operationId: deleteKnowledgeBaseFolders
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/article/{articleId}/download
+  method: get
+  operationId: downloadKnowledgeBaseArticle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/organization/articles
+  method: get
+  operationId: getClientKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/global/articles
+  method: get
+  operationId: getGlobalKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/article/{articleId}/signed-urls
+  method: get
+  operationId: getKnowledgeBaseArticleSignedUrls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folder/{folderId}
+  method: get
+  operationId: getKnowledgeBaseFolderContent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folder
+  method: get
+  operationId: getKnowledgeBaseFolderPathContent
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folders/move
+  method: patch
+  operationId: move
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles/restore
+  method: post
+  operationId: restoreKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/folders/restore
+  method: post
+  operationId: restoreKnowledgeBaseFolders
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/knowledgebase/articles/upload
+  method: post
+  operationId: uploadKnowledgeBaseArticles
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/custom-fields/entity-type/{entityType}/{entityId}/signed-urls
+  method: get
+  operationId: getNodeAttributeSignedUrls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/entity/{entityType}/{entityId}/attachment
+  method: post
+  operationId: createRelatedItem
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/entity/{entityType}/{entityId}/relation
+  method: post
+  operationId: createRelatedItemForEntity
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/entity/{entityType}/{entityId}/relations
+  method: post
+  operationId: createRelatedItemForEntity_1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/entity/{entityType}/{entityId}/secure
+  method: post
+  operationId: createSecureRelatedItemForEntity
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/{relatedItemId}
+  method: delete
+  operationId: deleteRelatedItem
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/{entityType}/{entityId}
+  method: delete
+  operationId: deleteRelatedItems
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/{relatedItemId}/attachment/download
+  method: get
+  operationId: downloadRelatedItemAttachment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items
+  method: get
+  operationId: getAllRelatedItems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/with-entity/{entityType}/{entityId}/attachments/signed-urls
+  method: get
+  operationId: getRelatedItemAttachmentsSignedUrls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/with-entity/{entityType}/{entityId}
+  method: get
+  operationId: getRelatedItemsForHostEntity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/with-related-entity/{relEntityType}/{relEntityId}
+  method: get
+  operationId: getRelatedItemsWithEntity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/with-related-entity-type/{relatedEntityType}
+  method: get
+  operationId: getRelatedItemsWithEntityType
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/related-items/with-entity-type/{entityType}
+  method: get
+  operationId: getRelatedItemsWithHostEntityType
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/itam/unmanaged-device
+  method: post
+  operationId: createUnmanagedDevicePublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/itam/unmanaged-device/{nodeId}
+  method: put
+  operationId: updateUnmanagedDevicePublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/itam/unmanaged-device/{nodeId}
+  method: delete
+  operationId: deleteUnmanagedDevicePublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/backup/integrity-check-jobs
+  method: get
+  operationId: getIntegrityCheckJobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/backup/integrity-check-jobs
+  method: post
+  operationId: submitIntegrityCheckJob
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab
+  method: post
+  operationId: createCustomTabPublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}
+  method: get
+  operationId: getCustomTabPublicApi
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}
+  method: delete
+  operationId: deleteUnmanagedDevicePublicApi_1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}
+  method: patch
+  operationId: updateCustomTabPublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}/end-user
+  method: get
+  operationId: getTabHierarchyForEndUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}/organization
+  method: get
+  operationId: getTabHierarchyForOrganization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/{tabId}/role/{roleId}
+  method: get
+  operationId: getTabHierarchyForRole
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/summary/end-user
+  method: get
+  operationId: getTabSummaryForEndUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/summary/organization
+  method: get
+  operationId: getTabSummaryForOrganization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/summary/role/{roleId}
+  method: get
+  operationId: getTabSummaryForRole
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/rename
+  method: patch
+  operationId: renameCustomTabPublicApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/role/{roleId}/visibility
+  method: patch
+  operationId: updateCustomTabsDisplay
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/end-user/order
+  method: patch
+  operationId: updateEndUserCustomTabsOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/organization/order
+  method: patch
+  operationId: updateOrganizationCustomTabsOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tab/role/{roleId}/order
+  method: patch
+  operationId: updateRoleCustomTabsOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket
+  method: post
+  operationId: create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket/{ticketId}/comment
+  method: post
+  operationId: createComment
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket/{ticketId}
+  method: get
+  operationId: getTicketById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket/{ticketId}
+  method: put
+  operationId: update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket/{ticketId}/log-entry
+  method: get
+  operationId: getTicketLogEntriesByTicketId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/vulnerability/scan-groups
+  method: get
+  operationId: fetchAllScanGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/vulnerability/scan-groups/{scan-group-id}
+  method: get
+  operationId: fetchScanGroupById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/vulnerability/scan-groups/{scan-group-id}/upload
+  method: post
+  operationId: updateScanGroup
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/maintenance
+  method: put
+  operationId: updateDeviceMaintenance
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/maintenance
+  method: delete
+  operationId: cancelDeviceMaintenance
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/windows-service/{serviceId}/control
+  method: post
+  operationId: controlWindowsService
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}
+  method: get
+  operationId: getDevice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}
+  method: patch
+  operationId: updateDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - management
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/device/{id}/jobs
+  method: get
+  operationId: getDeviceActiveJobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/activities
+  method: get
+  operationId: getDeviceActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/alerts
+  method: get
+  operationId: getDeviceAlerts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/disks
+  method: get
+  operationId: getDeviceDiskDrives
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/os-patch-installs
+  method: get
+  operationId: getDeviceInstalledOSPatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/software-patch-installs
+  method: get
+  operationId: getDeviceInstalledSoftwarePatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/last-logged-on-user
+  method: get
+  operationId: getDeviceLastLoggedOnUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - monitoring
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/device/{id}/dashboard-url
+  method: get
+  operationId: getDeviceLink
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/network-interfaces
+  method: get
+  operationId: getDeviceNetworkInterfaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/os-patches
+  method: get
+  operationId: getDevicePendingFailedRejectedOSPatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/software-patches
+  method: get
+  operationId: getDevicePendingFailedRejectedSoftwarePatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/processors
+  method: get
+  operationId: getDeviceProcessors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/windows-services
+  method: get
+  operationId: getDeviceServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/software
+  method: get
+  operationId: getDeviceSoftware
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/volumes
+  method: get
+  operationId: getDeviceVolumes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/custom-fields
+  method: get
+  operationId: getNodeCustomFields
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/custom-fields
+  method: patch
+  operationId: updateNodeAttributeValues
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/policy/overrides
+  method: get
+  operationId: getPolicyOverrides
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/policy/overrides
+  method: delete
+  operationId: resetPolicyOverrides
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/reboot/{mode}
+  method: post
+  operationId: rebootDevices
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/owner
+  method: delete
+  operationId: removeDeviceOwner
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - management
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/device/{id}/scripting/options
+  method: get
+  operationId: requestScriptingOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/script/run
+  method: post
+  operationId: runScriptOnDevice
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/owner/{ownerUid}
+  method: post
+  operationId: setDeviceOwner
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - management
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/device/{id}/windows-service/{serviceId}/configure
+  method: post
+  operationId: setWindowsServiceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/patch/os/apply
+  method: post
+  operationId: submitOSPatchApply
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/patch/os/scan
+  method: post
+  operationId: submitOSPatchScan
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/patch/software/apply
+  method: post
+  operationId: submitSoftwarePatchApply
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device/{id}/patch/software/scan
+  method: post
+  operationId: submitSoftwarePatchScan
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/group/{id}/device-ids
+  method: get
+  operationId: getGroupDeviceIds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/locations
+  method: get
+  operationId: getOrganizationLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/locations
+  method: post
+  operationId: createLocationForOrganization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/end-users
+  method: get
+  operationId: getEndUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/generate-installer
+  method: post
+  operationId: getInstaller
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/location/{location_id}/installer/{installer_type}
+  method: get
+  operationId: getInstallerForLocation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/locations/{locationId}/backup/usage
+  method: get
+  operationId: getLocationUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/custom-fields
+  method: get
+  operationId: getNodeCustomFields_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/custom-fields
+  method: patch
+  operationId: updateNodeAttributeValues_1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/location/{locationId}/custom-fields
+  method: get
+  operationId: getNodeCustomFields_2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/location/{locationId}/custom-fields
+  method: patch
+  operationId: updateNodeAttributeValues_2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}
+  method: get
+  operationId: getOrganization
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}
+  method: patch
+  operationId: updateOrganization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/devices
+  method: get
+  operationId: getOrganizationDevices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/locations/backup/usage
+  method: get
+  operationId: getOrganizationLocationUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/locations/{locationId}
+  method: patch
+  operationId: updateLocation
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organization/{id}/policies
+  method: put
+  operationId: updateNodeRolePolicyAssignmentForOrganization
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/antivirus-status
+  method: get
+  operationId: getAntivirusStatusReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/antivirus-threats
+  method: get
+  operationId: getAntivirusThreats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/computer-systems
+  method: get
+  operationId: getComputerSystems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/custom-fields-detailed
+  method: get
+  operationId: getCustomFieldsDetailedReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/custom-fields
+  method: get
+  operationId: getCustomFieldsReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/device-health
+  method: get
+  operationId: getDeviceHealthReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/backup/usage
+  method: get
+  operationId: getDeviceUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/disks
+  method: get
+  operationId: getDiskDrives
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/os-patch-installs
+  method: get
+  operationId: getInstalledOSPatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/software-patch-installs
+  method: get
+  operationId: getInstalledSoftwarePatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/logged-on-users
+  method: get
+  operationId: getLastLoggedOnUsersReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/network-interfaces
+  method: get
+  operationId: getNetworkInterfaces
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/operating-systems
+  method: get
+  operationId: getOperatingSystems
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/os-patches
+  method: get
+  operationId: getPendingFailedRejectedOSPatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/software-patches
+  method: get
+  operationId: getPendingFailedRejectedSoftwarePatches
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/policy-overrides
+  method: get
+  operationId: getPolicyOverrides_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/processors
+  method: get
+  operationId: getProcessors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/raid-controllers
+  method: get
+  operationId: getRAIDControllerReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/raid-drives
+  method: get
+  operationId: getRAIDDriveReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/scoped-custom-fields-detailed
+  method: get
+  operationId: getScopedCustomFieldsDetailedReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/scoped-custom-fields
+  method: get
+  operationId: getScopedCustomFieldsReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/software
+  method: get
+  operationId: getSoftware
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/volumes
+  method: get
+  operationId: getVolumes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/queries/windows-services
+  method: get
+  operationId: getWindowsServicesReport
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies
+  method: get
+  operationId: getPolicies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/policies
+  method: post
+  operationId: createPolicy
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/jobs
+  method: get
+  operationId: getActiveJobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/activities
+  method: get
+  operationId: getActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/alerts
+  method: get
+  operationId: getAlerts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/automation/scripts
+  method: get
+  operationId: getAutomationScripts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/device-custom-fields
+  method: get
+  operationId: getDeviceGlobalCustomFields
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/devices
+  method: get
+  operationId: getDevices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/devices-detailed
+  method: get
+  operationId: getDevicesDetailed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/notification-channels/enabled
+  method: get
+  operationId: getEnabledNotificationChannels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/groups
+  method: get
+  operationId: getGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/locations
+  method: get
+  operationId: getLocations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/roles
+  method: get
+  operationId: getNodeRoles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/notification-channels
+  method: get
+  operationId: getNotificationChannels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/organizations-detailed
+  method: get
+  operationId: getOrganizationsDetailed
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/tasks
+  method: get
+  operationId: getScheduledTasks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/software-products
+  method: get
+  operationId: getSoftwareProducts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/users
+  method: get
+  operationId: getUsers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/devices/search
+  method: get
+  operationId: search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/backup/jobs
+  method: get
+  operationId: getBackupJobs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/attributes
+  method: get
+  operationId: getTicketAttributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/contact/contacts
+  method: get
+  operationId: getContacts_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket-form/{id}
+  method: get
+  operationId: getTicketFormById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/ticket-form
+  method: get
+  operationId: getTicketForms
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/statuses
+  method: get
+  operationId: getAllStatuses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/trigger/boards
+  method: get
+  operationId: getBoards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/trigger/board/{boardId}/run
+  method: post
+  operationId: getTicketsByBoard
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/ticketing/app-user-contact
+  method: get
+  operationId: getAllUserAndContacts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-users
+  method: get
+  operationId: getEndUsers_1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-users
+  method: post
+  operationId: createEndUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-user/{id}
+  method: get
+  operationId: getEndUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-user/{id}
+  method: delete
+  operationId: deleteEndUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-user/{id}
+  method: patch
+  operationId: patchEndUser
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-user/{id}/custom-fields
+  method: get
+  operationId: getNodeCustomFields_3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/end-user/{id}/custom-fields
+  method: patch
+  operationId: updateNodeAttributeValues_3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/technicians
+  method: get
+  operationId: getTechnicians
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/technicians
+  method: post
+  operationId: createTechnician
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/technician/{id}
+  method: get
+  operationId: getTechnician
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/technician/{id}
+  method: delete
+  operationId: deleteTechnician
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/technician/{id}
+  method: patch
+  operationId: updateTechnician
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/role/{roleId}/add-members
+  method: patch
+  operationId: addUserRoleMembers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/roles
+  method: get
+  operationId: getUserRoles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - control
+    - management
+    - monitoring
+- path: /v2/user/role/{roleId}/remove-members
+  method: patch
+  operationId: removeUserRoleMembers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - control
+    - management
+    - monitoring

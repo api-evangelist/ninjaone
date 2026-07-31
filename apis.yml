@@ -1,8 +1,18 @@
 aid: ninjaone
 name: NinjaOne
-description: 'NinjaOne is a company surfaced as a portfolio company of iconiq-capital and added to the
-  API Evangelist network as a stub for enrichment. Sector: developer-tools. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  NinjaOne is a unified IT operations and endpoint management platform for
+  enterprise IT teams and managed service providers (MSPs), combining remote
+  monitoring and management (RMM), endpoint management, patch management, remote
+  access, backup, mobile device management, IT asset management, vulnerability
+  management, endpoint security, IT documentation, and ticketing in a single
+  cloud-native platform. Founded in 2013 as NinjaRMM, the company manages over
+  five million endpoints across 30,000+ customers. The NinjaOne Public API 2.0
+  is an OAuth 2.0-secured REST API (client-credentials, authorization-code and
+  refresh-token grants) that exposes organizations, devices, groups, queries,
+  management actions, ticketing, users, locations, backup, custom fields,
+  knowledge base, documents, checklists, vulnerability management, and webhooks
+  for building integrations on top of the platform.
 url: https://raw.githubusercontent.com/api-evangelist/ninjaone/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +20,666 @@ x-backed-by:
 - iconiq-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 24
+  pass: local-v1
+image: https://www.ninjaone.com/wp-content/uploads/2026/01/homepage-repositioning-social-share-1024x535.jpg
 tags:
 - Company
 - Developer Tools
-apis: []
+- IT Management
+- RMM
+- Endpoint Management
+- MSP
+- IT Operations
+- Monitoring
+- Automation
+- Ticketing
+apis:
+- aid: ninjaone:ninjaone-asset-tags-api
+  name: NinjaOne Asset Tags API
+  description: The Asset Tags API from NinjaOne — 6 operation(s) for asset tags.
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Asset Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-asset-tags-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-backup-api
+  name: NinjaOne Backup API
+  description: Backup
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Backup
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-backup-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-checklist-templates-api
+  name: NinjaOne Checklist Templates API
+  description: Checklist Templates
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Checklist Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-checklist-templates-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-custom-fields-api
+  name: NinjaOne Custom Fields API
+  description: Custom Fields
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-custom-fields-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-custom-tabs-api
+  name: NinjaOne Custom Tabs API
+  description: The Custom Tabs API from NinjaOne — 13 operation(s) for custom tabs.
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Custom Tabs
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-custom-tabs-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-devices-api
+  name: NinjaOne devices API
+  description: Devices
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - devices
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-devices-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-document-templates-api
+  name: NinjaOne Document Templates API
+  description: Document Templates
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Document Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-document-templates-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-groups-api
+  name: NinjaOne groups API
+  description: Groups/Search
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - groups
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-groups-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-knowledge-base-articles-api
+  name: NinjaOne Knowledge Base Articles API
+  description: Knowledge Base Articles
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Knowledge Base Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-knowledge-base-articles-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-location-api
+  name: NinjaOne Location API
+  description: Location
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-location-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-management-api
+  name: NinjaOne management API
+  description: Management
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - management
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-organization-api
+  name: NinjaOne organization API
+  description: Organizations
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - organization
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-organization-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-organization-checklists-api
+  name: NinjaOne Organization Checklists API
+  description: Organization Checklists
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Organization Checklists
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-organization-checklists-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-organization-documents-api
+  name: NinjaOne Organization Documents API
+  description: Organization Documents
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Organization Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-organization-documents-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-queries-api
+  name: NinjaOne queries API
+  description: Queries
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - queries
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-queries-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-related-items-api
+  name: NinjaOne Related Items API
+  description: Related Items
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Related Items
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-related-items-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-system-api
+  name: NinjaOne system API
+  description: Core system Entities and Resources
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - system
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-system-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-ticketing-api
+  name: NinjaOne ticketing API
+  description: ticketing
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - ticketing
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-ticketing-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-unmanaged-devices-api
+  name: NinjaOne Unmanaged Devices API
+  description: The Unmanaged Devices API from NinjaOne — 2 operation(s) for unmanaged devices.
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Unmanaged Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-unmanaged-devices-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-users-api
+  name: NinjaOne Users API
+  description: Users
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-users-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-vulnerability-management-api
+  name: NinjaOne Vulnerability Management API
+  description: Vulnerability Management
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - Vulnerability Management
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-vulnerability-management-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
+- aid: ninjaone:ninjaone-webhooks-api
+  name: NinjaOne webhooks API
+  description: Webhook Endpoints
+  humanURL: https://app.ninjarmm.com/apidocs/
+  baseURL: https://app.ninjarmm.com/v2
+  tags:
+  - webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/ninjaone-webhooks-api-openapi.yml
+  - type: Authentication
+    url: authentication/ninjaone-authentication.yml
+  - type: OAuthScopes
+    url: scopes/ninjaone-scopes.yml
+  - type: ErrorCatalog
+    url: errors/ninjaone-problem-types.yml
+  - type: Conventions
+    url: conventions/ninjaone-conventions.yml
+  - type: DataModel
+    url: data-model/ninjaone-data-model.yml
+  - type: Conformance
+    url: conformance/ninjaone-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/ninjaone-agentic-access.yml
+  - type: Webhooks
+    url: asyncapi/ninjaone-webhooks.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/ninjaone-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/ninjaone-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/ninjaone-domain-security.yml
 - type: Website
   url: https://www.ninjaone.com/
+- type: DeveloperPortal
+  url: https://www.ninjaone.com/docs/application-programming-interface-api/
+- type: Documentation
+  url: https://www.ninjaone.com/docs/
+- type: APIReference
+  url: https://app.ninjarmm.com/apidocs/
+- type: GettingStarted
+  url: https://www.ninjaone.com/docs/application-programming-interface-api/public-api-operations/
+- type: Authentication
+  url: authentication/ninjaone-authentication.yml
+- type: OAuthScopes
+  url: scopes/ninjaone-scopes.yml
+- type: Pricing
+  url: https://www.ninjaone.com/pricing/
+- type: Roadmap
+  url: https://www.ninjaone.com/roadmap/
+- type: Blog
+  url: https://www.ninjaone.com/blog/
+- type: TermsOfService
+  url: https://www.ninjaone.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.ninjaone.com/privacy-policy/
+- type: StatusPage
+  url: https://status.ninjaone.com/
+- type: Lifecycle
+  url: lifecycle/ninjaone-lifecycle.yml
+- type: Compliance
+  url: https://trustpage.ninjaone.com/
+- type: Security
+  url: https://www.ninjaone.com/.well-known/security.txt
+- type: MCPServer
+  url: mcp/ninjaone-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/ninjaone-packages.yml
+- type: Postman
+  url: https://www.postman.com/ninjaone/ninjaone-api-workspace/collection/8gh1ujj/ninjaone-public-api-2-0
+- type: LLMsTxt
+  url: llms/ninjaone-llms.txt
+- type: WellKnown
+  url: well-known/ninjaone-well-known.yml
+- type: SecurityTxt
+  url: well-known/ninjaone-security.txt

@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninjaone-openapi-original.yml
+format: http-status
+notes: >-
+  Derived from the 4xx/5xx responses declared across the NinjaOne Public API 2.0
+  OpenAPI. Error responses are returned as bare HTTP status codes; the spec does
+  not declare an application/problem+json (RFC 9457) envelope. Titles and
+  remediation below are the standard meanings for each status in the NinjaOne
+  OAuth 2.0 REST context.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Malformed request — invalid query/body parameter, filter syntax, or field value.
+  remediation: Validate the request against the operation schema and device-filter syntax.
+- status: 401
+  title: Unauthorized
+  meaning: Missing, invalid, or expired OAuth 2.0 Bearer token.
+  remediation: Obtain a fresh access token from the token endpoint (tokens expire in 3600s).
+- status: 403
+  title: Forbidden
+  meaning: The token is valid but lacks the required scope (monitoring/management/control) or role permission.
+  remediation: Request an app/token granted the scope the operation requires.
+- status: 404
+  title: Not Found
+  meaning: The referenced resource (organization, device, ticket, etc.) does not exist or is not visible to the token.
+  remediation: Verify the id and that the resource belongs to an accessible organization.
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected server-side error.
+  remediation: Retry with backoff; if it persists contact NinjaOne support.

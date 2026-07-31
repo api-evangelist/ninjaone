@@ -1,0 +1,76 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/ninjaone-openapi-original.yml
+notes: >-
+  Entity-relationship graph derived from the NinjaOne Public API 2.0 OpenAPI
+  schemas and id-reference fields (organizationId, locationId, deviceId/nodeId,
+  policyId, roleId). The organization → location → device hierarchy is the core
+  of the platform; most resources belong to an organization.
+entities:
+- name: Organization
+  description: Top-level tenant/customer grouping (a NinjaOne "client").
+- name: Location
+  description: A site within an organization.
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+- name: Device
+  description: A managed endpoint/node (server, workstation, etc.).
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+  - belongs_to: Location
+    via: locationId
+  - belongs_to: Policy
+    via: policyId
+- name: Policy
+  description: A configuration/monitoring policy applied to devices.
+- name: Ticket
+  description: A helpdesk ticket.
+  relationships:
+  - belongs_to: Location
+    via: locationId
+  - belongs_to: Device
+    via: nodeId
+- name: Contact
+  description: An organization contact.
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+- name: User
+  description: A technician or end user.
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+- name: Job
+  description: A device job/activity (patch, script, backup, integrity check).
+  relationships:
+  - belongs_to: Device
+    via: deviceId
+- name: Activity
+  description: An activity/event record (feeds webhook notifications).
+- name: Alert
+  description: A device alert/condition.
+- name: KnowledgeBaseArticle
+  description: A knowledge base article.
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+- name: ClientDocument
+  description: An organization document with attribute values.
+  relationships:
+  - belongs_to: Organization
+    via: organizationId
+- name: ScanGroup
+  description: A vulnerability-management scan group.
+relationships_summary:
+  root: Organization
+  hierarchy: Organization -> Location -> Device
+  belongs_to_organization:
+  - Location
+  - Contact
+  - User
+  - KnowledgeBaseArticle
+  - ClientDocument
+  belongs_to_device:
+  - Job

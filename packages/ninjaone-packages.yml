@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  Registry search (npm, PyPI, PowerShell Gallery). NinjaOne does not publish a
+  first-party SDK; the client libraries below are community-maintained.
+packages:
+- language: powershell
+  registry: powershell-gallery
+  name: NinjaOne
+  url: https://www.powershellgallery.com/packages/NinjaOne
+  install: Install-Module NinjaOne
+  official: false
+  note: Community PowerShell module (homotechsual) wrapping the NinjaOne Public API 2.0.
+notes: >-
+  No official NinjaOne SDK was found on npm, PyPI, Maven Central, NuGet,
+  pkg.go.dev, RubyGems, Packagist or crates.io. NinjaOne publishes an official
+  Postman workspace (see apis.yml Postman pointer) rather than language SDKs.

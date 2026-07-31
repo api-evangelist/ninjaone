@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+hosts:
+- host: https://www.ninjaone.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: ninjaone-security.txt
+  - path: /llms.txt
+    status: 200
+    file: ../llms/ninjaone-llms.txt
+- host: https://app.ninjarmm.com
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: ninjaone-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 200
+    note: Present (redirects to canonical ninjarmm.com security.txt).
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

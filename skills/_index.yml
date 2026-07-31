@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/ninjaone-openapi-original.yml
+skills:
+- file: ninjaone-inventory-devices.md
+  name: Inventory organizations and devices
+  api: openapi/ninjaone-openapi-original.yml
+  operations: [getOrganizations, getOrganization, getOrganizationDevices, getDevice, getDeviceAlerts]
+- file: ninjaone-create-ticket.md
+  name: Create and comment on a helpdesk ticket
+  api: openapi/ninjaone-openapi-original.yml
+  operations: [create, getTicketById, createComment]
+- file: ninjaone-configure-webhook.md
+  name: Configure activity webhooks
+  api: openapi/ninjaone-openapi-original.yml
+  operations: [configureWebhook, disableWebhook]

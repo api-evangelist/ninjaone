@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for NinjaOne Public API 2.0
+  version: 1.0.0
+extends: openapi/ninjaone-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-apievangelist-provider: ninjaone
+    x-authentication: authentication/ninjaone-authentication.yml
+    x-oauth-scopes: scopes/ninjaone-scopes.yml
+    x-conventions: conventions/ninjaone-conventions.yml
+    x-error-catalog: errors/ninjaone-problem-types.yml
+    x-data-model: data-model/ninjaone-data-model.yml
+    x-webhooks: asyncapi/ninjaone-webhooks.yml
+- target: $.servers
+  update:
+  - url: https://app.ninjarmm.com/v2
+    description: >-
+      Region-specific API host (US primary). Use the host matching the tenant's
+      region: app / us2 / eu / oc / ca .ninjarmm.com.
+- target: $.info
+  update:
+    x-agentic-access: agentic-access/ninjaone-agentic-access.yml

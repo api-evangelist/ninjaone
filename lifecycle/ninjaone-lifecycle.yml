@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/ninjaone-openapi-original.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: 2.0.9-draft
+  docs: https://www.ninjaone.com/docs/application-programming-interface-api/public-api-operations/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal RFC 8594 Sunset/Deprecation-header policy is published for the
+    Public API. The API is versioned in the URI path (/v2).
+sla:
+  url: https://status.ninjaone.com/
+  uptime_target: null
+status_page: https://status.ninjaone.com/
+token_revocation: https://app.ninjarmm.com/ws/oauth/revoke
+deprecated_operations: []

@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/ninjaone-openapi-original.yml
+notes: >-
+  NinjaOne does not publish an official hosted MCP server. Community MCP servers
+  exist (e.g. jasondsmith72/ninja-mcp, wyre-technology NinjaOne RMM plugin). The
+  tools below are a candidate set derived from marquee NinjaOne Public API 2.0
+  operations, one tool per operationId, to seed an MCP server.
+community_servers:
+- name: ninja-mcp
+  source: https://lobehub.com/mcp/jasondsmith72-ninja-mcp
+  official: false
+server:
+  name: ninjaone
+  transport: http
+tools:
+- name: list_organizations
+  description: List organizations (clients).
+  source_operation: openapi/ninjaone-openapi-original.yml#getOrganizations
+- name: get_organization
+  description: Get a single organization.
+  source_operation: openapi/ninjaone-openapi-original.yml#getOrganization
+- name: create_organization
+  description: Create a new organization.
+  source_operation: openapi/ninjaone-openapi-original.yml#createOrganization
+- name: list_organization_devices
+  description: List devices in an organization.
+  source_operation: openapi/ninjaone-openapi-original.yml#getOrganizationDevices
+- name: get_device
+  description: Get a device by id.
+  source_operation: openapi/ninjaone-openapi-original.yml#getDevice
+- name: get_device_alerts
+  description: List active alerts for a device.
+  source_operation: openapi/ninjaone-openapi-original.yml#getDeviceAlerts
+- name: create_ticket
+  description: Create a helpdesk ticket.
+  source_operation: openapi/ninjaone-openapi-original.yml#create
+- name: get_ticket
+  description: Get a ticket by id.
+  source_operation: openapi/ninjaone-openapi-original.yml#getTicketById
+- name: configure_webhook
+  description: Create or update the activity webhook configuration.
+  source_operation: openapi/ninjaone-openapi-original.yml#configureWebhook

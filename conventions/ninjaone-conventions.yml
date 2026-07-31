@@ -1,0 +1,60 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/ninjaone-openapi-original.yml
+docs: https://www.ninjaone.com/docs/application-programming-interface-api/public-api-operations/
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    OAuth 2.0 Bearer token in the Authorization header. Client-credentials for
+    machine-to-machine; authorization-code (PKCE/S256) for interactive apps.
+    See authentication/ninjaone-authentication.yml and scopes/ninjaone-scopes.yml.
+base_url: https://app.ninjarmm.com/v2
+regions:
+  note: >-
+    The API host is region-specific and matches the instance the NinjaOne tenant
+    is hosted in (e.g. app.ninjarmm.com, eu.ninjarmm.com, oc.ninjarmm.com,
+    ca.ninjarmm.com, us2.ninjarmm.com). Use the host for your tenant's region.
+idempotency:
+  supported: false
+  detail: >-
+    The API does not document an Idempotency-Key header and none appears in the
+    OpenAPI. Mutating operations are not idempotent-by-key; use resource ids and
+    conditional logic to avoid duplicates.
+pagination:
+  style: cursor
+  params:
+  - name: pageSize
+    detail: Maximum number of results to return per page.
+  - name: cursor
+    detail: Opaque cursor token to fetch the next page of results.
+  - name: after
+    detail: On some list endpoints, return records with id greater than this value (id-based paging).
+  notes: >-
+    List endpoints use cursor-based pagination (cursor + pageSize); a subset of
+    high-volume endpoints page by an "after" id watermark.
+filtering:
+  device_filter: >-
+    Many query/report endpoints accept a device filter (df) expressing
+    organization/location/device/status criteria in NinjaOne's device-filter
+    syntax. See the Public API operations docs.
+  common_params: [df, status, entityType, entityId, type, include, includeArchived]
+rate_limiting:
+  supported: true
+  detail: >-
+    NinjaOne applies rate limiting to preserve API stability. Limits are not
+    published as numeric values in the spec; clients should honor 429 responses
+    and back off.
+versioning:
+  scheme: uri-path
+  current: v2
+  detail: The API is versioned in the URI path (/v2). Spec version 2.0.9-draft.
+error_envelope:
+  shape: http-status
+  detail: >-
+    Errors are returned as HTTP status codes (400/401/403/404/500) without a
+    structured problem+json body. See errors/ninjaone-problem-types.yml.
+cross_references:
+  errors: errors/ninjaone-problem-types.yml
+  lifecycle: lifecycle/ninjaone-lifecycle.yml
+  authentication: authentication/ninjaone-authentication.yml
+  scopes: scopes/ninjaone-scopes.yml
