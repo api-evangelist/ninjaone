@@ -631,6 +631,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/ninjaone-openapi-overlay.yaml
 - type: TrustCenter
   url: security/ninjaone-trust-center.yml
 - type: VulnerabilityDisclosure
