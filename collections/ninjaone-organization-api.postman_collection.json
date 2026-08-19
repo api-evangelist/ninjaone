@@ -1,0 +1,918 @@
+{
+  "item": [
+    {
+      "id": "62048235-cef0-475b-a6a4-7d57e4db83d2",
+      "name": "organization",
+      "description": {
+        "content": "Organizations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2dba6245-c067-48fa-9407-d067b9655505",
+          "name": "Organization locations",
+          "request": {
+            "name": "Organization locations",
+            "description": {
+              "content": "Returns list of locations for organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3973b727-fd86-4eeb-ba2f-bb60985c4b76",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"description\": \"string\",\n    \"userData\": {\n      \"key_0\": 8763.617888645338,\n      \"key_1\": false\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"id\": 6337\n  },\n  {\n    \"name\": \"string\",\n    \"address\": \"string\",\n    \"description\": \"string\",\n    \"userData\": {\n      \"key_0\": 1704,\n      \"key_1\": 1602.226929701731,\n      \"key_2\": false\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"id\": 5646\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2af78e1e-f4b4-4989-9915-66b308eb97a0",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "Returns list of end-users for organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "end-users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeRoles",
+                  "value": "false",
+                  "description": "Includes user role information"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7ad06e8-8c66-4008-8f44-6756f0a96934",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "end-users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeRoles",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9994,\n    \"uid\": \"a5a842cb-b56e-f9a7-4b39-af03ce52d7e6\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"enabled\": true,\n    \"administrator\": true,\n    \"permitAllClients\": true,\n    \"notifyAllClients\": true,\n    \"mustChangePw\": true,\n    \"mfaConfigured\": false,\n    \"userType\": \"TECHNICIAN\",\n    \"invitationStatus\": \"REGISTERED\",\n    \"organizationId\": 5276,\n    \"deviceIds\": [\n      9015,\n      4200\n    ],\n    \"assignedDeviceIds\": [\n      3774,\n      2869\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {},\n      \"key_4\": {}\n    },\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": 4059,\n    \"uid\": \"3af32c13-98fb-d0b1-df25-8711f81216b1\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"enabled\": false,\n    \"administrator\": false,\n    \"permitAllClients\": false,\n    \"notifyAllClients\": true,\n    \"mustChangePw\": false,\n    \"mfaConfigured\": false,\n    \"userType\": \"TECHNICIAN\",\n    \"invitationStatus\": \"PENDING\",\n    \"organizationId\": 394,\n    \"deviceIds\": [\n      9355,\n      3896\n    ],\n    \"assignedDeviceIds\": [\n      2438,\n      6941\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {}\n    },\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac64fcce-9b38-4879-94c0-787da55c9e49",
+          "name": "Organization location backup usage",
+          "request": {
+            "name": "Organization location backup usage",
+            "description": {
+              "content": "Returns a location backup usage",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "locations",
+                ":locationId",
+                "backup",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "locationId",
+                  "description": "(Required) Location identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5e1bee4-5415-4e40-9962-659506291fd8",
+              "name": "Returns a location backup usage",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "locations",
+                    ":locationId",
+                    "backup",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "locationId",
+                      "description": "(Required) Location identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locationId\": 7240,\n  \"locationName\": \"string\",\n  \"locationDescription\": \"string\",\n  \"revisionsCurrentSize\": 2579,\n  \"revisionsPreviousSize\": 2392,\n  \"revisionsDeletedSize\": 6937,\n  \"localFileFolderSize\": 7223,\n  \"localImageSize\": 9024,\n  \"localImageV2Size\": 7497,\n  \"cloudFileFolderSize\": 5071,\n  \"cloudImageSize\": 4452,\n  \"cloudImageV2Size\": 3263,\n  \"lastSuccessfulBackupJob\": 3685.490600258703,\n  \"lastFailedBackupJob\": 6394.773131798259,\n  \"organizationId\": 5081,\n  \"organizationName\": \"string\",\n  \"revisionsTotalSize\": 297,\n  \"cloudTotalSize\": 4669,\n  \"localTotalSize\": 1593\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a5b43c5-7dbe-4da8-8110-05bf60941147",
+          "name": "Organization custom fields",
+          "request": {
+            "name": "Organization custom fields",
+            "description": {
+              "content": "Returns list of organization custom fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a21b5459-8219-4f26-9a6f-10b47020e26d",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {},\n  \"key_1\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "448c860f-c752-44c1-89ae-7f518940a10b",
+          "name": "Update Field Values",
+          "request": {
+            "name": "Update Field Values",
+            "description": {
+              "content": "Update organization custom field values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": \"<object>\",\n  \"key_1\": \"<object>\",\n  \"key_2\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23d012c7-c60f-4b26-8397-9c045539e67f",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"<object>\",\n  \"key_1\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93683ae3-5203-4649-9cc1-a1381550ebfc",
+          "name": "Organization information",
+          "request": {
+            "name": "Organization information",
+            "description": {
+              "content": "Returns organization details (policy mappings, locations)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d661554b-b620-4971-a46f-d5499f09f26f",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"userData\": {\n    \"key_0\": \"string\",\n    \"key_1\": 9236\n  },\n  \"nodeApprovalMode\": \"AUTOMATIC\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"fields\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"id\": 3868,\n  \"locations\": [\n    {\n      \"name\": \"string\",\n      \"address\": \"string\",\n      \"description\": \"string\",\n      \"userData\": {\n        \"key_0\": 2531,\n        \"key_1\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"id\": 2764\n    },\n    {\n      \"name\": \"string\",\n      \"address\": \"string\",\n      \"description\": \"string\",\n      \"userData\": {\n        \"key_0\": 5516.865448982131,\n        \"key_1\": false\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"id\": 9103\n    }\n  ],\n  \"policies\": [\n    {\n      \"nodeRoleId\": 5307,\n      \"policyId\": 889\n    },\n    {\n      \"nodeRoleId\": 420,\n      \"policyId\": 5122\n    }\n  ],\n  \"settings\": {\n    \"trayicon\": {\n      \"product\": \"string\",\n      \"enabled\": true,\n      \"targets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"options\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {},\n        \"key_4\": {}\n      }\n    },\n    \"splashtop\": {\n      \"product\": \"string\",\n      \"enabled\": true,\n      \"targets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"options\": {\n        \"key_0\": {}\n      }\n    },\n    \"teamviewer\": {\n      \"product\": \"string\",\n      \"enabled\": false,\n      \"targets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"options\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    \"backup\": {\n      \"product\": \"string\",\n      \"enabled\": false,\n      \"targets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"options\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    },\n    \"psa\": {\n      \"product\": \"string\",\n      \"enabled\": true,\n      \"targets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"options\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0def24b0-4f6f-4f9f-9bdd-170f53fd6eeb",
+          "name": "Organization devices",
+          "request": {
+            "name": "Organization devices",
+            "description": {
+              "content": "Returns list of devices for organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of devices to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<integer>",
+                  "description": "Last Node ID from previous page"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22041279-d3b7-4a65-a06c-73eaeb08b1cd",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6717,\n    \"uid\": \"e17c653e-aafd-8af7-50f1-bc8bce613315\",\n    \"assignedOwnerUid\": \"c1e12583-dbc2-e66a-9ef5-47d8ba466fc8\",\n    \"parentDeviceId\": 7950,\n    \"organizationId\": 9795,\n    \"locationId\": 7313,\n    \"nodeClass\": \"MANAGED_DEVICE\",\n    \"nodeRoleId\": 6031,\n    \"rolePolicyId\": 9522,\n    \"policyId\": 6715,\n    \"approvalStatus\": \"APPROVED\",\n    \"offline\": false,\n    \"displayName\": \"string\",\n    \"systemName\": \"string\",\n    \"dnsName\": \"string\",\n    \"netbiosName\": \"string\",\n    \"created\": 4087.8080976277397,\n    \"lastContact\": 2356.9448821890605,\n    \"lastUpdate\": 7223.704013019996,\n    \"userData\": {\n      \"key_0\": 4824,\n      \"key_1\": \"string\",\n      \"key_2\": true,\n      \"key_3\": 6255\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"maintenance\": {\n      \"status\": \"FAILED\",\n      \"start\": 817.9467995640999,\n      \"end\": 9683.025295754258\n    },\n    \"references\": {\n      \"organization\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"userData\": {\n          \"key_0\": true,\n          \"key_1\": 8001,\n          \"key_2\": \"string\"\n        },\n        \"nodeApprovalMode\": \"MANUAL\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"id\": 6393\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"userData\": {\n          \"key_0\": 8889.483799530713\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"id\": 1511\n      },\n      \"rolePolicy\": {\n        \"id\": 2206,\n        \"parentPolicyId\": 3013,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"CLOUD_MONITOR_TARGET\",\n        \"updated\": 1322.3845493301255,\n        \"nodeClassDefault\": false,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      \"policy\": {\n        \"id\": 2682,\n        \"parentPolicyId\": 5651,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"NMS_VM_HOST\",\n        \"updated\": 606.2226898741562,\n        \"nodeClassDefault\": false,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {}\n        }\n      },\n      \"role\": {\n        \"id\": 2938,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"NMS_SCANNER\",\n        \"custom\": true,\n        \"chassisType\": \"LAPTOP\",\n        \"created\": 5749.076472523732,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"nodeRoleParentId\": 9441,\n        \"icon\": \"string\"\n      },\n      \"backupUsage\": {\n        \"revisionsCurrentSize\": 5470,\n        \"revisionsPreviousSize\": 7447,\n        \"revisionsDeletedSize\": 4306,\n        \"localFileFolderSize\": 7172,\n        \"localImageSize\": 5096,\n        \"localImageV2Size\": 965,\n        \"cloudFileFolderSize\": 6733,\n        \"cloudImageSize\": 410,\n        \"cloudImageV2Size\": 7225,\n        \"lastSuccessfulBackupJob\": 2309.478182129894,\n        \"lastFailedBackupJob\": 7613.263106911918,\n        \"revisionsTotalSize\": 6519,\n        \"cloudTotalSize\": 220,\n        \"localTotalSize\": 6761\n      },\n      \"warranty\": {\n        \"startDate\": 5027.619918819875,\n        \"endDate\": 439.01967403337625,\n        \"manufacturerFulfillmentDate\": 4163.172096615477\n      },\n      \"assignedOwner\": {\n        \"id\": 9910,\n        \"uid\": \"0ac64217-9c74-c615-a9d2-feca7d9a30e3\",\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"enabled\": false,\n        \"administrator\": false,\n        \"permitAllClients\": true,\n        \"notifyAllClients\": true,\n        \"mustChangePw\": false,\n        \"mfaConfigured\": true,\n        \"userType\": \"TECHNICIAN\",\n        \"invitationStatus\": \"PENDING\",\n        \"organizationId\": 5501,\n        \"deviceIds\": [\n          9911,\n          2875\n        ],\n        \"assignedDeviceIds\": [\n          2062,\n          939\n        ],\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  },\n  {\n    \"id\": 4093,\n    \"uid\": \"9a5fe321-d077-af6f-a29a-ff4ad6814946\",\n    \"assignedOwnerUid\": \"1ca1d62e-083e-2d1f-d116-7f2cf95fa18d\",\n    \"parentDeviceId\": 1418,\n    \"organizationId\": 3765,\n    \"locationId\": 7750,\n    \"nodeClass\": \"NMS_SERVER\",\n    \"nodeRoleId\": 3623,\n    \"rolePolicyId\": 4494,\n    \"policyId\": 2120,\n    \"approvalStatus\": \"PENDING\",\n    \"offline\": false,\n    \"displayName\": \"string\",\n    \"systemName\": \"string\",\n    \"dnsName\": \"string\",\n    \"netbiosName\": \"string\",\n    \"created\": 4385.65930078901,\n    \"lastContact\": 2889.3410180482924,\n    \"lastUpdate\": 4320.611246014603,\n    \"userData\": {\n      \"key_0\": 2880\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fields\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"maintenance\": {\n      \"status\": \"FAILED\",\n      \"start\": 3789.075076182389,\n      \"end\": 4701.587070302231\n    },\n    \"references\": {\n      \"organization\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"userData\": {\n          \"key_0\": 590,\n          \"key_1\": 4686,\n          \"key_2\": 4838.107991500904\n        },\n        \"nodeApprovalMode\": \"AUTOMATIC\",\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        \"id\": 4130\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"address\": \"string\",\n        \"description\": \"string\",\n        \"userData\": {\n          \"key_0\": 6762\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {}\n        },\n        \"id\": 184\n      },\n      \"rolePolicy\": {\n        \"id\": 1144,\n        \"parentPolicyId\": 5856,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"APPLE_IPADOS\",\n        \"updated\": 9396.783413271522,\n        \"nodeClassDefault\": true,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {}\n        }\n      },\n      \"policy\": {\n        \"id\": 7758,\n        \"parentPolicyId\": 2153,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"NMS_PRINTER\",\n        \"updated\": 8692.024924631383,\n        \"nodeClassDefault\": true,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      \"role\": {\n        \"id\": 4025,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"nodeClass\": \"APPLE_IOS\",\n        \"custom\": false,\n        \"chassisType\": \"MOBILE\",\n        \"created\": 321.09246715781416,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"nodeRoleParentId\": 8659,\n        \"icon\": \"string\"\n      },\n      \"backupUsage\": {\n        \"revisionsCurrentSize\": 3462,\n        \"revisionsPreviousSize\": 9389,\n        \"revisionsDeletedSize\": 6637,\n        \"localFileFolderSize\": 5995,\n        \"localImageSize\": 7276,\n        \"localImageV2Size\": 830,\n        \"cloudFileFolderSize\": 2839,\n        \"cloudImageSize\": 3127,\n        \"cloudImageV2Size\": 6419,\n        \"lastSuccessfulBackupJob\": 2629.908778742731,\n        \"lastFailedBackupJob\": 8452.018206421797,\n        \"revisionsTotalSize\": 6444,\n        \"cloudTotalSize\": 5128,\n        \"localTotalSize\": 5392\n      },\n      \"warranty\": {\n        \"startDate\": 8306.757024089326,\n        \"endDate\": 5169.391323097659,\n        \"manufacturerFulfillmentDate\": 4540.055730785929\n      },\n      \"assignedOwner\": {\n        \"id\": 9021,\n        \"uid\": \"33965d36-d5bb-25a1-e0aa-2c2f64dd5bd3\",\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"email\": \"string\",\n        \"phone\": \"string\",\n        \"enabled\": true,\n        \"administrator\": false,\n        \"permitAllClients\": false,\n        \"notifyAllClients\": true,\n        \"mustChangePw\": false,\n        \"mfaConfigured\": false,\n        \"userType\": \"END_USER\",\n        \"invitationStatus\": \"EXPIRED\",\n        \"organizationId\": 4911,\n        \"deviceIds\": [\n          746,\n          6089\n        ],\n        \"assignedDeviceIds\": [\n          1289,\n          753\n        ],\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"fields\": {\n          \"key_0\": {}\n        },\n        \"roles\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae9344d3-a80f-4c78-b621-93f10dff3e8b",
+          "name": "Organization locations backup usage",
+          "request": {
+            "name": "Organization locations backup usage",
+            "description": {
+              "content": "Returns a list of locations backup usage",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":id",
+                "locations",
+                "backup",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65dec530-197c-4f96-aab2-a7b801ac1781",
+              "name": "Returns list of locations backup usage",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":id",
+                    "locations",
+                    "backup",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"locationId\": 2318,\n    \"locationName\": \"string\",\n    \"locationDescription\": \"string\",\n    \"revisionsCurrentSize\": 8176,\n    \"revisionsPreviousSize\": 4275,\n    \"revisionsDeletedSize\": 7526,\n    \"localFileFolderSize\": 3498,\n    \"localImageSize\": 9878,\n    \"localImageV2Size\": 1936,\n    \"cloudFileFolderSize\": 5858,\n    \"cloudImageSize\": 3138,\n    \"cloudImageV2Size\": 8609,\n    \"lastSuccessfulBackupJob\": 233.53991805649454,\n    \"lastFailedBackupJob\": 1765.6858066988334,\n    \"organizationId\": 9303,\n    \"organizationName\": \"string\",\n    \"revisionsTotalSize\": 4460,\n    \"cloudTotalSize\": 1336,\n    \"localTotalSize\": 9182\n  },\n  {\n    \"locationId\": 2770,\n    \"locationName\": \"string\",\n    \"locationDescription\": \"string\",\n    \"revisionsCurrentSize\": 3575,\n    \"revisionsPreviousSize\": 103,\n    \"revisionsDeletedSize\": 1672,\n    \"localFileFolderSize\": 7042,\n    \"localImageSize\": 5681,\n    \"localImageV2Size\": 2412,\n    \"cloudFileFolderSize\": 4303,\n    \"cloudImageSize\": 5201,\n    \"cloudImageV2Size\": 5178,\n    \"lastSuccessfulBackupJob\": 2597.7216995156273,\n    \"lastFailedBackupJob\": 4741.020829398699,\n    \"organizationId\": 1520,\n    \"organizationName\": \"string\",\n    \"revisionsTotalSize\": 5238,\n    \"cloudTotalSize\": 9431,\n    \"localTotalSize\": 4082\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "53112413-a3d8-4bef-baef-34f2ec138a8b",
+    "name": "NinjaOne Public API 2.0 Asset Tags organization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

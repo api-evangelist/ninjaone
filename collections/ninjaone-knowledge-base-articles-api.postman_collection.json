@@ -1,0 +1,2051 @@
+{
+  "item": [
+    {
+      "id": "e632be77-15eb-4601-884a-f8fb3e9e149a",
+      "name": "Knowledge Base Articles",
+      "description": {
+        "content": "Knowledge Base Articles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50aa1789-2206-41f8-90fe-a2509bcc2def",
+          "name": "Upload temporary attachments",
+          "request": {
+            "name": "Upload temporary attachments",
+            "description": {
+              "content": "Upload temporary attachment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "attachments",
+                "temp",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entityType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "value": "[{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}}]}},{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"],\"key_3\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}]}}]",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2857077-43db-4b9c-b2e3-8309d158452d",
+              "name": "Returns a list of uploaded attachments metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "attachments",
+                    "temp",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entityType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_3\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_4\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}]}},{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"],\"key_3\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}]}}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"mimeType\": \"string\",\n    \"size\": \"string\",\n    \"extension\": \"string\",\n    \"contentId\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"mimeType\": \"string\",\n    \"size\": \"string\",\n    \"extension\": \"string\",\n    \"contentId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22f57a1e-778f-4086-9c18-8d6fcaa865fc",
+          "name": "Archive knowledge base articles",
+          "request": {
+            "name": "Archive knowledge base articles",
+            "description": {
+              "content": "Archive knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8506eef-6908-496a-aac8-b9d38332a105",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a66d80b4-bd69-4831-8845-681c0bc3dd00",
+          "name": "Archive knowledge base folders",
+          "request": {
+            "name": "Archive knowledge base folders",
+            "description": {
+              "content": "Archive knowledge base folders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folders",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "09d8efbb-0372-4e24-b507-4596b9c2667d",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folders",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f55a67af-00a6-4edf-bb2f-5f0fbbb6f922",
+          "name": "Create knowledge base articles",
+          "request": {
+            "name": "Create knowledge base articles",
+            "description": {
+              "content": "Create knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"organizationId\": \"<integer>\",\n    \"destinationFolderId\": \"<integer>\",\n    \"destinationFolderPath\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"organizationId\": \"<integer>\",\n    \"destinationFolderId\": \"<integer>\",\n    \"destinationFolderPath\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69039687-7926-49d0-a7e3-be2955fc5c7f",
+              "name": "Returns a list of created knowledge base articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"organizationId\": \"<integer>\",\n    \"destinationFolderId\": \"<integer>\",\n    \"destinationFolderPath\": \"Folder 1|Folder 2|Folder 3|Folder 4\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"organizationId\": \"<integer>\",\n    \"destinationFolderId\": \"<integer>\",\n    \"destinationFolderPath\": \"Folder 1|Folder 2|Folder 3|Folder 4\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5425,\n    \"organizationId\": 4287,\n    \"parentFolderId\": 6257,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 3972,\n        \"uploadStatus\": \"SUCCESS\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      },\n      {\n        \"id\": 853,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 8006.193431825712,\n    \"updateTime\": 8824.993055720668,\n    \"archivedTime\": 7409.573144917347,\n    \"path\": \"string\"\n  },\n  {\n    \"id\": 2847,\n    \"organizationId\": 6813,\n    \"parentFolderId\": 4880,\n    \"name\": \"string\",\n    \"isNinjaArticle\": true,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 8591,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      },\n      {\n        \"id\": 6882,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 532.0305160515793,\n    \"updateTime\": 7551.278906584747,\n    \"archivedTime\": 1781.5459716769888,\n    \"path\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72348ce1-886b-4007-8562-3eccca87e9db",
+          "name": "Update knowledge base articles",
+          "request": {
+            "name": "Update knowledge base articles",
+            "description": {
+              "content": "Update knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c60d0d43-3cb7-4a32-97be-b9b9b81f29a6",
+              "name": "Returns a list of updated knowledge base articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2565,\n    \"organizationId\": 3020,\n    \"parentFolderId\": 114,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 7544,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      },\n      {\n        \"id\": 9091,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 8386.588571529895,\n    \"updateTime\": 3308.353718855538,\n    \"archivedTime\": 3953.321038390738,\n    \"path\": \"string\"\n  },\n  {\n    \"id\": 5242,\n    \"organizationId\": 6327,\n    \"parentFolderId\": 9903,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": false,\n    \"attachments\": [\n      {\n        \"id\": 5204,\n        \"uploadStatus\": \"PROCESSING\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      },\n      {\n        \"id\": 9713,\n        \"uploadStatus\": \"SUSPICIOUS\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 9119.732114459435,\n    \"updateTime\": 1453.5994687152775,\n    \"archivedTime\": 9148.45776333847,\n    \"path\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1932aa1f-4cd3-4a52-904d-cc5ba9dd10e6",
+          "name": "Delete knowledge base articles",
+          "request": {
+            "name": "Delete knowledge base articles",
+            "description": {
+              "content": "Delete knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "135c08ff-6ffd-4455-b6a2-6273b54e3928",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "339e03de-fe4b-425a-8583-c0d4ba1cede9",
+          "name": "Delete knowledge base folders",
+          "request": {
+            "name": "Delete knowledge base folders",
+            "description": {
+              "content": "Delete knowledge base folders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folders",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "902a0081-15f7-461e-8cdb-0fca50054f23",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folders",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7357c5e-b78f-4c6c-ae3e-b52422270f94",
+          "name": "Download knowledge base article",
+          "request": {
+            "name": "Download knowledge base article",
+            "description": {
+              "content": "Download knowledge base article",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "article",
+                ":articleId",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "articleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9465e86-3c67-4a1f-b3ba-19e9b48bfb40",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "article",
+                    ":articleId",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "articleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8057ba86-4a24-40a1-9791-86bdc45926a8",
+          "name": "Lists organization knowledge base articles",
+          "request": {
+            "name": "Lists organization knowledge base articles",
+            "description": {
+              "content": "Lists organization knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "organization",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organizationIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "articleName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeArchived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edad4d92-b07a-4afc-b546-30f3c142838c",
+              "name": "Returns a list of organization knowledge base articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "organization",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "articleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeArchived",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2565,\n    \"organizationId\": 3020,\n    \"parentFolderId\": 114,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 7544,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      },\n      {\n        \"id\": 9091,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 8386.588571529895,\n    \"updateTime\": 3308.353718855538,\n    \"archivedTime\": 3953.321038390738,\n    \"path\": \"string\"\n  },\n  {\n    \"id\": 5242,\n    \"organizationId\": 6327,\n    \"parentFolderId\": 9903,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": false,\n    \"attachments\": [\n      {\n        \"id\": 5204,\n        \"uploadStatus\": \"PROCESSING\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      },\n      {\n        \"id\": 9713,\n        \"uploadStatus\": \"SUSPICIOUS\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 9119.732114459435,\n    \"updateTime\": 1453.5994687152775,\n    \"archivedTime\": 9148.45776333847,\n    \"path\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f94e2917-ec83-48ed-a1e5-a4bbdf209bfa",
+          "name": "Lists global knowledge base articles",
+          "request": {
+            "name": "Lists global knowledge base articles",
+            "description": {
+              "content": "Lists global knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "global",
+                "articles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "articleName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeArchived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32125716-86af-4ebf-bb13-645522de2d3c",
+              "name": "Returns a list of global knowledge base articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "global",
+                    "articles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "articleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeArchived",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2565,\n    \"organizationId\": 3020,\n    \"parentFolderId\": 114,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 7544,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      },\n      {\n        \"id\": 9091,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 8386.588571529895,\n    \"updateTime\": 3308.353718855538,\n    \"archivedTime\": 3953.321038390738,\n    \"path\": \"string\"\n  },\n  {\n    \"id\": 5242,\n    \"organizationId\": 6327,\n    \"parentFolderId\": 9903,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": false,\n    \"attachments\": [\n      {\n        \"id\": 5204,\n        \"uploadStatus\": \"PROCESSING\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      },\n      {\n        \"id\": 9713,\n        \"uploadStatus\": \"SUSPICIOUS\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 9119.732114459435,\n    \"updateTime\": 1453.5994687152775,\n    \"archivedTime\": 9148.45776333847,\n    \"path\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2442ea66-f53f-412e-9ef1-609df5169fb6",
+          "name": "Get knowledge base article signed urls",
+          "request": {
+            "name": "Get knowledge base article signed urls",
+            "description": {
+              "content": "Get knowledge base article signed urls",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "article",
+                ":articleId",
+                "signed-urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "articleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee4f95ff-d324-454f-ba99-4fb88fcbd8dd",
+              "name": "Returns a map of content ids and their corresponding signed urls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "article",
+                    ":articleId",
+                    "signed-urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "articleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a874f83-14fb-471d-88ab-934a08ec5415",
+          "name": "Returns knowledge base folder",
+          "request": {
+            "name": "Returns knowledge base folder",
+            "description": {
+              "content": "Returns knowledge base folder and its content",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folder",
+                ":folderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeArchived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "folderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f23ad1e8-d868-4858-b86b-ce87c5fd0af4",
+              "name": "Returns knowledge base folder and its content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folder",
+                    ":folderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeArchived",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "folderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6703,\n  \"organizationId\": 8086,\n  \"parentFolderId\": 4915,\n  \"name\": \"string\",\n  \"isArchived\": false,\n  \"createTime\": 8292.109114152941,\n  \"updateTime\": 9.699226042361175,\n  \"archivedTime\": 2908.2853173191893,\n  \"content\": [\n    {\n      \"archived\": true,\n      \"folder\": false,\n      \"id\": 6795,\n      \"organizationId\": 1673,\n      \"parentFolderId\": 999,\n      \"isFolder\": false,\n      \"isArchived\": false,\n      \"name\": \"string\",\n      \"fileSize\": \"string\",\n      \"fileExtension\": \"string\",\n      \"fileUploadStatus\": \"PROCESSING\",\n      \"createTime\": 238.40574115083112,\n      \"updateTime\": 3831.686575142962\n    },\n    {\n      \"archived\": true,\n      \"folder\": true,\n      \"id\": 1189,\n      \"organizationId\": 5087,\n      \"parentFolderId\": 1238,\n      \"isFolder\": false,\n      \"isArchived\": false,\n      \"name\": \"string\",\n      \"fileSize\": \"string\",\n      \"fileExtension\": \"string\",\n      \"fileUploadStatus\": \"SUSPICIOUS\",\n      \"createTime\": 4402.309699615229,\n      \"updateTime\": 7227.130497736508\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "028f7d83-c949-4c78-a268-e9e578007794",
+          "name": "Returns knowledge base folder",
+          "request": {
+            "name": "Returns knowledge base folder",
+            "description": {
+              "content": "Returns knowledge base folder and its content",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "folderPath",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "folderId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfdb331c-1feb-4506-b3f6-f900bc85a796",
+              "name": "Returns knowledge base folder and its content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "folderPath",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "folderId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "organizationId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9961,\n  \"organizationId\": 1652,\n  \"parentFolderId\": 2767,\n  \"name\": \"string\",\n  \"isArchived\": true,\n  \"createTime\": 2132.181666064904,\n  \"updateTime\": 313.7613389652949,\n  \"archivedTime\": 6348.5067962610465,\n  \"content\": [\n    {\n      \"archived\": false,\n      \"folder\": true,\n      \"id\": 9777,\n      \"organizationId\": 9806,\n      \"parentFolderId\": 5171,\n      \"isFolder\": false,\n      \"isArchived\": false,\n      \"name\": \"string\",\n      \"fileSize\": \"string\",\n      \"fileExtension\": \"string\",\n      \"fileUploadStatus\": \"SUCCESS\",\n      \"createTime\": 1267.833732918091,\n      \"updateTime\": 4443.772864575297\n    },\n    {\n      \"archived\": false,\n      \"folder\": false,\n      \"id\": 1403,\n      \"organizationId\": 2413,\n      \"parentFolderId\": 1821,\n      \"isFolder\": false,\n      \"isArchived\": true,\n      \"name\": \"string\",\n      \"fileSize\": \"string\",\n      \"fileExtension\": \"string\",\n      \"fileUploadStatus\": \"FAILURE\",\n      \"createTime\": 8433.260150813401,\n      \"updateTime\": 3598.3555871110707\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1fec33b-3632-48bb-b7d4-acea82d98a45",
+          "name": "Move knowledge base items",
+          "request": {
+            "name": "Move knowledge base items",
+            "description": {
+              "content": "Move knowledge base folders and documents to another knowledge base folder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folders",
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"folderIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"documentIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"destinationFolderId\": \"<integer>\",\n  \"destinationOrganizationId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34d8d6cb-465d-4d28-8b2b-f56f1399ff87",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folders",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"folderIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"documentIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"destinationFolderId\": \"<integer>\",\n  \"destinationOrganizationId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7c0ef10-9eb4-43cb-8c53-84d2caf044ad",
+          "name": "Restore archive knowledge base articles",
+          "request": {
+            "name": "Restore archive knowledge base articles",
+            "description": {
+              "content": "Restore archived knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fc2ec4d-5911-4999-a0ca-eb0f7debca12",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54f9ff86-b59f-4319-817f-0fd7d49f8765",
+          "name": "Restore archived knowledge base folders",
+          "request": {
+            "name": "Restore archived knowledge base folders",
+            "description": {
+              "content": "Restore archived knowledge base folders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "folders",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d977d20-2a02-4c4e-bff0-01c98793d7ae",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "folders",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb167d1f-2b5c-4740-879e-14a85459495e",
+          "name": "Upload knowledge base articles",
+          "request": {
+            "name": "Upload knowledge base articles",
+            "description": {
+              "content": "Upload knowledge base articles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "knowledgebase",
+                "articles",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "organizationId",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "folderId",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "folderPath",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "files",
+                  "value": "[{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_2\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}]}},{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_2\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_3\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}]}}]",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b351155-8b84-49df-bf2d-4fc816267ebb",
+              "name": "Returns a list of created knowledge base articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "knowledgebase",
+                    "articles",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "organizationId",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "folderId",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "folderPath",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_3\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}}]}},{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"contentDisposition\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"mediaType\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"subtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardType\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"wildcardSubtype\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"messageBodyWorkers\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}],\"key_1\":[{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},{\"value\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}],\"key_2\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}}]}}]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2565,\n    \"organizationId\": 3020,\n    \"parentFolderId\": 114,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": true,\n    \"attachments\": [\n      {\n        \"id\": 7544,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      },\n      {\n        \"id\": 9091,\n        \"uploadStatus\": \"FAILURE\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": true\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 8386.588571529895,\n    \"updateTime\": 3308.353718855538,\n    \"archivedTime\": 3953.321038390738,\n    \"path\": \"string\"\n  },\n  {\n    \"id\": 5242,\n    \"organizationId\": 6327,\n    \"parentFolderId\": 9903,\n    \"name\": \"string\",\n    \"isNinjaArticle\": false,\n    \"isArchived\": false,\n    \"attachments\": [\n      {\n        \"id\": 5204,\n        \"uploadStatus\": \"PROCESSING\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      },\n      {\n        \"id\": 9713,\n        \"uploadStatus\": \"SUSPICIOUS\",\n        \"metadata\": {\n          \"name\": \"string\",\n          \"mimeType\": \"string\",\n          \"size\": \"string\",\n          \"extension\": \"string\",\n          \"contentId\": \"string\",\n          \"inline\": false\n        }\n      }\n    ],\n    \"content\": {\n      \"html\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    \"createTime\": 9119.732114459435,\n    \"updateTime\": 1453.5994687152775,\n    \"archivedTime\": 9148.45776333847,\n    \"path\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c4dbfeb-1b1a-41e9-93cc-09abc8c8de3d",
+          "name": "Download related item attachment",
+          "request": {
+            "name": "Download related item attachment",
+            "description": {
+              "content": "Download related item attachment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                ":relatedItemId",
+                "attachment",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "relatedItemId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2ea7963-0b92-4c0e-a79a-c08f06abb186",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    ":relatedItemId",
+                    "attachment",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "relatedItemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "318a0cc5-d874-4969-ad1c-46723223926e",
+          "name": "Get related item attachments signed urls",
+          "request": {
+            "name": "Get related item attachments signed urls",
+            "description": {
+              "content": "Get related item attachments signed urls for an entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "with-entity",
+                ":entityType",
+                ":entityId",
+                "attachments",
+                "signed-urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbfa6dd0-0ccc-4bf4-abdd-7dd0a4ad2d6a",
+              "name": "Returns a map of content ids and their corresponding signed urls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "with-entity",
+                    ":entityType",
+                    ":entityId",
+                    "attachments",
+                    "signed-urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6ef1787-52da-41d5-9225-eb4ca1bb89a4",
+    "name": "NinjaOne Public API 2.0 Asset Tags Knowledge Base Articles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

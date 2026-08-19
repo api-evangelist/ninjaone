@@ -1,0 +1,760 @@
+{
+  "item": [
+    {
+      "id": "b0da24e6-e59e-4d4f-bbc3-7b62eb9b47b0",
+      "name": "Checklist Templates",
+      "description": {
+        "content": "Checklist Templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fdb01a30-9c3e-474a-8a60-e0933600dcc9",
+          "name": "Archive a checklist template",
+          "request": {
+            "name": "Archive a checklist template",
+            "description": {
+              "content": "Archive a checklist template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistTemplateIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a360fc6c-6006-4ca8-b14e-5c13b09e58cc",
+              "name": "Returns a list of archive checklist templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistTemplateIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7012,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 4037,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      },\n      {\n        \"position\": 6849,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 6458.0549081182135,\n    \"lastUpdatedBy\": {\n      \"id\": 1071,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 5774,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 3049.3394353820336\n  },\n  {\n    \"id\": 3484,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 6736,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      },\n      {\n        \"position\": 4556,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      }\n    ],\n    \"required\": true,\n    \"lastUpdatedOn\": 7299.194175165086,\n    \"lastUpdatedBy\": {\n      \"id\": 2019,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 4789,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 4929.876394615186\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "478a6238-5607-4f5e-8999-aa98b0229c82",
+          "name": "List checklist templates",
+          "request": {
+            "name": "List checklist templates",
+            "description": {
+              "content": "List checklists templates with given criteria",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "checklistTemplateIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "checklistTemplateName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "required",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeArchived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14fef361-06d1-4937-8e81-62364d5b021b",
+              "name": "Returns a list of checklist templates with given criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "checklistTemplateIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "checklistTemplateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "required",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeArchived",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3949,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 2366,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      },\n      {\n        \"position\": 4340,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      }\n    ],\n    \"required\": true,\n    \"lastUpdatedOn\": 7840.380139970744,\n    \"lastUpdatedBy\": {\n      \"id\": 4857,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 7703,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 7499.148735665997\n  },\n  {\n    \"id\": 3093,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 71,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      },\n      {\n        \"position\": 316,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 9270.36269857866,\n    \"lastUpdatedBy\": {\n      \"id\": 9588,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 5320,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 4193.2975629254\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d69c14e9-4a9a-4147-a946-9003fbb8875d",
+          "name": "Update checklist templates",
+          "request": {
+            "name": "Update checklist templates",
+            "description": {
+              "content": "Updates multiple checklist templates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a691a9-8c27-4e53-b840-eed9044dbf09",
+              "name": "Returns a list of updated checklist templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8013,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8443,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 8753,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 2475.413595001569,\n    \"lastUpdatedBy\": {\n      \"id\": 9060,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3891,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 3687.558106759382\n  },\n  {\n    \"id\": 8151,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8037,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 777,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 5202.009030305121,\n    \"lastUpdatedBy\": {\n      \"id\": 6867,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 9215,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 8457.473446540189\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "067a3827-93ee-4f94-9902-fe838355824c",
+          "name": "Create checklist templates",
+          "request": {
+            "name": "Create checklist templates",
+            "description": {
+              "content": "Creates multiple checklist templates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "836bfc80-b691-4302-b45f-e77695852833",
+              "name": "Returns a list of created checklist templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8013,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8443,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 8753,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 2475.413595001569,\n    \"lastUpdatedBy\": {\n      \"id\": 9060,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3891,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 3687.558106759382\n  },\n  {\n    \"id\": 8151,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8037,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 777,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 5202.009030305121,\n    \"lastUpdatedBy\": {\n      \"id\": 6867,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 9215,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 8457.473446540189\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f92498ec-5ddc-411c-867e-0b780e3d5a6e",
+          "name": "Delete a checklist template",
+          "request": {
+            "name": "Delete a checklist template",
+            "description": {
+              "content": "Delete a checklist template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "template",
+                ":checklistTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "checklistTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "790c38df-d095-4334-8856-b25d6575b4ed",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "template",
+                    ":checklistTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "checklistTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "098f5316-ae22-4797-8c17-ec2194b7fb50",
+          "name": "Delete checklist templates",
+          "request": {
+            "name": "Delete checklist templates",
+            "description": {
+              "content": "Deletes checklist templates by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "templates",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a06aa884-143d-4ee1-b41e-785352325760",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "templates",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0691a725-76dc-42b2-851c-6c3bca1bc052",
+          "name": "Restore a checklist template",
+          "request": {
+            "name": "Restore a checklist template",
+            "description": {
+              "content": "Restore a checklist template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "checklist",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"checklistTemplateIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a056a7a-00d0-404b-bb45-39928c55f28e",
+              "name": "Returns a list of restore checklist templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "checklist",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"checklistTemplateIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8013,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8443,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 8753,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 2475.413595001569,\n    \"lastUpdatedBy\": {\n      \"id\": 9060,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3891,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 3687.558106759382\n  },\n  {\n    \"id\": 8151,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"tasks\": [\n      {\n        \"position\": 8037,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      },\n      {\n        \"position\": 777,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        }\n      }\n    ],\n    \"required\": false,\n    \"lastUpdatedOn\": 5202.009030305121,\n    \"lastUpdatedBy\": {\n      \"id\": 6867,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 9215,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 8457.473446540189\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "466c87b4-63ad-47bd-90d9-5500bc6f1b20",
+    "name": "NinjaOne Public API 2.0 Asset Tags Checklist Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

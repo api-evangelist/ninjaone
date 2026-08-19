@@ -1,0 +1,1358 @@
+{
+  "item": [
+    {
+      "id": "d8b55dcf-8e5f-457d-9234-1533cb8a892b",
+      "name": "Organization Documents",
+      "description": {
+        "content": "Organization Documents",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94d7ee60-4855-4207-a674-6cbabe7728cf",
+          "name": "Archive an organization document",
+          "request": {
+            "name": "Archive an organization document",
+            "description": {
+              "content": "Archives an organization document by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "document",
+                ":clientDocumentId",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "clientDocumentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b32e665-20ff-4a1e-86d4-d5e9ac03dd9a",
+              "name": "Returns the organization document archived",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "document",
+                    ":clientDocumentId",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "clientDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 3181,\n  \"documentName\": \"string\",\n  \"documentDescription\": \"string\",\n  \"documentUpdateTime\": 8987.1226191825,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 1623.143670107846\n    },\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 3437.34328716068\n    }\n  ],\n  \"documentTemplateId\": 1465,\n  \"documentTemplateName\": \"string\",\n  \"organizationId\": 4140\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ad06a12-7507-44c8-91a7-d85f80e11667",
+          "name": "Archives organization documents",
+          "request": {
+            "name": "Archives organization documents",
+            "description": {
+              "content": "Archives multiple organization documents by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "documents",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5af2096-a6e1-43fa-81c6-bcea4fd8b973",
+              "name": "Returns a list of archived organization documents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "documents",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 7339,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6327.545424552397,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4904.781633612875\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4358.551849968089\n      }\n    ],\n    \"documentTemplateId\": 2772,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 596\n  },\n  {\n    \"documentId\": 9533,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8293.784588564704,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 2341.8717688098213\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 732.6243150340849\n      }\n    ],\n    \"documentTemplateId\": 674,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1004\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44d64e3c-2a5a-4713-92fb-c61a44d605ea",
+          "name": "Create organization document",
+          "request": {
+            "name": "Create organization document",
+            "description": {
+              "content": "Creates an organization document and returns the document created",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":organizationId",
+                "template",
+                ":documentTemplateId",
+                "document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) Document template identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documentName\": \"<string>\",\n  \"documentDescription\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfb82f41-4cbf-4305-8c9a-966b7e71c544",
+              "name": "Returns the organization document created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":organizationId",
+                    "template",
+                    ":documentTemplateId",
+                    "document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) Document template identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documentName\": \"<string>\",\n  \"documentDescription\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 3006,\n  \"documentName\": \"string\",\n  \"documentDescription\": \"string\",\n  \"documentUpdateTime\": 9079.3950987389,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 353.89338920583157\n    },\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 3908.363419471165\n    }\n  ],\n  \"documentTemplateId\": 4069,\n  \"documentTemplateName\": \"string\",\n  \"organizationId\": 8498\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec159c0a-7345-4bff-a754-ebffe9efb7ed",
+          "name": "List all organization documents with field values",
+          "request": {
+            "name": "List all organization documents with field values",
+            "description": {
+              "content": "List all organization documents with field values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "groupBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizationIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "templateIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "templateName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "documentName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab23ded4-2742-4606-b764-84405f3f074d",
+              "name": "Returns a list of all organization documents with field values grouped by organization identifier",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "groupBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "templateIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "documentName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 7339,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6327.545424552397,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4904.781633612875\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4358.551849968089\n      }\n    ],\n    \"documentTemplateId\": 2772,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 596\n  },\n  {\n    \"documentId\": 9533,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8293.784588564704,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 2341.8717688098213\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 732.6243150340849\n      }\n    ],\n    \"documentTemplateId\": 674,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1004\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29c9e0a6-2de7-44e9-9dde-b28f9443c681",
+          "name": "Create organization documents",
+          "request": {
+            "name": "Create organization documents",
+            "description": {
+              "content": "Creates organization documents and returns the documents created",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"documentTemplateId\": \"<integer>\",\n    \"organizationId\": \"<integer>\"\n  },\n  {\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"documentTemplateId\": \"<integer>\",\n    \"organizationId\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "112075c0-02b0-4e4a-ba72-69739b5e6374",
+              "name": "Returns a list of created organization documents with field values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"documentTemplateId\": \"<integer>\",\n    \"organizationId\": \"<integer>\"\n  },\n  {\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"documentTemplateId\": \"<integer>\",\n    \"organizationId\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 7339,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6327.545424552397,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4904.781633612875\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4358.551849968089\n      }\n    ],\n    \"documentTemplateId\": 2772,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 596\n  },\n  {\n    \"documentId\": 9533,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8293.784588564704,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 2341.8717688098213\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 732.6243150340849\n      }\n    ],\n    \"documentTemplateId\": 674,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1004\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4503e758-ead6-4141-aa70-c9a7cfcbd97d",
+          "name": "Update organization documents",
+          "request": {
+            "name": "Update organization documents",
+            "description": {
+              "content": "Updates organization documents and returns the documents updated",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"documentId\": \"<integer>\",\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    }\n  },\n  {\n    \"documentId\": \"<integer>\",\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a24e2c2-4a5d-48f1-a09c-5a3044bf75c8",
+              "name": "Returns a list of updated organization documents with field values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"documentId\": \"<integer>\",\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    }\n  },\n  {\n    \"documentId\": \"<integer>\",\n    \"documentName\": \"<string>\",\n    \"documentDescription\": \"<string>\",\n    \"fields\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 4934,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6475.67237978374,\n    \"updatedFields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 1391.3638793140892\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 3260.252925687309\n      }\n    ],\n    \"documentTemplateId\": 1863,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1354\n  },\n  {\n    \"documentId\": 3613,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8159.422485550194,\n    \"updatedFields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 712.9001340888396\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 3680.5420061551763\n      }\n    ],\n    \"documentTemplateId\": 8323,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1030\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ac41328-1365-484e-87b2-729d0a35b6c5",
+          "name": "Delete an archived organization document",
+          "request": {
+            "name": "Delete an archived organization document",
+            "description": {
+              "content": "Deletes an archived organization document by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "document",
+                ":clientDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "clientDocumentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "066c8b9e-60a4-4cdd-ad56-4eb72a3f7596",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "document",
+                    ":clientDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "clientDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fda0a56-19ae-4c73-ab36-0792b0f819be",
+          "name": "Get organization document signed urls",
+          "request": {
+            "name": "Get organization document signed urls",
+            "description": {
+              "content": "Get organization document signed urls",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "document",
+                ":clientDocumentId",
+                "signed-urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "clientDocumentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "febe954d-0fa8-4a8b-9821-0221934ce7e5",
+              "name": "Returns a map of content ids and their corresponding signed urls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "document",
+                    ":clientDocumentId",
+                    "signed-urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "clientDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55cfc320-d4cc-4fed-9c23-0a2eb4a9f856",
+          "name": "List organization documents with field values",
+          "request": {
+            "name": "List organization documents with field values",
+            "description": {
+              "content": "List organization documents with field values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":organizationId",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0324464c-ea57-4533-99aa-ff4eff282b96",
+              "name": "Returns a list of organization documents with field values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":organizationId",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 7339,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6327.545424552397,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4904.781633612875\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4358.551849968089\n      }\n    ],\n    \"documentTemplateId\": 2772,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 596\n  },\n  {\n    \"documentId\": 9533,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8293.784588564704,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 2341.8717688098213\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 732.6243150340849\n      }\n    ],\n    \"documentTemplateId\": 674,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1004\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d8fec56-d1cb-4c3e-8075-512410718128",
+          "name": "Restore an organization document",
+          "request": {
+            "name": "Restore an organization document",
+            "description": {
+              "content": "Restores an organization document by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "document",
+                ":clientDocumentId",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "clientDocumentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0203d42-4d81-43e0-ae92-f21bfd69ce83",
+              "name": "Returns the organization document restored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "document",
+                    ":clientDocumentId",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "clientDocumentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 3006,\n  \"documentName\": \"string\",\n  \"documentDescription\": \"string\",\n  \"documentUpdateTime\": 9079.3950987389,\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 353.89338920583157\n    },\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 3908.363419471165\n    }\n  ],\n  \"documentTemplateId\": 4069,\n  \"documentTemplateName\": \"string\",\n  \"organizationId\": 8498\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8988377-d92e-4c92-908b-2e55506fa89e",
+          "name": "Restore multiple multi page organization documents",
+          "request": {
+            "name": "Restore multiple multi page organization documents",
+            "description": {
+              "content": "Restores multiple organization documents by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "documents",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9c3c742-62c8-4fde-847f-6c4844f3f0a8",
+              "name": "Returns a list of restored organization documents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "documents",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"documentId\": 7339,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 6327.545424552397,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4904.781633612875\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 4358.551849968089\n      }\n    ],\n    \"documentTemplateId\": 2772,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 596\n  },\n  {\n    \"documentId\": 9533,\n    \"documentName\": \"string\",\n    \"documentDescription\": \"string\",\n    \"documentUpdateTime\": 8293.784588564704,\n    \"fields\": [\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 2341.8717688098213\n      },\n      {\n        \"name\": \"string\",\n        \"value\": {},\n        \"valueUpdateTime\": 732.6243150340849\n      }\n    ],\n    \"documentTemplateId\": 674,\n    \"documentTemplateName\": \"string\",\n    \"organizationId\": 1004\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8f6c9b6-4333-4754-8d3a-623b62405a93",
+          "name": "Update organization document",
+          "request": {
+            "name": "Update organization document",
+            "description": {
+              "content": "Updates an organization document and returns the updated version",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":organizationId",
+                "document",
+                ":clientDocumentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "clientDocumentId",
+                  "description": "(Required) Organization document identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documentName\": \"<string>\",\n  \"documentDescription\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<object>\",\n    \"key_1\": \"<object>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c453ff7f-1014-4429-b77e-d6f71a9cdd74",
+              "name": "Returns the organization document updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":organizationId",
+                    "document",
+                    ":clientDocumentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "clientDocumentId",
+                      "description": "(Required) Organization document identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documentName\": \"<string>\",\n  \"documentDescription\": \"<string>\",\n  \"fields\": {\n    \"key_0\": \"<object>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 4761,\n  \"documentName\": \"string\",\n  \"documentDescription\": \"string\",\n  \"documentUpdateTime\": 4017.6108452129542,\n  \"updatedFields\": [\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 3450.0652044756207\n    },\n    {\n      \"name\": \"string\",\n      \"value\": {},\n      \"valueUpdateTime\": 5219.356237236545\n    }\n  ],\n  \"documentTemplateId\": 6010,\n  \"documentTemplateName\": \"string\",\n  \"organizationId\": 899\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b3708348-1140-4318-bab6-71000d11ff64",
+    "name": "NinjaOne Public API 2.0 Asset Tags Organization Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

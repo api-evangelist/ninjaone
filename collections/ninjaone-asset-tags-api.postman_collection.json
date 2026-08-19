@@ -1,0 +1,899 @@
+{
+  "item": [
+    {
+      "id": "0dfbbc7f-c372-44cb-b347-25af87893338",
+      "name": "Asset Tags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f3e8b48-15ca-4221-b5e2-29465951bb30",
+          "name": "Batch tag assets",
+          "request": {
+            "name": "Batch tag assets",
+            "description": {
+              "content": "Update tags for the supplied assetIds. Tags will be added and removed as specified",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                ":assetType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIdsToAdd\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tagIdsToRemove\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5be56873-5288-46f5-87b1-033e8332d8d4",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    ":assetType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetIds\": [\n    \"<integer>\"\n  ],\n  \"tagIdsToAdd\": [\n    \"<integer>\"\n  ],\n  \"tagIdsToRemove\": [\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88ae81dd-1357-4a4a-a81d-4c885e042690",
+          "name": "Get Asset Tags",
+          "request": {
+            "name": "Get Asset Tags",
+            "description": {
+              "content": "Get a list of created Asset Tags",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0adfb1c8-02a5-46ca-a6eb-90d65d14daad",
+              "name": "Returns a list of tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tags\": [\n    {\n      \"id\": 4135,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createTime\": 4899.597991983087,\n      \"updateTime\": 4465.0277142788655,\n      \"createdByUserId\": 2362,\n      \"updatedByUserId\": 650,\n      \"targetsCount\": 2928,\n      \"createdBy\": {\n        \"id\": 3061,\n        \"name\": \"string\",\n        \"email\": \"string\"\n      },\n      \"updatedBy\": {\n        \"id\": 8088,\n        \"name\": \"string\",\n        \"email\": \"string\"\n      }\n    },\n    {\n      \"id\": 4412,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"createTime\": 3726.968791825671,\n      \"updateTime\": 343.3411343636317,\n      \"createdByUserId\": 7209,\n      \"updatedByUserId\": 2786,\n      \"targetsCount\": 4133,\n      \"createdBy\": {\n        \"id\": 8564,\n        \"name\": \"string\",\n        \"email\": \"string\"\n      },\n      \"updatedBy\": {\n        \"id\": 2820,\n        \"name\": \"string\",\n        \"email\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "869c52aa-42e0-4d6b-a545-74aec11b417c",
+          "name": "Create an Asset Tag",
+          "request": {
+            "name": "Create an Asset Tag",
+            "description": {
+              "content": "Create an Asset Tag with the provided name and description",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5eb5c86-78c7-42fc-8746-30a7003a2e58",
+              "name": "The Asset Tag that was created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5931,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"createTime\": 3679.5797891489856,\n  \"updateTime\": 5746.015402978908,\n  \"createdByUserId\": 1455,\n  \"updatedByUserId\": 365\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a211f72e-fe20-49b8-85ed-1ab7fd0aef9d",
+          "name": "Update an Asset Tag",
+          "request": {
+            "name": "Update an Asset Tag",
+            "description": {
+              "content": "Update an Asset Tag with the provided metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                ":tagId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tagId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9835b396-2534-4b90-8bad-a9b11982d376",
+              "name": "The Asset Tag that was updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    ":tagId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tagId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5931,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"createTime\": 3679.5797891489856,\n  \"updateTime\": 5746.015402978908,\n  \"createdByUserId\": 1455,\n  \"updatedByUserId\": 365\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24d51f61-877d-4493-bdf2-c20a597e040c",
+          "name": "Delete an Asset Tag",
+          "request": {
+            "name": "Delete an Asset Tag",
+            "description": {
+              "content": "Delete the Asset Tag with the provided id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                ":tagId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tagId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb750532-02dd-41b0-8142-e97229a16655",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    ":tagId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tagId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c459e8e2-3112-4917-9fdf-6169acd1b6a1",
+          "name": "Delete several Asset Tags",
+          "request": {
+            "name": "Delete several Asset Tags",
+            "description": {
+              "content": "Delete Asset Tags having the provided ids",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "798527e7-1960-4e2a-88d4-f9cb6431af61",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7758a92c-a731-445e-9fd0-6226b22655b6",
+          "name": "Merge existing tags",
+          "request": {
+            "name": "Merge existing tags",
+            "description": {
+              "content": "Merges tags. Can merge into an existing or new tag depending on the input parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                "merge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"mergeMethod\": \"<string>\",\n  \"mergeIntoTagId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "30bf780a-7020-46bd-859e-d83f9ec45ece",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagIds\": [\n    \"<integer>\"\n  ],\n  \"mergeMethod\": \"<string>\",\n  \"mergeIntoTagId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5931,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"createTime\": 3679.5797891489856,\n  \"updateTime\": 5746.015402978908,\n  \"createdByUserId\": 1455,\n  \"updatedByUserId\": 365\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4463012a-b3bb-4741-8e0f-b0f284071f8b",
+          "name": "set Tags For Asset",
+          "request": {
+            "name": "set Tags For Asset",
+            "description": {
+              "content": "Set the tags for an asset to exactly the supplied values",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tag",
+                ":assetType",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tagIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31529da6-565a-4c1c-bfe2-c828768ef5c3",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tag",
+                    ":assetType",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tagIds\": [\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "de9d1d6a-7108-490e-8db4-6aa7d7630761",
+    "name": "NinjaOne Public API 2.0 Asset Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

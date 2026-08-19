@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Custom Fields API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get custom field signed urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/custom-fields/entity-type/:entityType/:entityId/signed-urls",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get custom field signed urls"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

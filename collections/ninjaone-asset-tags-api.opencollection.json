@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch tag assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/tag/:assetType",
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update tags for the supplied assetIds. Tags will be added and removed as specified"
+        },
+        {
+          "info": {
+            "name": "Get Asset Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tag"
+          },
+          "docs": "Get a list of created Asset Tags"
+        },
+        {
+          "info": {
+            "name": "Create an Asset Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Asset Tag with the provided name and description"
+        },
+        {
+          "info": {
+            "name": "Update an Asset Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/tag/:tagId",
+            "params": [
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Asset Tag with the provided metadata"
+        },
+        {
+          "info": {
+            "name": "Delete an Asset Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/tag/:tagId",
+            "params": [
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the Asset Tag with the provided id"
+        },
+        {
+          "info": {
+            "name": "Delete several Asset Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/tag/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete Asset Tags having the provided ids"
+        },
+        {
+          "info": {
+            "name": "Merge existing tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/tag/merge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Merges tags. Can merge into an existing or new tag depending on the input parameters"
+        },
+        {
+          "info": {
+            "name": "setTagsForAsset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/tag/:assetType/:assetId",
+            "params": [
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the tags for an asset to exactly the supplied values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags ticketing API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ticketing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/ticketing/ticket",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new ticket, does not accept files"
+        },
+        {
+          "info": {
+            "name": "Add comment to ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/ticketing/ticket/:ticketId/comment",
+            "params": [
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "comment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Add a new comment to a ticket, allows files"
+        },
+        {
+          "info": {
+            "name": "Ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/ticket/:ticketId",
+            "params": [
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a ticket"
+        },
+        {
+          "info": {
+            "name": "Update ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/ticketing/ticket/:ticketId",
+            "params": [
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change ticket fields. Does not accept comments"
+        },
+        {
+          "info": {
+            "name": "List ticket log entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/ticket/:ticketId/log-entry",
+            "params": [
+              {
+                "name": "ticketId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "anchorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns list of the ticket log entries for a ticket"
+        },
+        {
+          "info": {
+            "name": "List ticket attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/attributes"
+          },
+          "docs": "Returns list of the ticket attributes"
+        },
+        {
+          "info": {
+            "name": "List contacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/contact/contacts"
+          },
+          "docs": "Returns list of contacts"
+        },
+        {
+          "info": {
+            "name": "Ticket form",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/ticket-form/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a ticket form with fields "
+        },
+        {
+          "info": {
+            "name": "List ticket forms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/ticket-form"
+          },
+          "docs": "Returns list of ticket forms with their fields"
+        },
+        {
+          "info": {
+            "name": "Get list of ticket status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/statuses"
+          },
+          "docs": "Get list of ticket status "
+        },
+        {
+          "info": {
+            "name": "List boards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/trigger/boards"
+          },
+          "docs": "Returns list of ticketing boards"
+        },
+        {
+          "info": {
+            "name": "List of tickets for board",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/ticketing/trigger/board/:boardId/run",
+            "params": [
+              {
+                "name": "boardId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run a board. Returns list of tickets matching the board condition and filters. Allows pagination"
+        },
+        {
+          "info": {
+            "name": "List of users by user type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/ticketing/app-user-contact",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of records per page"
+              },
+              {
+                "name": "anchorNaturalId",
+                "value": "",
+                "type": "query",
+                "description": "Last User Identifier from previous page"
+              },
+              {
+                "name": "searchCriteria",
+                "value": "",
+                "type": "query",
+                "description": "Search by first name, last name or email address"
+              },
+              {
+                "name": "userType",
+                "value": "",
+                "type": "query",
+                "description": "User Type"
+              },
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "query",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of users (contacts, end-user, technician)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

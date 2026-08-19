@@ -1,0 +1,1423 @@
+{
+  "item": [
+    {
+      "id": "6593c904-43da-4732-8b15-d41db7fa7071",
+      "name": "ticketing",
+      "description": {
+        "content": "ticketing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1315d587-4966-4b60-87c2-35638dc201f1",
+          "name": "Create ticket",
+          "request": {
+            "name": "Create ticket",
+            "description": {
+              "content": "Create a new ticket, does not accept files",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"<integer>\",\n  \"status\": \"1000\",\n  \"subject\": \"<string>\",\n  \"ticketFormId\": \"<integer>\",\n  \"locationId\": \"<integer>\",\n  \"nodeId\": \"<integer>\",\n  \"description\": {\n    \"public\": true,\n    \"body\": \"<string>\",\n    \"htmlBody\": \"<string>\",\n    \"timeTracked\": \"<integer>\",\n    \"duplicateInIncidents\": \"<boolean>\"\n  },\n  \"type\": \"<string>\",\n  \"cc\": {\n    \"uids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"assignedAppUserId\": \"<integer>\",\n  \"requesterUid\": \"<uuid>\",\n  \"severity\": \"NONE\",\n  \"priority\": \"NONE\",\n  \"parentTicketId\": \"<integer>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": [\n    {\n      \"attributeId\": \"<integer>\",\n      \"value\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    {\n      \"attributeId\": \"<integer>\",\n      \"value\": \"<string>\",\n      \"id\": \"<integer>\"\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42b6f980-ec23-4f0f-8709-c7e80f93b75b",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": 1,\n  \"status\": \"1000\",\n  \"subject\": \"CPU with problems\",\n  \"ticketFormId\": 1,\n  \"locationId\": 1,\n  \"nodeId\": 1,\n  \"description\": {\n    \"public\": true,\n    \"body\": \"new comment\",\n    \"htmlBody\": \"<p>new comment</p>\",\n    \"timeTracked\": 60,\n    \"duplicateInIncidents\": \"<boolean>\"\n  },\n  \"type\": \"PROBLEM\",\n  \"cc\": {\n    \"uids\": [\n      \"1fa74a18-a329-40d8-b5b7-0a22624f7800\",\n      \"b0558cb6-3c4e-438c-b8fd-5247c648bbbe\"\n    ],\n    \"emails\": [\n      \"example1@example.com\",\n      \"example2@example.com\"\n    ]\n  },\n  \"assignedAppUserId\": \"<integer>\",\n  \"requesterUid\": \"<uuid>\",\n  \"severity\": \"NONE\",\n  \"priority\": \"NONE\",\n  \"parentTicketId\": 1,\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"attributes\": [\n    {\n      \"attributeId\": 1,\n      \"value\": \"<string>\",\n      \"id\": 1\n    },\n    {\n      \"attributeId\": 1,\n      \"value\": \"<string>\",\n      \"id\": 1\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    300,\n    789\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7255,\n  \"version\": 963,\n  \"nodeId\": 9646,\n  \"clientId\": 4861,\n  \"locationId\": 3487,\n  \"assignedAppUserId\": 2302,\n  \"requesterUid\": \"26442add-d878-ac77-ec79-f60620a73795\",\n  \"subject\": \"string\",\n  \"status\": {\n    \"name\": \"string\",\n    \"displayName\": \"string\",\n    \"parentId\": 2995,\n    \"statusId\": 141\n  },\n  \"type\": \"QUESTION\",\n  \"priority\": \"NONE\",\n  \"severity\": \"MAJOR\",\n  \"ticketFormId\": 8971,\n  \"source\": \"WEB_FORM\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ccList\": {\n    \"uids\": [\n      \"3defec52-aaef-22c7-6b26-194f5b7abbb8\",\n      \"ca87a266-80dc-da5a-1b4f-8f9d7abf3954\"\n    ],\n    \"emails\": [\n      \"string\"\n    ]\n  },\n  \"createTime\": 5679.412582745094,\n  \"deleted\": true,\n  \"attributeValues\": [\n    {\n      \"id\": 370,\n      \"attributeId\": 9539,\n      \"value\": {}\n    },\n    {\n      \"id\": 2401,\n      \"attributeId\": 1237,\n      \"value\": {}\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    4445,\n    4400\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7806ccf-60f4-4424-839b-4ed91d5fa772",
+          "name": "Add comment to ticket",
+          "request": {
+            "name": "Add comment to ticket",
+            "description": {
+              "content": "Add a new comment to a ticket, allows files",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket",
+                ":ticketId",
+                "comment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticketId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "comment",
+                  "value": "{\"public\":true,\"body\":\"<string>\",\"htmlBody\":\"<string>\",\"timeTracked\":\"<integer>\",\"duplicateInIncidents\":\"<boolean>\"}",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "files",
+                  "value": "[\"<binary>\",\"<binary>\"]",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3fdd352f-9907-441a-8ba3-26db9f05ad33",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket",
+                    ":ticketId",
+                    "comment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticketId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "comment",
+                      "value": "{\"public\":true,\"body\":\"new comment\",\"htmlBody\":\"<p>new comment</p>\",\"timeTracked\":60,\"duplicateInIncidents\":\"<boolean>\"}",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[\"<binary>\",\"<binary>\"]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "389aeb2b-cf62-4608-b03a-f691eafee8c1",
+          "name": "Ticket",
+          "request": {
+            "name": "Ticket",
+            "description": {
+              "content": "Returns a ticket",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket",
+                ":ticketId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticketId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f652ede6-9839-425d-9f0c-359204d13370",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticketId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9541,\n  \"version\": 4450,\n  \"nodeId\": 6438,\n  \"clientId\": 9876,\n  \"locationId\": 7266,\n  \"assignedAppUserId\": 8581,\n  \"requesterUid\": \"3d26e160-421b-edb1-2997-4c06a36d6416\",\n  \"subject\": \"string\",\n  \"status\": {\n    \"name\": \"string\",\n    \"displayName\": \"string\",\n    \"parentId\": 9056,\n    \"statusId\": 9742\n  },\n  \"type\": \"INCIDENT\",\n  \"priority\": \"HIGH\",\n  \"severity\": \"NONE\",\n  \"ticketFormId\": 9311,\n  \"source\": \"TECHNICIAN\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ccList\": {\n    \"uids\": [\n      \"2d086fa7-c29a-1286-5e48-e7e2f9ad58b8\",\n      \"21f2bf30-5deb-3dd8-34cb-17618531fa13\"\n    ],\n    \"emails\": [\n      \"string\"\n    ]\n  },\n  \"createTime\": 8375.654330121717,\n  \"deleted\": false,\n  \"attributeValues\": [\n    {\n      \"id\": 9329,\n      \"attributeId\": 8399,\n      \"value\": {}\n    },\n    {\n      \"id\": 9843,\n      \"attributeId\": 1491,\n      \"value\": {}\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    9979,\n    5164\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64204faf-8312-47c8-9c3e-c30c2552879c",
+          "name": "Update ticket",
+          "request": {
+            "name": "Update ticket",
+            "description": {
+              "content": "Change ticket fields. Does not accept comments",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket",
+                ":ticketId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticketId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientId\": \"<integer>\",\n  \"requesterUid\": \"<uuid>\",\n  \"status\": \"1000\",\n  \"subject\": \"<string>\",\n  \"ticketFormId\": \"<integer>\",\n  \"version\": \"<integer>\",\n  \"locationId\": \"<integer>\",\n  \"nodeId\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"cc\": {\n    \"uids\": [\n      \"<uuid>\",\n      \"<uuid>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"assignedAppUserId\": \"<integer>\",\n  \"severity\": \"NONE\",\n  \"priority\": \"NONE\",\n  \"parentTicketId\": \"<integer>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attributes\": [\n    {\n      \"attributeId\": \"<integer>\",\n      \"value\": \"<string>\",\n      \"id\": \"<integer>\"\n    },\n    {\n      \"attributeId\": \"<integer>\",\n      \"value\": \"<string>\",\n      \"id\": \"<integer>\"\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "febb2ea8-ac2e-43d5-91cf-2a0c520a3121",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket",
+                    ":ticketId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticketId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": 1,\n  \"requesterUid\": \"<uuid>\",\n  \"status\": \"1000\",\n  \"subject\": \"CPU with problems\",\n  \"ticketFormId\": 1,\n  \"version\": 1,\n  \"locationId\": 1,\n  \"nodeId\": 1,\n  \"type\": \"PROBLEM\",\n  \"cc\": {\n    \"uids\": [\n      \"1fa74a18-a329-40d8-b5b7-0a22624f7800\",\n      \"b0558cb6-3c4e-438c-b8fd-5247c648bbbe\"\n    ],\n    \"emails\": [\n      \"example1@example.com\",\n      \"example2@example.com\"\n    ]\n  },\n  \"assignedAppUserId\": \"<integer>\",\n  \"severity\": \"NONE\",\n  \"priority\": \"NONE\",\n  \"parentTicketId\": 1,\n  \"tags\": [\n    \"tag1\",\n    \"tag2\"\n  ],\n  \"attributes\": [\n    {\n      \"attributeId\": 1,\n      \"value\": \"<string>\",\n      \"id\": 1\n    },\n    {\n      \"attributeId\": 1,\n      \"value\": \"<string>\",\n      \"id\": 1\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    300,\n    789\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9541,\n  \"version\": 4450,\n  \"nodeId\": 6438,\n  \"clientId\": 9876,\n  \"locationId\": 7266,\n  \"assignedAppUserId\": 8581,\n  \"requesterUid\": \"3d26e160-421b-edb1-2997-4c06a36d6416\",\n  \"subject\": \"string\",\n  \"status\": {\n    \"name\": \"string\",\n    \"displayName\": \"string\",\n    \"parentId\": 9056,\n    \"statusId\": 9742\n  },\n  \"type\": \"INCIDENT\",\n  \"priority\": \"HIGH\",\n  \"severity\": \"NONE\",\n  \"ticketFormId\": 9311,\n  \"source\": \"TECHNICIAN\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ccList\": {\n    \"uids\": [\n      \"2d086fa7-c29a-1286-5e48-e7e2f9ad58b8\",\n      \"21f2bf30-5deb-3dd8-34cb-17618531fa13\"\n    ],\n    \"emails\": [\n      \"string\"\n    ]\n  },\n  \"createTime\": 8375.654330121717,\n  \"deleted\": false,\n  \"attributeValues\": [\n    {\n      \"id\": 9329,\n      \"attributeId\": 8399,\n      \"value\": {}\n    },\n    {\n      \"id\": 9843,\n      \"attributeId\": 1491,\n      \"value\": {}\n    }\n  ],\n  \"additionalAssignedTechnicianIds\": [\n    9979,\n    5164\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da4d460c-ca72-4927-a7f1-ea524046e73f",
+          "name": "List ticket log entries",
+          "request": {
+            "name": "List ticket log entries",
+            "description": {
+              "content": "Returns list of the ticket log entries for a ticket",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket",
+                ":ticketId",
+                "log-entry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "createTime",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "anchorId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "500"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "ticketId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73076a0b-e724-4408-bf91-77eed7320f07",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket",
+                    ":ticketId",
+                    "log-entry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "anchorId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "ticketId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6452,\n    \"appUserContactUid\": \"aad3252e-562f-b9fd-dc3e-6c92d626c1ef\",\n    \"appUserContactId\": 6733,\n    \"appUserContactType\": \"CONTACT\",\n    \"type\": \"PRODUCT\",\n    \"body\": \"string\",\n    \"htmlBody\": \"string\",\n    \"fullEmailBody\": \"string\",\n    \"publicEntry\": true,\n    \"system\": true,\n    \"createTime\": 2090.3600006915967,\n    \"changeDiff\": {},\n    \"activityId\": 5267,\n    \"timeTracked\": 6682,\n    \"technicianTagged\": [\n      4876,\n      9690\n    ],\n    \"techniciansTaggedMetadata\": [\n      {\n        \"id\": 1910,\n        \"email\": \"string\",\n        \"displayName\": \"string\",\n        \"deleted\": true,\n        \"permitted\": false\n      },\n      {\n        \"id\": 7870,\n        \"email\": \"string\",\n        \"displayName\": \"string\",\n        \"deleted\": false,\n        \"permitted\": true\n      }\n    ],\n    \"automation\": {\n      \"id\": 1247,\n      \"name\": \"string\",\n      \"system\": false,\n      \"type\": \"string\"\n    },\n    \"blockedByInvoice\": true,\n    \"ticketTimeEntry\": {\n      \"ticketLogEntryId\": 554,\n      \"invoiceId\": 9744,\n      \"startDate\": 1483,\n      \"remote\": false,\n      \"billing\": \"NOT_BILLABLE\",\n      \"billingStatus\": \"BILLED\",\n      \"agreementOriginType\": \"NONE\",\n      \"price\": 7867.615904458646,\n      \"timeTracked\": 5591,\n      \"agreement\": {\n        \"id\": 2863,\n        \"name\": \"string\"\n      },\n      \"agreementProduct\": {\n        \"id\": 7091,\n        \"name\": \"string\"\n      }\n    },\n    \"emailResponse\": false\n  },\n  {\n    \"id\": 902,\n    \"appUserContactUid\": \"03fc4c90-0b63-2406-32cd-809e9376eca9\",\n    \"appUserContactId\": 2463,\n    \"appUserContactType\": \"TECHNICIAN\",\n    \"type\": \"DELETE\",\n    \"body\": \"string\",\n    \"htmlBody\": \"string\",\n    \"fullEmailBody\": \"string\",\n    \"publicEntry\": true,\n    \"system\": true,\n    \"createTime\": 9873.351328200457,\n    \"changeDiff\": {},\n    \"activityId\": 956,\n    \"timeTracked\": 3523,\n    \"technicianTagged\": [\n      1077,\n      4801\n    ],\n    \"techniciansTaggedMetadata\": [\n      {\n        \"id\": 7021,\n        \"email\": \"string\",\n        \"displayName\": \"string\",\n        \"deleted\": true,\n        \"permitted\": false\n      },\n      {\n        \"id\": 6423,\n        \"email\": \"string\",\n        \"displayName\": \"string\",\n        \"deleted\": true,\n        \"permitted\": true\n      }\n    ],\n    \"automation\": {\n      \"id\": 1553,\n      \"name\": \"string\",\n      \"system\": true,\n      \"type\": \"string\"\n    },\n    \"blockedByInvoice\": true,\n    \"ticketTimeEntry\": {\n      \"ticketLogEntryId\": 5919,\n      \"invoiceId\": 28,\n      \"startDate\": 2331,\n      \"remote\": false,\n      \"billing\": \"BILLABLE\",\n      \"billingStatus\": \"PENDING\",\n      \"agreementOriginType\": \"SELF\",\n      \"price\": 9849.419377609593,\n      \"timeTracked\": 1532,\n      \"agreement\": {\n        \"id\": 3515,\n        \"name\": \"string\"\n      },\n      \"agreementProduct\": {\n        \"id\": 6263,\n        \"name\": \"string\"\n      }\n    },\n    \"emailResponse\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "261de29a-fb12-4eaf-8235-f41dec075a19",
+          "name": "List ticket attributes",
+          "request": {
+            "name": "List ticket attributes",
+            "description": {
+              "content": "Returns list of the ticket attributes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ee9427c-a16e-4c50-83cd-6a30b04f02bf",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 853,\n    \"attributeType\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"customizeForEndUser\": true,\n    \"nameForEndUser\": \"string\",\n    \"descriptionForEndUser\": \"string\",\n    \"endUserOption\": \"string\",\n    \"technicianOption\": \"string\",\n    \"content\": {\n      \"customizeForEndUser\": false,\n      \"endUserCustomization\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"label\": \"string\"\n      },\n      \"values\": [\n        {\n          \"id\": \"7a58ac3c-996e-94e9-745e-279adf0e3541\",\n          \"name\": \"string\",\n          \"active\": false,\n          \"system\": false\n        },\n        {\n          \"id\": \"a02ec911-397c-920d-77ca-334160365f7f\",\n          \"name\": \"string\",\n          \"active\": true,\n          \"system\": true\n        }\n      ],\n      \"required\": true,\n      \"footerText\": \"string\",\n      \"tooltipText\": \"string\",\n      \"advancedSettings\": {\n        \"fileMaxSize\": 2228,\n        \"fileExtensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dateFilters\": {\n          \"type\": \"PAST_DATES_ONLY\",\n          \"selected\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"maxCharacters\": 4497,\n        \"complexityRules\": {\n          \"mustContainOneInteger\": false,\n          \"mustContainOneLowercaseLetter\": false,\n          \"mustContainOneUppercaseLetter\": false,\n          \"greaterOrEqualThanSixCharacters\": true\n        },\n        \"numericRange\": {\n          \"min\": 9113.323090317039,\n          \"max\": 8619.452018781607\n        },\n        \"org\": [\n          5146,\n          4698\n        ],\n        \"nodeClass\": [\n          \"MAC_SERVER\",\n          \"NMS_VM_HOST\"\n        ],\n        \"ipAddressType\": \"IPV6\",\n        \"expandLargeValueOnRender\": false\n      }\n    },\n    \"system\": true,\n    \"active\": false,\n    \"createTime\": 2607.9545784934676,\n    \"updateTime\": 9358.148192844326\n  },\n  {\n    \"id\": 705,\n    \"attributeType\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"customizeForEndUser\": false,\n    \"nameForEndUser\": \"string\",\n    \"descriptionForEndUser\": \"string\",\n    \"endUserOption\": \"string\",\n    \"technicianOption\": \"string\",\n    \"content\": {\n      \"customizeForEndUser\": true,\n      \"endUserCustomization\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"label\": \"string\"\n      },\n      \"values\": [\n        {\n          \"id\": \"bdcf537e-603c-4cb3-148a-e74afa5f2938\",\n          \"name\": \"string\",\n          \"active\": false,\n          \"system\": false\n        },\n        {\n          \"id\": \"b7da7c66-fda9-3c58-7686-4a9ae67baa33\",\n          \"name\": \"string\",\n          \"active\": true,\n          \"system\": true\n        }\n      ],\n      \"required\": true,\n      \"footerText\": \"string\",\n      \"tooltipText\": \"string\",\n      \"advancedSettings\": {\n        \"fileMaxSize\": 7031,\n        \"fileExtensions\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dateFilters\": {\n          \"type\": \"PAST_DATES_ONLY\",\n          \"selected\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"maxCharacters\": 6636,\n        \"complexityRules\": {\n          \"mustContainOneInteger\": true,\n          \"mustContainOneLowercaseLetter\": true,\n          \"mustContainOneUppercaseLetter\": false,\n          \"greaterOrEqualThanSixCharacters\": true\n        },\n        \"numericRange\": {\n          \"min\": 7207.454944529595,\n          \"max\": 1352.2821769422167\n        },\n        \"org\": [\n          1971,\n          5745\n        ],\n        \"nodeClass\": [\n          \"WINDOWS_SERVER\",\n          \"HYPERV_VMM_GUEST\"\n        ],\n        \"ipAddressType\": \"ALL\",\n        \"expandLargeValueOnRender\": false\n      }\n    },\n    \"system\": false,\n    \"active\": false,\n    \"createTime\": 6335.613454278708,\n    \"updateTime\": 5264.996177484457\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50d12ad0-7480-4525-84c8-b28e311675b4",
+          "name": "List contacts",
+          "request": {
+            "name": "List contacts",
+            "description": {
+              "content": "Returns list of contacts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "contact",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45d79716-81d5-40e9-8941-3f070870c37c",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "contact",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4483,\n    \"clientId\": 4166,\n    \"clientName\": \"string\",\n    \"uid\": \"c0db82a0-f759-a918-3928-bd38f0ac918e\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"jobTitle\": \"string\",\n    \"displayName\": \"string\",\n    \"createTime\": 657.9187515604523,\n    \"updateTime\": 7520.855690902629\n  },\n  {\n    \"id\": 5413,\n    \"clientId\": 4266,\n    \"clientName\": \"string\",\n    \"uid\": \"d21cb8eb-035c-425e-839f-c57a2ba599be\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"jobTitle\": \"string\",\n    \"displayName\": \"string\",\n    \"createTime\": 3326.6965404741745,\n    \"updateTime\": 1539.5607432097513\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff162dd8-98d1-4c42-9c16-f5b1e9b1c77e",
+          "name": "Ticket form",
+          "request": {
+            "name": "Ticket form",
+            "description": {
+              "content": "Returns a ticket form with fields ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket-form",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05625489-fd21-48b1-8836-6a77e8d49254",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket-form",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5900,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"endUserTitle\": \"string\",\n  \"content\": {\n    \"fields\": [\n      889,\n      6202\n    ],\n    \"timerSettings\": {\n      \"enabled\": false,\n      \"mode\": \"MANUAL\"\n    }\n  },\n  \"active\": true,\n  \"createTime\": 4139.394889109191,\n  \"updateTime\": 1544.117646855332,\n  \"fields\": [\n    {\n      \"id\": 6561,\n      \"attributeType\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"customizeForEndUser\": true,\n      \"nameForEndUser\": \"string\",\n      \"descriptionForEndUser\": \"string\",\n      \"endUserOption\": \"string\",\n      \"technicianOption\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": true,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"c90f831c-5e7d-aecc-11ed-b9eded0a5de3\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          },\n          {\n            \"id\": \"9b8b8375-2eef-006e-a4f7-0f24b18c968c\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 7106,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 241,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            6819,\n            4942\n          ],\n          \"nodeClass\": [\n            \"NMS_VM_HOST\",\n            \"LINUX_WORKSTATION\"\n          ],\n          \"ipAddressType\": \"IPV4\",\n          \"expandLargeValueOnRender\": false\n        }\n      },\n      \"system\": false,\n      \"active\": true,\n      \"createTime\": 2878.646916193225,\n      \"updateTime\": 680.6145504023153\n    },\n    {\n      \"id\": 9946,\n      \"attributeType\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"customizeForEndUser\": false,\n      \"nameForEndUser\": \"string\",\n      \"descriptionForEndUser\": \"string\",\n      \"endUserOption\": \"string\",\n      \"technicianOption\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": true,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"321e802d-8473-7199-c6e6-e96abd86f684\",\n            \"name\": \"string\",\n            \"active\": false,\n            \"system\": false\n          },\n          {\n            \"id\": \"9b3b3c1d-5583-1e28-503f-724ae729ad3a\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": false\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 66,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 8236,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            704,\n            7340\n          ],\n          \"nodeClass\": [\n            \"NMS_SWITCH\",\n            \"HYPERV_VMM_GUEST\"\n          ],\n          \"ipAddressType\": \"IPV6\",\n          \"expandLargeValueOnRender\": false\n        }\n      },\n      \"system\": true,\n      \"active\": true,\n      \"createTime\": 3688.5755738471403,\n      \"updateTime\": 4774.683090042321\n    }\n  ],\n  \"default\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bc90033-c98c-4b42-b808-2ecd2da1bdd5",
+          "name": "List ticket forms",
+          "request": {
+            "name": "List ticket forms",
+            "description": {
+              "content": "Returns list of ticket forms with their fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "ticket-form"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f85869fb-d154-4e77-a4e7-264d8942d732",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "ticket-form"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 323,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"endUserTitle\": \"string\",\n    \"content\": {\n      \"fields\": [\n        4653,\n        9521\n      ],\n      \"timerSettings\": {\n        \"enabled\": false,\n        \"mode\": \"MANUAL\"\n      }\n    },\n    \"active\": false,\n    \"createTime\": 3619.55389947626,\n    \"updateTime\": 8504.585887504818,\n    \"fields\": [\n      {\n        \"id\": 629,\n        \"attributeType\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"customizeForEndUser\": true,\n        \"nameForEndUser\": \"string\",\n        \"descriptionForEndUser\": \"string\",\n        \"endUserOption\": \"string\",\n        \"technicianOption\": \"string\",\n        \"content\": {\n          \"customizeForEndUser\": true,\n          \"endUserCustomization\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"system\": false,\n        \"active\": false,\n        \"createTime\": 7618.653740378152,\n        \"updateTime\": 1321.4501691779324\n      },\n      {\n        \"id\": 4931,\n        \"attributeType\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"customizeForEndUser\": true,\n        \"nameForEndUser\": \"string\",\n        \"descriptionForEndUser\": \"string\",\n        \"endUserOption\": \"string\",\n        \"technicianOption\": \"string\",\n        \"content\": {\n          \"customizeForEndUser\": true,\n          \"endUserCustomization\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"system\": true,\n        \"active\": true,\n        \"createTime\": 2918.217753984629,\n        \"updateTime\": 429.10717784213625\n      }\n    ],\n    \"default\": false\n  },\n  {\n    \"id\": 4149,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"endUserTitle\": \"string\",\n    \"content\": {\n      \"fields\": [\n        486,\n        3849\n      ],\n      \"timerSettings\": {\n        \"enabled\": true,\n        \"mode\": \"AUTO_START\"\n      }\n    },\n    \"active\": true,\n    \"createTime\": 52.43803141898984,\n    \"updateTime\": 2289.9804136750913,\n    \"fields\": [\n      {\n        \"id\": 8584,\n        \"attributeType\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"customizeForEndUser\": false,\n        \"nameForEndUser\": \"string\",\n        \"descriptionForEndUser\": \"string\",\n        \"endUserOption\": \"string\",\n        \"technicianOption\": \"string\",\n        \"content\": {\n          \"customizeForEndUser\": false,\n          \"endUserCustomization\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"system\": false,\n        \"active\": false,\n        \"createTime\": 2302.181147392445,\n        \"updateTime\": 3075.938401305579\n      },\n      {\n        \"id\": 1045,\n        \"attributeType\": \"string\",\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"customizeForEndUser\": true,\n        \"nameForEndUser\": \"string\",\n        \"descriptionForEndUser\": \"string\",\n        \"endUserOption\": \"string\",\n        \"technicianOption\": \"string\",\n        \"content\": {\n          \"customizeForEndUser\": false,\n          \"endUserCustomization\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"system\": true,\n        \"active\": true,\n        \"createTime\": 1270.4342267726565,\n        \"updateTime\": 959.871498001954\n      }\n    ],\n    \"default\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "135b4f81-7e3d-4d20-9e8f-9e0ac4518cd2",
+          "name": "Get list of ticket status",
+          "request": {
+            "name": "Get list of ticket status",
+            "description": {
+              "content": "Get list of ticket status ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b865a04-d2bd-414f-ae4a-8ad7f390a70b",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"displayName\": \"string\",\n    \"parentId\": 6015,\n    \"statusId\": 8440\n  },\n  {\n    \"name\": \"string\",\n    \"displayName\": \"string\",\n    \"parentId\": 441,\n    \"statusId\": 4043\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4ef1fea-446a-448e-9881-d6024340245b",
+          "name": "List boards",
+          "request": {
+            "name": "List boards",
+            "description": {
+              "content": "Returns list of ticketing boards",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "trigger",
+                "boards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68fb0928-9ec0-4be6-874b-f371c602a0cd",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "trigger",
+                    "boards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3892,\n    \"uid\": \"6fb7288e-65db-8f65-8cbb-1d0f59fc3f47\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"conditions\": {\n      \"any\": [\n        {\n          \"field\": \"string\",\n          \"operator\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"all\": [\n        {\n          \"field\": \"string\",\n          \"operator\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    \"createTime\": 4395.351086815736,\n    \"updateTime\": 9358.176532859654,\n    \"system\": false,\n    \"columns\": [\n      \"string\"\n    ],\n    \"sortBy\": [\n      {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {},\n        \"key_3\": {}\n      }\n    ],\n    \"ticketCount\": 4687\n  },\n  {\n    \"id\": 6470,\n    \"uid\": \"4c5a9f34-6b13-467a-abbe-e523196d2c4c\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"conditions\": {\n      \"any\": [\n        {\n          \"field\": \"string\",\n          \"operator\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"all\": [\n        {\n          \"field\": \"string\",\n          \"operator\": \"string\",\n          \"value\": \"string\"\n        }\n      ]\n    },\n    \"createTime\": 2241.6609994622595,\n    \"updateTime\": 2378.9909718647427,\n    \"system\": true,\n    \"columns\": [\n      \"string\"\n    ],\n    \"sortBy\": [\n      {\n        \"key_0\": {}\n      },\n      {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    ],\n    \"ticketCount\": 5946\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d5cd9cd-f583-482f-a01a-582a616937b1",
+          "name": "List of tickets for board",
+          "request": {
+            "name": "List of tickets for board",
+            "description": {
+              "content": "Run a board. Returns list of tickets matching the board condition and filters. Allows pagination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "trigger",
+                "board",
+                ":boardId",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "boardId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sortBy\": [\n    {\n      \"field\": \"<string>\",\n      \"direction\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"direction\": \"<string>\"\n    }\n  ],\n  \"filters\": [\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"pageSize\": \"<integer>\",\n  \"searchCriteria\": \"<string>\",\n  \"includeColumns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"lastCursorId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebe0105c-1802-4611-8460-38a74bf8e79a",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "trigger",
+                    "board",
+                    ":boardId",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "boardId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sortBy\": [\n    {\n      \"field\": \"<string>\",\n      \"direction\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"direction\": \"<string>\"\n    }\n  ],\n  \"filters\": [\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"pageSize\": \"<integer>\",\n  \"searchCriteria\": \"<string>\",\n  \"includeColumns\": [\n    \"<string>\"\n  ],\n  \"lastCursorId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"key_0\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"metadata\": {\n    \"columns\": [\n      \"string\"\n    ],\n    \"sortBy\": [\n      {\n        \"field\": \"<string>\",\n        \"direction\": \"<string>\"\n      },\n      {\n        \"field\": \"<string>\",\n        \"direction\": \"<string>\"\n      }\n    ],\n    \"attributes\": {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"type\": \"IP_ADDRESS\"\n      },\n      \"key_1\": {\n        \"name\": \"string\",\n        \"type\": \"PHONE\"\n      },\n      \"key_2\": {\n        \"name\": \"string\",\n        \"type\": \"CLIENT_DOCUMENT_DROPDOWN\"\n      },\n      \"key_3\": {\n        \"name\": \"string\",\n        \"type\": \"ATTACHMENT\"\n      }\n    },\n    \"filters\": [\n      {\n        \"field\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"allRequiredColumns\": [\n      \"string\"\n    ],\n    \"allColumns\": [\n      \"string\"\n    ],\n    \"columnNamesForExporting\": [\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a345de5-cadc-4e67-8750-5220a7a9e2a3",
+          "name": "List of users by user type",
+          "request": {
+            "name": "List of users by user type",
+            "description": {
+              "content": "Returns list of users (contacts, end-user, technician)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "ticketing",
+                "app-user-contact"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "50",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "anchorNaturalId",
+                  "value": "0",
+                  "description": "Last User Identifier from previous page"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchCriteria",
+                  "value": "<string>",
+                  "description": "Search by first name, last name or email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "userType",
+                  "value": "<string>",
+                  "description": "User Type"
+                },
+                {
+                  "disabled": false,
+                  "key": "clientId",
+                  "value": "<integer>",
+                  "description": "Organization identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11da3623-535d-48e4-b606-469887e7dff1",
+              "name": "Returns a list of all users and contacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "ticketing",
+                    "app-user-contact"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "anchorNaturalId",
+                      "value": "0"
+                    },
+                    {
+                      "key": "searchCriteria",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "clientId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uid\": \"15ed4e38-497b-030d-2caa-9a4e9085f803\",\n    \"id\": 997,\n    \"clientId\": 782,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"userType\": \"END_USER\",\n    \"naturalId\": \"string\"\n  },\n  {\n    \"uid\": \"622e1ca5-ae5c-9b02-4e4d-4dd94a2d7407\",\n    \"id\": 7653,\n    \"clientId\": 8654,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"email\": \"string\",\n    \"userType\": \"END_USER\",\n    \"naturalId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b74e1424-3de5-4e56-90e6-867d2c007620",
+    "name": "NinjaOne Public API 2.0 Asset Tags ticketing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

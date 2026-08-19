@@ -1,0 +1,202 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags organization API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Organization locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/locations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of locations for organization"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/end-users",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeRoles",
+                "value": "",
+                "type": "query",
+                "description": "Includes user role information"
+              }
+            ]
+          },
+          "docs": "Returns list of end-users for organization"
+        },
+        {
+          "info": {
+            "name": "Organization location backup usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/locations/:locationId/backup/usage",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "Location identifier"
+              }
+            ]
+          },
+          "docs": "Returns a location backup usage"
+        },
+        {
+          "info": {
+            "name": "Organization custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of organization custom fields"
+        },
+        {
+          "info": {
+            "name": "Update Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/organization/:id/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update organization custom field values"
+        },
+        {
+          "info": {
+            "name": "Organization information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "Returns organization details (policy mappings, locations)"
+        },
+        {
+          "info": {
+            "name": "Organization devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/devices",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of devices to return"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Last Node ID from previous page"
+              }
+            ]
+          },
+          "docs": "Returns list of devices for organization"
+        },
+        {
+          "info": {
+            "name": "Organization locations backup usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/locations/backup/usage",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "Returns a list of locations backup usage"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

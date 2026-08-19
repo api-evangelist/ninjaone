@@ -1,0 +1,1319 @@
+{
+  "item": [
+    {
+      "id": "6f2493f1-846c-4f8b-a31e-485ed89a8211",
+      "name": "Related Items",
+      "description": {
+        "content": "Related Items",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4528833e-73a8-47df-88bf-cccb8846c578",
+          "name": "Create Attachment Relation",
+          "request": {
+            "name": "Create Attachment Relation",
+            "description": {
+              "content": "Relate an attachment to an entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "entity",
+                ":entityType",
+                ":entityId",
+                "attachment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "value": "{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"fileName\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"creationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"modificationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"readDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"size\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"entity\":\"<object>\",\"headers\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_3\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_2\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_3\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]}},{\"contentDisposition\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"fileName\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"creationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"modificationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"readDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"size\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"entity\":\"<object>\",\"headers\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}]}}",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b3997c4f-1887-48b6-8401-b86f8bebaa3b",
+              "name": "Returns the attachment related item created for an entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "entity",
+                    ":entityType",
+                    ":entityId",
+                    "attachment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"contentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\"},\"entity\":\"<object>\",\"headers\":{\"key_0\":[\"<string>\",\"<string>\"],\"key_1\":[\"<string>\",\"<string>\"],\"key_2\":[\"<string>\",\"<string>\"],\"key_3\":[\"<string>\",\"<string>\"]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"bodyParts\":[{\"contentDisposition\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"fileName\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"creationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"modificationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"readDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"size\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"entity\":\"<object>\",\"headers\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_2\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_2\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_3\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]}},{\"contentDisposition\":{\"type\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"parameters\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"fileName\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"creationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"modificationDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"readDate\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"size\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"entity\":\"<object>\",\"headers\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_2\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]},\"mediaType\":{\"type\":\"<string>\",\"subtype\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}},\"wildcardType\":\"<boolean>\",\"wildcardSubtype\":\"<boolean>\"},\"messageBodyWorkers\":\"<object>\",\"parent\":{\"value\":\"<Circular reference to #/components/schemas/MultiPart detected>\"},\"providers\":\"<object>\",\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}],\"key_1\":[{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}]}}],\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_1\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"key_2\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":{\"value\":\"<Error: Too many levels of nesting to fake this schema>\"}}}]}},\"providers\":\"<object>\",\"simple\":\"<boolean>\",\"name\":\"<string>\",\"value\":\"<string>\",\"formDataContentDisposition\":{\"type\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"fileName\":\"<string>\",\"creationDate\":\"<dateTime>\",\"modificationDate\":\"<dateTime>\",\"readDate\":\"<dateTime>\",\"size\":\"<long>\",\"name\":\"<string>\"},\"parameterizedHeaders\":{\"key_0\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}],\"key_1\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}],\"key_2\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}}],\"key_3\":[{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\"}},{\"value\":\"<string>\",\"parameters\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\",\"key_2\":\"<string>\",\"key_3\":\"<string>\"}}]}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3634,\n  \"type\": \"ENTITY\",\n  \"entity\": {},\n  \"entityId\": 6616,\n  \"entityType\": \"KB_DOCUMENT\",\n  \"relEntity\": {},\n  \"relEntityId\": 1886,\n  \"relEntityType\": \"SECURE\",\n  \"value\": {},\n  \"createTime\": 4460.5776371219345,\n  \"updateTime\": 4940.819116226089,\n  \"createdByAppUserId\": 2295,\n  \"updatedByAppUserId\": 4091\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f085ec8-a3f4-4497-903e-d1de91fd571e",
+          "name": "Create entity relation",
+          "request": {
+            "name": "Create entity relation",
+            "description": {
+              "content": "Create a relation between two entities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "entity",
+                ":entityType",
+                ":entityId",
+                "relation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"relEntityType\": \"<string>\",\n  \"relEntityId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00a90241-4248-44b5-9f13-d62b06996dd3",
+              "name": "Returns the relation created for an entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "entity",
+                    ":entityType",
+                    ":entityId",
+                    "relation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"relEntityType\": \"<string>\",\n  \"relEntityId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3634,\n  \"type\": \"ENTITY\",\n  \"entity\": {},\n  \"entityId\": 6616,\n  \"entityType\": \"KB_DOCUMENT\",\n  \"relEntity\": {},\n  \"relEntityId\": 1886,\n  \"relEntityType\": \"SECURE\",\n  \"value\": {},\n  \"createTime\": 4460.5776371219345,\n  \"updateTime\": 4940.819116226089,\n  \"createdByAppUserId\": 2295,\n  \"updatedByAppUserId\": 4091\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "610c0ea9-9824-46f3-9627-4edf98733912",
+          "name": "Create entity relations",
+          "request": {
+            "name": "Create entity relations",
+            "description": {
+              "content": "Create multiple relations between two entities",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "entity",
+                ":entityType",
+                ":entityId",
+                "relations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"relEntityType\": \"<string>\",\n    \"relEntityId\": \"<integer>\"\n  },\n  {\n    \"relEntityType\": \"<string>\",\n    \"relEntityId\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ed7e1dc-8283-4eac-bb28-1af0899374f9",
+              "name": "Returns list of relations created for an entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "entity",
+                    ":entityType",
+                    ":entityId",
+                    "relations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"relEntityType\": \"<string>\",\n    \"relEntityId\": \"<integer>\"\n  },\n  {\n    \"relEntityType\": \"<string>\",\n    \"relEntityId\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16266837-ae9d-4229-a6f7-f0422ebfa1fd",
+          "name": "Create Secure Relation",
+          "request": {
+            "name": "Create Secure Relation",
+            "description": {
+              "content": "Create a relation to a secure value",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "entity",
+                ":entityType",
+                ":entityId",
+                "secure"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"totpSecret\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d0df63ae-c91d-4108-8e7e-4ac33db823ea",
+              "name": "Returns the secure related item created for an entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "entity",
+                    ":entityType",
+                    ":entityId",
+                    "secure"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"url\": \"<string>\",\n  \"notes\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"totpSecret\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3634,\n  \"type\": \"ENTITY\",\n  \"entity\": {},\n  \"entityId\": 6616,\n  \"entityType\": \"KB_DOCUMENT\",\n  \"relEntity\": {},\n  \"relEntityId\": 1886,\n  \"relEntityType\": \"SECURE\",\n  \"value\": {},\n  \"createTime\": 4460.5776371219345,\n  \"updateTime\": 4940.819116226089,\n  \"createdByAppUserId\": 2295,\n  \"updatedByAppUserId\": 4091\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6403c692-17c8-4a2b-8ab4-8423cc3e3b71",
+          "name": "Delete related item",
+          "request": {
+            "name": "Delete related item",
+            "description": {
+              "content": "Deletes related item",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                ":relatedItemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "relatedItemId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e32ed0f-53a6-49a3-84f8-739b3d289ff1",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    ":relatedItemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "relatedItemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54cdfe30-9125-4592-990c-6261aa74a915",
+          "name": "Delete related items",
+          "request": {
+            "name": "Delete related items",
+            "description": {
+              "content": "Deletes related items associated with an entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                ":entityType",
+                ":entityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7983ae4-b823-431b-b9ca-77b81e0b51f8",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    ":entityType",
+                    ":entityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "548e4de6-4aa4-4c0d-9c2c-17377b420c78",
+          "name": "List all related items",
+          "request": {
+            "name": "List all related items",
+            "description": {
+              "content": "List all related items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc397dfb-c56f-49bc-b29f-1f011655375d",
+              "name": "Returns a list of all related items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d511f459-2f49-43a3-bff3-40c458b45b6d",
+          "name": "List host entity related items by scope",
+          "request": {
+            "name": "List host entity related items by scope",
+            "description": {
+              "content": "List related items for a specific host entity filterable by scope",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "with-entity",
+                ":entityType",
+                ":entityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "entityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fe50117-f884-4cf4-821f-0f979dadde36",
+              "name": "Returns list of the related items for an entity filterable by scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "with-entity",
+                    ":entityType",
+                    ":entityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "entityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c1afb39-1caa-4e46-a578-d7f596205bdb",
+          "name": "List related entity related items",
+          "request": {
+            "name": "List related entity related items",
+            "description": {
+              "content": "List related items for a specific related entity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "with-related-entity",
+                ":relEntityType",
+                ":relEntityId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "relEntityType",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "relEntityId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfe198d9-e3af-47f0-935d-a34995afa68b",
+              "name": "Returns list of the related items for a specific related entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "with-related-entity",
+                    ":relEntityType",
+                    ":relEntityId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "relEntityType",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "relEntityId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92c27900-7fd4-4a4d-9867-22304166bcac",
+          "name": "List related entity type related items",
+          "request": {
+            "name": "List related entity type related items",
+            "description": {
+              "content": "List related entities for a related entity type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "with-related-entity-type",
+                ":relatedEntityType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "relatedEntityType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d361549b-0957-44b4-837c-2f2a7a6d7f5c",
+              "name": "Returns list of references for a related entity type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "with-related-entity-type",
+                    ":relatedEntityType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "relatedEntityType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9a4ec24-e3a5-49f7-a462-92b524f11ca0",
+          "name": "List host entity type related items",
+          "request": {
+            "name": "List host entity type related items",
+            "description": {
+              "content": "List relations and references for a host entity type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "related-items",
+                "with-entity-type",
+                ":entityType"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entityType",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab1fced9-d122-4159-865b-d45b104d3b33",
+              "name": "Returns a list of relations and references for an entity type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "related-items",
+                    "with-entity-type",
+                    ":entityType"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entityType",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8197,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 7254,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 3013,\n    \"relEntityType\": \"CONTACT\",\n    \"value\": {},\n    \"createTime\": 8188.633804187793,\n    \"updateTime\": 5594.735558590573,\n    \"createdByAppUserId\": 471,\n    \"updatedByAppUserId\": 3959\n  },\n  {\n    \"id\": 5946,\n    \"type\": \"VALUE\",\n    \"entity\": {},\n    \"entityId\": 4731,\n    \"entityType\": \"CHECKLIST\",\n    \"relEntity\": {},\n    \"relEntityId\": 7026,\n    \"relEntityType\": \"KB_DOCUMENT\",\n    \"value\": {},\n    \"createTime\": 641.539079955632,\n    \"updateTime\": 2072.5782114789436,\n    \"createdByAppUserId\": 6640,\n    \"updatedByAppUserId\": 158\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ead11723-3bf2-48a5-b2f8-cde3e931681c",
+    "name": "NinjaOne Public API 2.0 Asset Tags Related Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

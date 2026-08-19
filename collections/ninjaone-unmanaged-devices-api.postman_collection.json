@@ -1,0 +1,455 @@
+{
+  "item": [
+    {
+      "id": "909fd3d5-8d11-4e79-8f55-36f972eda576",
+      "name": "Unmanaged Devices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b301429-3e14-4692-84a8-ee63e9ab5639",
+          "name": "Create an Unmanaged Device",
+          "request": {
+            "name": "Create an Unmanaged Device",
+            "description": {
+              "content": "Create an Unmanaged Device with the provided details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "itam",
+                "unmanaged-device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"orgId\": \"<integer>\",\n  \"roleId\": \"<integer>\",\n  \"serialNumber\": \"<string>\",\n  \"assignedUserUid\": \"<uuid>\",\n  \"warrantyStartDate\": \"<double>\",\n  \"warrantyEndDate\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a5c95e2b-a894-4ca7-9532-c4d44c8a3eab",
+              "name": "The id of the Unmanaged Device that was created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "itam",
+                    "unmanaged-device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"orgId\": \"<integer>\",\n  \"roleId\": \"<integer>\",\n  \"serialNumber\": \"<string>\",\n  \"assignedUserUid\": \"<uuid>\",\n  \"warrantyStartDate\": \"<double>\",\n  \"warrantyEndDate\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nodeId\": 9836\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49173dbb-566e-4000-96f6-ada40363e1e1",
+          "name": "Update an Unmanaged Device",
+          "request": {
+            "name": "Update an Unmanaged Device",
+            "description": {
+              "content": "Update an Unmanaged Device with the provided details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "itam",
+                "unmanaged-device",
+                ":nodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "nodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"orgId\": \"<integer>\",\n  \"serialNumber\": \"<string>\",\n  \"assignedUserUid\": \"<uuid>\",\n  \"warrantyStartDate\": \"<double>\",\n  \"warrantyEndDate\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da75e61d-e07c-48a5-8f92-51be76119ea0",
+              "name": "The Unmanaged Device was successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "itam",
+                    "unmanaged-device",
+                    ":nodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "nodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"orgId\": \"<integer>\",\n  \"serialNumber\": \"<string>\",\n  \"assignedUserUid\": \"<uuid>\",\n  \"warrantyStartDate\": \"<double>\",\n  \"warrantyEndDate\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43893663-8a2c-4372-82cb-b7d8276b7e37",
+              "name": "An Unmanaged Device with the provided nodeId was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "itam",
+                    "unmanaged-device",
+                    ":nodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "nodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"orgId\": \"<integer>\",\n  \"serialNumber\": \"<string>\",\n  \"assignedUserUid\": \"<uuid>\",\n  \"warrantyStartDate\": \"<double>\",\n  \"warrantyEndDate\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23862b4e-ccca-4dda-ae46-5e1f851397ec",
+          "name": "Delete an Unmanaged Device",
+          "request": {
+            "name": "Delete an Unmanaged Device",
+            "description": {
+              "content": "Delete an Unmanaged Device with the provided id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "itam",
+                "unmanaged-device",
+                ":nodeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "nodeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "819e2b8d-c5c3-46f7-b008-3231eaa98625",
+              "name": "The Unmanaged Device was successfully deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "itam",
+                    "unmanaged-device",
+                    ":nodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "nodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a9488bf-c004-4b7c-9d86-f871aab6ee75",
+              "name": "An Unmanaged Device with the provided nodeId was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "itam",
+                    "unmanaged-device",
+                    ":nodeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "nodeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e517d2b1-0c07-4066-bd99-c38b775e91ac",
+    "name": "NinjaOne Public API 2.0 Asset Tags Unmanaged Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

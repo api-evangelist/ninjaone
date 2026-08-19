@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags groups API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Group members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/group/:id/device-ids",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of device identifiers that match group criteria"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

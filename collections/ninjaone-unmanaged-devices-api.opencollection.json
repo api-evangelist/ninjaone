@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Unmanaged Devices API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Unmanaged Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an Unmanaged Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/itam/unmanaged-device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Unmanaged Device with the provided details"
+        },
+        {
+          "info": {
+            "name": "Update an Unmanaged Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/itam/unmanaged-device/:nodeId",
+            "params": [
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Unmanaged Device with the provided details"
+        },
+        {
+          "info": {
+            "name": "Delete an Unmanaged Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/itam/unmanaged-device/:nodeId",
+            "params": [
+              {
+                "name": "nodeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Unmanaged Device with the provided id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,577 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags system API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "system",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Contact list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/contacts"
+          },
+          "docs": "Get all contacts"
+        },
+        {
+          "info": {
+            "name": "Contact details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Contact identifier"
+              }
+            ]
+          },
+          "docs": "Get a contact by their ID"
+        },
+        {
+          "info": {
+            "name": "List organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organizations",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of organizations to return"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Last Organization Identifier from previous page"
+              },
+              {
+                "name": "of",
+                "value": "",
+                "type": "query",
+                "description": "Organization filter"
+              }
+            ]
+          },
+          "docs": "Returns list of organizations (Brief mode)"
+        },
+        {
+          "info": {
+            "name": "List policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/policies"
+          },
+          "docs": "Returns list of policies"
+        },
+        {
+          "info": {
+            "name": "List active jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/jobs",
+            "params": [
+              {
+                "name": "jobType",
+                "value": "",
+                "type": "query",
+                "description": "Job Type filter"
+              },
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language tag"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              }
+            ]
+          },
+          "docs": "Returns list of running jobs"
+        },
+        {
+          "info": {
+            "name": "List activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/activities",
+            "params": [
+              {
+                "name": "class",
+                "value": "",
+                "type": "query",
+                "description": "Activity Class (System/Device) filter"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded prior to specified date"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded after to specified date"
+              },
+              {
+                "name": "olderThan",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded that are newer than specified activity ID"
+              },
+              {
+                "name": "newerThan",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded that are older than specified activity ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Return activities of type"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Return activities with status(es)"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query",
+                "description": "Return activities for user(s)"
+              },
+              {
+                "name": "seriesUid",
+                "value": "",
+                "type": "query",
+                "description": "Return activities related to alert (series)"
+              },
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of activities to return"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language tag"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              },
+              {
+                "name": "sourceConfigUid",
+                "value": "",
+                "type": "query",
+                "description": "Allows users to make a request directed to a specific script"
+              }
+            ]
+          },
+          "docs": "Returns activity log in reverse chronological order"
+        },
+        {
+          "info": {
+            "name": "List active alerts (triggered conditions)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/alerts",
+            "params": [
+              {
+                "name": "sourceType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language tag"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              }
+            ]
+          },
+          "docs": "Returns list of active alerts/triggered conditions"
+        },
+        {
+          "info": {
+            "name": "List all available automation scripts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/automation/scripts",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language"
+              }
+            ]
+          },
+          "docs": "Returns list of all available automation scripts"
+        },
+        {
+          "info": {
+            "name": "Device Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device-custom-fields",
+            "params": [
+              {
+                "name": "scopes",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of scopes"
+              }
+            ]
+          },
+          "docs": "Returns list of all custom fields"
+        },
+        {
+          "info": {
+            "name": "List devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/devices",
+            "params": [
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of devices to return"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Last Node ID from previous page"
+              }
+            ]
+          },
+          "docs": "Returns list of devices (basic node information)"
+        },
+        {
+          "info": {
+            "name": "List devices (detailed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/devices-detailed",
+            "params": [
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns list of devices with additional information"
+        },
+        {
+          "info": {
+            "name": "List enabled notification channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/notification-channels/enabled"
+          },
+          "docs": "Returns list of enabled notification channels"
+        },
+        {
+          "info": {
+            "name": "List groups (saved searches)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/groups"
+          },
+          "docs": "Returns list of groups"
+        },
+        {
+          "info": {
+            "name": "List locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/locations",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of locations to return"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Last Location Identifier from previous page"
+              }
+            ]
+          },
+          "docs": "Returns flat list of all locations for all organizations"
+        },
+        {
+          "info": {
+            "name": "List device roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/roles"
+          },
+          "docs": "Returns list of device roles"
+        },
+        {
+          "info": {
+            "name": "List notification channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/notification-channels"
+          },
+          "docs": "Returns list of notification channels"
+        },
+        {
+          "info": {
+            "name": "List organizations (Detailed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organizations-detailed",
+            "params": [
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of organizations to return"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Last Organization Identifier from previous page"
+              },
+              {
+                "name": "of",
+                "value": "",
+                "type": "query",
+                "description": "Organization filter"
+              }
+            ]
+          },
+          "docs": "Returns list of organizations with locations and policy mappings"
+        },
+        {
+          "info": {
+            "name": "List scheduled tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tasks"
+          },
+          "docs": "Returns list of registered scheduled tasks"
+        },
+        {
+          "info": {
+            "name": "List supported 3rd party software",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/software-products"
+          },
+          "docs": "Returns available software products (3rd party patching)"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/users",
+            "params": [
+              {
+                "name": "userType",
+                "value": "",
+                "type": "query",
+                "description": "User type filter"
+              },
+              {
+                "name": "includeRoles",
+                "value": "",
+                "type": "query",
+                "description": "Includes user role information"
+              }
+            ]
+          },
+          "docs": "Returns list of users"
+        },
+        {
+          "info": {
+            "name": "Find devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/devices/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search query (name, logged on user name, IP address, etc.)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of devices to return"
+              }
+            ]
+          },
+          "docs": "Returns list of entities matching search term"
+        },
+        {
+          "info": {
+            "name": "End user list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/user/end-users"
+          },
+          "docs": "Get all end users"
+        },
+        {
+          "info": {
+            "name": "Technicians list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/user/technicians"
+          },
+          "docs": "Get all technicians"
+        },
+        {
+          "info": {
+            "name": "Get user roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/user/roles",
+            "params": [
+              {
+                "name": "roleType",
+                "value": "",
+                "type": "query",
+                "description": "User role type filter"
+              }
+            ]
+          },
+          "docs": "Get list of user roles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

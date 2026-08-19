@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Organization Checklists API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization Checklists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archive multiple organization checklists"
+        },
+        {
+          "info": {
+            "name": "List client checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/checklists",
+            "params": [
+              {
+                "name": "checklistIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "organizationIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checklistName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "assignedToUserId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "completed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "required",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List client checklists with given criteria"
+        },
+        {
+          "info": {
+            "name": "Create organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/checklists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple organization checklists"
+        },
+        {
+          "info": {
+            "name": "Update organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/organization/checklists",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates multiple organization checklists"
+        },
+        {
+          "info": {
+            "name": "Create organization checklists from templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/:organizationId/checklists-from-templates",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple organization checklists from templates"
+        },
+        {
+          "info": {
+            "name": "Get client checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/checklist/:checklistId",
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a client checklist by id"
+        },
+        {
+          "info": {
+            "name": "Delete an organization checklist",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/organization/checklist/:checklistId",
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an organization checklist by id"
+        },
+        {
+          "info": {
+            "name": "Delete organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/checklists/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes organization checklists by id"
+        },
+        {
+          "info": {
+            "name": "Get organization checklist signed urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/checklist/:checklistId/signed-urls",
+            "params": [
+              {
+                "name": "checklistId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get organization checklist signed urls"
+        },
+        {
+          "info": {
+            "name": "Promote organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/checklists/promote-with-name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Promote organization checklists by id"
+        },
+        {
+          "info": {
+            "name": "Promote organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/checklists/promote",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Promote organization checklists by id"
+        },
+        {
+          "info": {
+            "name": "Restore organization checklists",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restore multiple organization checklists"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

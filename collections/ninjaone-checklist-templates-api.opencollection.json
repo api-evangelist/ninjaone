@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Checklist Templates API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checklist Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive a checklist template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/checklist/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archive a checklist template by id"
+        },
+        {
+          "info": {
+            "name": "List checklist templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/checklist/templates",
+            "params": [
+              {
+                "name": "checklistTemplateIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checklistTemplateName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "required",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List checklists templates with given criteria"
+        },
+        {
+          "info": {
+            "name": "Create checklist templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/checklist/templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates multiple checklist templates"
+        },
+        {
+          "info": {
+            "name": "Update checklist templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/checklist/templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates multiple checklist templates"
+        },
+        {
+          "info": {
+            "name": "Delete a checklist template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/checklist/template/:checklistTemplateId",
+            "params": [
+              {
+                "name": "checklistTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a checklist template by id"
+        },
+        {
+          "info": {
+            "name": "Delete checklist templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/checklist/templates/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes checklist templates by id"
+        },
+        {
+          "info": {
+            "name": "Restore a checklist template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/checklist/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restore a checklist template by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

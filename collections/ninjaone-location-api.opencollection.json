@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Location API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Location custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/location/:locationId/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "withInheritance",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve values using definition scope hierarchy"
+              }
+            ]
+          },
+          "docs": "Returns list of location custom fields"
+        },
+        {
+          "info": {
+            "name": "Update Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/organization/:id/location/:locationId/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update location custom field values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

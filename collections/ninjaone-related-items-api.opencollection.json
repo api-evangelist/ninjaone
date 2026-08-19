@@ -1,0 +1,277 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Related Items API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Related Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Attachment Relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/related-items/entity/:entityType/:entityId/attachment",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Relate an attachment to an entity"
+        },
+        {
+          "info": {
+            "name": "Create entity relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/related-items/entity/:entityType/:entityId/relation",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a relation between two entities"
+        },
+        {
+          "info": {
+            "name": "Create entity relations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/related-items/entity/:entityType/:entityId/relations",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create multiple relations between two entities"
+        },
+        {
+          "info": {
+            "name": "Create Secure Relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/related-items/entity/:entityType/:entityId/secure",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a relation to a secure value"
+        },
+        {
+          "info": {
+            "name": "Delete related item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/related-items/:relatedItemId",
+            "params": [
+              {
+                "name": "relatedItemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes related item"
+        },
+        {
+          "info": {
+            "name": "Delete related items",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/related-items/:entityType/:entityId",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes related items associated with an entity"
+        },
+        {
+          "info": {
+            "name": "List all related items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items"
+          },
+          "docs": "List all related items"
+        },
+        {
+          "info": {
+            "name": "List host entity related items by scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/with-entity/:entityType/:entityId",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List related items for a specific host entity filterable by scope"
+        },
+        {
+          "info": {
+            "name": "List related entity related items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/with-related-entity/:relEntityType/:relEntityId",
+            "params": [
+              {
+                "name": "relEntityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relEntityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List related items for a specific related entity"
+        },
+        {
+          "info": {
+            "name": "List related entity type related items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/with-related-entity-type/:relatedEntityType",
+            "params": [
+              {
+                "name": "relatedEntityType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List related entities for a related entity type"
+        },
+        {
+          "info": {
+            "name": "List host entity type related items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/with-entity-type/:entityType",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List relations and references for a host entity type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

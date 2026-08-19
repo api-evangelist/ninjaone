@@ -1,0 +1,1897 @@
+{
+  "item": [
+    {
+      "id": "f1cfc938-c993-47ee-ad3c-092f383c0c90",
+      "name": "Custom Tabs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "543d2876-baef-4cdb-b0a4-0daaa491ceb6",
+          "name": "Create a new Custom Tab",
+          "request": {
+            "name": "Create a new Custom Tab",
+            "description": {
+              "content": "Create a Custom Tab with the provided details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"entityType\": \"<string>\",\n  \"entityId\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    },\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    }\n  ],\n  \"position\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "770cfb9a-f755-4fa1-8be4-d7286c62e966",
+              "name": "The Custom Tab that was created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"entityType\": \"<string>\",\n  \"entityId\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    },\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    }\n  ],\n  \"position\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"default\": true,\n  \"id\": 4252,\n  \"name\": \"string\",\n  \"entityType\": \"END_USER\",\n  \"entityId\": 6726,\n  \"parentTabId\": 6533,\n  \"items\": [\n    {\n      \"id\": 3266,\n      \"name\": \"string\",\n      \"fieldName\": \"string\",\n      \"description\": \"string\",\n      \"entityType\": \"TICKET\",\n      \"attributeType\": \"TEXT_MULTILINE\",\n      \"attributeScope\": \"NODE_ROLE\",\n      \"definitionScope\": [\n        \"END_USER\",\n        \"NODE\"\n      ],\n      \"technicianPermission\": \"NONE\",\n      \"scriptPermission\": \"READ_WRITE\",\n      \"apiPermission\": \"WRITE_ONLY\",\n      \"defaultValue\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": true,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"dff46138-f993-a320-4e20-b60380dff9e6\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          },\n          {\n            \"id\": \"122356aa-089a-cc59-3a23-138386c75c09\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 6983,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 6784,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            9405,\n            7133\n          ],\n          \"nodeClass\": [\n            \"LINUX_WORKSTATION\",\n            \"ANDROID\"\n          ],\n          \"ipAddressType\": \"ALL\",\n          \"expandLargeValueOnRender\": false\n        }\n      },\n      \"active\": true,\n      \"createTime\": 3223.8637973697682,\n      \"updateTime\": 2227.7760378228704,\n      \"uiElementUid\": \"64b2864f-ab76-b65d-cde5-b4c68d54c415\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"uiElementCreateTime\": 2121.651439086585,\n      \"uiElementUpdateTime\": 8665.3136573679\n    },\n    {\n      \"id\": 1241,\n      \"name\": \"string\",\n      \"fieldName\": \"string\",\n      \"description\": \"string\",\n      \"entityType\": \"TICKET\",\n      \"attributeType\": \"CLIENT_LOCATION_DROPDOWN\",\n      \"attributeScope\": \"NODE_ROLE\",\n      \"definitionScope\": [\n        \"LOCATION\",\n        \"END_USER\"\n      ],\n      \"technicianPermission\": \"NONE\",\n      \"scriptPermission\": \"NONE\",\n      \"apiPermission\": \"READ_ONLY\",\n      \"defaultValue\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": false,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"49645a8b-6d2e-1ca1-0c69-74a7b67023e5\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": false\n          },\n          {\n            \"id\": \"20b19a32-6ed5-a770-9ff4-70182a4514df\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 1108,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 9854,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            5791,\n            1273\n          ],\n          \"nodeClass\": [\n            \"NMS_SCANNER\",\n            \"NMS_WAP\"\n          ],\n          \"ipAddressType\": \"ALL\",\n          \"expandLargeValueOnRender\": true\n        }\n      },\n      \"active\": true,\n      \"createTime\": 5163.6482995726465,\n      \"updateTime\": 580.4194172737687,\n      \"uiElementUid\": \"afa9f2f3-d59a-d726-7dc1-86b526785967\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"uiElementCreateTime\": 2903.3739524915436,\n      \"uiElementUpdateTime\": 3521.6538613168045\n    }\n  ],\n  \"position\": 8908,\n  \"isDefault\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9961f03-fbc5-4b74-a317-de98b478f417",
+          "name": "Retrieve a Custom Tab",
+          "request": {
+            "name": "Retrieve a Custom Tab",
+            "description": {
+              "content": "Gets a custom tab. NOTE: This will _not_ fetch tab extensions. You must use the GET tab/{tabId}/role/{roleId} for that",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "134b4f62-cabe-4f43-ba47-3f5cbadcd81e",
+              "name": "The Custom Tab that was requested",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"default\": true,\n  \"id\": 7086,\n  \"name\": \"string\",\n  \"entityType\": \"END_USER\",\n  \"entityId\": 5007,\n  \"parentTabId\": 350,\n  \"items\": [\n    {\n      \"id\": 1217,\n      \"name\": \"string\",\n      \"fieldName\": \"string\",\n      \"description\": \"string\",\n      \"entityType\": \"USER\",\n      \"attributeType\": \"PHONE\",\n      \"attributeScope\": \"NODE_ROLE\",\n      \"definitionScope\": [\n        \"LOCATION\",\n        \"END_USER\"\n      ],\n      \"technicianPermission\": \"READ_ONLY\",\n      \"scriptPermission\": \"NONE\",\n      \"apiPermission\": \"READ_ONLY\",\n      \"defaultValue\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": false,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"345d8c24-655e-9ca6-7e9f-abdffb7cd8dc\",\n            \"name\": \"string\",\n            \"active\": false,\n            \"system\": true\n          },\n          {\n            \"id\": \"b449bed6-d3d5-ee65-a66b-667e1c764ff6\",\n            \"name\": \"string\",\n            \"active\": false,\n            \"system\": true\n          }\n        ],\n        \"required\": false,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 1640,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 3338,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            3150,\n            1988\n          ],\n          \"nodeClass\": [\n            \"NMS_PRIVATE_NETWORK_GATEWAY\",\n            \"LINUX_WORKSTATION\"\n          ],\n          \"ipAddressType\": \"IPV6\",\n          \"expandLargeValueOnRender\": false\n        }\n      },\n      \"active\": true,\n      \"createTime\": 9370.342533401981,\n      \"updateTime\": 9357.578413474666,\n      \"uiElementUid\": \"ef1ab231-6472-9d8a-8e1a-c6c4ff7b6138\",\n      \"uiElementType\": \"SEPARATOR\",\n      \"uiElementValue\": \"string\",\n      \"uiElementCreateTime\": 1417.9285612633018,\n      \"uiElementUpdateTime\": 9404.540263080567\n    },\n    {\n      \"id\": 7700,\n      \"name\": \"string\",\n      \"fieldName\": \"string\",\n      \"description\": \"string\",\n      \"entityType\": \"DOCUMENT\",\n      \"attributeType\": \"PHONE\",\n      \"attributeScope\": \"NODE_CLASS\",\n      \"definitionScope\": [\n        \"NODE\",\n        \"LOCATION\"\n      ],\n      \"technicianPermission\": \"EDITABLE\",\n      \"scriptPermission\": \"READ_WRITE\",\n      \"apiPermission\": \"READ_ONLY\",\n      \"defaultValue\": \"string\",\n      \"content\": {\n        \"customizeForEndUser\": false,\n        \"endUserCustomization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"label\": \"string\"\n        },\n        \"values\": [\n          {\n            \"id\": \"fa52ed44-3e30-d66c-6b5d-68ccd676df79\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          },\n          {\n            \"id\": \"d5177f7d-c71d-dbea-b9f5-e8e293ce1cc0\",\n            \"name\": \"string\",\n            \"active\": true,\n            \"system\": true\n          }\n        ],\n        \"required\": false,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": 2919,\n          \"fileExtensions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": 1840,\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            7343,\n            574\n          ],\n          \"nodeClass\": [\n            \"MAC_SERVER\",\n            \"MANAGED_DEVICE\"\n          ],\n          \"ipAddressType\": \"IPV6\",\n          \"expandLargeValueOnRender\": true\n        }\n      },\n      \"active\": true,\n      \"createTime\": 2247.2856422398045,\n      \"updateTime\": 6641.70196935423,\n      \"uiElementUid\": \"2e198074-5484-4525-e696-bb82be007218\",\n      \"uiElementType\": \"SEPARATOR\",\n      \"uiElementValue\": \"string\",\n      \"uiElementCreateTime\": 4891.641654859872,\n      \"uiElementUpdateTime\": 7698.834789621349\n    }\n  ],\n  \"position\": 10,\n  \"isDefault\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec85f965-e64c-4e3e-aa54-afc85b2b2ba7",
+              "name": "No custom tab could be found with that ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23862482-423d-49ce-8dae-e2d04f4b397e",
+          "name": "Delete a Custom Tab",
+          "request": {
+            "name": "Delete a Custom Tab",
+            "description": {
+              "content": "Delete a Custom Tab",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fb73b43-0079-47b0-a944-457d9c9a6cb5",
+              "name": "The Custom Tab was successfully deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c499f12-508e-41c8-ab53-172ac61240a4",
+              "name": "The Custom Tab could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da2748cb-163b-4e56-951f-482aa2f9e0ea",
+          "name": "Update a Custom Tab",
+          "request": {
+            "name": "Update a Custom Tab",
+            "description": {
+              "content": "Update a Custom Tab. This API can be used to either update existing tabs, or create tab 'role extensions' for existing tabs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleId\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    },\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    }\n  ],\n  \"position\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "37ea9218-a694-4cc1-803d-c23c72a916d4",
+              "name": "The Custom Tab was successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    },\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    }\n  ],\n  \"position\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29c0b0af-80c2-4ed7-b79f-98fad40f30af",
+              "name": "The Custom Tab could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleId\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    },\n    {\n      \"itemType\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\",\n      \"uiElementCreateTime\": \"<double>\",\n      \"uiElementUpdateTime\": \"<double>\"\n    }\n  ],\n  \"position\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "236328ba-8b58-4934-a133-5b317e44ad69",
+          "name": "Retrieve the requested tab along with any extensions for end-user tabs",
+          "request": {
+            "name": "Retrieve the requested tab along with any extensions for end-user tabs",
+            "description": {
+              "content": "Retrieve the requested tab along with any extensions for end-user tabs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId",
+                "end-user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b6101b8-5809-47d4-9d0e-936f2cd4fadc",
+              "name": "The Custom Tabs and extensions as viewed by end-user tabs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "end-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3adcc04f-761c-4aef-b4c8-9ace72f14543",
+              "name": "The Custom Tab could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "end-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe122ebe-d72d-4065-8b5e-22ba731a8bae",
+          "name": "Retrieve the requested tab along with any extensions for organization and location tabs",
+          "request": {
+            "name": "Retrieve the requested tab along with any extensions for organization and location tabs",
+            "description": {
+              "content": "Retrieve the requested tab along with any extensions for organization and location tabs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d3e2eb8-f71d-4d7d-a367-23061f436ec5",
+              "name": "The Custom Tabs and extensions as viewed by organization and location tabs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6d6cd13-a7f3-4357-85d1-356c3eff26f3",
+              "name": "The Custom Tab could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bb5354e-4977-4df0-8cde-05760499c30f",
+          "name": "Retrieve the requested tab along with any extensions based on the supplied roleId",
+          "request": {
+            "name": "Retrieve the requested tab along with any extensions based on the supplied roleId",
+            "description": {
+              "content": "Retrieve the requested tab along with any extensions based on the supplied roleId",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                ":tabId",
+                "role",
+                ":roleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tabId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c865ed3-7dee-4f35-8ada-8058c293a813",
+              "name": "The Custom Tabs and extensions as viewed by the specified role",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "role",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "71c415b3-08a8-4490-8138-a55cfde5054f",
+              "name": "The Custom Tab or Role could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    ":tabId",
+                    "role",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tabId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27f1aeb8-4a92-45f4-8c85-b3ea065c028c",
+          "name": "Retrieve all of the custom tabs available to end user views",
+          "request": {
+            "name": "Retrieve all of the custom tabs available to end user views",
+            "description": {
+              "content": "Retrieve a summary of the tabs available to end user views",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "summary",
+                "end-user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e384994-bb85-4ab7-98dd-ee9bf2da8da1",
+              "name": "Returns a list of the available custom tabs available to end user views",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "summary",
+                    "end-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4345b9a4-25d3-4230-a6d0-9563e016d872",
+          "name": "Retrieve all of the custom tabs available to organizations and locations",
+          "request": {
+            "name": "Retrieve all of the custom tabs available to organizations and locations",
+            "description": {
+              "content": "Retrieve a summary of the tabs available to organizations and locations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "summary",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "317e7310-82f1-454f-a616-932b9bab8d6b",
+              "name": "Returns a list of the available custom tabs available to organizations and locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "summary",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7a161f7-37eb-4525-97d1-6cebc953796d",
+          "name": "Retrieve all of the custom tabs that would appear for the given role",
+          "request": {
+            "name": "Retrieve all of the custom tabs that would appear for the given role",
+            "description": {
+              "content": "Retrieve a summary of the tabs available to a given role",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "summary",
+                "role",
+                ":roleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16489a3c-5691-4024-8c38-1484d5e21a4a",
+              "name": "Returns a list of the available custom tabs for the specified role, and the role hierarchy (used for sorting, if desired)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "summary",
+                    "role",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6abcc6f-22e9-4e52-a455-52e82ae25b4e",
+              "name": "The RoleId could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "summary",
+                    "role",
+                    ":roleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd667f95-05dc-4c8f-ac2f-a76047c895aa",
+          "name": "Rename a Custom Tab",
+          "request": {
+            "name": "Rename a Custom Tab",
+            "description": {
+              "content": "Renames a Custom Tab",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "rename"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"tabId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18ca9af9-d596-4d32-b9a4-73f48b96cba7",
+              "name": "The Custom Tab was successfully rename",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "rename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"tabId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e94e92a7-aa94-4c94-b50a-2ea7c1e3d885",
+              "name": "The Custom Tab could not be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "rename"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"tabId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84a7d335-4e37-43ce-888c-c5842e1fc858",
+          "name": "Set the tab visibility of the specified tab",
+          "request": {
+            "name": "Set the tab visibility of the specified tab",
+            "description": {
+              "content": "Using this API it is possible to configure tabs to be hidden for roles and their children",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "role",
+                ":roleId",
+                "visibility"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"hidden\": \"<boolean>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"hidden\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80b14825-aa9e-4c75-8037-ea995f3129d5",
+              "name": "Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated visibility data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "role",
+                    ":roleId",
+                    "visibility"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"hidden\": \"<boolean>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"hidden\": \"<boolean>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6abbe9e3-7fc8-4917-bb5d-0944ad4679d7",
+          "name": "Update the order of custom tabs for end-user tabs",
+          "request": {
+            "name": "Update the order of custom tabs for end-user tabs",
+            "description": {
+              "content": "Update the order of custom tabs for end-user tabs. NOTE: All tabs defined for end-users must be specified in the payload",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "end-user",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "95e49e66-c8f2-40ad-8b24-122acb718043",
+              "name": "Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "end-user",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7fe222a-f45d-4ba1-a6e4-6cf28d4d8736",
+          "name": "Update the order of custom tabs for organizations and locations",
+          "request": {
+            "name": "Update the order of custom tabs for organizations and locations",
+            "description": {
+              "content": "Update the order of custom tabs for organizations and locations. NOTE: All tabs defined for organizations must be specified in the payload",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "organization",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d0b7bf58-ccfe-4d2a-be0e-59965a81e9cd",
+              "name": "Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "organization",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1560e87e-f74e-48a9-8f9e-a7df8d90ebdd",
+          "name": "Update the order of custom tabs for a specific role",
+          "request": {
+            "name": "Update the order of custom tabs for a specific role",
+            "description": {
+              "content": "Update the order of custom tabs for a specific role. NOTE: Only tabs created on this role can be ordered. All tabs defined on the role must be specified in the payload",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "tab",
+                "role",
+                ":roleId",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "roleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "321c5f93-eace-4271-87f4-bf2ba6b8cb24",
+              "name": "Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "tab",
+                    "role",
+                    ":roleId",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "roleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"tabId\": \"<integer>\",\n    \"position\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d90edde3-91da-4c71-b630-7910c04ea58d",
+    "name": "NinjaOne Public API 2.0 Asset Tags Custom Tabs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

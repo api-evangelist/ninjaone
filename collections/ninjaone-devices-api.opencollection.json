@@ -1,0 +1,564 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags devices API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Device details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns device details"
+        },
+        {
+          "info": {
+            "name": "Device currently running (active) jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/jobs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              }
+            ]
+          },
+          "docs": "Returns currently running jobs for device"
+        },
+        {
+          "info": {
+            "name": "Device activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/activities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "olderThan",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded that are newer than specified activity ID"
+              },
+              {
+                "name": "newerThan",
+                "value": "",
+                "type": "query",
+                "description": "Return activities recorded that are older than specified activity ID"
+              },
+              {
+                "name": "activityType",
+                "value": "",
+                "type": "query",
+                "description": "Return activities of type"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Return activities with status(es)"
+              },
+              {
+                "name": "seriesUid",
+                "value": "",
+                "type": "query",
+                "description": "Return activities related to alert (series)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of activities to return"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language tag"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              }
+            ]
+          },
+          "docs": "Returns activity log for device"
+        },
+        {
+          "info": {
+            "name": "Device alerts (triggered conditions)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/alerts",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tz",
+                "value": "",
+                "type": "query",
+                "description": "Time Zone"
+              }
+            ]
+          },
+          "docs": "Returns list of active alerts (triggered conditions) for device"
+        },
+        {
+          "info": {
+            "name": "Device disk drives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/disks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns device disks' details"
+        },
+        {
+          "info": {
+            "name": "OS Patch installation report for device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/os-patch-installs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Patch Status filter (FAILED, INSTALLED)"
+              },
+              {
+                "name": "installedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Include patches installed before specified date"
+              },
+              {
+                "name": "installedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Include patches installed after specified date"
+              }
+            ]
+          },
+          "docs": "Returns patch installation history records (successful and failed) for device"
+        },
+        {
+          "info": {
+            "name": "Software Patch history for device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/software-patch-installs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Patch Type filter"
+              },
+              {
+                "name": "impact",
+                "value": "",
+                "type": "query",
+                "description": "Patch Impact filter"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Patch Status filter"
+              },
+              {
+                "name": "productIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "Product Identifier"
+              },
+              {
+                "name": "installedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Include patches installed before specified date"
+              },
+              {
+                "name": "installedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Include patches installed after specified date"
+              }
+            ]
+          },
+          "docs": "Returns 3rd party software patch installation history records for device (successful and failed)"
+        },
+        {
+          "info": {
+            "name": "Last logged-on user information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/last-logged-on-user",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns username that was last to login to device"
+        },
+        {
+          "info": {
+            "name": "Device network interfaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/network-interfaces",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns device network interfaces' details"
+        },
+        {
+          "info": {
+            "name": "OS Patches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/os-patches",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Patch Status filter"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Patch Type filter"
+              },
+              {
+                "name": "severity",
+                "value": "",
+                "type": "query",
+                "description": "Patch Severity filter"
+              }
+            ]
+          },
+          "docs": "Returns list of pending/rejected/approved OS patches for device"
+        },
+        {
+          "info": {
+            "name": "Pending, Failed and Rejected Software patches for device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/software-patches",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Patch Status filter"
+              },
+              {
+                "name": "productIdentifier",
+                "value": "",
+                "type": "query",
+                "description": "Product Identifier"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Patch Type filter"
+              },
+              {
+                "name": "impact",
+                "value": "",
+                "type": "query",
+                "description": "Patch Impact filter"
+              }
+            ]
+          },
+          "docs": "Returns list of 3rd party Software patches for a device (for which there were no installation attempts)"
+        },
+        {
+          "info": {
+            "name": "Device processors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/processors",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of device Processor details"
+        },
+        {
+          "info": {
+            "name": "Windows services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/windows-services",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Service name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Service state"
+              }
+            ]
+          },
+          "docs": "Returns list of Windows Services and their statuses"
+        },
+        {
+          "info": {
+            "name": "Device software inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/software",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of software installed on device"
+        },
+        {
+          "info": {
+            "name": "Device storage volumes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/volumes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Additional information to include (bl - BitLocker status)"
+              }
+            ]
+          },
+          "docs": "Returns device volumes' details"
+        },
+        {
+          "info": {
+            "name": "Device custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "withInheritance",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve values using definition scope hierarchy"
+              }
+            ]
+          },
+          "docs": "Returns list of device custom fields"
+        },
+        {
+          "info": {
+            "name": "Update Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/device/:id/custom-fields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update device custom field values"
+        },
+        {
+          "info": {
+            "name": "Get summary of device policy overrides",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/policy/overrides",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Returns list of overridden policy sections"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

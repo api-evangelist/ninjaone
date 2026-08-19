@@ -1,0 +1,948 @@
+{
+  "item": [
+    {
+      "id": "83158d54-9ec2-4572-812c-cc3ca209f447",
+      "name": "Document Templates",
+      "description": {
+        "content": "Document Templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e79c3ab8-283f-44d7-83a9-4e1f53fa71e7",
+          "name": "Archive a document template",
+          "request": {
+            "name": "Archive a document template",
+            "description": {
+              "content": "Archives a document template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                ":documentTemplateId",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e48fd500-0c2f-4fc3-89df-c38a6a0e498c",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    ":documentTemplateId",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7773f57-aa76-4977-992b-1cfa7e0f9c67",
+          "name": "Archive multiple document templates",
+          "request": {
+            "name": "Archive multiple document templates",
+            "description": {
+              "content": "Archives multiple document template by ids",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "775cf747-7b48-4213-b804-379e364efaa1",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d1748ca-3928-4e26-8e86-4e13fbadd2ab",
+          "name": "List document templates with fields",
+          "request": {
+            "name": "List document templates with fields",
+            "description": {
+              "content": "List document templates with fields",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "templateName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTechnicianRoles",
+                  "value": "false",
+                  "description": "Includes allowed technician roles."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13d45a3f-ea3f-418b-a727-c917c5f83885",
+              "name": "Returns a list of all document templates with fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "templateName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTechnicianRoles",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9763,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"allowMultiple\": true,\n    \"mandatory\": true,\n    \"createTime\": 8399.860241565717,\n    \"updateTime\": 5238.791940451596,\n    \"fields\": [\n      {\n        \"fieldId\": 2766,\n        \"fieldLabel\": \"string\",\n        \"fieldName\": \"string\",\n        \"fieldDescription\": \"string\",\n        \"fieldType\": \"EMAIL\",\n        \"fieldTechnicianPermission\": \"EDITABLE\",\n        \"fieldScriptPermission\": \"READ_ONLY\",\n        \"fieldApiPermission\": \"NONE\",\n        \"fieldDefaultValue\": \"string\",\n        \"fieldContent\": {\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"uiElementUid\": \"194159ca-aa41-47e5-a8f3-db979f427b9b\",\n        \"uiElementName\": \"string\",\n        \"uiElementType\": \"TITLE\",\n        \"uiElementValue\": \"string\",\n        \"createdTime\": 2874.9539954088145,\n        \"updatedTime\": 3622.8360186924256\n      },\n      {\n        \"fieldId\": 1355,\n        \"fieldLabel\": \"string\",\n        \"fieldName\": \"string\",\n        \"fieldDescription\": \"string\",\n        \"fieldType\": \"NUMERIC\",\n        \"fieldTechnicianPermission\": \"READ_ONLY\",\n        \"fieldScriptPermission\": \"READ_WRITE\",\n        \"fieldApiPermission\": \"READ_WRITE\",\n        \"fieldDefaultValue\": \"string\",\n        \"fieldContent\": {\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": false,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"uiElementUid\": \"69e8d037-77f8-e4cf-bc37-b61268b4b768\",\n        \"uiElementName\": \"string\",\n        \"uiElementType\": \"SEPARATOR\",\n        \"uiElementValue\": \"string\",\n        \"createdTime\": 4579.5413007028665,\n        \"updatedTime\": 3943.7894140541075\n      }\n    ],\n    \"availableToAllTechnicians\": false,\n    \"allowedTechnicianRoles\": [\n      6439,\n      31\n    ],\n    \"archived\": false,\n    \"archivedTime\": 4106.566992346783,\n    \"archivedBy\": {\n      \"id\": 5319,\n      \"displayName\": \"string\",\n      \"deleted\": true\n    }\n  },\n  {\n    \"id\": 2216,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"allowMultiple\": true,\n    \"mandatory\": true,\n    \"createTime\": 243.28857031535978,\n    \"updateTime\": 6192.090175478511,\n    \"fields\": [\n      {\n        \"fieldId\": 3729,\n        \"fieldLabel\": \"string\",\n        \"fieldName\": \"string\",\n        \"fieldDescription\": \"string\",\n        \"fieldType\": \"MULTI_SELECT\",\n        \"fieldTechnicianPermission\": \"NONE\",\n        \"fieldScriptPermission\": \"NONE\",\n        \"fieldApiPermission\": \"READ_WRITE\",\n        \"fieldDefaultValue\": \"string\",\n        \"fieldContent\": {\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": false,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"uiElementUid\": \"a821dd3e-1021-fb78-c627-1f558bf6e005\",\n        \"uiElementName\": \"string\",\n        \"uiElementType\": \"DESCRIPTION\",\n        \"uiElementValue\": \"string\",\n        \"createdTime\": 8529.522954442335,\n        \"updatedTime\": 5181.715267228406\n      },\n      {\n        \"fieldId\": 4387,\n        \"fieldLabel\": \"string\",\n        \"fieldName\": \"string\",\n        \"fieldDescription\": \"string\",\n        \"fieldType\": \"TEXT_ENCRYPTED\",\n        \"fieldTechnicianPermission\": \"READ_ONLY\",\n        \"fieldScriptPermission\": \"READ_ONLY\",\n        \"fieldApiPermission\": \"READ_WRITE\",\n        \"fieldDefaultValue\": \"string\",\n        \"fieldContent\": {\n          \"values\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"required\": true,\n          \"footerText\": \"string\",\n          \"tooltipText\": \"string\",\n          \"advancedSettings\": {\n            \"fileMaxSize\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fileExtensions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dateFilters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maxCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"complexityRules\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numericRange\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"org\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"nodeClass\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"ipAddressType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"expandLargeValueOnRender\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"uiElementUid\": \"7912d4d8-dba2-e523-48f9-66f29012d7db\",\n        \"uiElementName\": \"string\",\n        \"uiElementType\": \"DESCRIPTION\",\n        \"uiElementValue\": \"string\",\n        \"createdTime\": 7979.295377221003,\n        \"updatedTime\": 9983.432516239676\n      }\n    ],\n    \"availableToAllTechnicians\": false,\n    \"allowedTechnicianRoles\": [\n      3739,\n      2581\n    ],\n    \"archived\": false,\n    \"archivedTime\": 9842.614022141986,\n    \"archivedBy\": {\n      \"id\": 8983,\n      \"displayName\": \"string\",\n      \"deleted\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8df228b3-3d65-4daf-9786-df7a61715c20",
+          "name": "Create document template",
+          "request": {
+            "name": "Create document template",
+            "description": {
+              "content": "Create document template",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allowMultiple\": \"<boolean>\",\n  \"mandatory\": \"<boolean>\",\n  \"fields\": [\n    {\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"name\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    },\n    {\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"name\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    }\n  ],\n  \"availableToAllTechnicians\": \"<boolean>\",\n  \"allowedTechnicianRoles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19bac3ba-ee95-4980-979f-6cd34f0975e7",
+              "name": "Returns the document template created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"allowMultiple\": \"<boolean>\",\n  \"mandatory\": \"<boolean>\",\n  \"fields\": [\n    {\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"name\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    },\n    {\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"name\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    }\n  ],\n  \"availableToAllTechnicians\": \"<boolean>\",\n  \"allowedTechnicianRoles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8409,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"allowMultiple\": false,\n  \"mandatory\": false,\n  \"createTime\": 1138.5290114213487,\n  \"updateTime\": 6066.096338637289,\n  \"fields\": [\n    {\n      \"fieldId\": 4465,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"TIME\",\n      \"fieldTechnicianPermission\": \"EDITABLE\",\n      \"fieldScriptPermission\": \"NONE\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"5312cccf-33e9-9d76-54d9-ed9da96a5822\",\n            \"name\": \"string\",\n            \"active\": true\n          },\n          {\n            \"id\": \"e7f1ca3b-b836-cfaf-2a71-9702d846a074\",\n            \"name\": \"string\",\n            \"active\": false\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"0555998b-4125-c667-db48-e79172100a75\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 2036.5989778706062,\n      \"updatedTime\": 1020.2814345461209\n    },\n    {\n      \"fieldId\": 6663,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"TEXT_MULTILINE\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"WRITE_ONLY\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"59f2a782-7c85-e8ee-7f51-1c80c539e158\",\n            \"name\": \"string\",\n            \"active\": true\n          },\n          {\n            \"id\": \"39436745-554e-71c1-d55a-6b3fc99d9d51\",\n            \"name\": \"string\",\n            \"active\": true\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"6c0ef942-bec3-bc28-2e2c-ecf9f277c941\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"SEPARATOR\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 9673.68536288608,\n      \"updatedTime\": 527.7713556771401\n    }\n  ],\n  \"availableToAllTechnicians\": false,\n  \"allowedTechnicianRoles\": [\n    9943,\n    5477\n  ],\n  \"archived\": true,\n  \"archivedTime\": 2251.25249492224,\n  \"archivedBy\": {\n    \"id\": 6068,\n    \"displayName\": \"string\",\n    \"deleted\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c1cbca8-f90d-44cd-b752-45b63963c2c7",
+          "name": "Get document template",
+          "request": {
+            "name": "Get document template",
+            "description": {
+              "content": "Get document template",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                ":documentTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeTechnicianRoles",
+                  "value": "false",
+                  "description": "Includes allowed technician roles."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c92c418-dd73-43fd-b838-d930884ba77d",
+              "name": "Returns a document template",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    ":documentTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTechnicianRoles",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8409,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"allowMultiple\": false,\n  \"mandatory\": false,\n  \"createTime\": 1138.5290114213487,\n  \"updateTime\": 6066.096338637289,\n  \"fields\": [\n    {\n      \"fieldId\": 4465,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"TIME\",\n      \"fieldTechnicianPermission\": \"EDITABLE\",\n      \"fieldScriptPermission\": \"NONE\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"5312cccf-33e9-9d76-54d9-ed9da96a5822\",\n            \"name\": \"string\",\n            \"active\": true\n          },\n          {\n            \"id\": \"e7f1ca3b-b836-cfaf-2a71-9702d846a074\",\n            \"name\": \"string\",\n            \"active\": false\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"0555998b-4125-c667-db48-e79172100a75\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 2036.5989778706062,\n      \"updatedTime\": 1020.2814345461209\n    },\n    {\n      \"fieldId\": 6663,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"TEXT_MULTILINE\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"WRITE_ONLY\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"59f2a782-7c85-e8ee-7f51-1c80c539e158\",\n            \"name\": \"string\",\n            \"active\": true\n          },\n          {\n            \"id\": \"39436745-554e-71c1-d55a-6b3fc99d9d51\",\n            \"name\": \"string\",\n            \"active\": true\n          }\n        ],\n        \"required\": true,\n        \"footerText\": \"string\",\n        \"tooltipText\": \"string\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"6c0ef942-bec3-bc28-2e2c-ecf9f277c941\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"SEPARATOR\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 9673.68536288608,\n      \"updatedTime\": 527.7713556771401\n    }\n  ],\n  \"availableToAllTechnicians\": false,\n  \"allowedTechnicianRoles\": [\n    9943,\n    5477\n  ],\n  \"archived\": true,\n  \"archivedTime\": 2251.25249492224,\n  \"archivedBy\": {\n    \"id\": 6068,\n    \"displayName\": \"string\",\n    \"deleted\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b094916d-6c70-4cbc-984b-9bb2473083b2",
+          "name": "Update document template",
+          "request": {
+            "name": "Update document template",
+            "description": {
+              "content": "Updates a document template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                ":documentTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"mandatory\": \"<boolean>\",\n  \"fields\": [\n    {\n      \"fieldId\": \"<integer>\",\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<integer>\",\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\",\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    }\n  ],\n  \"availableToAllTechnicians\": \"<boolean>\",\n  \"allowedTechnicianRoles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06b4d948-e83a-4254-8832-a291e481e338",
+              "name": "Returns the document template updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    ":documentTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"mandatory\": \"<boolean>\",\n  \"fields\": [\n    {\n      \"fieldId\": \"<integer>\",\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    },\n    {\n      \"fieldId\": \"<integer>\",\n      \"fieldLabel\": \"<string>\",\n      \"fieldName\": \"<string>\",\n      \"fieldDescription\": \"<string>\",\n      \"fieldType\": \"<string>\",\n      \"fieldTechnicianPermission\": \"<string>\",\n      \"fieldScriptPermission\": \"<string>\",\n      \"fieldApiPermission\": \"<string>\",\n      \"fieldDefaultValue\": \"<string>\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"<uuid>\",\n      \"uiElementName\": \"<string>\",\n      \"uiElementType\": \"<string>\",\n      \"uiElementValue\": \"<string>\"\n    }\n  ],\n  \"availableToAllTechnicians\": \"<boolean>\",\n  \"allowedTechnicianRoles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9100,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"allowMultiple\": false,\n  \"mandatory\": true,\n  \"createTime\": 4882.869999394378,\n  \"updateTime\": 8383.947731436327,\n  \"fields\": [\n    {\n      \"fieldId\": 103,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"NODE_MULTI_SELECT\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"WRITE_ONLY\",\n      \"fieldApiPermission\": \"READ_WRITE\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"cf17c79e-eb99-5c05-511d-6ac8caf1ec2d\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 531.3335022905296,\n      \"updatedTime\": 4205.781198125012\n    },\n    {\n      \"fieldId\": 1479,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"DATE\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"READ_WRITE\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"df1561f4-ee5d-0f1a-41f4-a47216ffbac5\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 2213.6965795349884,\n      \"updatedTime\": 4880.456296368614\n    }\n  ],\n  \"availableToAllTechnicians\": true,\n  \"allowedTechnicianRoles\": [\n    7006,\n    2178\n  ],\n  \"archived\": false,\n  \"archivedTime\": 3848.256883971971,\n  \"archivedBy\": {\n    \"id\": 2849,\n    \"displayName\": \"string\",\n    \"deleted\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7036208-0185-4f92-a295-0966fd961787",
+          "name": "Delete a document template",
+          "request": {
+            "name": "Delete a document template",
+            "description": {
+              "content": "Deletes a document template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                ":documentTemplateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79ce8676-873c-4f7b-87be-cee3ea315d15",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    ":documentTemplateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "266eb8ce-b9b3-44fd-9f73-8d7a2fa703c6",
+          "name": "Restore a document template",
+          "request": {
+            "name": "Restore a document template",
+            "description": {
+              "content": "Restores a document template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                ":documentTemplateId",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "documentTemplateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c03b9577-8fee-4dca-9d89-3cc6e22e9412",
+              "name": "Returns the document template restored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    ":documentTemplateId",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "documentTemplateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9100,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"allowMultiple\": false,\n  \"mandatory\": true,\n  \"createTime\": 4882.869999394378,\n  \"updateTime\": 8383.947731436327,\n  \"fields\": [\n    {\n      \"fieldId\": 103,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"NODE_MULTI_SELECT\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"WRITE_ONLY\",\n      \"fieldApiPermission\": \"READ_WRITE\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"cf17c79e-eb99-5c05-511d-6ac8caf1ec2d\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 531.3335022905296,\n      \"updatedTime\": 4205.781198125012\n    },\n    {\n      \"fieldId\": 1479,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"DATE\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"READ_WRITE\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"df1561f4-ee5d-0f1a-41f4-a47216ffbac5\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 2213.6965795349884,\n      \"updatedTime\": 4880.456296368614\n    }\n  ],\n  \"availableToAllTechnicians\": true,\n  \"allowedTechnicianRoles\": [\n    7006,\n    2178\n  ],\n  \"archived\": false,\n  \"archivedTime\": 3848.256883971971,\n  \"archivedBy\": {\n    \"id\": 2849,\n    \"displayName\": \"string\",\n    \"deleted\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae88c5d-af6e-41a6-ae2a-2f6e46b6d8eb",
+          "name": "Restore a document template",
+          "request": {
+            "name": "Restore a document template",
+            "description": {
+              "content": "Restores a document template by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "document-templates",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b74be68-2903-49c0-b7a8-5edf7be2cc81",
+              "name": "Returns the document template restored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "document-templates",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9100,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"allowMultiple\": false,\n  \"mandatory\": true,\n  \"createTime\": 4882.869999394378,\n  \"updateTime\": 8383.947731436327,\n  \"fields\": [\n    {\n      \"fieldId\": 103,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"NODE_MULTI_SELECT\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"WRITE_ONLY\",\n      \"fieldApiPermission\": \"READ_WRITE\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"cf17c79e-eb99-5c05-511d-6ac8caf1ec2d\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 531.3335022905296,\n      \"updatedTime\": 4205.781198125012\n    },\n    {\n      \"fieldId\": 1479,\n      \"fieldLabel\": \"string\",\n      \"fieldName\": \"string\",\n      \"fieldDescription\": \"string\",\n      \"fieldType\": \"DATE\",\n      \"fieldTechnicianPermission\": \"READ_ONLY\",\n      \"fieldScriptPermission\": \"READ_WRITE\",\n      \"fieldApiPermission\": \"WRITE_ONLY\",\n      \"fieldDefaultValue\": \"string\",\n      \"fieldContent\": {\n        \"values\": [\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"name\": \"<string>\",\n            \"active\": \"<boolean>\"\n          }\n        ],\n        \"required\": \"<boolean>\",\n        \"footerText\": \"<string>\",\n        \"tooltipText\": \"<string>\",\n        \"advancedSettings\": {\n          \"fileMaxSize\": \"<integer>\",\n          \"fileExtensions\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dateFilters\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"selected\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"maxCharacters\": \"<integer>\",\n          \"complexityRules\": {\n            \"mustContainOneInteger\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneLowercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mustContainOneUppercaseLetter\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"greaterOrEqualThanSixCharacters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"numericRange\": {\n            \"min\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"max\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"org\": [\n            \"<integer>\"\n          ],\n          \"nodeClass\": [\n            \"<string>\"\n          ],\n          \"ipAddressType\": \"<string>\",\n          \"expandLargeValueOnRender\": \"<boolean>\"\n        }\n      },\n      \"uiElementUid\": \"df1561f4-ee5d-0f1a-41f4-a47216ffbac5\",\n      \"uiElementName\": \"string\",\n      \"uiElementType\": \"TITLE\",\n      \"uiElementValue\": \"string\",\n      \"createdTime\": 2213.6965795349884,\n      \"updatedTime\": 4880.456296368614\n    }\n  ],\n  \"availableToAllTechnicians\": true,\n  \"allowedTechnicianRoles\": [\n    7006,\n    2178\n  ],\n  \"archived\": false,\n  \"archivedTime\": 3848.256883971971,\n  \"archivedBy\": {\n    \"id\": 2849,\n    \"displayName\": \"string\",\n    \"deleted\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0809fbe2-5429-40c8-b0f8-a60f416b99da",
+    "name": "NinjaOne Public API 2.0 Asset Tags Document Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

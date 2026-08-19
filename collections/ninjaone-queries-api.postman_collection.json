@@ -1,0 +1,3248 @@
+{
+  "item": [
+    {
+      "id": "27f52b99-c829-49ad-9e98-a2b376ec3875",
+      "name": "queries",
+      "description": {
+        "content": "Queries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bbbd79b3-0d71-40e3-b7e4-9c0cebb81193",
+          "name": "Antivirus status report",
+          "request": {
+            "name": "Antivirus status report",
+            "description": {
+              "content": "Returns list of statues of antivirus software installed on devices",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "antivirus-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "productState",
+                  "value": "<string>",
+                  "description": "Product State filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "productName",
+                  "value": "<string>",
+                  "description": "Product Name filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27446d57-a451-4bf5-b74e-d18868d2ff49",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "antivirus-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productState",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 3129,\n    \"count\": 3846,\n    \"expires\": 5288.378738010518\n  },\n  \"results\": [\n    {\n      \"productName\": \"string\",\n      \"productState\": \"string\",\n      \"definitionStatus\": \"string\",\n      \"version\": \"string\",\n      \"deviceId\": 6308,\n      \"timestamp\": 7951.019966673634\n    },\n    {\n      \"productName\": \"string\",\n      \"productState\": \"string\",\n      \"definitionStatus\": \"string\",\n      \"version\": \"string\",\n      \"deviceId\": 154,\n      \"timestamp\": 8185.483031696569\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc610bb5-a1ab-4dc4-ad65-bf36a8babc3c",
+          "name": "Antivirus threats report",
+          "request": {
+            "name": "Antivirus threats report",
+            "description": {
+              "content": "Returns list of antivirus threats",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "antivirus-threats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1836153c-4429-48c9-9a18-f309afca7856",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "antivirus-threats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 1820,\n    \"count\": 2057,\n    \"expires\": 1689.2611625785003\n  },\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"productCode\": \"string\",\n      \"quarantineId\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"threatId\": 1084,\n      \"category\": \"string\",\n      \"level\": \"string\",\n      \"detectionSource\": \"string\",\n      \"traceList\": \"string\",\n      \"deviceId\": 1304,\n      \"timestamp\": 3544.6358088901266\n    },\n    {\n      \"name\": \"string\",\n      \"productCode\": \"string\",\n      \"quarantineId\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"threatId\": 581,\n      \"category\": \"string\",\n      \"level\": \"string\",\n      \"detectionSource\": \"string\",\n      \"traceList\": \"string\",\n      \"deviceId\": 3725,\n      \"timestamp\": 285.1102173257192\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81c7c7a9-db3d-4998-807c-383cf756156d",
+          "name": "Computer systems report",
+          "request": {
+            "name": "Computer systems report",
+            "description": {
+              "content": "Returns computer systems information for devices",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "computer-systems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f117070-03c8-45e8-aa87-796665988141",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "computer-systems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 5087,\n    \"count\": 5779,\n    \"expires\": 7752.766861274238\n  },\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"manufacturer\": \"string\",\n      \"model\": \"string\",\n      \"biosSerialNumber\": \"string\",\n      \"serialNumber\": \"string\",\n      \"domain\": \"string\",\n      \"domainRole\": \"string\",\n      \"numberOfProcessors\": 7324,\n      \"totalPhysicalMemory\": 1682,\n      \"virtualMachine\": true,\n      \"chassisType\": \"string\",\n      \"deviceId\": 5527,\n      \"timestamp\": 4715.559438132192\n    },\n    {\n      \"name\": \"string\",\n      \"manufacturer\": \"string\",\n      \"model\": \"string\",\n      \"biosSerialNumber\": \"string\",\n      \"serialNumber\": \"string\",\n      \"domain\": \"string\",\n      \"domainRole\": \"string\",\n      \"numberOfProcessors\": 185,\n      \"totalPhysicalMemory\": 1119,\n      \"virtualMachine\": false,\n      \"chassisType\": \"string\",\n      \"deviceId\": 5953,\n      \"timestamp\": 9916.821129404869\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48cb9a47-3bdd-4770-9e14-61752486b1ac",
+          "name": "Custom fields detailed report",
+          "request": {
+            "name": "Custom fields detailed report",
+            "description": {
+              "content": "Returns Custom Fields report with additional information about each field",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "custom-fields-detailed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<string>",
+                  "description": "Custom fields updated after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "showSecureValues",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate if secure values should be returned as plain text without encryption"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c085d4b9-6027-408b-bcf7-37320d8dbcb8",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "custom-fields-detailed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "showSecureValues",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 8703,\n    \"count\": 4178,\n    \"expires\": 8615.794105547768\n  },\n  \"results\": [\n    {\n      \"entityType\": \"END_USER\",\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"USER\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 9943.793033087188\n        },\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"USER\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 6223.286076060676\n        }\n      ],\n      \"entityId\": 9384\n    },\n    {\n      \"entityType\": \"NODE\",\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"USER\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 2212.025845136937\n        },\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"SCRIPT\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 6679.460908495661\n        }\n      ],\n      \"entityId\": 7496\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8345dcc9-7c12-4f63-9a16-8cb6035e41ca",
+          "name": "Custom fields report",
+          "request": {
+            "name": "Custom fields report",
+            "description": {
+              "content": "Returns Custom Fields report",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<string>",
+                  "description": "Custom fields updated after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "showSecureValues",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate if secure values should be returned as plain text without encryption"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4004493-8953-4fc4-abbe-0b5d0488f7a8",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "showSecureValues",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 7623,\n    \"count\": 988,\n    \"expires\": 1873.4819787789224\n  },\n  \"results\": [\n    {\n      \"deviceId\": 3934,\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"deviceId\": 9433,\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17be5c96-e566-4131-9916-63a3283d3817",
+          "name": "Device health report",
+          "request": {
+            "name": "Device health report",
+            "description": {
+              "content": "Returns list of device health summary records",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "device-health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "health",
+                  "value": "<string>",
+                  "description": "Health status filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b0cf00a-529c-41c3-83fa-c03459768a83",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "device-health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "health",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 9959,\n    \"count\": 7249,\n    \"expires\": 5959.749424649785\n  },\n  \"results\": [\n    {\n      \"activeThreatsCount\": 2272,\n      \"quarantinedThreatsCount\": 6380,\n      \"blockedThreatsCount\": 665,\n      \"failedOSPatchesCount\": 6026,\n      \"pendingOSPatchesCount\": 1445,\n      \"alertCount\": 1812,\n      \"activeJobCount\": 6389,\n      \"failedSoftwarePatchesCount\": 8572,\n      \"pendingSoftwarePatchesCount\": 5112,\n      \"pendingRebootReason\": \"string\",\n      \"avInstallStatus\": \"DOWNLOAD_STARTED\",\n      \"productsInstallationStatuses\": {\n        \"key_0\": \"UNINSTALL_FAILED\",\n        \"key_1\": \"UNINSTALL_FAILED\"\n      },\n      \"offline\": false,\n      \"parentDeviceId\": 4172,\n      \"parentOffline\": false,\n      \"healthStatus\": \"HEALTHY\",\n      \"installationIssuesCount\": 3945,\n      \"deviceId\": 3920\n    },\n    {\n      \"activeThreatsCount\": 3570,\n      \"quarantinedThreatsCount\": 5578,\n      \"blockedThreatsCount\": 5261,\n      \"failedOSPatchesCount\": 4380,\n      \"pendingOSPatchesCount\": 472,\n      \"alertCount\": 7086,\n      \"activeJobCount\": 8855,\n      \"failedSoftwarePatchesCount\": 2020,\n      \"pendingSoftwarePatchesCount\": 9250,\n      \"pendingRebootReason\": \"string\",\n      \"avInstallStatus\": \"DOWNLOADED\",\n      \"productsInstallationStatuses\": {\n        \"key_0\": \"INSTALLED\",\n        \"key_1\": \"DOWNLOAD_FAILED\"\n      },\n      \"offline\": true,\n      \"parentDeviceId\": 9959,\n      \"parentOffline\": true,\n      \"healthStatus\": \"NEEDS_ATTENTION\",\n      \"installationIssuesCount\": 3051,\n      \"deviceId\": 3838\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c255ea77-7ace-4a93-9a83-c0bbf162100d",
+          "name": "Device backup usage",
+          "request": {
+            "name": "Device backup usage",
+            "description": {
+              "content": "Returns the backup usage by device",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "backup",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeletedDevices",
+                  "value": "<boolean>",
+                  "description": "Whether or not include deleted devices"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f14c1081-327f-4eb7-b1c6-ce6a92b868b9",
+              "name": "Returns a device backup usage report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "backup",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeDeletedDevices",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 2118,\n    \"count\": 2489,\n    \"expires\": 2392.6438974949715\n  },\n  \"results\": [\n    {\n      \"id\": 2929,\n      \"uid\": \"9e0148d9-3328-2300-21fd-a4367b29d0a7\",\n      \"assignedOwnerUid\": \"2e471a9f-e3b7-2ba9-1754-c64f22c3a9b6\",\n      \"parentDeviceId\": 4550,\n      \"organizationId\": 617,\n      \"locationId\": 1989,\n      \"nodeClass\": \"NMS_VIRTUAL_MACHINE\",\n      \"nodeRoleId\": 6842,\n      \"rolePolicyId\": 7909,\n      \"policyId\": 5214,\n      \"approvalStatus\": \"APPROVED\",\n      \"offline\": true,\n      \"displayName\": \"string\",\n      \"systemName\": \"string\",\n      \"dnsName\": \"string\",\n      \"netbiosName\": \"string\",\n      \"created\": 6297.349744405279,\n      \"lastContact\": 4431.866162887341,\n      \"lastUpdate\": 9670.556634640834,\n      \"userData\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": {\n        \"key_0\": {}\n      },\n      \"maintenance\": {\n        \"status\": \"FAILED\",\n        \"start\": 265.9954819232857,\n        \"end\": 4163.539464519048\n      },\n      \"references\": {\n        \"organization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"userData\": {\n            \"key_0\": 9102,\n            \"key_1\": \"string\"\n          },\n          \"nodeApprovalMode\": \"AUTOMATIC\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"id\": 9652\n        },\n        \"location\": {\n          \"name\": \"string\",\n          \"address\": \"string\",\n          \"description\": \"string\",\n          \"userData\": {\n            \"key_0\": \"string\"\n          },\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"id\": 7947\n        },\n        \"rolePolicy\": {\n          \"id\": 2079,\n          \"parentPolicyId\": 552,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"NMS_APPLIANCE\",\n          \"updated\": 8701.28570217722,\n          \"nodeClassDefault\": false,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          }\n        },\n        \"policy\": {\n          \"id\": 2544,\n          \"parentPolicyId\": 5735,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"MAC\",\n          \"updated\": 6631.3256909720485,\n          \"nodeClassDefault\": false,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"role\": {\n          \"id\": 9918,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"LINUX_SERVER\",\n          \"custom\": true,\n          \"chassisType\": \"DESKTOP\",\n          \"created\": 7460.816682364584,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"nodeRoleParentId\": 9398,\n          \"icon\": \"string\"\n        },\n        \"backupUsage\": {\n          \"revisionsCurrentSize\": 3070,\n          \"revisionsPreviousSize\": 1689,\n          \"revisionsDeletedSize\": 3553,\n          \"localFileFolderSize\": 6547,\n          \"localImageSize\": 8500,\n          \"localImageV2Size\": 4227,\n          \"cloudFileFolderSize\": 5513,\n          \"cloudImageSize\": 264,\n          \"cloudImageV2Size\": 8371,\n          \"lastSuccessfulBackupJob\": 6079.4463252415035,\n          \"lastFailedBackupJob\": 2318.9979212623325,\n          \"revisionsTotalSize\": 9225,\n          \"cloudTotalSize\": 5689,\n          \"localTotalSize\": 6195\n        },\n        \"warranty\": {\n          \"startDate\": 9834.594268045563,\n          \"endDate\": 5996.119123409882,\n          \"manufacturerFulfillmentDate\": 1981.2606085338357\n        },\n        \"assignedOwner\": {\n          \"id\": 1898,\n          \"uid\": \"49b9790d-ec47-385e-5072-b925bf93f60a\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\",\n          \"enabled\": false,\n          \"administrator\": true,\n          \"permitAllClients\": false,\n          \"notifyAllClients\": false,\n          \"mustChangePw\": true,\n          \"mfaConfigured\": true,\n          \"userType\": \"END_USER\",\n          \"invitationStatus\": \"EXPIRED\",\n          \"organizationId\": 8956,\n          \"deviceIds\": [\n            8631,\n            9849\n          ],\n          \"assignedDeviceIds\": [\n            6147,\n            7387\n          ],\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {}\n          },\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      }\n    },\n    {\n      \"id\": 9222,\n      \"uid\": \"0dec50d5-1e44-a4bb-56d3-dab03ae85349\",\n      \"assignedOwnerUid\": \"bc8d8b80-aca4-dfc7-31f3-6770e54c9a9a\",\n      \"parentDeviceId\": 7159,\n      \"organizationId\": 7627,\n      \"locationId\": 154,\n      \"nodeClass\": \"VMWARE_VM_HOST\",\n      \"nodeRoleId\": 2340,\n      \"rolePolicyId\": 3950,\n      \"policyId\": 6804,\n      \"approvalStatus\": \"APPROVED\",\n      \"offline\": true,\n      \"displayName\": \"string\",\n      \"systemName\": \"string\",\n      \"dnsName\": \"string\",\n      \"netbiosName\": \"string\",\n      \"created\": 6629.349992845565,\n      \"lastContact\": 6807.660380074781,\n      \"lastUpdate\": 4062.842979489992,\n      \"userData\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"maintenance\": {\n        \"status\": \"FAILED\",\n        \"start\": 5886.620671508679,\n        \"end\": 8533.914422917913\n      },\n      \"references\": {\n        \"organization\": {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"userData\": {\n            \"key_0\": 7120.04681494762,\n            \"key_1\": true\n          },\n          \"nodeApprovalMode\": \"MANUAL\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {}\n          },\n          \"id\": 44\n        },\n        \"location\": {\n          \"name\": \"string\",\n          \"address\": \"string\",\n          \"description\": \"string\",\n          \"userData\": {\n            \"key_0\": false\n          },\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          },\n          \"id\": 1667\n        },\n        \"rolePolicy\": {\n          \"id\": 6578,\n          \"parentPolicyId\": 8285,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"CLOUD_MONITOR_TARGET\",\n          \"updated\": 2395.3567155034007,\n          \"nodeClassDefault\": false,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        \"policy\": {\n          \"id\": 8750,\n          \"parentPolicyId\": 4868,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"LINUX_SERVER\",\n          \"updated\": 5643.1162780120685,\n          \"nodeClassDefault\": false,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          }\n        },\n        \"role\": {\n          \"id\": 7028,\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"nodeClass\": \"NMS_IPSLA\",\n          \"custom\": true,\n          \"chassisType\": \"LAPTOP\",\n          \"created\": 6413.580599396411,\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {}\n          },\n          \"nodeRoleParentId\": 143,\n          \"icon\": \"string\"\n        },\n        \"backupUsage\": {\n          \"revisionsCurrentSize\": 3875,\n          \"revisionsPreviousSize\": 2748,\n          \"revisionsDeletedSize\": 1184,\n          \"localFileFolderSize\": 3396,\n          \"localImageSize\": 5671,\n          \"localImageV2Size\": 5694,\n          \"cloudFileFolderSize\": 8622,\n          \"cloudImageSize\": 2862,\n          \"cloudImageV2Size\": 7322,\n          \"lastSuccessfulBackupJob\": 465.7115947470636,\n          \"lastFailedBackupJob\": 494.1235889922735,\n          \"revisionsTotalSize\": 7953,\n          \"cloudTotalSize\": 7994,\n          \"localTotalSize\": 643\n        },\n        \"warranty\": {\n          \"startDate\": 5913.636198746751,\n          \"endDate\": 4989.834339179458,\n          \"manufacturerFulfillmentDate\": 958.9344907798702\n        },\n        \"assignedOwner\": {\n          \"id\": 2970,\n          \"uid\": \"a29c660c-c380-79da-07ad-8f4081ccad56\",\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"email\": \"string\",\n          \"phone\": \"string\",\n          \"enabled\": true,\n          \"administrator\": true,\n          \"permitAllClients\": true,\n          \"notifyAllClients\": true,\n          \"mustChangePw\": true,\n          \"mfaConfigured\": false,\n          \"userType\": \"TECHNICIAN\",\n          \"invitationStatus\": \"PENDING\",\n          \"organizationId\": 5445,\n          \"deviceIds\": [\n            7563,\n            2260\n          ],\n          \"assignedDeviceIds\": [\n            2305,\n            6156\n          ],\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ],\n          \"fields\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {},\n            \"key_4\": {}\n          },\n          \"roles\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a9f549a-8e04-43ee-a358-98ea9ac81c07",
+          "name": "Disk drives report",
+          "request": {
+            "name": "Disk drives report",
+            "description": {
+              "content": "Returns list of physical disks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "disks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bda348dc-2f34-49f2-b923-e704af9a3491",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "disks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 4458,\n    \"count\": 1272,\n    \"expires\": 6777.3058232410785\n  },\n  \"results\": [\n    {\n      \"bytesPerSector\": 7747,\n      \"description\": \"string\",\n      \"interfaceType\": \"string\",\n      \"manufacturer\": \"string\",\n      \"mediaType\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"partitionCount\": 9025,\n      \"serialNumber\": \"string\",\n      \"size\": 3707,\n      \"smartCapable\": false,\n      \"status\": \"string\",\n      \"deviceId\": 1229,\n      \"timestamp\": 2268.5514113614568\n    },\n    {\n      \"bytesPerSector\": 9950,\n      \"description\": \"string\",\n      \"interfaceType\": \"string\",\n      \"manufacturer\": \"string\",\n      \"mediaType\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"partitionCount\": 3448,\n      \"serialNumber\": \"string\",\n      \"size\": 6863,\n      \"smartCapable\": true,\n      \"status\": \"string\",\n      \"deviceId\": 2068,\n      \"timestamp\": 6628.950245364255\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e7af014-af50-4bec-9d92-d7f21a5f0d22",
+          "name": "OS Patch installation report",
+          "request": {
+            "name": "OS Patch installation report",
+            "description": {
+              "content": "Returns patch installation history records (successful and failed)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "os-patch-installs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Patch Status filter (FAILED, INSTALLED)"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedBefore",
+                  "value": "<string>",
+                  "description": "Include patches installed before specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedAfter",
+                  "value": "<string>",
+                  "description": "Include patches installed after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51a9eab8-7e27-41bc-8272-0bac214fe5a7",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "os-patch-installs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "installedBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "installedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 4226,\n    \"count\": 6842,\n    \"expires\": 3390.4915009120405\n  },\n  \"results\": [\n    {\n      \"id\": \"b5ceed38-db80-fb9f-3b0b-046bfedf8800\",\n      \"name\": \"string\",\n      \"severity\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 1254.7307681463194,\n      \"deviceId\": 7581,\n      \"timestamp\": 8660.563638122301,\n      \"kbNumber\": \"string\"\n    },\n    {\n      \"id\": \"dd2ab26e-ceb2-82e2-7eb3-0b48d0a2e493\",\n      \"name\": \"string\",\n      \"severity\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 2170.167434670205,\n      \"deviceId\": 8890,\n      \"timestamp\": 3857.63842119072,\n      \"kbNumber\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8a8f76e-8962-41ca-a28b-6b53a4867c70",
+          "name": "Software Patch history report",
+          "request": {
+            "name": "Software Patch history report",
+            "description": {
+              "content": "Returns 3rd party software patch installation history records (successful and failed)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "software-patch-installs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Patch Type filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "impact",
+                  "value": "<string>",
+                  "description": "Patch Impact filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Patch Status filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "productIdentifier",
+                  "value": "<string>",
+                  "description": "Product Identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedBefore",
+                  "value": "<string>",
+                  "description": "Include patches installed before specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedAfter",
+                  "value": "<string>",
+                  "description": "Include patches installed after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74769826-d5b3-47fa-ac9f-40d92c52bd09",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "software-patch-installs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "impact",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "installedBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "installedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 8555,\n    \"count\": 9816,\n    \"expires\": 9900.723101803173\n  },\n  \"results\": [\n    {\n      \"id\": \"d2aa0082-db4f-bd0a-d3c4-13f8fc8db7d2\",\n      \"productIdentifier\": \"06fbf556-e698-5c70-7494-fd67140abb14\",\n      \"title\": \"string\",\n      \"impact\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 5577.018781638324,\n      \"deviceId\": 6972,\n      \"timestamp\": 9892.053039987604\n    },\n    {\n      \"id\": \"b5059cc0-b3b7-6852-7a4a-3945483fc64a\",\n      \"productIdentifier\": \"b18b1c14-688e-c993-6ea9-a382425004d9\",\n      \"title\": \"string\",\n      \"impact\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 3156.1731237851,\n      \"deviceId\": 1856,\n      \"timestamp\": 92.6135387678717\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4728925c-1386-4a2f-83c6-8233f0a24e82",
+          "name": "Last logged-on user report",
+          "request": {
+            "name": "Last logged-on user report",
+            "description": {
+              "content": "Returns usernames and logon times ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "logged-on-users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dc15dc5-bdee-446e-9c7b-58df002624f1",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "logged-on-users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 3409,\n    \"count\": 1270,\n    \"expires\": 8985.348240466985\n  },\n  \"results\": [\n    {\n      \"userName\": \"string\",\n      \"logonTime\": 7500.45109744907,\n      \"deviceId\": 2730\n    },\n    {\n      \"userName\": \"string\",\n      \"logonTime\": 722.8019181176181,\n      \"deviceId\": 6549\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af9af441-e4e1-4a88-bc00-c91efa41df28",
+          "name": "List Network Interfaces",
+          "request": {
+            "name": "List Network Interfaces",
+            "description": {
+              "content": "Returns list of Network Interfaces for each device",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "network-interfaces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc50227a-58c9-4c7e-b5f6-2b5315c28bba",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "network-interfaces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 8322,\n    \"count\": 1154,\n    \"expires\": 1113.4289890990024\n  },\n  \"results\": [\n    {\n      \"adapterName\": \"string\",\n      \"defaultGateway\": \"string\",\n      \"interfaceType\": \"string\",\n      \"dnsHostName\": \"string\",\n      \"dnsServers\": \"string\",\n      \"interfaceIndex\": \"string\",\n      \"interfaceName\": \"string\",\n      \"ipAddress\": [\n        \"string\",\n        \"string\"\n      ],\n      \"linkSpeed\": \"string\",\n      \"macAddress\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mtu\": \"string\",\n      \"status\": \"string\",\n      \"subnetMask\": \"string\",\n      \"deviceId\": 3280\n    },\n    {\n      \"adapterName\": \"string\",\n      \"defaultGateway\": \"string\",\n      \"interfaceType\": \"string\",\n      \"dnsHostName\": \"string\",\n      \"dnsServers\": \"string\",\n      \"interfaceIndex\": \"string\",\n      \"interfaceName\": \"string\",\n      \"ipAddress\": [\n        \"string\",\n        \"string\"\n      ],\n      \"linkSpeed\": \"string\",\n      \"macAddress\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mtu\": \"string\",\n      \"status\": \"string\",\n      \"subnetMask\": \"string\",\n      \"deviceId\": 4882\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be87707f-477a-4e45-925f-bc085adac743",
+          "name": "Operating systems report",
+          "request": {
+            "name": "Operating systems report",
+            "description": {
+              "content": "Returns operating systems' for devices",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "operating-systems"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64c6202c-aaad-4371-9c45-78ee1e14d2ea",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "operating-systems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 7404,\n    \"count\": 2535,\n    \"expires\": 8337.838437250854\n  },\n  \"results\": [\n    {\n      \"manufacturer\": \"string\",\n      \"name\": \"string\",\n      \"architecture\": \"string\",\n      \"lastBootTime\": 7352.594041725672,\n      \"buildNumber\": \"string\",\n      \"releaseId\": \"string\",\n      \"servicePackMajorVersion\": 696,\n      \"servicePackMinorVersion\": 5212,\n      \"locale\": \"string\",\n      \"language\": \"string\",\n      \"needsReboot\": false,\n      \"deviceId\": 6690,\n      \"timestamp\": 5247.989065508872\n    },\n    {\n      \"manufacturer\": \"string\",\n      \"name\": \"string\",\n      \"architecture\": \"string\",\n      \"lastBootTime\": 8560.902618250158,\n      \"buildNumber\": \"string\",\n      \"releaseId\": \"string\",\n      \"servicePackMajorVersion\": 3489,\n      \"servicePackMinorVersion\": 3322,\n      \"locale\": \"string\",\n      \"language\": \"string\",\n      \"needsReboot\": false,\n      \"deviceId\": 4389,\n      \"timestamp\": 8002.339639109505\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02712125-3385-4cbf-b080-d3a29c05445c",
+          "name": "Pending, Failed and Rejected OS patches report",
+          "request": {
+            "name": "Pending, Failed and Rejected OS patches report",
+            "description": {
+              "content": "Returns list of OS patches for which there were no installation attempts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "os-patches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Patch Status filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Patch Type filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "severity",
+                  "value": "<string>",
+                  "description": "Patch Severity filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c47b668d-cc63-49a8-bbd3-630c9153664f",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "os-patches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 7969,\n    \"count\": 2670,\n    \"expires\": 5101.000281945177\n  },\n  \"results\": [\n    {\n      \"id\": \"337b1e7d-81c6-088c-7f47-40974f3b7537\",\n      \"name\": \"string\",\n      \"severity\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 1962.88556062723,\n      \"deviceId\": 7011,\n      \"timestamp\": 2178.5871836224455,\n      \"kbNumber\": \"string\"\n    },\n    {\n      \"id\": \"6b31d12c-c6bf-3390-86e4-3bf7c86747b1\",\n      \"name\": \"string\",\n      \"severity\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 627.9859649115205,\n      \"deviceId\": 8477,\n      \"timestamp\": 7185.103013645496,\n      \"kbNumber\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d57f6f8e-efdc-4291-a315-efbf6dee1c8c",
+          "name": "Pending, Failed and Rejected Software patches report",
+          "request": {
+            "name": "Pending, Failed and Rejected Software patches report",
+            "description": {
+              "content": "Returns list of 3rd party Software patches for which there were no installation attempts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "software-patches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Patch Status filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "productIdentifier",
+                  "value": "<string>",
+                  "description": "Product Identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Patch Type filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "impact",
+                  "value": "<string>",
+                  "description": "Patch Impact filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3f1556e-e1d0-415d-a2de-203a91e3cdd4",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "software-patches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "productIdentifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "impact",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 3669,\n    \"count\": 1486,\n    \"expires\": 8969.159800710255\n  },\n  \"results\": [\n    {\n      \"id\": \"0fec55ab-665e-e3d4-e95b-3237d42938c9\",\n      \"productIdentifier\": \"787606b0-a72d-791c-8dd0-3c153ba3a984\",\n      \"title\": \"string\",\n      \"impact\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 1490.0894437844493,\n      \"deviceId\": 3485,\n      \"timestamp\": 7762.749926748471\n    },\n    {\n      \"id\": \"84e79900-49b3-9305-667f-e125b94a7855\",\n      \"productIdentifier\": \"60c41b06-ee95-b41f-6d2a-ba71f710ee37\",\n      \"title\": \"string\",\n      \"impact\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"installedAt\": 9318.321967719643,\n      \"deviceId\": 2372,\n      \"timestamp\": 6186.038655799736\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a27d5bbf-3875-44e9-b202-ce43f83f69bf",
+          "name": "Get summary of device policy overrides",
+          "request": {
+            "name": "Get summary of device policy overrides",
+            "description": {
+              "content": "Returns list of overridden policy sections for each device",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "policy-overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f502ca64-d6e2-41fd-9536-ecaf29d0c3fd",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "policy-overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 2232,\n    \"count\": 9,\n    \"expires\": 8283.096437034663\n  },\n  \"results\": [\n    {\n      \"overrides\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceId\": 8334\n    },\n    {\n      \"overrides\": [\n        \"string\",\n        \"string\"\n      ],\n      \"deviceId\": 4671\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc93ab04-cdf5-4b6c-bcee-72d65b2b6fd4",
+          "name": "Processor report",
+          "request": {
+            "name": "Processor report",
+            "description": {
+              "content": "Returns list of processors",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "processors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a505b884-fb35-4442-b2e6-0131863c52dd",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "processors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 6746,\n    \"count\": 3697,\n    \"expires\": 1608.4663120851428\n  },\n  \"results\": [\n    {\n      \"architecture\": \"string\",\n      \"maxClockSpeed\": 6369,\n      \"clockSpeed\": 1101,\n      \"name\": \"string\",\n      \"numCores\": 2275,\n      \"numLogicalCores\": 2139,\n      \"deviceId\": 5628,\n      \"timestamp\": 6743.275690207579\n    },\n    {\n      \"architecture\": \"string\",\n      \"maxClockSpeed\": 221,\n      \"clockSpeed\": 8604,\n      \"name\": \"string\",\n      \"numCores\": 4050,\n      \"numLogicalCores\": 2380,\n      \"deviceId\": 3737,\n      \"timestamp\": 649.6780352375275\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbfca41a-85aa-42bb-90ac-d072962ba987",
+          "name": "RAID controller report",
+          "request": {
+            "name": "RAID controller report",
+            "description": {
+              "content": "Returns list of RAID controllers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "raid-controllers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5122e3c-76dc-4307-b030-fc8104210539",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "raid-controllers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 7684,\n    \"count\": 429,\n    \"expires\": 8394.074576104624\n  },\n  \"results\": [\n    {\n      \"backupBatteryStatus\": \"string\",\n      \"batteryTemperature\": 7371,\n      \"biosVersion\": \"string\",\n      \"cacheSize\": 8605,\n      \"controllerIndex\": 9792,\n      \"driverName\": \"string\",\n      \"driverVersion\": \"string\",\n      \"family\": \"string\",\n      \"firmwareVersion\": \"string\",\n      \"hardwareRevision\": \"string\",\n      \"manufacturer\": \"string\",\n      \"manufacturingDate\": 1930.064343010216,\n      \"model\": \"string\",\n      \"physicalDriveCount\": 1491,\n      \"slot\": \"string\",\n      \"systemHealthStatus\": \"string\",\n      \"virtualDriveCount\": 9640,\n      \"deviceId\": 9336,\n      \"timestamp\": 405.7681928065093\n    },\n    {\n      \"backupBatteryStatus\": \"string\",\n      \"batteryTemperature\": 7383,\n      \"biosVersion\": \"string\",\n      \"cacheSize\": 6614,\n      \"controllerIndex\": 4939,\n      \"driverName\": \"string\",\n      \"driverVersion\": \"string\",\n      \"family\": \"string\",\n      \"firmwareVersion\": \"string\",\n      \"hardwareRevision\": \"string\",\n      \"manufacturer\": \"string\",\n      \"manufacturingDate\": 4463.2334635005645,\n      \"model\": \"string\",\n      \"physicalDriveCount\": 2822,\n      \"slot\": \"string\",\n      \"systemHealthStatus\": \"string\",\n      \"virtualDriveCount\": 3423,\n      \"deviceId\": 8246,\n      \"timestamp\": 8375.376936656474\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56577d83-934f-459e-b26c-2c197e8aa387",
+          "name": "RAID drive report",
+          "request": {
+            "name": "RAID drive report",
+            "description": {
+              "content": "Returns list of drives connected to RAID controllers",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "raid-drives"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0fdf64c-ae27-491f-b597-ec39468900a2",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "raid-drives"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 4579,\n    \"count\": 3507,\n    \"expires\": 3285.0427033189576\n  },\n  \"results\": [\n    {\n      \"controllerIndex\": 5262,\n      \"driveGroup\": \"string\",\n      \"driveId\": \"string\",\n      \"interfaceType\": \"string\",\n      \"location\": \"string\",\n      \"mediaType\": \"string\",\n      \"model\": \"string\",\n      \"protectionInfo\": \"string\",\n      \"selfEncrypted\": true,\n      \"serial\": \"string\",\n      \"size\": 4084,\n      \"spun\": false,\n      \"status\": \"string\",\n      \"deviceId\": 7427,\n      \"timestamp\": 519.2989674935022\n    },\n    {\n      \"controllerIndex\": 8982,\n      \"driveGroup\": \"string\",\n      \"driveId\": \"string\",\n      \"interfaceType\": \"string\",\n      \"location\": \"string\",\n      \"mediaType\": \"string\",\n      \"model\": \"string\",\n      \"protectionInfo\": \"string\",\n      \"selfEncrypted\": false,\n      \"serial\": \"string\",\n      \"size\": 908,\n      \"spun\": false,\n      \"status\": \"string\",\n      \"deviceId\": 2681,\n      \"timestamp\": 126.12597254186508\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bfcd87e-d062-4557-8bea-1db57901716e",
+          "name": "Scoped custom fields detailed report",
+          "request": {
+            "name": "Scoped custom fields detailed report",
+            "description": {
+              "content": "Returns report for Custom Fields defined at different scopes (device, location, organization) with additional information about each field",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "scoped-custom-fields-detailed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<string>",
+                  "description": "Custom fields updated after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "scopes",
+                  "value": "all",
+                  "description": "Comma-separated list of scopes"
+                },
+                {
+                  "disabled": false,
+                  "key": "showSecureValues",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate if secure values should be returned as plain text without encryption"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93395220-d084-4c6a-bc1d-c11d4b14d3bd",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "scoped-custom-fields-detailed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scopes",
+                      "value": "all"
+                    },
+                    {
+                      "key": "showSecureValues",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 4575,\n    \"count\": 7542,\n    \"expires\": 3275.832455613391\n  },\n  \"results\": [\n    {\n      \"scope\": \"NODE\",\n      \"entityId\": 6796,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"API\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 6438.036347886069\n        },\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"USER\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 9556.922883902369\n        }\n      ]\n    },\n    {\n      \"scope\": \"ORGANIZATION\",\n      \"entityId\": 9760,\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"API\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 5443.75258522181\n        },\n        {\n          \"name\": \"string\",\n          \"value\": {},\n          \"updatedBy\": {\n            \"source\": \"USER\",\n            \"user\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"updateTime\": 3115.9560473273705\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e548125-d6fa-4241-8e26-a325e8ddaa1e",
+          "name": "Scoped custom fields report",
+          "request": {
+            "name": "Scoped custom fields report",
+            "description": {
+              "content": "Returns report for Custom Fields defined at different scopes (device, location, organization)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "scoped-custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAfter",
+                  "value": "<string>",
+                  "description": "Custom fields updated after specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields"
+                },
+                {
+                  "disabled": false,
+                  "key": "scopes",
+                  "value": "all",
+                  "description": "Comma-separated list of scopes"
+                },
+                {
+                  "disabled": false,
+                  "key": "showSecureValues",
+                  "value": "<boolean>",
+                  "description": "Flag to indicate if secure values should be returned as plain text without encryption"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76d3e5e2-35a1-4737-86b7-bb912972c677",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "scoped-custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "updatedAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scopes",
+                      "value": "all"
+                    },
+                    {
+                      "key": "showSecureValues",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 9523,\n    \"count\": 4558,\n    \"expires\": 2266.052108056165\n  },\n  \"results\": [\n    {\n      \"scope\": \"END_USER\",\n      \"entityId\": 7261,\n      \"fields\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"scope\": \"END_USER\",\n      \"entityId\": 5592,\n      \"fields\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7dacb286-7fa0-4306-b147-6b2f41d58524",
+          "name": "Software inventory",
+          "request": {
+            "name": "Software inventory",
+            "description": {
+              "content": "Returns list software installed on devices",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "software"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedBefore",
+                  "value": "<string>",
+                  "description": "Include software installed before specified date"
+                },
+                {
+                  "disabled": false,
+                  "key": "installedAfter",
+                  "value": "<string>",
+                  "description": "Include software installed after specified date"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0eeb15b-fd7f-4a2c-a5f8-ee57fe930615",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "software"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "installedBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "installedAfter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 5872,\n    \"count\": 7610,\n    \"expires\": 256.5521531791359\n  },\n  \"results\": [\n    {\n      \"installDate\": \"1958-09-12T16:50:50.480Z\",\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"publisher\": \"string\",\n      \"size\": 2976,\n      \"version\": \"string\",\n      \"productCode\": \"string\",\n      \"deviceId\": 7381,\n      \"timestamp\": 4459.497226161251\n    },\n    {\n      \"installDate\": \"2000-07-15T09:22:21.166Z\",\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"publisher\": \"string\",\n      \"size\": 8541,\n      \"version\": \"string\",\n      \"productCode\": \"string\",\n      \"deviceId\": 9362,\n      \"timestamp\": 5021.442760046873\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29fde32b-cae7-4059-a341-60ebfc34b94d",
+          "name": "Disk volumes report",
+          "request": {
+            "name": "Disk volumes report",
+            "description": {
+              "content": "Returns list of disk volumes",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "volumes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ts",
+                  "value": "<string>",
+                  "description": "Monitoring timestamp filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Limit number of records per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Additional information to include (bl - BitLocker status)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79e10fb0-f995-4371-8b44-bb706eb21883",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "volumes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ts",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 1778,\n    \"count\": 7314,\n    \"expires\": 6707.826056205715\n  },\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"driveLetter\": \"string\",\n      \"label\": \"string\",\n      \"deviceType\": \"string\",\n      \"fileSystem\": \"string\",\n      \"autoMount\": true,\n      \"compressed\": false,\n      \"capacity\": 1264,\n      \"freeSpace\": 3294,\n      \"serialNumber\": \"string\",\n      \"bitLockerStatus\": {\n        \"conversionStatus\": \"ENCRYPTION_PAUSED\",\n        \"encryptionMethod\": \"UNKNOWN\",\n        \"protectionStatus\": \"UNPROTECTED\",\n        \"lockStatus\": \"UNKNOWN\",\n        \"initializedForProtection\": false\n      },\n      \"deviceId\": 234,\n      \"timestamp\": 9172.758497243602\n    },\n    {\n      \"name\": \"string\",\n      \"driveLetter\": \"string\",\n      \"label\": \"string\",\n      \"deviceType\": \"string\",\n      \"fileSystem\": \"string\",\n      \"autoMount\": true,\n      \"compressed\": true,\n      \"capacity\": 5898,\n      \"freeSpace\": 2193,\n      \"serialNumber\": \"string\",\n      \"bitLockerStatus\": {\n        \"conversionStatus\": \"UNKNOWN\",\n        \"encryptionMethod\": \"AES_128_WITH_DIFFUSER\",\n        \"protectionStatus\": \"PENDING\",\n        \"lockStatus\": \"LOCKED\",\n        \"initializedForProtection\": true\n      },\n      \"deviceId\": 9896,\n      \"timestamp\": 5500.39679470297\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "861597cf-73c3-4a91-9f55-4eb377845c76",
+          "name": "Windows services report",
+          "request": {
+            "name": "Windows services report",
+            "description": {
+              "content": "Returns list of Windows Services and their statuses",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "queries",
+                "windows-services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Service name"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Service state"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "1000",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "831e5419-bebb-4780-92e8-c6d5b7536b1e",
+              "name": "default response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "queries",
+                    "windows-services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "1000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 3403,\n    \"count\": 7904,\n    \"expires\": 3614.6080485153375\n  },\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"startType\": \"BOOT_START\",\n      \"userName\": \"string\",\n      \"state\": \"STOPPED\",\n      \"deviceId\": 1890,\n      \"timestamp\": 2986.219331045534\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"startType\": \"BOOT_START\",\n      \"userName\": \"string\",\n      \"state\": \"PAUSE_PENDING\",\n      \"deviceId\": 2208,\n      \"timestamp\": 2917.0654275629836\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b849fd92-882a-40d5-a4a0-c2ecc1bcf14f",
+    "name": "NinjaOne Public API 2.0 Asset Tags queries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

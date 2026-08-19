@@ -1,0 +1,472 @@
+{
+  "item": [
+    {
+      "id": "23951061-0b1a-4169-bcd2-e9cd314d43de",
+      "name": "Backup",
+      "description": {
+        "content": "Backup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc6531e8-3c75-4417-bdc3-60e8dae4d3e2",
+          "name": "Integrity check jobs.",
+          "request": {
+            "name": "Integrity check jobs.",
+            "description": {
+              "content": "Returns a list of integrity check jobs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "backup",
+                "integrity-check-jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "ddf",
+                  "value": "<string>",
+                  "description": "Deleted device filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "sf",
+                  "value": "<string>",
+                  "description": "Backup job status filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "ptf",
+                  "value": "<string>",
+                  "description": "Backup job planType filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "stf",
+                  "value": "<string>",
+                  "description": "Backup job startTime filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "active",
+                  "description": "Which devices include (active|deleted|all) default value active."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "10000",
+                  "description": "Limit number of records per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56a06bfd-7cea-4a7e-a83c-38e09c6450e7",
+              "name": "The integrity check job report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "backup",
+                    "integrity-check-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ddf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ptf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "active"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 3707,\n    \"count\": 9002,\n    \"expires\": 245.10780355487594\n  },\n  \"results\": [\n    {\n      \"jobId\": \"53bfbb7e-5dc1-81b7-135a-54dfe6283580\",\n      \"jobStartTime\": 8640.476051248528,\n      \"jobEndTime\": 3120.507331799551,\n      \"jobStatus\": \"string\",\n      \"planGuid\": \"797166f8-57ae-21bd-e0b2-41d60cdac0e3\",\n      \"planName\": \"string\",\n      \"planType\": \"string\",\n      \"totalActualStorageBytes\": 1791,\n      \"organizationId\": 1442,\n      \"locationId\": 8036,\n      \"deviceId\": 9987\n    },\n    {\n      \"jobId\": \"3158670e-de70-4db8-dc87-4bc3e534ed16\",\n      \"jobStartTime\": 7432.037150580278,\n      \"jobEndTime\": 8350.907169747858,\n      \"jobStatus\": \"string\",\n      \"planGuid\": \"dc97dcf1-5b86-88df-d449-9a88900c1710\",\n      \"planName\": \"string\",\n      \"planType\": \"string\",\n      \"totalActualStorageBytes\": 6241,\n      \"organizationId\": 207,\n      \"locationId\": 920,\n      \"deviceId\": 7477\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "756bd27d-954b-4e6c-b123-6e469e91f0c4",
+          "name": "Create an integrity check job",
+          "request": {
+            "name": "Create an integrity check job",
+            "description": {
+              "content": "Creates an integrity check job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "backup",
+                "integrity-check-jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deviceId\": \"<integer>\",\n  \"planUid\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5df9b03e-f707-4576-b3dd-c7a175aa26a1",
+              "name": "Returns SUCCESS if the job was saved correctly, FAILURE otherwise.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "backup",
+                    "integrity-check-jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deviceId\": \"<integer>\",\n  \"planUid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"FAILURE\",\n  \"jobUid\": \"d0b4ffff-a437-0f98-2bf8-792af80da5a6\",\n  \"deviceId\": 988,\n  \"planGuid\": \"767f3129-8e95-99ee-5606-c04d81e785d4\",\n  \"planName\": \"string\",\n  \"planType\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7333d81-20a3-4c3d-9a63-dd54c08cd6df",
+          "name": "Backup jobs",
+          "request": {
+            "name": "Backup jobs",
+            "description": {
+              "content": "Returns list of backup jobs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "backup",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "df",
+                  "value": "<string>",
+                  "description": "Device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ddf",
+                  "value": "<string>",
+                  "description": "Deleted device filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "sf",
+                  "value": "<string>",
+                  "description": "Backup job status filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "ptf",
+                  "value": "<string>",
+                  "description": "Backup job planType filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "stf",
+                  "value": "<string>",
+                  "description": "Backup job startTime filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "active",
+                  "description": "Which devices include (active|deleted|all) default value active"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "10000",
+                  "description": "Limit number of records per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6930bee4-44ec-47a8-be9f-17b514326ede",
+              "name": "Returns a backup job report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "backup",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "df",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ddf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ptf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stf",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "active"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "10000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cursor\": {\n    \"name\": \"string\",\n    \"offset\": 9885,\n    \"count\": 4493,\n    \"expires\": 6175.05498795308\n  },\n  \"results\": [\n    {\n      \"jobId\": \"328cd9d8-bbf6-e5dd-f9d3-fef42e8c356a\",\n      \"jobStartTime\": 7280.804657420017,\n      \"jobEndTime\": 6835.832976691372,\n      \"jobStatus\": \"string\",\n      \"planGuid\": \"1fe6cd02-6ded-4399-f7df-7a7a60d3c0a1\",\n      \"planName\": \"string\",\n      \"planType\": \"string\",\n      \"totalActualStorageBytes\": 1574,\n      \"organizationId\": 5069,\n      \"locationId\": 7905,\n      \"deviceId\": 4013\n    },\n    {\n      \"jobId\": \"c9b7a771-ea87-bb41-33e9-39c4c16ff3e0\",\n      \"jobStartTime\": 7046.264897690499,\n      \"jobEndTime\": 7381.419810259563,\n      \"jobStatus\": \"string\",\n      \"planGuid\": \"be95c9ae-4ff7-f128-6878-ab8fdae0163f\",\n      \"planName\": \"string\",\n      \"planType\": \"string\",\n      \"totalActualStorageBytes\": 7881,\n      \"organizationId\": 6654,\n      \"locationId\": 9130,\n      \"deviceId\": 6074\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7f5a9fc8-3506-4466-82ac-d2299b34a03e",
+    "name": "NinjaOne Public API 2.0 Asset Tags Backup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

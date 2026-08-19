@@ -1,0 +1,1304 @@
+{
+  "item": [
+    {
+      "id": "13369543-34ff-4b6b-a30c-d6c03b0eb0f3",
+      "name": "Organization Checklists",
+      "description": {
+        "content": "Organization Checklists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "433d13bb-abd6-47ca-afd7-a360a3835532",
+          "name": "Archive organization checklists",
+          "request": {
+            "name": "Archive organization checklists",
+            "description": {
+              "content": "Archive multiple organization checklists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientChecklistIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36a12280-b4e2-4766-a352-30f9635e31ca",
+              "name": "Returns a list of archive organization checklists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientChecklistIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1106,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"required\": false,\n    \"dueDate\": 5149.581416683401,\n    \"completed\": true,\n    \"completedOn\": 7512.254901972837,\n    \"assignedTo\": {\n      \"id\": 3245,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 8862.086617623992,\n    \"lastUpdatedBy\": {\n      \"id\": 9068,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 6650,\n    \"totalTaskCount\": 6302,\n    \"tasks\": [\n      {\n        \"id\": 7160,\n        \"position\": 3697,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 4866,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 338.7158054392503,\n        \"completed\": false,\n        \"completedOn\": 3513.9123972122643,\n        \"completedBy\": {\n          \"id\": 7226,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 8255,\n        \"position\": 733,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 3608,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 2668.7665962710425,\n        \"completed\": false,\n        \"completedOn\": 3142.961024843497,\n        \"completedBy\": {\n          \"id\": 9028,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 4525,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 1786,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 2013.1680749630443\n  },\n  {\n    \"id\": 2068,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"required\": true,\n    \"dueDate\": 9381.399366840571,\n    \"completed\": false,\n    \"completedOn\": 8063.134369561382,\n    \"assignedTo\": {\n      \"id\": 1088,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 9482.299467110535,\n    \"lastUpdatedBy\": {\n      \"id\": 9659,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 8509,\n    \"totalTaskCount\": 5349,\n    \"tasks\": [\n      {\n        \"id\": 2860,\n        \"position\": 5342,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 7325,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 3733.8953116349494,\n        \"completed\": false,\n        \"completedOn\": 4166.843823787555,\n        \"completedBy\": {\n          \"id\": 2002,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 2048,\n        \"position\": 7253,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 5673,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 5917.447077402782,\n        \"completed\": true,\n        \"completedOn\": 189.53408529805205,\n        \"completedBy\": {\n          \"id\": 4123,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 293,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 5803,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"archiveTime\": 2910.0462467691837\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "532ccadb-9ab3-4795-8e3e-107b340106ae",
+          "name": "List client checklists",
+          "request": {
+            "name": "List client checklists",
+            "description": {
+              "content": "List client checklists with given criteria",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "checklistIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizationIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "checklistName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignedToUserId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "required",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeArchived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1df8fbd-db4c-4314-b14c-3332a36a0768",
+              "name": "Returns a list of client checklists with given criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "checklistIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizationIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "checklistName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedToUserId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "required",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeArchived",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7480,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"required\": true,\n    \"dueDate\": 4985.264143545593,\n    \"completed\": false,\n    \"completedOn\": 9100.172997188352,\n    \"assignedTo\": {\n      \"id\": 8703,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 7948.637744721596,\n    \"lastUpdatedBy\": {\n      \"id\": 2069,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 3982,\n    \"totalTaskCount\": 4667,\n    \"tasks\": [\n      {\n        \"id\": 7016,\n        \"position\": 9776,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 5048,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 7376.821864472032,\n        \"completed\": true,\n        \"completedOn\": 4916.6717670238995,\n        \"completedBy\": {\n          \"id\": 682,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 6648,\n        \"position\": 7770,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 7619,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 4996.931354749594,\n        \"completed\": false,\n        \"completedOn\": 3360.3813443287145,\n        \"completedBy\": {\n          \"id\": 8776,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 5791,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 7249,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 1976.0041420066932\n  },\n  {\n    \"id\": 1730,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"string\",\n      \"html\": \"string\"\n    },\n    \"required\": false,\n    \"dueDate\": 9587.891639349404,\n    \"completed\": true,\n    \"completedOn\": 9533.828407227074,\n    \"assignedTo\": {\n      \"id\": 9196,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"lastUpdatedOn\": 6466.045985280964,\n    \"lastUpdatedBy\": {\n      \"id\": 3865,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"completedTaskCount\": 4303,\n    \"totalTaskCount\": 3042,\n    \"tasks\": [\n      {\n        \"id\": 3280,\n        \"position\": 674,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 204,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 2695.9510459538083,\n        \"completed\": true,\n        \"completedOn\": 3879.7784246092706,\n        \"completedBy\": {\n          \"id\": 9220,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 572,\n        \"position\": 5137,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"string\",\n          \"html\": \"string\"\n        },\n        \"assignedTo\": {\n          \"id\": 9606,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 1914.6551356723273,\n        \"completed\": true,\n        \"completedOn\": 7019.255026896501,\n        \"completedBy\": {\n          \"id\": 7335,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 694,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 9860,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 6699.085502296164\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e24bca56-6e5d-4ad1-bc2c-fae3e705c517",
+          "name": "Update organization checklists",
+          "request": {
+            "name": "Update organization checklists",
+            "description": {
+              "content": "Updates multiple organization checklists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"checklistId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  },\n  {\n    \"checklistId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f920855-aabd-4958-8571-78bf368d6930",
+              "name": "Returns a list of updated organization checklists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"checklistId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  },\n  {\n    \"checklistId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3142,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": false,\n    \"dueDate\": 2585.3435397005233,\n    \"completed\": false,\n    \"completedOn\": 2582.8244429245897,\n    \"assignedTo\": {\n      \"id\": 953,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"lastUpdatedOn\": 1068.1181190106126,\n    \"lastUpdatedBy\": {\n      \"id\": 6259,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2575,\n    \"totalTaskCount\": 4587,\n    \"tasks\": [\n      {\n        \"id\": 427,\n        \"position\": 2729,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 1352,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 6707.467384251653,\n        \"completed\": false,\n        \"completedOn\": 5151.063120473661,\n        \"completedBy\": {\n          \"id\": 4978,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 9506,\n        \"position\": 9000,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 5298,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 5642.001527025356,\n        \"completed\": true,\n        \"completedOn\": 3710.7197029791296,\n        \"completedBy\": {\n          \"id\": 4940,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 8501,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3537,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 120.64405369195619\n  },\n  {\n    \"id\": 4210,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": true,\n    \"dueDate\": 6993.412636848062,\n    \"completed\": true,\n    \"completedOn\": 7048.96144636591,\n    \"assignedTo\": {\n      \"id\": 9154,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 9228.737984974374,\n    \"lastUpdatedBy\": {\n      \"id\": 445,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2533,\n    \"totalTaskCount\": 6310,\n    \"tasks\": [\n      {\n        \"id\": 7223,\n        \"position\": 5666,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 3756,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7044.214989439699,\n        \"completed\": false,\n        \"completedOn\": 1209.8607593796407,\n        \"completedBy\": {\n          \"id\": 6511,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 2932,\n        \"position\": 7907,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 6628,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7580.204076267233,\n        \"completed\": true,\n        \"completedOn\": 840.8931064481661,\n        \"completedBy\": {\n          \"id\": 1395,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 72,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 6654,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 1875.9488401393498\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6d71a80-c68d-4d8b-8c5d-b236d73c9807",
+          "name": "Create organization checklists",
+          "request": {
+            "name": "Create organization checklists",
+            "description": {
+              "content": "Creates multiple organization checklists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"organizationId\": \"<integer>\",\n    \"checklistTemplateId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"organizationId\": \"<integer>\",\n    \"checklistTemplateId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82e810ce-6a81-4157-b303-10621642eec8",
+              "name": "Returns a list of created organization checklists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"organizationId\": \"<integer>\",\n    \"checklistTemplateId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": \"<boolean>\",\n    \"dueDate\": \"<double>\",\n    \"assignedToUserId\": \"<integer>\",\n    \"organizationId\": \"<integer>\",\n    \"checklistTemplateId\": \"<integer>\",\n    \"tasks\": [\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"position\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedToUserId\": \"<integer>\",\n        \"dueDate\": \"<double>\",\n        \"completed\": \"<boolean>\"\n      }\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3142,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": false,\n    \"dueDate\": 2585.3435397005233,\n    \"completed\": false,\n    \"completedOn\": 2582.8244429245897,\n    \"assignedTo\": {\n      \"id\": 953,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"lastUpdatedOn\": 1068.1181190106126,\n    \"lastUpdatedBy\": {\n      \"id\": 6259,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2575,\n    \"totalTaskCount\": 4587,\n    \"tasks\": [\n      {\n        \"id\": 427,\n        \"position\": 2729,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 1352,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 6707.467384251653,\n        \"completed\": false,\n        \"completedOn\": 5151.063120473661,\n        \"completedBy\": {\n          \"id\": 4978,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 9506,\n        \"position\": 9000,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 5298,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 5642.001527025356,\n        \"completed\": true,\n        \"completedOn\": 3710.7197029791296,\n        \"completedBy\": {\n          \"id\": 4940,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 8501,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3537,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 120.64405369195619\n  },\n  {\n    \"id\": 4210,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": true,\n    \"dueDate\": 6993.412636848062,\n    \"completed\": true,\n    \"completedOn\": 7048.96144636591,\n    \"assignedTo\": {\n      \"id\": 9154,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 9228.737984974374,\n    \"lastUpdatedBy\": {\n      \"id\": 445,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2533,\n    \"totalTaskCount\": 6310,\n    \"tasks\": [\n      {\n        \"id\": 7223,\n        \"position\": 5666,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 3756,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7044.214989439699,\n        \"completed\": false,\n        \"completedOn\": 1209.8607593796407,\n        \"completedBy\": {\n          \"id\": 6511,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 2932,\n        \"position\": 7907,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 6628,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7580.204076267233,\n        \"completed\": true,\n        \"completedOn\": 840.8931064481661,\n        \"completedBy\": {\n          \"id\": 1395,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 72,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 6654,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 1875.9488401393498\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8186d5f-888f-4be3-b34f-c03e883389dc",
+          "name": "Create organization checklists from templates",
+          "request": {
+            "name": "Create organization checklists from templates",
+            "description": {
+              "content": "Creates multiple organization checklists from templates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                ":organizationId",
+                "checklists-from-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "organizationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e454c000-c0ab-4433-be3a-3e51ffd87c3b",
+              "name": "Returns a list of created organization checklists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    ":organizationId",
+                    "checklists-from-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "organizationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3142,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": false,\n    \"dueDate\": 2585.3435397005233,\n    \"completed\": false,\n    \"completedOn\": 2582.8244429245897,\n    \"assignedTo\": {\n      \"id\": 953,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"lastUpdatedOn\": 1068.1181190106126,\n    \"lastUpdatedBy\": {\n      \"id\": 6259,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2575,\n    \"totalTaskCount\": 4587,\n    \"tasks\": [\n      {\n        \"id\": 427,\n        \"position\": 2729,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 1352,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 6707.467384251653,\n        \"completed\": false,\n        \"completedOn\": 5151.063120473661,\n        \"completedBy\": {\n          \"id\": 4978,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 9506,\n        \"position\": 9000,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 5298,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 5642.001527025356,\n        \"completed\": true,\n        \"completedOn\": 3710.7197029791296,\n        \"completedBy\": {\n          \"id\": 4940,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 8501,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3537,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 120.64405369195619\n  },\n  {\n    \"id\": 4210,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": true,\n    \"dueDate\": 6993.412636848062,\n    \"completed\": true,\n    \"completedOn\": 7048.96144636591,\n    \"assignedTo\": {\n      \"id\": 9154,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 9228.737984974374,\n    \"lastUpdatedBy\": {\n      \"id\": 445,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2533,\n    \"totalTaskCount\": 6310,\n    \"tasks\": [\n      {\n        \"id\": 7223,\n        \"position\": 5666,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 3756,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7044.214989439699,\n        \"completed\": false,\n        \"completedOn\": 1209.8607593796407,\n        \"completedBy\": {\n          \"id\": 6511,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 2932,\n        \"position\": 7907,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 6628,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7580.204076267233,\n        \"completed\": true,\n        \"completedOn\": 840.8931064481661,\n        \"completedBy\": {\n          \"id\": 1395,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 72,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 6654,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 1875.9488401393498\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c16831f-a0b0-4dd5-a31b-02acef2b1a86",
+          "name": "Get client checklist",
+          "request": {
+            "name": "Get client checklist",
+            "description": {
+              "content": "Get a client checklist by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklist",
+                ":checklistId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "checklistId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "271905bc-9411-46a2-956e-ac1b88f7d816",
+              "name": "Returns a client checklist with given id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklist",
+                    ":checklistId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "checklistId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 942,\n  \"name\": \"string\",\n  \"description\": {\n    \"text\": \"<string>\",\n    \"html\": \"<string>\"\n  },\n  \"required\": true,\n  \"dueDate\": 8908.964819114672,\n  \"completed\": true,\n  \"completedOn\": 4746.970823028562,\n  \"assignedTo\": {\n    \"id\": 6219,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"deleted\": true\n  },\n  \"lastUpdatedOn\": 4020.870739850664,\n  \"lastUpdatedBy\": {\n    \"id\": 7455,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"deleted\": false\n  },\n  \"completedTaskCount\": 3962,\n  \"totalTaskCount\": 7598,\n  \"tasks\": [\n    {\n      \"id\": 4839,\n      \"position\": 3225,\n      \"name\": \"string\",\n      \"description\": {\n        \"text\": \"<string>\",\n        \"html\": \"<string>\"\n      },\n      \"assignedTo\": {\n        \"id\": 7495,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"deleted\": false\n      },\n      \"dueDate\": 3186.051418840895,\n      \"completed\": false,\n      \"completedOn\": 5584.46549848752,\n      \"completedBy\": {\n        \"id\": 4700,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"deleted\": false\n      }\n    },\n    {\n      \"id\": 8253,\n      \"position\": 2725,\n      \"name\": \"string\",\n      \"description\": {\n        \"text\": \"<string>\",\n        \"html\": \"<string>\"\n      },\n      \"assignedTo\": {\n        \"id\": 9638,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"deleted\": true\n      },\n      \"dueDate\": 991.6891676908723,\n      \"completed\": true,\n      \"completedOn\": 9853.104915116006,\n      \"completedBy\": {\n        \"id\": 3225,\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"deleted\": true\n      }\n    }\n  ],\n  \"organizationId\": 5345,\n  \"clientName\": \"string\",\n  \"archived\": false,\n  \"archivedBy\": {\n    \"id\": 9749,\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"deleted\": true\n  },\n  \"archiveTime\": 5681.34193758397\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d32cb773-907d-4785-88bb-ac2e97a5d48f",
+          "name": "Delete an organization checklist",
+          "request": {
+            "name": "Delete an organization checklist",
+            "description": {
+              "content": "Deletes an organization checklist by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklist",
+                ":checklistId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "checklistId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82de77ef-f70d-4beb-a061-6e57045f67ad",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklist",
+                    ":checklistId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "checklistId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87b43f5d-6dc5-494d-a9b7-6d387cbbd470",
+          "name": "Delete organization checklists",
+          "request": {
+            "name": "Delete organization checklists",
+            "description": {
+              "content": "Deletes organization checklists by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93296dc6-050f-4e64-8de0-00d9f8975af9",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e42de6eb-d987-479b-b181-82c5e1d5c46c",
+          "name": "Get organization checklist signed urls",
+          "request": {
+            "name": "Get organization checklist signed urls",
+            "description": {
+              "content": "Get organization checklist signed urls",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklist",
+                ":checklistId",
+                "signed-urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "checklistId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0edcbc34-5cae-4cf6-abbb-b20cd25598d5",
+              "name": "Returns a map of content ids and their corresponding signed urls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklist",
+                    ":checklistId",
+                    "signed-urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "checklistId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66aa2a67-533b-46bc-afc4-81478718c16b",
+          "name": "Promote organization checklists",
+          "request": {
+            "name": "Promote organization checklists",
+            "description": {
+              "content": "Promote organization checklists by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists",
+                "promote-with-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63fa5fe8-ad44-4dd3-9dd4-c979507eddac",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists",
+                    "promote-with-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62d32981-2813-4d09-bea6-c7518c06dce2",
+          "name": "Promote organization checklists",
+          "request": {
+            "name": "Promote organization checklists",
+            "description": {
+              "content": "Promote organization checklists by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "checklists",
+                "promote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<integer>\",\n  \"<integer>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "578c747a-588b-42da-b6e8-a1cb49eb848c",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "checklists",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<integer>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1474368-f8fa-419a-955a-d8e37e96153e",
+          "name": "Restore organization checklists",
+          "request": {
+            "name": "Restore organization checklists",
+            "description": {
+              "content": "Restore multiple organization checklists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "organization",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientChecklistIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea945498-9021-404b-97d4-ffc5b5c4fdcf",
+              "name": "Returns a list of restore organization checklists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "organization",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientChecklistIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3142,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": false,\n    \"dueDate\": 2585.3435397005233,\n    \"completed\": false,\n    \"completedOn\": 2582.8244429245897,\n    \"assignedTo\": {\n      \"id\": 953,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"lastUpdatedOn\": 1068.1181190106126,\n    \"lastUpdatedBy\": {\n      \"id\": 6259,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2575,\n    \"totalTaskCount\": 4587,\n    \"tasks\": [\n      {\n        \"id\": 427,\n        \"position\": 2729,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 1352,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 6707.467384251653,\n        \"completed\": false,\n        \"completedOn\": 5151.063120473661,\n        \"completedBy\": {\n          \"id\": 4978,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      },\n      {\n        \"id\": 9506,\n        \"position\": 9000,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 5298,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        },\n        \"dueDate\": 5642.001527025356,\n        \"completed\": true,\n        \"completedOn\": 3710.7197029791296,\n        \"completedBy\": {\n          \"id\": 4940,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": false\n        }\n      }\n    ],\n    \"organizationId\": 8501,\n    \"clientName\": \"string\",\n    \"archived\": true,\n    \"archivedBy\": {\n      \"id\": 3537,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 120.64405369195619\n  },\n  {\n    \"id\": 4210,\n    \"name\": \"string\",\n    \"description\": {\n      \"text\": \"<string>\",\n      \"html\": \"<string>\"\n    },\n    \"required\": true,\n    \"dueDate\": 6993.412636848062,\n    \"completed\": true,\n    \"completedOn\": 7048.96144636591,\n    \"assignedTo\": {\n      \"id\": 9154,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"lastUpdatedOn\": 9228.737984974374,\n    \"lastUpdatedBy\": {\n      \"id\": 445,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": false\n    },\n    \"completedTaskCount\": 2533,\n    \"totalTaskCount\": 6310,\n    \"tasks\": [\n      {\n        \"id\": 7223,\n        \"position\": 5666,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 3756,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7044.214989439699,\n        \"completed\": false,\n        \"completedOn\": 1209.8607593796407,\n        \"completedBy\": {\n          \"id\": 6511,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      },\n      {\n        \"id\": 2932,\n        \"position\": 7907,\n        \"name\": \"string\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"html\": \"<string>\"\n        },\n        \"assignedTo\": {\n          \"id\": 6628,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        },\n        \"dueDate\": 7580.204076267233,\n        \"completed\": true,\n        \"completedOn\": 840.8931064481661,\n        \"completedBy\": {\n          \"id\": 1395,\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"deleted\": true\n        }\n      }\n    ],\n    \"organizationId\": 72,\n    \"clientName\": \"string\",\n    \"archived\": false,\n    \"archivedBy\": {\n      \"id\": 6654,\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"deleted\": true\n    },\n    \"archiveTime\": 1875.9488401393498\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0ffc4285-12c0-4eb3-9fa1-0d9e1e6d6629",
+    "name": "NinjaOne Public API 2.0 Asset Tags Organization Checklists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "NinjaOne Public API documentation.\n\nContact Support:\n Email: api@ninjarmm.com",
+      "type": "text/plain"
+    }
+  }
+}

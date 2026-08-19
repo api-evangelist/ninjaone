@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Backup API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Backup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Integrity check jobs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/backup/integrity-check-jobs",
+            "params": [
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter."
+              },
+              {
+                "name": "ddf",
+                "value": "",
+                "type": "query",
+                "description": "Deleted device filter."
+              },
+              {
+                "name": "sf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job status filter."
+              },
+              {
+                "name": "ptf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job planType filter."
+              },
+              {
+                "name": "stf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job startTime filter."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Which devices include (active|deleted|all) default value active."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor name."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of records per page."
+              }
+            ]
+          },
+          "docs": "Returns a list of integrity check jobs."
+        },
+        {
+          "info": {
+            "name": "Create an integrity check job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/backup/integrity-check-jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an integrity check job"
+        },
+        {
+          "info": {
+            "name": "Backup jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/backup/jobs",
+            "params": [
+              {
+                "name": "df",
+                "value": "",
+                "type": "query",
+                "description": "Device filter"
+              },
+              {
+                "name": "ddf",
+                "value": "",
+                "type": "query",
+                "description": "Deleted device filter"
+              },
+              {
+                "name": "sf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job status filter"
+              },
+              {
+                "name": "ptf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job planType filter"
+              },
+              {
+                "name": "stf",
+                "value": "",
+                "type": "query",
+                "description": "Backup job startTime filter"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Which devices include (active|deleted|all) default value active"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor name"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Limit number of records per page"
+              }
+            ]
+          },
+          "docs": "Returns list of backup jobs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,402 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Knowledge Base Articles API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Knowledge Base Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload temporary attachments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/attachments/temp/upload",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload temporary attachment"
+        },
+        {
+          "info": {
+            "name": "Archive knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archive knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Archive knowledge base folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/folders/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archive knowledge base folders"
+        },
+        {
+          "info": {
+            "name": "Create knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Update knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Delete knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Delete knowledge base folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/folders/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete knowledge base folders"
+        },
+        {
+          "info": {
+            "name": "Download knowledge base article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/article/:articleId/download",
+            "params": [
+              {
+                "name": "articleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download knowledge base article"
+        },
+        {
+          "info": {
+            "name": "Lists organization knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/organization/articles",
+            "params": [
+              {
+                "name": "organizationIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "articleName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists organization knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Lists global knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/global/articles",
+            "params": [
+              {
+                "name": "articleName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists global knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Get knowledge base article signed urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/article/:articleId/signed-urls",
+            "params": [
+              {
+                "name": "articleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get knowledge base article signed urls"
+        },
+        {
+          "info": {
+            "name": "Returns knowledge base folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/folder/:folderId",
+            "params": [
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns knowledge base folder and its content"
+        },
+        {
+          "info": {
+            "name": "Returns knowledge base folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/knowledgebase/folder",
+            "params": [
+              {
+                "name": "folderPath",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "folderId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns knowledge base folder and its content"
+        },
+        {
+          "info": {
+            "name": "Move knowledge base items",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/knowledgebase/folders/move",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move knowledge base folders and documents to another knowledge base folder"
+        },
+        {
+          "info": {
+            "name": "Restore archive knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restore archived knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Restore archived knowledge base folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/folders/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restore archived knowledge base folders"
+        },
+        {
+          "info": {
+            "name": "Upload knowledge base articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/knowledgebase/articles/upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "organizationId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "folderId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "folderPath",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload knowledge base articles"
+        },
+        {
+          "info": {
+            "name": "Download related item attachment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/:relatedItemId/attachment/download",
+            "params": [
+              {
+                "name": "relatedItemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download related item attachment"
+        },
+        {
+          "info": {
+            "name": "Get related item attachments signed urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/related-items/with-entity/:entityType/:entityId/attachments/signed-urls",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "entityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get related item attachments signed urls for an entity"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

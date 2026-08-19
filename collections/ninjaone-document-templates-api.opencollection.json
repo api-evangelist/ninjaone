@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Document Templates API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive a document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/document-templates/:documentTemplateId/archive",
+            "params": [
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archives a document template by id"
+        },
+        {
+          "info": {
+            "name": "Archive multiple document templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/document-templates/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archives multiple document template by ids"
+        },
+        {
+          "info": {
+            "name": "List document templates with fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/document-templates",
+            "params": [
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeTechnicianRoles",
+                "value": "",
+                "type": "query",
+                "description": "Includes allowed technician roles."
+              }
+            ]
+          },
+          "docs": "List document templates with fields"
+        },
+        {
+          "info": {
+            "name": "Create document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/document-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create document template"
+        },
+        {
+          "info": {
+            "name": "Get document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/document-templates/:documentTemplateId",
+            "params": [
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeTechnicianRoles",
+                "value": "",
+                "type": "query",
+                "description": "Includes allowed technician roles."
+              }
+            ]
+          },
+          "docs": "Get document template"
+        },
+        {
+          "info": {
+            "name": "Update document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/document-templates/:documentTemplateId",
+            "params": [
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a document template by id"
+        },
+        {
+          "info": {
+            "name": "Delete a document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/document-templates/:documentTemplateId",
+            "params": [
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a document template by id"
+        },
+        {
+          "info": {
+            "name": "Restore a document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/document-templates/:documentTemplateId/restore",
+            "params": [
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Restores a document template by id"
+        },
+        {
+          "info": {
+            "name": "Restore a document template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/document-templates/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restores a document template by id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

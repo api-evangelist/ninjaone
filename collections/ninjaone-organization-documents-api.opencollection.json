@@ -1,0 +1,271 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Organization Documents API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Archive an organization document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/document/:clientDocumentId/archive",
+            "params": [
+              {
+                "name": "clientDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archives an organization document by id"
+        },
+        {
+          "info": {
+            "name": "Archives organization documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/documents/archive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Archives multiple organization documents by id"
+        },
+        {
+          "info": {
+            "name": "Create organization document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/:organizationId/template/:documentTemplateId/document",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              },
+              {
+                "name": "documentTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "Document template identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an organization document and returns the document created"
+        },
+        {
+          "info": {
+            "name": "List all organization documents with field values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/documents",
+            "params": [
+              {
+                "name": "groupBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "organizationIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "documentName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all organization documents with field values"
+        },
+        {
+          "info": {
+            "name": "Create organization documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates organization documents and returns the documents created"
+        },
+        {
+          "info": {
+            "name": "Update organization documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/organization/documents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates organization documents and returns the documents updated"
+        },
+        {
+          "info": {
+            "name": "Delete an archived organization document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/organization/document/:clientDocumentId",
+            "params": [
+              {
+                "name": "clientDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an archived organization document by id"
+        },
+        {
+          "info": {
+            "name": "Get organization document signed urls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/document/:clientDocumentId/signed-urls",
+            "params": [
+              {
+                "name": "clientDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get organization document signed urls"
+        },
+        {
+          "info": {
+            "name": "List organization documents with field values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:organizationId/documents",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ]
+          },
+          "docs": "List organization documents with field values"
+        },
+        {
+          "info": {
+            "name": "Restore an organization document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/document/:clientDocumentId/restore",
+            "params": [
+              {
+                "name": "clientDocumentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Restores an organization document by id"
+        },
+        {
+          "info": {
+            "name": "Restore multiple multi page organization documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/documents/restore",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Restores multiple organization documents by id"
+        },
+        {
+          "info": {
+            "name": "Update organization document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/:organizationId/document/:clientDocumentId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              },
+              {
+                "name": "clientDocumentId",
+                "value": "",
+                "type": "path",
+                "description": "Organization document identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an organization document and returns the updated version"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

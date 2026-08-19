@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags Custom Tabs API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Tabs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new Custom Tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/tab",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Custom Tab with the provided details"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Custom Tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/:tabId",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a custom tab. NOTE: This will _not_ fetch tab extensions. You must use the GET tab/{tabId}/role/{roleId} for that"
+        },
+        {
+          "info": {
+            "name": "Update a Custom Tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/:tabId",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Custom Tab. This API can be used to either update existing tabs, or create tab 'role extensions' for existing tabs"
+        },
+        {
+          "info": {
+            "name": "Delete a Custom Tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/tab/:tabId",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Custom Tab"
+        },
+        {
+          "info": {
+            "name": "Retrieve the requested tab along with any extensions for end-user tabs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/:tabId/end-user",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the requested tab along with any extensions for end-user tabs"
+        },
+        {
+          "info": {
+            "name": "Retrieve the requested tab along with any extensions for organization and location tabs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/:tabId/organization",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the requested tab along with any extensions for organization and location tabs"
+        },
+        {
+          "info": {
+            "name": "Retrieve the requested tab along with any extensions based on the supplied roleId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/:tabId/role/:roleId",
+            "params": [
+              {
+                "name": "tabId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the requested tab along with any extensions based on the supplied roleId"
+        },
+        {
+          "info": {
+            "name": "Retrieve all of the custom tabs available to end user views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/summary/end-user"
+          },
+          "docs": "Retrieve a summary of the tabs available to end user views"
+        },
+        {
+          "info": {
+            "name": "Retrieve all of the custom tabs available to organizations and locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/summary/organization"
+          },
+          "docs": "Retrieve a summary of the tabs available to organizations and locations"
+        },
+        {
+          "info": {
+            "name": "Retrieve all of the custom tabs that would appear for the given role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/tab/summary/role/:roleId",
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a summary of the tabs available to a given role"
+        },
+        {
+          "info": {
+            "name": "Rename a Custom Tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/rename",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Renames a Custom Tab"
+        },
+        {
+          "info": {
+            "name": "Set the tab visibility of the specified tab",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/role/:roleId/visibility",
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Using this API it is possible to configure tabs to be hidden for roles and their children"
+        },
+        {
+          "info": {
+            "name": "Update the order of custom tabs for end-user tabs",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/end-user/order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the order of custom tabs for end-user tabs. NOTE: All tabs defined for end-users must be specified in the payload"
+        },
+        {
+          "info": {
+            "name": "Update the order of custom tabs for organizations and locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/organization/order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the order of custom tabs for organizations and locations. NOTE: All tabs defined for organizations must be specified in the payload"
+        },
+        {
+          "info": {
+            "name": "Update the order of custom tabs for a specific role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/tab/role/:roleId/order",
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the order of custom tabs for a specific role. NOTE: Only tabs created on this role can be ordered. All tabs defined on the role must be specified in the payload"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

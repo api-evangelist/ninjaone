@@ -1,0 +1,1016 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NinjaOne Public API 2.0 Asset Tags management API",
+    "version": "2.0.9-draft"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/contacts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new contact"
+        },
+        {
+          "info": {
+            "name": "Update a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Contact identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a contact by their ID"
+        },
+        {
+          "info": {
+            "name": "Delete a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/contact/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Contact identifier"
+              }
+            ]
+          },
+          "docs": "Delete a contact by their ID"
+        },
+        {
+          "info": {
+            "name": "Get custom fields policy conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/custom-fields",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all custom fields policy conditions for specified policy"
+        },
+        {
+          "info": {
+            "name": "Create custom fields policy condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/custom-fields",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates custom fields policy condition for specified policy"
+        },
+        {
+          "info": {
+            "name": "Get windows event conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/windows-event",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all windows event conditions for specified policy"
+        },
+        {
+          "info": {
+            "name": "Create windows event condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/windows-event",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates windows event condition for specified policy"
+        },
+        {
+          "info": {
+            "name": "Delete policy condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/:condition_id",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "condition_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes specified policy condition from specified agent policy"
+        },
+        {
+          "info": {
+            "name": "Get custom fields policy condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/custom-fields/:condition_id",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "condition_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get specified custom fields condition for specified policy"
+        },
+        {
+          "info": {
+            "name": "Get windows event condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/policies/:policy_id/condition/windows-event/:condition_id",
+            "params": [
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "condition_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get specified windows event condition for specified policy"
+        },
+        {
+          "info": {
+            "name": "Create new organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organizations",
+            "params": [
+              {
+                "name": "templateOrganizationId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new organization with optional list of locations and policy mappings.\nTemplate organization ID can be specified to copy various settings"
+        },
+        {
+          "info": {
+            "name": "Approve/Reject devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/devices/approval/:mode",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approve or reject devices that are waiting for approval"
+        },
+        {
+          "info": {
+            "name": "Reset alert/condition",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/alert/:uid",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resets alert/condition by UID"
+        },
+        {
+          "info": {
+            "name": "Reset alert/condition and provide custom data for activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/alert/:uid/reset",
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resets alert/condition by UID"
+        },
+        {
+          "info": {
+            "name": "Schedule maintenance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/device/:id/maintenance",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedule maintenance window for device"
+        },
+        {
+          "info": {
+            "name": "Cancel maintenance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/device/:id/maintenance",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Cancel pending or active maintenance for device"
+        },
+        {
+          "info": {
+            "name": "Windows service control",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/windows-service/:serviceId/control",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "serviceId",
+                "value": "",
+                "type": "path",
+                "description": "Service identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start/Stop/Restart Windows Service on a device"
+        },
+        {
+          "info": {
+            "name": "Update device information",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/device/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Change device friendly name, user data, etc."
+        },
+        {
+          "info": {
+            "name": "Device link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/dashboard-url",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "redirect",
+                "value": "",
+                "type": "query",
+                "description": "Return redirect response"
+              }
+            ]
+          },
+          "docs": "Returns link to device"
+        },
+        {
+          "info": {
+            "name": "Reset device policy overrides",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/device/:id/policy/overrides",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Submit request to remove device policy overrides"
+        },
+        {
+          "info": {
+            "name": "Reboot device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/reboot/:mode",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "path",
+                "description": "Reboot mode"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a command to restart the computer"
+        },
+        {
+          "info": {
+            "name": "Remove device owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/device/:id/owner",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Removes the owner of the device."
+        },
+        {
+          "info": {
+            "name": "Device scripting options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/device/:id/scripting/options",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language"
+              }
+            ]
+          },
+          "docs": "Returns scripting options (built-in actions, custom scripts) available for device"
+        },
+        {
+          "info": {
+            "name": "Run script or built-in action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/script/run",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run script or built-in action on a device"
+        },
+        {
+          "info": {
+            "name": "Set device owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/owner/:ownerUid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "ownerUid",
+                "value": "",
+                "type": "path",
+                "description": "Device owner identifier"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sets the owner of the device."
+        },
+        {
+          "info": {
+            "name": "Modify Windows Service configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/windows-service/:serviceId/configure",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              },
+              {
+                "name": "serviceId",
+                "value": "",
+                "type": "path",
+                "description": "Service identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Configures Windows Service startup settings"
+        },
+        {
+          "info": {
+            "name": "Run OS patch apply",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/patch/os/apply",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Submit a job to start a device OS patch apply"
+        },
+        {
+          "info": {
+            "name": "Run OS patch scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/patch/os/scan",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Submit a job to start a device OS patch scan"
+        },
+        {
+          "info": {
+            "name": "Run Software patch apply",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/patch/software/apply",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Submit a job to start a device software patch apply"
+        },
+        {
+          "info": {
+            "name": "Run Software patch scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/device/:id/patch/software/scan",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Device identifier"
+              }
+            ]
+          },
+          "docs": "Submit a job to start a device software patch scan"
+        },
+        {
+          "info": {
+            "name": "Add new location to organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/:id/locations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new location for organization"
+        },
+        {
+          "info": {
+            "name": "Generate installer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/organization/generate-installer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and returns URL for installer with specified settings"
+        },
+        {
+          "info": {
+            "name": "Generate installer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/organization/:id/location/:location_id/installer/:installer_type",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "installer_type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generates and returns URL for installer for specified organization/location"
+        },
+        {
+          "info": {
+            "name": "Update organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/organization/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Organization identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change organization name, description and policy mappings"
+        },
+        {
+          "info": {
+            "name": "Update location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/organization/:id/locations/:locationId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Change location name, address, description, custom data"
+        },
+        {
+          "info": {
+            "name": "Change organization policy mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/organization/:id/policies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update policy assignment for node role(s). Returns list of affected device IDs"
+        },
+        {
+          "info": {
+            "name": "Creates new Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/policies",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Policy creation mode"
+              },
+              {
+                "name": "templatePolicyId",
+                "value": "",
+                "type": "query",
+                "description": "Template Policy identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new policy using (New Root, Child, Copy)"
+        },
+        {
+          "info": {
+            "name": "Create end user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/user/end-users",
+            "params": [
+              {
+                "name": "sendInvitation",
+                "value": "",
+                "type": "query",
+                "description": "Whether to send invitation to end user during creation"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an end user"
+        },
+        {
+          "info": {
+            "name": "Update a specific end user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/user/end-user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "End user identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific end user by their ID"
+        },
+        {
+          "info": {
+            "name": "Delete end user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/user/end-user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "End user identifier"
+              }
+            ]
+          },
+          "docs": "Delete an end user"
+        },
+        {
+          "info": {
+            "name": "Create a technician",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/user/technicians",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new technician"
+        },
+        {
+          "info": {
+            "name": "Update a technician",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/user/technician/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Technician identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update technician by their ID"
+        },
+        {
+          "info": {
+            "name": "Delete a technician",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/user/technician/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Technician identifier"
+              }
+            ]
+          },
+          "docs": "Delete a technician by their ID"
+        },
+        {
+          "info": {
+            "name": "Add user role members",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/user/role/:roleId/add-members",
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role identifier"
+              }
+            ]
+          },
+          "docs": "Add members to user role"
+        },
+        {
+          "info": {
+            "name": "Remove users from user role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/v2/user/role/:roleId/remove-members",
+            "params": [
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role identifier"
+              }
+            ]
+          },
+          "docs": "Remove users from user role "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

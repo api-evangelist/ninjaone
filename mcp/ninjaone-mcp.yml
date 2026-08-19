@@ -2,11 +2,9 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/ninjaone-openapi-original.yml
-notes: >-
-  NinjaOne does not publish an official hosted MCP server. Community MCP servers
-  exist (e.g. jasondsmith72/ninja-mcp, wyre-technology NinjaOne RMM plugin). The
-  tools below are a candidate set derived from marquee NinjaOne Public API 2.0
-  operations, one tool per operationId, to seed an MCP server.
+notes: NinjaOne does not publish an official hosted MCP server. Community MCP servers exist (e.g. jasondsmith72/ninja-mcp,
+  wyre-technology NinjaOne RMM plugin). The tools below are a candidate set derived from marquee NinjaOne
+  Public API 2.0 operations, one tool per operationId, to seed an MCP server.
 community_servers:
 - name: ninja-mcp
   source: https://lobehub.com/mcp/jasondsmith72-ninja-mcp
@@ -42,3 +40,9 @@ tools:
 - name: configure_webhook
   description: Create or update the activity webhook configuration.
   source_operation: openapi/ninjaone-openapi-original.yml#configureWebhook
+deployment:
+  mode: none
+  verified: derived
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
