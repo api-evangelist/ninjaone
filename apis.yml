@@ -189,6 +189,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Devices
+  tags_raw:
   - devices
   properties:
   - type: OpenAPI
@@ -241,6 +243,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Group
+  tags_raw:
   - groups
   properties:
   - type: OpenAPI
@@ -319,6 +323,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Management
+  tags_raw:
   - management
   properties:
   - type: OpenAPI
@@ -345,6 +351,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Organization
+  tags_raw:
   - organization
   properties:
   - type: OpenAPI
@@ -423,6 +431,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Query
+  tags_raw:
   - queries
   properties:
   - type: OpenAPI
@@ -449,6 +459,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Related-items
+  tags_raw:
   - Related Items
   properties:
   - type: OpenAPI
@@ -475,6 +487,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - System
+  tags_raw:
   - system
   properties:
   - type: OpenAPI
@@ -501,6 +515,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Ticketing
+  tags_raw:
   - ticketing
   properties:
   - type: OpenAPI
@@ -553,6 +569,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -605,6 +623,8 @@ apis:
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
   tags:
+  - Webhook
+  tags_raw:
   - webhooks
   properties:
   - type: OpenAPI
