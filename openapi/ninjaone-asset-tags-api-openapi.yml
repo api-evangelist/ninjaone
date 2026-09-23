@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: NinjaOne Public API 2.0 Asset Tags API
   description: NinjaOne Public API documentation.
@@ -193,8 +193,103 @@ paths:
           description: default response
           content:
             application/json: {}
+      summary: Set tags for asset
+      x-summary-source: derived
 components:
   schemas:
+    UpdateItamTagRequest:
+      type: object
+      properties:
+        name:
+          maxLength: 40
+          minLength: 0
+          type: string
+        description:
+          maxLength: 250
+          minLength: 0
+          type: string
+    ItamSetAssetTagsRequestPublicApiDTO:
+      type: object
+      properties:
+        tagIds:
+          uniqueItems: true
+          type: array
+          description: Array of tag IDS to assign to asset from URL. The tags on the asset will be set to exactly these tags, removing existing tags if necessary
+          items:
+            type: integer
+            description: Array of tag IDS to assign to asset from URL. The tags on the asset will be set to exactly these tags, removing existing tags if necessary
+            format: int32
+    GetItamTagsResponse:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItamTagDTO'
+    MergeItamTagsPublicApiRequest:
+      type: object
+      properties:
+        tagIds:
+          uniqueItems: true
+          type: array
+          description: Array of tag ids to merge
+          items:
+            type: integer
+            description: Array of tag ids to merge
+            format: int32
+        mergeMethod:
+          type: string
+          description: Method to use - merge into an existing tag or create a new one
+          enum:
+          - MERGE_INTO_EXISTING_TAG
+          - MERGE_INTO_NEW_TAG
+        mergeIntoTagId:
+          type:
+          - integer
+          - 'null'
+          description: If merging into an existing tag, you must provide the target tag id here
+          format: int32
+        name:
+          maxLength: 40
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: If creating a new tag, you must supply the new tag name here
+        description:
+          maxLength: 250
+          minLength: 0
+          type:
+          - string
+          - 'null'
+          description: If creating a new tag, you can supply the new tag description here
+    ItamManageAssetRequestPublicApiDTO:
+      type: object
+      properties:
+        assetIds:
+          uniqueItems: true
+          type: array
+          description: Array of asset IDs to perform bulk operations on (provide the type of asset with the URL)
+          items:
+            type: integer
+            description: Array of asset IDs to perform bulk operations on (provide the type of asset with the URL)
+            format: int32
+        tagIdsToAdd:
+          uniqueItems: true
+          type: array
+          description: Array of tag IDs to add to the supplied assets
+          items:
+            type: integer
+            description: Array of tag IDs to add to the supplied assets
+            format: int32
+        tagIdsToRemove:
+          uniqueItems: true
+          type: array
+          description: Array of tag IDs to remove from the supplied assets
+          items:
+            type: integer
+            description: Array of tag IDs to remove from the supplied assets
+            format: int32
     ItamTagPublicApiDTO:
       type: object
       properties:
@@ -224,44 +319,6 @@ components:
           type: integer
           description: Id of the user that last updated the the tag
           format: int32
-    UpdateItamTagRequest:
-      type: object
-      properties:
-        name:
-          maxLength: 40
-          minLength: 0
-          type: string
-        description:
-          maxLength: 250
-          minLength: 0
-          type: string
-    ItamManageAssetRequestPublicApiDTO:
-      type: object
-      properties:
-        assetIds:
-          uniqueItems: true
-          type: array
-          description: Array of asset IDs to perform bulk operations on (provide the type of asset with the URL)
-          items:
-            type: integer
-            description: Array of asset IDs to perform bulk operations on (provide the type of asset with the URL)
-            format: int32
-        tagIdsToAdd:
-          uniqueItems: true
-          type: array
-          description: Array of tag IDs to add to the supplied assets
-          items:
-            type: integer
-            description: Array of tag IDs to add to the supplied assets
-            format: int32
-        tagIdsToRemove:
-          uniqueItems: true
-          type: array
-          description: Array of tag IDs to remove from the supplied assets
-          items:
-            type: integer
-            description: Array of tag IDs to remove from the supplied assets
-            format: int32
     UserBasicInfo:
       type: object
       properties:
@@ -272,40 +329,17 @@ components:
           type: string
         email:
           type: string
-    MergeItamTagsPublicApiRequest:
+    CreateItamTagRequest:
       type: object
       properties:
-        tagIds:
-          uniqueItems: true
-          type: array
-          description: Array of tag ids to merge
-          items:
-            type: integer
-            description: Array of tag ids to merge
-            format: int32
-        mergeMethod:
-          type: string
-          description: Method to use - merge into an existing tag or create a new one
-          enum:
-          - MERGE_INTO_EXISTING_TAG
-          - MERGE_INTO_NEW_TAG
-        mergeIntoTagId:
-          type: integer
-          description: If merging into an existing tag, you must provide the target tag id here
-          format: int32
-          nullable: true
         name:
           maxLength: 40
-          minLength: 0
+          minLength: 1
           type: string
-          description: If creating a new tag, you must supply the new tag name here
-          nullable: true
         description:
           maxLength: 250
           minLength: 0
           type: string
-          description: If creating a new tag, you can supply the new tag description here
-          nullable: true
     ItamTagDTO:
       type: object
       properties:
@@ -335,35 +369,6 @@ components:
           $ref: '#/components/schemas/UserBasicInfo'
         updatedBy:
           $ref: '#/components/schemas/UserBasicInfo'
-    GetItamTagsResponse:
-      type: object
-      properties:
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItamTagDTO'
-    CreateItamTagRequest:
-      type: object
-      properties:
-        name:
-          maxLength: 40
-          minLength: 1
-          type: string
-        description:
-          maxLength: 250
-          minLength: 0
-          type: string
-    ItamSetAssetTagsRequestPublicApiDTO:
-      type: object
-      properties:
-        tagIds:
-          uniqueItems: true
-          type: array
-          description: Array of tag IDS to assign to asset from URL. The tags on the asset will be set to exactly these tags, removing existing tags if necessary
-          items:
-            type: integer
-            description: Array of tag IDS to assign to asset from URL. The tags on the asset will be set to exactly these tags, removing existing tags if necessary
-            format: int32
   securitySchemes:
     oauth2:
       type: http

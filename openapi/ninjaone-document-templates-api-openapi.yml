@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Document Templates API
+  title: NinjaOne Public API 2.0 Document Templates API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -59,7 +59,6 @@ paths:
       tags:
       - Document Templates
       summary: List document templates with fields
-      description: List document templates with fields
       operationId: getDocumentTemplatesWithAttributes
       parameters:
       - name: templateName
@@ -85,7 +84,6 @@ paths:
       tags:
       - Document Templates
       summary: Create document template
-      description: Create document template
       operationId: createDocumentTemplate
       requestBody:
         content:
@@ -104,7 +102,6 @@ paths:
       tags:
       - Document Templates
       summary: Get document template
-      description: Get document template
       operationId: getDocumentTemplate
       parameters:
       - name: documentTemplateId
@@ -213,44 +210,41 @@ paths:
                 $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
 components:
   schemas:
-    AttributeContentAdvancedSettingsNumericRange:
+    DocumentTemplatePublicApiDTO:
       type: object
       properties:
-        min:
-          type: number
-        max:
-          type: number
-    AttributeContentAdvancedSettingsComplexityRules:
-      type: object
-      properties:
-        mustContainOneInteger:
-          type: boolean
-        mustContainOneLowercaseLetter:
-          type: boolean
-        mustContainOneUppercaseLetter:
-          type: boolean
-        greaterOrEqualThanSixCharacters:
-          type: boolean
-    UpdateDocumentTemplatePublicApiRequest:
-      type: object
-      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
         name:
           type: string
           description: Name of the template (must be unique)
         description:
           type: string
           description: Description of the template
+        allowMultiple:
+          type: boolean
+          description: Indicates if multiple instances of the document template is allowed
         mandatory:
           type: boolean
           description: Indicates if the document template is mandatory
+        createTime:
+          type: number
+          description: Creation time
+          format: double
+        updateTime:
+          type: number
+          description: Last updated time
+          format: double
         fields:
           type: array
-          description: List of fields and ui elements
+          description: Document template fields
           items:
-            $ref: '#/components/schemas/UpdateDocumentItemPublicApiRequest'
+            $ref: '#/components/schemas/DocumentItemPublicApiDTO'
         availableToAllTechnicians:
           type: boolean
-          description: States if the document template is available to all technicians
+          description: Indicates if the document template is available to all technicians
         allowedTechnicianRoles:
           type: array
           description: List of allowed technician role ids
@@ -258,183 +252,22 @@ components:
             type: integer
             description: List of allowed technician role ids
             format: int32
-    UpdateDocumentItemPublicApiRequest:
+        archived:
+          type: boolean
+          description: Indicates if the document template is archived
+        archivedTime:
+          type: number
+          description: Indicates the time the template was archived
+          format: double
+        archivedBy:
+          $ref: '#/components/schemas/ArchiveUserInfo'
+    AttributeContentAdvancedSettingsNumericRange:
       type: object
       properties:
-        fieldId:
-          type: integer
-          description: Field identifier (Used to identify existing fields)
-          format: int32
-        fieldLabel:
-          type: string
-          description: Field or UI element name
-        fieldName:
-          type: string
-          description: Field name (Immutable except for new fields)
-        fieldDescription:
-          type: string
-          description: Field description
-        fieldType:
-          type: string
-          description: Field type (Immutable except for new fields)
-          enum:
-          - DROPDOWN
-          - MULTI_SELECT
-          - CHECKBOX
-          - TEXT
-          - TEXT_MULTILINE
-          - TEXT_ENCRYPTED
-          - NUMERIC
-          - DECIMAL
-          - DATE
-          - DATE_TIME
-          - TIME
-          - ATTACHMENT
-          - NODE_DROPDOWN
-          - NODE_MULTI_SELECT
-          - CLIENT_DROPDOWN
-          - CLIENT_MULTI_SELECT
-          - CLIENT_LOCATION_DROPDOWN
-          - CLIENT_LOCATION_MULTI_SELECT
-          - CLIENT_DOCUMENT_DROPDOWN
-          - CLIENT_DOCUMENT_MULTI_SELECT
-          - EMAIL
-          - PHONE
-          - IP_ADDRESS
-          - WYSIWYG
-          - URL
-        fieldTechnicianPermission:
-          type: string
-          description: Field technician permission
-          enum:
-          - NONE
-          - EDITABLE
-          - READ_ONLY
-        fieldScriptPermission:
-          type: string
-          description: Field script permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        fieldApiPermission:
-          type: string
-          description: Field public API permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        fieldDefaultValue:
-          type: string
-          description: Default value
-        fieldContent:
-          $ref: '#/components/schemas/DocumentAttributeContentPublicApi'
-        uiElementUid:
-          type: string
-          description: UI element identifier
-          format: uuid
-        uiElementName:
-          type: string
-          description: UI element name
-        uiElementType:
-          type: string
-          description: UI element type
-          enum:
-          - TITLE
-          - DESCRIPTION
-          - SEPARATOR
-        uiElementValue:
-          type: string
-          description: UI element value
-      description: List of fields and ui elements
-    NewDocumentItemPublicApiRequest:
-      required:
-      - fieldLabel
-      - fieldName
-      type: object
-      properties:
-        fieldLabel:
-          type: string
-          description: Field label
-        fieldName:
-          type: string
-          description: Field name (Immutable value)
-        fieldDescription:
-          type: string
-          description: Field description
-        fieldType:
-          type: string
-          description: Field type (Immutable value)
-          enum:
-          - DROPDOWN
-          - MULTI_SELECT
-          - CHECKBOX
-          - TEXT
-          - TEXT_MULTILINE
-          - TEXT_ENCRYPTED
-          - NUMERIC
-          - DECIMAL
-          - DATE
-          - DATE_TIME
-          - TIME
-          - ATTACHMENT
-          - NODE_DROPDOWN
-          - NODE_MULTI_SELECT
-          - CLIENT_DROPDOWN
-          - CLIENT_MULTI_SELECT
-          - CLIENT_LOCATION_DROPDOWN
-          - CLIENT_LOCATION_MULTI_SELECT
-          - CLIENT_DOCUMENT_DROPDOWN
-          - CLIENT_DOCUMENT_MULTI_SELECT
-          - EMAIL
-          - PHONE
-          - IP_ADDRESS
-          - WYSIWYG
-          - URL
-        fieldTechnicianPermission:
-          type: string
-          description: Field technician permission
-          enum:
-          - NONE
-          - EDITABLE
-          - READ_ONLY
-        fieldScriptPermission:
-          type: string
-          description: Field script permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        fieldApiPermission:
-          type: string
-          description: Field public API permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        fieldDefaultValue:
-          type: string
-          description: Default value
-        fieldContent:
-          $ref: '#/components/schemas/NewDocumentAttributeContentPublicApi'
-        uiElementName:
-          type: string
-          description: UI element name
-        uiElementType:
-          type: string
-          description: UI element type
-          enum:
-          - TITLE
-          - DESCRIPTION
-          - SEPARATOR
-        uiElementValue:
-          type: string
-          description: UI element value
-      description: List of fields and ui elements
+        min:
+          type: number
+        max:
+          type: number
     AttributeContentAdvancedSettings:
       type: object
       properties:
@@ -507,6 +340,42 @@ components:
           - IPV6
         expandLargeValueOnRender:
           type: boolean
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    DocumentAttributeContentPublicApi:
+      type: object
+      properties:
+        values:
+          type: array
+          description: Used for dropdown options
+          items:
+            $ref: '#/components/schemas/DocumentAttributeContentValuePublicApi'
+        required:
+          type: boolean
+          description: Indicates if the field is required
+        footerText:
+          type: string
+          description: Footer text
+        tooltipText:
+          type: string
+          description: Tooltip text
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: Field content
     DocumentItemPublicApiDTO:
       type: object
       properties:
@@ -606,26 +475,6 @@ components:
           description: Last updated time
           format: double
       description: Document template fields
-    NewDocumentAttributeContentPublicApi:
-      type: object
-      properties:
-        values:
-          type: array
-          description: Used for dropdown options
-          items:
-            $ref: '#/components/schemas/NewDocumentAttributeContentValuePublicApi'
-        required:
-          type: boolean
-          description: Indicates if the field is required
-        footerText:
-          type: string
-          description: Footer text
-        tooltipText:
-          type: string
-          description: Tooltip text
-        advancedSettings:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
-      description: Field content
     ArchiveUserInfo:
       type: object
       properties:
@@ -669,22 +518,130 @@ components:
             type: integer
             description: List of allowed technician role ids
             format: int32
-    AttributeContentAdvancedSettingsDateFilters:
+    AttributeContentAdvancedSettingsComplexityRules:
       type: object
       properties:
-        type:
+        mustContainOneInteger:
+          type: boolean
+        mustContainOneLowercaseLetter:
+          type: boolean
+        mustContainOneUppercaseLetter:
+          type: boolean
+        greaterOrEqualThanSixCharacters:
+          type: boolean
+    NewDocumentItemPublicApiRequest:
+      required:
+      - fieldLabel
+      - fieldName
+      type: object
+      properties:
+        fieldLabel:
           type: string
+          description: Field label
+        fieldName:
+          type: string
+          description: Field name (Immutable value)
+        fieldDescription:
+          type: string
+          description: Field description
+        fieldType:
+          type: string
+          description: Field type (Immutable value)
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        fieldTechnicianPermission:
+          type: string
+          description: Field technician permission
           enum:
           - NONE
-          - INCLUDE
-          - EXCLUDE
-          - PAST_DATES_ONLY
-          - FUTURE_DATES_ONLY
-          - RANGE
-        selected:
+          - EDITABLE
+          - READ_ONLY
+        fieldScriptPermission:
+          type: string
+          description: Field script permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldApiPermission:
+          type: string
+          description: Field public API permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldDefaultValue:
+          type: string
+          description: Default value
+        fieldContent:
+          $ref: '#/components/schemas/NewDocumentAttributeContentPublicApi'
+        uiElementName:
+          type: string
+          description: UI element name
+        uiElementType:
+          type: string
+          description: UI element type
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: UI element value
+      description: List of fields and ui elements
+    UpdateDocumentTemplatePublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the template (must be unique)
+        description:
+          type: string
+          description: Description of the template
+        mandatory:
+          type: boolean
+          description: Indicates if the document template is mandatory
+        fields:
           type: array
+          description: List of fields and ui elements
           items:
-            type: string
+            $ref: '#/components/schemas/UpdateDocumentItemPublicApiRequest'
+        availableToAllTechnicians:
+          type: boolean
+          description: States if the document template is available to all technicians
+        allowedTechnicianRoles:
+          type: array
+          description: List of allowed technician role ids
+          items:
+            type: integer
+            description: List of allowed technician role ids
+            format: int32
     DocumentAttributeContentValuePublicApi:
       type: object
       properties:
@@ -699,72 +656,14 @@ components:
           type: boolean
           description: Indicates if a dropdown option is active
       description: Used for dropdown options
-    NewDocumentAttributeContentValuePublicApi:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Dropdown option name
-      description: Used for dropdown options
-    DocumentTemplatePublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Identifier
-          format: int32
-        name:
-          type: string
-          description: Name of the template (must be unique)
-        description:
-          type: string
-          description: Description of the template
-        allowMultiple:
-          type: boolean
-          description: Indicates if multiple instances of the document template is allowed
-        mandatory:
-          type: boolean
-          description: Indicates if the document template is mandatory
-        createTime:
-          type: number
-          description: Creation time
-          format: double
-        updateTime:
-          type: number
-          description: Last updated time
-          format: double
-        fields:
-          type: array
-          description: Document template fields
-          items:
-            $ref: '#/components/schemas/DocumentItemPublicApiDTO'
-        availableToAllTechnicians:
-          type: boolean
-          description: Indicates if the document template is available to all technicians
-        allowedTechnicianRoles:
-          type: array
-          description: List of allowed technician role ids
-          items:
-            type: integer
-            description: List of allowed technician role ids
-            format: int32
-        archived:
-          type: boolean
-          description: Indicates if the document template is archived
-        archivedTime:
-          type: number
-          description: Indicates the time the template was archived
-          format: double
-        archivedBy:
-          $ref: '#/components/schemas/ArchiveUserInfo'
-    DocumentAttributeContentPublicApi:
+    NewDocumentAttributeContentPublicApi:
       type: object
       properties:
         values:
           type: array
           description: Used for dropdown options
           items:
-            $ref: '#/components/schemas/DocumentAttributeContentValuePublicApi'
+            $ref: '#/components/schemas/NewDocumentAttributeContentValuePublicApi'
         required:
           type: boolean
           description: Indicates if the field is required
@@ -777,6 +676,104 @@ components:
         advancedSettings:
           $ref: '#/components/schemas/AttributeContentAdvancedSettings'
       description: Field content
+    NewDocumentAttributeContentValuePublicApi:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Dropdown option name
+      description: Used for dropdown options
+    UpdateDocumentItemPublicApiRequest:
+      type: object
+      properties:
+        fieldId:
+          type: integer
+          description: Field identifier (Used to identify existing fields)
+          format: int32
+        fieldLabel:
+          type: string
+          description: Field or UI element name
+        fieldName:
+          type: string
+          description: Field name (Immutable except for new fields)
+        fieldDescription:
+          type: string
+          description: Field description
+        fieldType:
+          type: string
+          description: Field type (Immutable except for new fields)
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        fieldTechnicianPermission:
+          type: string
+          description: Field technician permission
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        fieldScriptPermission:
+          type: string
+          description: Field script permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldApiPermission:
+          type: string
+          description: Field public API permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        fieldDefaultValue:
+          type: string
+          description: Default value
+        fieldContent:
+          $ref: '#/components/schemas/DocumentAttributeContentPublicApi'
+        uiElementUid:
+          type: string
+          description: UI element identifier
+          format: uuid
+        uiElementName:
+          type: string
+          description: UI element name
+        uiElementType:
+          type: string
+          description: UI element type
+          enum:
+          - TITLE
+          - DESCRIPTION
+          - SEPARATOR
+        uiElementValue:
+          type: string
+          description: UI element value
+      description: List of fields and ui elements
   securitySchemes:
     oauth2:
       type: http

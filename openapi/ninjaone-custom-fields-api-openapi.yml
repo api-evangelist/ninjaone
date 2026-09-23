@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Custom Fields API
+  title: NinjaOne Public API 2.0 Custom Fields API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -23,7 +23,6 @@ paths:
       tags:
       - Custom Fields
       summary: Get custom field signed urls
-      description: Get custom field signed urls
       operationId: getNodeAttributeSignedUrls
       parameters:
       - name: entityType

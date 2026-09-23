@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Backup API
+  title: NinjaOne Public API 2.0 Backup API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -22,7 +22,7 @@ paths:
     get:
       tags:
       - Backup
-      summary: Integrity check jobs.
+      summary: Integrity check jobs
       description: Returns a list of integrity check jobs.
       operationId: getIntegrityCheckJobs
       parameters:
@@ -158,6 +158,20 @@ paths:
                 $ref: '#/components/schemas/BackupJobReport'
 components:
   schemas:
+    Cursor:
+      type: object
+      properties:
+        name:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+        expires:
+          type: number
+          format: double
     BackupJobReport:
       type: object
       properties:
@@ -167,6 +181,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BackupJob'
+    LockhartIntegrityCheckJobCreationRequest:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        planUid:
+          type: string
+          format: uuid
+      description: Request of the Integrity Check Job creation.
     LockhartIntegrityCheckJobCreationResponse:
       type: object
       properties:
@@ -235,30 +259,6 @@ components:
           type: integer
           description: Device id
           format: int32
-    Cursor:
-      type: object
-      properties:
-        name:
-          type: string
-        offset:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-        expires:
-          type: number
-          format: double
-    LockhartIntegrityCheckJobCreationRequest:
-      type: object
-      properties:
-        deviceId:
-          type: integer
-          format: int32
-        planUid:
-          type: string
-          format: uuid
-      description: Request of the Integrity Check Job creation.
   securitySchemes:
     oauth2:
       type: http

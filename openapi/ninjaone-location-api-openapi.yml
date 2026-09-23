@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Location API
+  title: NinjaOne Public API 2.0 Location API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com

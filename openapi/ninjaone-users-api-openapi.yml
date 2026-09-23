@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Users API
+  title: NinjaOne Public API 2.0 Users API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -129,76 +129,6 @@ paths:
           description: Forbidden
 components:
   schemas:
-    Technician:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        uid:
-          type: string
-          description: User universally unique identifier
-          format: uuid
-        enabled:
-          type: boolean
-          description: User access status
-        firstName:
-          type: string
-          description: First name
-        lastName:
-          type: string
-          description: Last name
-        email:
-          type: string
-          description: Email address
-        phone:
-          type: string
-          description: Phone number
-        mustChangePw:
-          type: boolean
-          description: Must change password during next login
-        mfaConfigured:
-          type: boolean
-          description: At least one MFA method is configured
-        scimUser:
-          type: boolean
-          description: User is created by SCIM?
-        authType:
-          type: string
-          description: Native or SSO authentication
-        userType:
-          type: string
-          description: User type
-          enum:
-          - TECHNICIAN
-          - END_USER
-        invitationStatus:
-          type: string
-          description: User invitation status
-          enum:
-          - REGISTERED
-          - PENDING
-          - EXPIRED
-        notifyAllClients:
-          type: boolean
-          description: Notifications for all clients
-        administrator:
-          type: boolean
-          description: Technician is a System Administrator
-        assignedDeviceIds:
-          type: array
-          description: Device IDs which user is assigned
-          items:
-            type: integer
-            description: Device IDs which user is assigned
-            format: int32
-        roles:
-          type: array
-          description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
-          items:
-            type: string
-            description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
     EndUser:
       type: object
       properties:
@@ -271,6 +201,76 @@ components:
           items:
             type: string
             description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+    Technician:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        enabled:
+          type: boolean
+          description: User access status
+        firstName:
+          type: string
+          description: First name
+        lastName:
+          type: string
+          description: Last name
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+        mustChangePw:
+          type: boolean
+          description: Must change password during next login
+        mfaConfigured:
+          type: boolean
+          description: At least one MFA method is configured
+        scimUser:
+          type: boolean
+          description: User is created by SCIM?
+        authType:
+          type: string
+          description: Native or SSO authentication
+        userType:
+          type: string
+          description: User type
+          enum:
+          - TECHNICIAN
+          - END_USER
+        invitationStatus:
+          type: string
+          description: User invitation status
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        notifyAllClients:
+          type: boolean
+          description: Notifications for all clients
+        administrator:
+          type: boolean
+          description: Technician is a System Administrator
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        roles:
+          type: array
+          description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
   securitySchemes:
     oauth2:
       type: http

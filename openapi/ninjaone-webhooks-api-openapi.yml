@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags webhooks API
+  title: NinjaOne Public API 2.0 Webhooks API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -15,13 +15,13 @@ security:
   - management
   - control
 tags:
-- name: webhooks
+- name: Webhooks
   description: Webhook Endpoints
 paths:
   /v2/webhook:
     put:
       tags:
-      - webhooks
+      - Webhooks
       summary: Update API Webhook configuration
       description: Creates or updates Webhook configuration for current application/client
       operationId: configureWebhook
@@ -37,7 +37,7 @@ paths:
           description: Only system administrators can configure webhooks
     delete:
       tags:
-      - webhooks
+      - Webhooks
       summary: Remove Webhook API channel
       description: Disables Webhook configuration for current application/client
       operationId: disableWebhook
@@ -50,16 +50,6 @@ paths:
           description: Failed to disable PSA
 components:
   schemas:
-    HTTPHeader:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Header name
-        value:
-          type: string
-          description: Header value
-      description: Custom HTTP Headers (i.e. Authorization)
     WebhookConfiguration:
       type: object
       properties:
@@ -94,6 +84,16 @@ components:
             type: integer
             description: List of organization id to be filtered
             format: int32
+    HTTPHeader:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Header name
+        value:
+          type: string
+          description: Header value
+      description: Custom HTTP Headers (i.e. Authorization)
   securitySchemes:
     oauth2:
       type: http

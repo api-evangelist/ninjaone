@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags Organization Documents API
+  title: NinjaOne Public API 2.0 Organization Documents API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -103,7 +103,6 @@ paths:
       tags:
       - Organization Documents
       summary: List all organization documents with field values
-      description: List all organization documents with field values
       operationId: getClientDocumentsWithAttributeValues
       parameters:
       - name: groupBy
@@ -204,7 +203,6 @@ paths:
       tags:
       - Organization Documents
       summary: Get organization document signed urls
-      description: Get organization document signed urls
       operationId: getClientDocumentSignedUrls
       parameters:
       - name: clientDocumentId
@@ -225,7 +223,6 @@ paths:
       tags:
       - Organization Documents
       summary: List organization documents with field values
-      description: List organization documents with field values
       operationId: getOrganizationDocuments
       parameters:
       - name: organizationId
@@ -326,6 +323,44 @@ paths:
                 $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
 components:
   schemas:
+    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+    ClientDocumentWithAttributeValuesPublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
     ClientDocumentWithUpdatedAttributeValuesPublicApiDTO:
       type: object
       properties:
@@ -359,77 +394,6 @@ components:
           type: integer
           description: Organization Identifier
           format: int32
-    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
-      type: object
-      properties:
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
-        documentTemplateId:
-          type: integer
-          description: Document Template Identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization Identifier
-          format: int32
-    ClientDocumentAttributeWithValuePublicApiDTO:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name
-        value:
-          type: object
-          description: Value
-        valueUpdateTime:
-          type: number
-          description: Value Last Updated
-          format: double
-      description: Updated Fields
-    ClientDocumentWithAttributeValuesPublicApiRequest:
-      type: object
-      properties:
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
-    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
-      type: object
-      properties:
-        documentId:
-          type: integer
-          description: Document Identifier
-          format: int32
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
     ClientDocumentWithAttributeValuesPublicApiDTO:
       type: object
       properties:
@@ -463,6 +427,39 @@ components:
           type: integer
           description: Organization Identifier
           format: int32
+    ClientDocumentAttributeWithValuePublicApiDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        value:
+          type: object
+          description: Value
+        valueUpdateTime:
+          type: number
+          description: Value Last Updated
+          format: double
+      description: Updated Fields
+    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
   securitySchemes:
     oauth2:
       type: http

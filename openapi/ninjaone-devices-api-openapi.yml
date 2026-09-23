@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: NinjaOne Public API 2.0 Asset Tags devices API
+  title: NinjaOne Public API 2.0 Devices API
   description: NinjaOne Public API documentation.
   contact:
     email: api@ninjarmm.com
@@ -15,13 +15,13 @@ security:
   - management
   - control
 tags:
-- name: devices
+- name: Devices
   description: Devices
 paths:
   /v2/device/{id}:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device details
       description: Returns device details
       operationId: getDevice
@@ -43,7 +43,7 @@ paths:
   /v2/device/{id}/jobs:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device currently running (active) jobs
       description: Returns currently running jobs for device
       operationId: getDeviceActiveJobs
@@ -77,7 +77,7 @@ paths:
   /v2/device/{id}/activities:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device activities
       description: Returns activity log for device
       operationId: getDeviceActivities
@@ -145,7 +145,7 @@ paths:
   /v2/device/{id}/alerts:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device alerts (triggered conditions)
       description: Returns list of active alerts (triggered conditions) for device
       operationId: getDeviceAlerts
@@ -179,7 +179,7 @@ paths:
   /v2/device/{id}/disks:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device disk drives
       description: Returns device disks' details
       operationId: getDeviceDiskDrives
@@ -203,7 +203,7 @@ paths:
   /v2/device/{id}/os-patch-installs:
     get:
       tags:
-      - devices
+      - Devices
       summary: OS Patch installation report for device
       description: Returns patch installation history records (successful and failed) for device
       operationId: getDeviceInstalledOSPatches
@@ -242,7 +242,7 @@ paths:
   /v2/device/{id}/software-patch-installs:
     get:
       tags:
-      - devices
+      - Devices
       summary: Software Patch history for device
       description: Returns 3rd party software patch installation history records for device (successful and failed)
       operationId: getDeviceInstalledSoftwarePatches
@@ -296,7 +296,7 @@ paths:
   /v2/device/{id}/last-logged-on-user:
     get:
       tags:
-      - devices
+      - Devices
       summary: Last logged-on user information
       description: Returns username that was last to login to device
       operationId: getDeviceLastLoggedOnUser
@@ -321,7 +321,7 @@ paths:
   /v2/device/{id}/network-interfaces:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device network interfaces
       description: Returns device network interfaces' details
       operationId: getDeviceNetworkInterfaces
@@ -345,7 +345,7 @@ paths:
   /v2/device/{id}/os-patches:
     get:
       tags:
-      - devices
+      - Devices
       summary: OS Patches
       description: Returns list of pending/rejected/approved OS patches for device
       operationId: getDevicePendingFailedRejectedOSPatches
@@ -384,7 +384,7 @@ paths:
   /v2/device/{id}/software-patches:
     get:
       tags:
-      - devices
+      - Devices
       summary: Pending, Failed and Rejected Software patches for device
       description: Returns list of 3rd party Software patches for a device (for which there were no installation attempts)
       operationId: getDevicePendingFailedRejectedSoftwarePatches
@@ -428,7 +428,7 @@ paths:
   /v2/device/{id}/processors:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device processors
       description: Returns list of device Processor details
       operationId: getDeviceProcessors
@@ -452,7 +452,7 @@ paths:
   /v2/device/{id}/windows-services:
     get:
       tags:
-      - devices
+      - Devices
       summary: Windows services
       description: Returns list of Windows Services and their statuses
       operationId: getDeviceServices
@@ -495,7 +495,7 @@ paths:
   /v2/device/{id}/software:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device software inventory
       description: Returns list of software installed on device
       operationId: getDeviceSoftware
@@ -519,7 +519,7 @@ paths:
   /v2/device/{id}/volumes:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device storage volumes
       description: Returns device volumes' details
       operationId: getDeviceVolumes
@@ -548,7 +548,7 @@ paths:
   /v2/device/{id}/custom-fields:
     get:
       tags:
-      - devices
+      - Devices
       summary: Device custom fields
       description: Returns list of device custom fields
       operationId: getNodeCustomFields
@@ -576,7 +576,7 @@ paths:
                   type: object
     patch:
       tags:
-      - devices
+      - Devices
       summary: Update Field Values
       description: Update device custom field values
       operationId: updateNodeAttributeValues
@@ -603,7 +603,7 @@ paths:
   /v2/device/{id}/policy/overrides:
     get:
       tags:
-      - devices
+      - Devices
       summary: Get summary of device policy overrides
       description: Returns list of overridden policy sections
       operationId: getPolicyOverrides
@@ -624,6 +624,382 @@ paths:
                 $ref: '#/components/schemas/PolicyOverrides'
 components:
   schemas:
+    BackupUsage:
+      type: object
+      properties:
+        revisionsCurrentSize:
+          type: integer
+          description: Revisions current size
+          format: int64
+        revisionsPreviousSize:
+          type: integer
+          description: Revisions previous size
+          format: int64
+        revisionsDeletedSize:
+          type: integer
+          description: Revisions deleted size
+          format: int64
+        localFileFolderSize:
+          type: integer
+          description: Revisions local file folder size
+          format: int64
+        localImageSize:
+          type: integer
+          description: Revisions local image size
+          format: int64
+        localImageV2Size:
+          type: integer
+          description: Revisions local image v2 size
+          format: int64
+        cloudFileFolderSize:
+          type: integer
+          description: Revisions cloud file folder size
+          format: int64
+        cloudImageSize:
+          type: integer
+          description: Revisions cloud image size
+          format: int64
+        cloudImageV2Size:
+          type: integer
+          description: Revisions cloud image v2 size
+          format: int64
+        lastSuccessfulBackupJob:
+          type: number
+          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        lastFailedBackupJob:
+          type: number
+          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        revisionsTotalSize:
+          type: integer
+          description: Revisions total size
+          format: int64
+          readOnly: true
+        cloudTotalSize:
+          type: integer
+          description: Revisions cloud total size
+          format: int64
+          readOnly: true
+        localTotalSize:
+          type: integer
+          description: Revisions local total size
+          format: int64
+          readOnly: true
+      description: Device Backup Usage
+    NetworkInterface:
+      type: object
+      properties:
+        adapterName:
+          type: string
+          description: Adapter Name
+        defaultGateway:
+          type: string
+          description: Default Gateway
+        interfaceType:
+          type: string
+          description: Interface Type
+        dnsHostName:
+          type: string
+          description: DNS HostName
+        dnsServers:
+          type: string
+          description: DNS Servers
+        interfaceIndex:
+          type: string
+          description: Interface Index
+        interfaceName:
+          type: string
+          description: Interface Name
+        ipAddress:
+          type: array
+          description: IP Address
+          items:
+            type: string
+            description: IP Address
+        linkSpeed:
+          type: string
+          description: Link Speed
+        macAddress:
+          type: array
+          description: MAC Address
+          items:
+            type: string
+            description: MAC Address
+        mtu:
+          type: string
+          description: MTU
+        status:
+          type: string
+          description: Status
+        subnetMask:
+          type: string
+          description: Subnet Mask
+    Organization:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Organization full name
+        description:
+          type: string
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Organization identifier
+          format: int32
+      description: Organization
+    WarrantyDates:
+      type: object
+      properties:
+        startDate:
+          type: number
+          description: Warranty Start Date (Seconds)
+          format: double
+        endDate:
+          type: number
+          description: Warranty End Date (Seconds)
+          format: double
+        manufacturerFulfillmentDate:
+          type: number
+          description: Manufacturer Fulfillment Date
+          format: double
+      description: Warranty Info
+    NodeActivitiesResponse:
+      type: object
+      properties:
+        lastActivityId:
+          type: integer
+          description: Last recorded activity ID for account
+          format: int64
+        activities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Activity'
+        lastNodeActivityId:
+          type: integer
+          description: Last recorded activity ID for device
+          format: int64
+    NodeReferences:
+      type: object
+      properties:
+        organization:
+          $ref: '#/components/schemas/Organization'
+        location:
+          $ref: '#/components/schemas/Location'
+        rolePolicy:
+          $ref: '#/components/schemas/Policy'
+        policy:
+          $ref: '#/components/schemas/Policy'
+        role:
+          $ref: '#/components/schemas/NodeRole'
+        backupUsage:
+          $ref: '#/components/schemas/BackupUsage'
+        warranty:
+          $ref: '#/components/schemas/WarrantyDates'
+        assignedOwner:
+          $ref: '#/components/schemas/User'
+      description: Expanded entity references
+    SoftwarePatch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        productIdentifier:
+          type: string
+          description: Software product identifier
+          format: uuid
+        title:
+          type: string
+          description: Patch title
+        impact:
+          type: string
+          description: Impact
+        status:
+          type: string
+          description: Status
+        type:
+          type: string
+          description: Patch type
+        installedAt:
+          type: number
+          description: Installation attempt timestamp
+          format: double
+    Note:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Note text
+      description: Device Notes
+    Alert:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: Alert UID (activity series UID)
+          format: uuid
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        message:
+          type: string
+          description: Alert message
+        createTime:
+          type: number
+          description: Alert creation timestamp
+          format: double
+        updateTime:
+          type: number
+          description: Alert last updated
+          format: double
+        sourceType:
+          type: string
+          description: Alert origin
+          enum:
+          - AGENT_OFFLINE
+          - CONDITION_AGENT_CPU
+          - CONDITION_AGENT_MEMORY
+          - CONDITION_AGENT_NETWORK
+          - CONDITION_AGENT_DISK_IO
+          - CONDITION_AGENT_DISK_FREE_SPACE
+          - CONDITION_AGENT_DISK_USAGE
+          - CONDITION_AGENT_CVSS_SCORE
+          - CONDITION_AGENT_PATCH_LAST_INSTALLED
+          - CONDITION_NMS_CPU
+          - CONDITION_NMS_MEMORY
+          - CONDITION_NMS_NETWORK_TRAFFIC_BITS
+          - CONDITION_NMS_NETWORK_TRAFFIC_PERCENT
+          - CONDITION_NMS_NETWORK_STATUS
+          - CONDITION_NMS_NETWORK_STATUS_CHANGE
+          - CONDITION_NMS_SYSTEM_UPTIME
+          - CONDITION_PING
+          - CONDITION_PING_LATENCY
+          - CONDITION_PING_PACKET_LOSS
+          - CONDITION_PING_RESPONSE
+          - CONDITION_SYSTEM_UPTIME
+          - CONDITION_SMART_STATUS_DEGRATED
+          - CONDITION_RAID_HEALTH_STATUS
+          - CONDITION_SCRIPT_RESULT
+          - CONDITION_HTTP
+          - CONDITION_HTTP_RESPONSE
+          - CONDITION_PORT
+          - CONDITION_PORT_SCAN
+          - CONDITION_SYSLOG
+          - CONDITION_CONFIGURATION_FILE
+          - CONDITION_SNMPTRAP
+          - CONDITION_CRITICAL_EVENT
+          - CONDITION_DNS
+          - CONDITION_EMAIL
+          - CONDITION_CUSTOM_SNMP
+          - CONDITION_COMPOUND
+          - SHADOWPROTECT_BACKUPJOB_CREATE
+          - SHADOWPROTECT_BACKUPJOB_UPDATE
+          - SHADOWPROTECT_BACKUPJOB_DELETE
+          - SHADOWPROTECT_BACKUPJOB_EXECUTE
+          - IMAGEMANAGER_MANAGEDFOLDER_CREATE
+          - IMAGEMANAGER_MANAGEDFOLDER_UPDATE
+          - IMAGEMANAGER_MANAGEDFOLDER_DELETE
+          - IMAGEMANAGER_MANAGEDFOLDER_EXECUTE
+          - TEAMVIEWER_CONNECTION
+          - RETRIEVE_AGENT_LOGS
+          - SCHEDULED_TASK
+          - CONDITION_WINDOWS_EVENT_LOG_TRIGGERED
+          - CONDITION_WINDOWS_SERVICE_STATE_CHANGED
+          - UI_MESSAGE_ACTION_REBOOT
+          - UI_MESSAGE_BD_INSTALLATION_ISSUES
+          - GRAVITYZONE_UI_MESSAGE_INSTALLATION_ISSUES
+          - AV_QUARANTINE_THREAT
+          - AV_RESTORE_THREAT
+          - AV_DELETE_THREAT
+          - AV_REMOVE_THREAT
+          - BITDEFENDER_RESTORE_THREAT
+          - BITDEFENDER_DELETE_THREAT
+          - CONDITION_BITLOCKER_STATUS
+          - CONDITION_FILEVAULT_STATUS
+          - CONDITION_LINUX_PROCESS
+          - CONDITION_LINUX_Daemon
+          - CONDITION_LINUX_PROCESS_RESOURCE
+          - CONDITION_LINUX_PROCESS_RESOURCE_CPU
+          - CONDITION_LINUX_PROCESS_RESOURCE_MEMORY
+          - CONDITION_LINUX_DISK_FREE_SPACE
+          - CONDITION_LINUX_DISK_USAGE
+          - CONDITION_VM_AGGREGATE_CPU_USAGE
+          - CONDITION_VM_DISK_USAGE
+          - CONDITION_VM_HOST_DATASTORE
+          - CONDITION_VM_HOST_UPTIME
+          - CONDITION_VM_HOST_DEVICE_DOWN
+          - CONDITION_VM_HOST_BAD_SENSORS
+          - CONDITION_VM_HOST_SENSOR_HEALTH
+          - CONDITION_VM_GUEST_GUEST_OPERATIONAL_MODE
+          - CONDITION_VM_GUEST_SNAPSHOT_SIZE
+          - CONDITION_VM_GUEST_SNAPSHOT_LIFESPAN
+          - CONDITION_VM_GUEST_TOOLS_NOT_RUNNING
+          - CONDITION_HV_GUEST_CHECKPOINT_SIZE
+          - CONDITION_HV_GUEST_CHECKPOINT_LIFESPAN
+          - CONDITION_SOFTWARE
+          - CONDITION_WINDOWS_PROCESS_STATE
+          - CONDITION_WINDOWS_PROCESS_RESOURCE_CPU
+          - CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY
+          - CONDITION_MAC_PROCESS_STATE
+          - CONDITION_MAC_PROCESS_RESOURCE_CPU
+          - CONDITION_MAC_PROCESS_RESOURCE_MEMORY
+          - CONDITION_MAC_DEAMON
+          - CONDITION_CUSTOM_FIELD
+          - CONDITION_PENDING_REBOOT
+        sourceConfigUid:
+          type: string
+          description: Source configuration/policy element reference
+          format: uuid
+        sourceName:
+          type: string
+          description: Source configuration/policy element name
+        subject:
+          type: string
+          description: Alert subject
+        userId:
+          type: integer
+          description: User identifier
+          format: int32
+        psaTicketId:
+          type: object
+          description: Related PSA ticket ID
+        ticketTemplateId:
+          type: integer
+          description: PSA ticket template
+          format: int32
+        data:
+          type: object
+          additionalProperties: true
+          description: Alert data
+        device:
+          $ref: '#/components/schemas/NodeWithDetailedReferences'
     Processor:
       type: object
       properties:
@@ -650,6 +1026,895 @@ components:
           description: Number of Logical Cores]
           format: int32
       description: Processors
+    Volume:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        driveLetter:
+          type: string
+          description: Drive Letter
+        label:
+          type: string
+          description: Volume Label
+        deviceType:
+          type: string
+          description: Device Type
+        fileSystem:
+          type: string
+          description: File System Type
+        autoMount:
+          type: boolean
+          description: Automatically Mounted
+        compressed:
+          type: boolean
+          description: Compressed
+        capacity:
+          type: integer
+          description: Capacity (bytes)
+          format: int64
+        freeSpace:
+          type: integer
+          description: Free Space (bytes)
+          format: int64
+        serialNumber:
+          type: string
+          description: Serial Number
+        bitLockerStatus:
+          $ref: '#/components/schemas/VolumeBitLockerStatus'
+      description: Disk Volumes
+    Job:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: Task/Job UID (activity series UID)
+          format: uuid
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        message:
+          type: string
+          description: Job message
+        createTime:
+          type: number
+          description: Job start timestamp
+          format: double
+        updateTime:
+          type: number
+          description: Job last updated
+          format: double
+        sourceType:
+          type: string
+          description: Job origin
+          enum:
+          - AGENT_OFFLINE
+          - CONDITION_AGENT_CPU
+          - CONDITION_AGENT_MEMORY
+          - CONDITION_AGENT_NETWORK
+          - CONDITION_AGENT_DISK_IO
+          - CONDITION_AGENT_DISK_FREE_SPACE
+          - CONDITION_AGENT_DISK_USAGE
+          - CONDITION_AGENT_CVSS_SCORE
+          - CONDITION_AGENT_PATCH_LAST_INSTALLED
+          - CONDITION_NMS_CPU
+          - CONDITION_NMS_MEMORY
+          - CONDITION_NMS_NETWORK_TRAFFIC_BITS
+          - CONDITION_NMS_NETWORK_TRAFFIC_PERCENT
+          - CONDITION_NMS_NETWORK_STATUS
+          - CONDITION_NMS_NETWORK_STATUS_CHANGE
+          - CONDITION_NMS_SYSTEM_UPTIME
+          - CONDITION_PING
+          - CONDITION_PING_LATENCY
+          - CONDITION_PING_PACKET_LOSS
+          - CONDITION_PING_RESPONSE
+          - CONDITION_SYSTEM_UPTIME
+          - CONDITION_SMART_STATUS_DEGRATED
+          - CONDITION_RAID_HEALTH_STATUS
+          - CONDITION_SCRIPT_RESULT
+          - CONDITION_HTTP
+          - CONDITION_HTTP_RESPONSE
+          - CONDITION_PORT
+          - CONDITION_PORT_SCAN
+          - CONDITION_SYSLOG
+          - CONDITION_CONFIGURATION_FILE
+          - CONDITION_SNMPTRAP
+          - CONDITION_CRITICAL_EVENT
+          - CONDITION_DNS
+          - CONDITION_EMAIL
+          - CONDITION_CUSTOM_SNMP
+          - CONDITION_COMPOUND
+          - SHADOWPROTECT_BACKUPJOB_CREATE
+          - SHADOWPROTECT_BACKUPJOB_UPDATE
+          - SHADOWPROTECT_BACKUPJOB_DELETE
+          - SHADOWPROTECT_BACKUPJOB_EXECUTE
+          - IMAGEMANAGER_MANAGEDFOLDER_CREATE
+          - IMAGEMANAGER_MANAGEDFOLDER_UPDATE
+          - IMAGEMANAGER_MANAGEDFOLDER_DELETE
+          - IMAGEMANAGER_MANAGEDFOLDER_EXECUTE
+          - TEAMVIEWER_CONNECTION
+          - RETRIEVE_AGENT_LOGS
+          - SCHEDULED_TASK
+          - CONDITION_WINDOWS_EVENT_LOG_TRIGGERED
+          - CONDITION_WINDOWS_SERVICE_STATE_CHANGED
+          - UI_MESSAGE_ACTION_REBOOT
+          - UI_MESSAGE_BD_INSTALLATION_ISSUES
+          - GRAVITYZONE_UI_MESSAGE_INSTALLATION_ISSUES
+          - AV_QUARANTINE_THREAT
+          - AV_RESTORE_THREAT
+          - AV_DELETE_THREAT
+          - AV_REMOVE_THREAT
+          - BITDEFENDER_RESTORE_THREAT
+          - BITDEFENDER_DELETE_THREAT
+          - CONDITION_BITLOCKER_STATUS
+          - CONDITION_FILEVAULT_STATUS
+          - CONDITION_LINUX_PROCESS
+          - CONDITION_LINUX_Daemon
+          - CONDITION_LINUX_PROCESS_RESOURCE
+          - CONDITION_LINUX_PROCESS_RESOURCE_CPU
+          - CONDITION_LINUX_PROCESS_RESOURCE_MEMORY
+          - CONDITION_LINUX_DISK_FREE_SPACE
+          - CONDITION_LINUX_DISK_USAGE
+          - CONDITION_VM_AGGREGATE_CPU_USAGE
+          - CONDITION_VM_DISK_USAGE
+          - CONDITION_VM_HOST_DATASTORE
+          - CONDITION_VM_HOST_UPTIME
+          - CONDITION_VM_HOST_DEVICE_DOWN
+          - CONDITION_VM_HOST_BAD_SENSORS
+          - CONDITION_VM_HOST_SENSOR_HEALTH
+          - CONDITION_VM_GUEST_GUEST_OPERATIONAL_MODE
+          - CONDITION_VM_GUEST_SNAPSHOT_SIZE
+          - CONDITION_VM_GUEST_SNAPSHOT_LIFESPAN
+          - CONDITION_VM_GUEST_TOOLS_NOT_RUNNING
+          - CONDITION_HV_GUEST_CHECKPOINT_SIZE
+          - CONDITION_HV_GUEST_CHECKPOINT_LIFESPAN
+          - CONDITION_SOFTWARE
+          - CONDITION_WINDOWS_PROCESS_STATE
+          - CONDITION_WINDOWS_PROCESS_RESOURCE_CPU
+          - CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY
+          - CONDITION_MAC_PROCESS_STATE
+          - CONDITION_MAC_PROCESS_RESOURCE_CPU
+          - CONDITION_MAC_PROCESS_RESOURCE_MEMORY
+          - CONDITION_MAC_DEAMON
+          - CONDITION_CUSTOM_FIELD
+          - CONDITION_PENDING_REBOOT
+        sourceConfigUid:
+          type: string
+          description: Source configuration/policy element reference
+          format: uuid
+        sourceName:
+          type: string
+          description: Source configuration/policy element name
+        subject:
+          type: string
+          description: Job subject
+        userId:
+          type: integer
+          description: User identifier
+          format: int32
+        psaTicketId:
+          type: object
+          description: Related PSA ticket ID
+        ticketTemplateId:
+          type: integer
+          description: PSA ticket template
+          format: int32
+        data:
+          type: object
+          additionalProperties: true
+          description: Job data
+        device:
+          $ref: '#/components/schemas/NodeWithDetailedReferences'
+        jobStatus:
+          type: string
+          description: Job Status
+          enum:
+          - START_REQUESTED
+          - STARTED
+          - IN_PROCESS
+          - COMPLETED
+          - CANCEL_REQUESTED
+          - CANCELLED
+          - WAITING_FOR_USER_RESPONSE
+          - TRIGGERED
+          - RESET
+          - ACKNOWLEDGED
+          - DISABLED
+        jobResult:
+          type: string
+          description: Job result
+          enum:
+          - SUCCESS
+          - FAILURE
+          - UNSUPPORTED
+          - UNCOMPLETED
+        jobType:
+          type: string
+          description: Job Type
+          enum:
+          - ACTIONSET
+          - ACTION
+          - CONDITION
+          - CONDITION_ACTIONSET
+          - CONDITION_ACTION
+          - ANTIVIRUS
+          - PATCH_MANAGEMENT
+          - TEAMVIEWER
+          - MONITOR
+          - SYSTEM
+          - COMMENT
+          - SHADOWPROTECT
+          - IMAGEMANAGER
+          - HELP_REQUEST
+          - SOFTWARE_PATCH_MANAGEMENT
+          - SPLASHTOP
+          - CLOUDBERRY
+          - CLOUDBERRY_BACKUP
+          - SCHEDULED_TASK
+          - RDP
+          - SCRIPTING
+          - SECURITY
+          - REMOTE_TOOLS
+          - VIRTUALIZATION
+          - PSA
+          - MDM
+          - NINJA_REMOTE
+          - NINJA_QUICK_CONNECT
+          - NINJA_NETWORK_DISCOVERY
+          - NINJA_BACKUP
+          - NINJA_TICKETING
+          - KNOWLEDGE_BASE
+          - RELATED_ITEM
+          - CLIENT_CHECKLIST
+          - CHECKLIST_TEMPLATE
+          - DOCUMENTATION
+          - MICROSOFT_INTUNE
+    LoggedOnUser:
+      type: object
+      properties:
+        userName:
+          type: string
+          description: User name
+        logonTime:
+          type: number
+          description: Time of logon
+          format: double
+    Location:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Location identifier
+          format: int32
+      description: Location
+    Application:
+      type: object
+      properties:
+        installDate:
+          type: string
+          description: Installation Date
+          format: date-time
+        location:
+          type: string
+          description: Location
+        name:
+          type: string
+          description: Product Name
+        publisher:
+          type: string
+          description: Publisher
+        size:
+          type: integer
+          description: Size on disk
+          format: int64
+        version:
+          type: string
+          description: Version
+        productCode:
+          type: string
+          description: Product Code
+    PolicyOverrides:
+      type: object
+      properties:
+        overrides:
+          type: array
+          description: List of policy sections
+          items:
+            type: string
+            description: List of policy sections
+    DiskDrive:
+      type: object
+      properties:
+        bytesPerSector:
+          type: integer
+          description: Number of bytes per sector
+          format: int32
+        description:
+          type: string
+          description: Description
+        interfaceType:
+          type: string
+          description: Interface type
+        manufacturer:
+          type: string
+          description: Manufacturer
+        mediaType:
+          type: string
+          description: Media Type
+        model:
+          type: string
+          description: Model
+        name:
+          type: string
+          description: Name
+        partitionCount:
+          type: integer
+          description: Number of partitions
+          format: int32
+        serialNumber:
+          type: string
+          description: Serial number
+        size:
+          type: integer
+          description: Size (Bytes)
+          format: int64
+        smartCapable:
+          type: boolean
+          description: Is S.M.A.R.T. capable?
+        status:
+          type: string
+          description: Status
+    OSPatch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        name:
+          type: string
+          description: Name
+        severity:
+          type: string
+          description: Severity
+        status:
+          type: string
+          description: Status
+        type:
+          type: string
+          description: Type
+        installedAt:
+          type: number
+          description: Installation attempt timestamp
+          format: double
+        kbNumber:
+          type: string
+          description: KB Number
+    Device:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Node (Device) identifier
+          format: int32
+        uid:
+          type: string
+          description: Node (Device) UUID
+          format: uuid
+        assignedOwnerUid:
+          type: string
+          description: Node (Device) Owner UUID
+          format: uuid
+        parentDeviceId:
+          type: integer
+          description: Parent Node identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        nodeRoleId:
+          type: integer
+          description: Node Role identifier
+          format: int32
+        rolePolicyId:
+          type: integer
+          description: Node Role policy ID based on organization and location Policy Mapping
+          format: int32
+        policyId:
+          type: integer
+          description: Assigned policy ID (overrides organization and location policy mapping)
+          format: int32
+        approvalStatus:
+          type: string
+          description: Approval Status
+          enum:
+          - PENDING
+          - APPROVED
+        offline:
+          type: boolean
+          description: Is Offline?
+        displayName:
+          type: string
+          description: Display Name
+        systemName:
+          type: string
+          description: System Name
+        dnsName:
+          type: string
+          description: DNS Name
+        netbiosName:
+          type: string
+          description: NETBIOS Name
+        created:
+          type: number
+          description: Created
+          format: double
+        lastContact:
+          type: number
+          description: Last Contact
+          format: double
+        lastUpdate:
+          type: number
+          description: Last data submission timestamp
+          format: double
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        maintenance:
+          $ref: '#/components/schemas/Maintenance'
+        references:
+          $ref: '#/components/schemas/NodeReferences'
+        ipAddresses:
+          type: array
+          description: Device IP addresses
+          items:
+            type: string
+            description: Device IP addresses
+        macAddresses:
+          type: array
+          description: Device MAC addresses
+          items:
+            type: string
+            description: Device MAC addresses
+        publicIP:
+          type: string
+          description: Device Public IP Address
+        notes:
+          type: array
+          description: Device Notes
+          items:
+            $ref: '#/components/schemas/Note'
+        deviceType:
+          type: string
+      discriminator:
+        propertyName: deviceType
+    NodeWithDetailedReferences:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Node (Device) identifier
+          format: int32
+        uid:
+          type: string
+          description: Node (Device) UUID
+          format: uuid
+        assignedOwnerUid:
+          type: string
+          description: Node (Device) Owner UUID
+          format: uuid
+        parentDeviceId:
+          type: integer
+          description: Parent Node identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        nodeRoleId:
+          type: integer
+          description: Node Role identifier
+          format: int32
+        rolePolicyId:
+          type: integer
+          description: Node Role policy ID based on organization and location Policy Mapping
+          format: int32
+        policyId:
+          type: integer
+          description: Assigned policy ID (overrides organization and location policy mapping)
+          format: int32
+        approvalStatus:
+          type: string
+          description: Approval Status
+          enum:
+          - PENDING
+          - APPROVED
+        offline:
+          type: boolean
+          description: Is Offline?
+        displayName:
+          type: string
+          description: Display Name
+        systemName:
+          type: string
+          description: System Name
+        dnsName:
+          type: string
+          description: DNS Name
+        netbiosName:
+          type: string
+          description: NETBIOS Name
+        created:
+          type: number
+          description: Created
+          format: double
+        lastContact:
+          type: number
+          description: Last Contact
+          format: double
+        lastUpdate:
+          type: number
+          description: Last data submission timestamp
+          format: double
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        maintenance:
+          $ref: '#/components/schemas/Maintenance'
+        references:
+          $ref: '#/components/schemas/NodeReferences'
+      description: Device information.
+    Policy:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Policy identifier
+          format: int32
+        parentPolicyId:
+          type: integer
+          description: Parent Policy identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        updated:
+          type: number
+          description: Last update timestamp
+          format: double
+        nodeClassDefault:
+          type: boolean
+          description: Is Default Policy for Node Class
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+      description: Assigned policy (overrides organization and location policy mapping)
+    WindowsService:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        displayName:
+          type: string
+          description: Display Name
+        description:
+          type: string
+          description: Description
+        startType:
+          type: string
+          description: Start Type
+          enum:
+          - AUTO_START
+          - AUTO_START_DELAYED
+          - BOOT_START
+          - DEMAND_START
+          - DISABLED
+          - SYSTEM_START
+        userName:
+          type: string
+          description: User Name
+        state:
+          type: string
+          description: State
+          enum:
+          - UNKNOWN
+          - STOPPED
+          - START_PENDING
+          - RUNNING
+          - STOP_PENDING
+          - PAUSE_PENDING
+          - PAUSED
+          - CONTINUE_PENDING
+    Maintenance:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Maintenance mode status
+          enum:
+          - PENDING
+          - IN_MAINTENANCE
+          - FAILED
+        start:
+          type: number
+          description: Maintenance mode start time
+          format: double
+        end:
+          type: number
+          description: Maintenance mode end time
+          format: double
+      description: Maintenance mode status
+    NodeRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Device Role identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        custom:
+          type: boolean
+          description: Is custom node role?
+        chassisType:
+          type: string
+          description: Chassis Type
+          enum:
+          - UNKNOWN
+          - DESKTOP
+          - LAPTOP
+          - MOBILE
+        created:
+          type: number
+          description: Date created
+          format: double
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        nodeRoleParentId:
+          type: integer
+          description: Node Role Parent Id
+          format: int32
+        icon:
+          type: string
+          description: Icon
+      description: Device Role
     Activity:
       type: object
       properties:
@@ -1436,69 +2701,6 @@ components:
           type: object
           additionalProperties: true
           description: Activity data
-    BackupUsage:
-      type: object
-      properties:
-        revisionsCurrentSize:
-          type: integer
-          description: Revisions current size
-          format: int64
-        revisionsPreviousSize:
-          type: integer
-          description: Revisions previous size
-          format: int64
-        revisionsDeletedSize:
-          type: integer
-          description: Revisions deleted size
-          format: int64
-        localFileFolderSize:
-          type: integer
-          description: Revisions local file folder size
-          format: int64
-        localImageSize:
-          type: integer
-          description: Revisions local image size
-          format: int64
-        localImageV2Size:
-          type: integer
-          description: Revisions local image v2 size
-          format: int64
-        cloudFileFolderSize:
-          type: integer
-          description: Revisions cloud file folder size
-          format: int64
-        cloudImageSize:
-          type: integer
-          description: Revisions cloud image size
-          format: int64
-        cloudImageV2Size:
-          type: integer
-          description: Revisions cloud image v2 size
-          format: int64
-        lastSuccessfulBackupJob:
-          type: number
-          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        lastFailedBackupJob:
-          type: number
-          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        revisionsTotalSize:
-          type: integer
-          description: Revisions total size
-          format: int64
-          readOnly: true
-        cloudTotalSize:
-          type: integer
-          description: Revisions cloud total size
-          format: int64
-          readOnly: true
-        localTotalSize:
-          type: integer
-          description: Revisions local total size
-          format: int64
-          readOnly: true
-      description: Device Backup Usage
     VolumeBitLockerStatus:
       type: object
       properties:
@@ -1545,1026 +2747,6 @@ components:
           type: boolean
           description: Is initialized for protection
       description: BitLocker Status
-    Application:
-      type: object
-      properties:
-        installDate:
-          type: string
-          description: Installation Date
-          format: date-time
-        location:
-          type: string
-          description: Location
-        name:
-          type: string
-          description: Product Name
-        publisher:
-          type: string
-          description: Publisher
-        size:
-          type: integer
-          description: Size on disk
-          format: int64
-        version:
-          type: string
-          description: Version
-        productCode:
-          type: string
-          description: Product Code
-    LoggedOnUser:
-      type: object
-      properties:
-        userName:
-          type: string
-          description: User name
-        logonTime:
-          type: number
-          description: Time of logon
-          format: double
-    NodeReferences:
-      type: object
-      properties:
-        organization:
-          $ref: '#/components/schemas/Organization'
-        location:
-          $ref: '#/components/schemas/Location'
-        rolePolicy:
-          $ref: '#/components/schemas/Policy'
-        policy:
-          $ref: '#/components/schemas/Policy'
-        role:
-          $ref: '#/components/schemas/NodeRole'
-        backupUsage:
-          $ref: '#/components/schemas/BackupUsage'
-        warranty:
-          $ref: '#/components/schemas/WarrantyDates'
-        assignedOwner:
-          $ref: '#/components/schemas/User'
-      description: Expanded entity references
-    Location:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Location name
-        address:
-          type: string
-          description: Address
-        description:
-          type: string
-          description: Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Location identifier
-          format: int32
-      description: Location
-    Job:
-      type: object
-      properties:
-        uid:
-          type: string
-          description: Task/Job UID (activity series UID)
-          format: uuid
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        message:
-          type: string
-          description: Job message
-        createTime:
-          type: number
-          description: Job start timestamp
-          format: double
-        updateTime:
-          type: number
-          description: Job last updated
-          format: double
-        sourceType:
-          type: string
-          description: Job origin
-          enum:
-          - AGENT_OFFLINE
-          - CONDITION_AGENT_CPU
-          - CONDITION_AGENT_MEMORY
-          - CONDITION_AGENT_NETWORK
-          - CONDITION_AGENT_DISK_IO
-          - CONDITION_AGENT_DISK_FREE_SPACE
-          - CONDITION_AGENT_DISK_USAGE
-          - CONDITION_AGENT_CVSS_SCORE
-          - CONDITION_AGENT_PATCH_LAST_INSTALLED
-          - CONDITION_NMS_CPU
-          - CONDITION_NMS_MEMORY
-          - CONDITION_NMS_NETWORK_TRAFFIC_BITS
-          - CONDITION_NMS_NETWORK_TRAFFIC_PERCENT
-          - CONDITION_NMS_NETWORK_STATUS
-          - CONDITION_NMS_NETWORK_STATUS_CHANGE
-          - CONDITION_NMS_SYSTEM_UPTIME
-          - CONDITION_PING
-          - CONDITION_PING_LATENCY
-          - CONDITION_PING_PACKET_LOSS
-          - CONDITION_PING_RESPONSE
-          - CONDITION_SYSTEM_UPTIME
-          - CONDITION_SMART_STATUS_DEGRATED
-          - CONDITION_RAID_HEALTH_STATUS
-          - CONDITION_SCRIPT_RESULT
-          - CONDITION_HTTP
-          - CONDITION_HTTP_RESPONSE
-          - CONDITION_PORT
-          - CONDITION_PORT_SCAN
-          - CONDITION_SYSLOG
-          - CONDITION_CONFIGURATION_FILE
-          - CONDITION_SNMPTRAP
-          - CONDITION_CRITICAL_EVENT
-          - CONDITION_DNS
-          - CONDITION_EMAIL
-          - CONDITION_CUSTOM_SNMP
-          - CONDITION_COMPOUND
-          - SHADOWPROTECT_BACKUPJOB_CREATE
-          - SHADOWPROTECT_BACKUPJOB_UPDATE
-          - SHADOWPROTECT_BACKUPJOB_DELETE
-          - SHADOWPROTECT_BACKUPJOB_EXECUTE
-          - IMAGEMANAGER_MANAGEDFOLDER_CREATE
-          - IMAGEMANAGER_MANAGEDFOLDER_UPDATE
-          - IMAGEMANAGER_MANAGEDFOLDER_DELETE
-          - IMAGEMANAGER_MANAGEDFOLDER_EXECUTE
-          - TEAMVIEWER_CONNECTION
-          - RETRIEVE_AGENT_LOGS
-          - SCHEDULED_TASK
-          - CONDITION_WINDOWS_EVENT_LOG_TRIGGERED
-          - CONDITION_WINDOWS_SERVICE_STATE_CHANGED
-          - UI_MESSAGE_ACTION_REBOOT
-          - UI_MESSAGE_BD_INSTALLATION_ISSUES
-          - GRAVITYZONE_UI_MESSAGE_INSTALLATION_ISSUES
-          - AV_QUARANTINE_THREAT
-          - AV_RESTORE_THREAT
-          - AV_DELETE_THREAT
-          - AV_REMOVE_THREAT
-          - BITDEFENDER_RESTORE_THREAT
-          - BITDEFENDER_DELETE_THREAT
-          - CONDITION_BITLOCKER_STATUS
-          - CONDITION_FILEVAULT_STATUS
-          - CONDITION_LINUX_PROCESS
-          - CONDITION_LINUX_Daemon
-          - CONDITION_LINUX_PROCESS_RESOURCE
-          - CONDITION_LINUX_PROCESS_RESOURCE_CPU
-          - CONDITION_LINUX_PROCESS_RESOURCE_MEMORY
-          - CONDITION_LINUX_DISK_FREE_SPACE
-          - CONDITION_LINUX_DISK_USAGE
-          - CONDITION_VM_AGGREGATE_CPU_USAGE
-          - CONDITION_VM_DISK_USAGE
-          - CONDITION_VM_HOST_DATASTORE
-          - CONDITION_VM_HOST_UPTIME
-          - CONDITION_VM_HOST_DEVICE_DOWN
-          - CONDITION_VM_HOST_BAD_SENSORS
-          - CONDITION_VM_HOST_SENSOR_HEALTH
-          - CONDITION_VM_GUEST_GUEST_OPERATIONAL_MODE
-          - CONDITION_VM_GUEST_SNAPSHOT_SIZE
-          - CONDITION_VM_GUEST_SNAPSHOT_LIFESPAN
-          - CONDITION_VM_GUEST_TOOLS_NOT_RUNNING
-          - CONDITION_HV_GUEST_CHECKPOINT_SIZE
-          - CONDITION_HV_GUEST_CHECKPOINT_LIFESPAN
-          - CONDITION_SOFTWARE
-          - CONDITION_WINDOWS_PROCESS_STATE
-          - CONDITION_WINDOWS_PROCESS_RESOURCE_CPU
-          - CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY
-          - CONDITION_MAC_PROCESS_STATE
-          - CONDITION_MAC_PROCESS_RESOURCE_CPU
-          - CONDITION_MAC_PROCESS_RESOURCE_MEMORY
-          - CONDITION_MAC_DEAMON
-          - CONDITION_CUSTOM_FIELD
-          - CONDITION_PENDING_REBOOT
-        sourceConfigUid:
-          type: string
-          description: Source configuration/policy element reference
-          format: uuid
-        sourceName:
-          type: string
-          description: Source configuration/policy element name
-        subject:
-          type: string
-          description: Job subject
-        userId:
-          type: integer
-          description: User identifier
-          format: int32
-        psaTicketId:
-          type: object
-          description: Related PSA ticket ID
-        ticketTemplateId:
-          type: integer
-          description: PSA ticket template
-          format: int32
-        data:
-          type: object
-          additionalProperties: true
-          description: Job data
-        device:
-          $ref: '#/components/schemas/NodeWithDetailedReferences'
-        jobStatus:
-          type: string
-          description: Job Status
-          enum:
-          - START_REQUESTED
-          - STARTED
-          - IN_PROCESS
-          - COMPLETED
-          - CANCEL_REQUESTED
-          - CANCELLED
-          - WAITING_FOR_USER_RESPONSE
-          - TRIGGERED
-          - RESET
-          - ACKNOWLEDGED
-          - DISABLED
-        jobResult:
-          type: string
-          description: Job result
-          enum:
-          - SUCCESS
-          - FAILURE
-          - UNSUPPORTED
-          - UNCOMPLETED
-        jobType:
-          type: string
-          description: Job Type
-          enum:
-          - ACTIONSET
-          - ACTION
-          - CONDITION
-          - CONDITION_ACTIONSET
-          - CONDITION_ACTION
-          - ANTIVIRUS
-          - PATCH_MANAGEMENT
-          - TEAMVIEWER
-          - MONITOR
-          - SYSTEM
-          - COMMENT
-          - SHADOWPROTECT
-          - IMAGEMANAGER
-          - HELP_REQUEST
-          - SOFTWARE_PATCH_MANAGEMENT
-          - SPLASHTOP
-          - CLOUDBERRY
-          - CLOUDBERRY_BACKUP
-          - SCHEDULED_TASK
-          - RDP
-          - SCRIPTING
-          - SECURITY
-          - REMOTE_TOOLS
-          - VIRTUALIZATION
-          - PSA
-          - MDM
-          - NINJA_REMOTE
-          - NINJA_QUICK_CONNECT
-          - NINJA_NETWORK_DISCOVERY
-          - NINJA_BACKUP
-          - NINJA_TICKETING
-          - KNOWLEDGE_BASE
-          - RELATED_ITEM
-          - CLIENT_CHECKLIST
-          - CHECKLIST_TEMPLATE
-          - DOCUMENTATION
-          - MICROSOFT_INTUNE
-    WindowsService:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name
-        displayName:
-          type: string
-          description: Display Name
-        description:
-          type: string
-          description: Description
-        startType:
-          type: string
-          description: Start Type
-          enum:
-          - AUTO_START
-          - AUTO_START_DELAYED
-          - BOOT_START
-          - DEMAND_START
-          - DISABLED
-          - SYSTEM_START
-        userName:
-          type: string
-          description: User Name
-        state:
-          type: string
-          description: State
-          enum:
-          - UNKNOWN
-          - STOPPED
-          - START_PENDING
-          - RUNNING
-          - STOP_PENDING
-          - PAUSE_PENDING
-          - PAUSED
-          - CONTINUE_PENDING
-    DiskDrive:
-      type: object
-      properties:
-        bytesPerSector:
-          type: integer
-          description: Number of bytes per sector
-          format: int32
-        description:
-          type: string
-          description: Description
-        interfaceType:
-          type: string
-          description: Interface type
-        manufacturer:
-          type: string
-          description: Manufacturer
-        mediaType:
-          type: string
-          description: Media Type
-        model:
-          type: string
-          description: Model
-        name:
-          type: string
-          description: Name
-        partitionCount:
-          type: integer
-          description: Number of partitions
-          format: int32
-        serialNumber:
-          type: string
-          description: Serial number
-        size:
-          type: integer
-          description: Size (Bytes)
-          format: int64
-        smartCapable:
-          type: boolean
-          description: Is S.M.A.R.T. capable?
-        status:
-          type: string
-          description: Status
-    WarrantyDates:
-      type: object
-      properties:
-        startDate:
-          type: number
-          description: Warranty Start Date (Seconds)
-          format: double
-        endDate:
-          type: number
-          description: Warranty End Date (Seconds)
-          format: double
-        manufacturerFulfillmentDate:
-          type: number
-          description: Manufacturer Fulfillment Date
-          format: double
-      description: Warranty Info
-    Device:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Node (Device) identifier
-          format: int32
-        uid:
-          type: string
-          description: Node (Device) UUID
-          format: uuid
-        assignedOwnerUid:
-          type: string
-          description: Node (Device) Owner UUID
-          format: uuid
-        parentDeviceId:
-          type: integer
-          description: Parent Node identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        nodeRoleId:
-          type: integer
-          description: Node Role identifier
-          format: int32
-        rolePolicyId:
-          type: integer
-          description: Node Role policy ID based on organization and location Policy Mapping
-          format: int32
-        policyId:
-          type: integer
-          description: Assigned policy ID (overrides organization and location policy mapping)
-          format: int32
-        approvalStatus:
-          type: string
-          description: Approval Status
-          enum:
-          - PENDING
-          - APPROVED
-        offline:
-          type: boolean
-          description: Is Offline?
-        displayName:
-          type: string
-          description: Display Name
-        systemName:
-          type: string
-          description: System Name
-        dnsName:
-          type: string
-          description: DNS Name
-        netbiosName:
-          type: string
-          description: NETBIOS Name
-        created:
-          type: number
-          description: Created
-          format: double
-        lastContact:
-          type: number
-          description: Last Contact
-          format: double
-        lastUpdate:
-          type: number
-          description: Last data submission timestamp
-          format: double
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        maintenance:
-          $ref: '#/components/schemas/Maintenance'
-        references:
-          $ref: '#/components/schemas/NodeReferences'
-        ipAddresses:
-          type: array
-          description: Device IP addresses
-          items:
-            type: string
-            description: Device IP addresses
-        macAddresses:
-          type: array
-          description: Device MAC addresses
-          items:
-            type: string
-            description: Device MAC addresses
-        publicIP:
-          type: string
-          description: Device Public IP Address
-        notes:
-          type: array
-          description: Device Notes
-          items:
-            $ref: '#/components/schemas/Note'
-        deviceType:
-          type: string
-      discriminator:
-        propertyName: deviceType
-    NodeRole:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Device Role identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        custom:
-          type: boolean
-          description: Is custom node role?
-        chassisType:
-          type: string
-          description: Chassis Type
-          enum:
-          - UNKNOWN
-          - DESKTOP
-          - LAPTOP
-          - MOBILE
-        created:
-          type: number
-          description: Date created
-          format: double
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        nodeRoleParentId:
-          type: integer
-          description: Node Role Parent Id
-          format: int32
-        icon:
-          type: string
-          description: Icon
-      description: Device Role
-    NodeWithDetailedReferences:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Node (Device) identifier
-          format: int32
-        uid:
-          type: string
-          description: Node (Device) UUID
-          format: uuid
-        assignedOwnerUid:
-          type: string
-          description: Node (Device) Owner UUID
-          format: uuid
-        parentDeviceId:
-          type: integer
-          description: Parent Node identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        nodeRoleId:
-          type: integer
-          description: Node Role identifier
-          format: int32
-        rolePolicyId:
-          type: integer
-          description: Node Role policy ID based on organization and location Policy Mapping
-          format: int32
-        policyId:
-          type: integer
-          description: Assigned policy ID (overrides organization and location policy mapping)
-          format: int32
-        approvalStatus:
-          type: string
-          description: Approval Status
-          enum:
-          - PENDING
-          - APPROVED
-        offline:
-          type: boolean
-          description: Is Offline?
-        displayName:
-          type: string
-          description: Display Name
-        systemName:
-          type: string
-          description: System Name
-        dnsName:
-          type: string
-          description: DNS Name
-        netbiosName:
-          type: string
-          description: NETBIOS Name
-        created:
-          type: number
-          description: Created
-          format: double
-        lastContact:
-          type: number
-          description: Last Contact
-          format: double
-        lastUpdate:
-          type: number
-          description: Last data submission timestamp
-          format: double
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        maintenance:
-          $ref: '#/components/schemas/Maintenance'
-        references:
-          $ref: '#/components/schemas/NodeReferences'
-      description: Device information.
-    SoftwarePatch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier
-          format: uuid
-        productIdentifier:
-          type: string
-          description: Software product identifier
-          format: uuid
-        title:
-          type: string
-          description: Patch title
-        impact:
-          type: string
-          description: Impact
-        status:
-          type: string
-          description: Status
-        type:
-          type: string
-          description: Patch type
-        installedAt:
-          type: number
-          description: Installation attempt timestamp
-          format: double
-    NetworkInterface:
-      type: object
-      properties:
-        adapterName:
-          type: string
-          description: Adapter Name
-        defaultGateway:
-          type: string
-          description: Default Gateway
-        interfaceType:
-          type: string
-          description: Interface Type
-        dnsHostName:
-          type: string
-          description: DNS HostName
-        dnsServers:
-          type: string
-          description: DNS Servers
-        interfaceIndex:
-          type: string
-          description: Interface Index
-        interfaceName:
-          type: string
-          description: Interface Name
-        ipAddress:
-          type: array
-          description: IP Address
-          items:
-            type: string
-            description: IP Address
-        linkSpeed:
-          type: string
-          description: Link Speed
-        macAddress:
-          type: array
-          description: MAC Address
-          items:
-            type: string
-            description: MAC Address
-        mtu:
-          type: string
-          description: MTU
-        status:
-          type: string
-          description: Status
-        subnetMask:
-          type: string
-          description: Subnet Mask
-    PolicyOverrides:
-      type: object
-      properties:
-        overrides:
-          type: array
-          description: List of policy sections
-          items:
-            type: string
-            description: List of policy sections
-    Alert:
-      type: object
-      properties:
-        uid:
-          type: string
-          description: Alert UID (activity series UID)
-          format: uuid
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        message:
-          type: string
-          description: Alert message
-        createTime:
-          type: number
-          description: Alert creation timestamp
-          format: double
-        updateTime:
-          type: number
-          description: Alert last updated
-          format: double
-        sourceType:
-          type: string
-          description: Alert origin
-          enum:
-          - AGENT_OFFLINE
-          - CONDITION_AGENT_CPU
-          - CONDITION_AGENT_MEMORY
-          - CONDITION_AGENT_NETWORK
-          - CONDITION_AGENT_DISK_IO
-          - CONDITION_AGENT_DISK_FREE_SPACE
-          - CONDITION_AGENT_DISK_USAGE
-          - CONDITION_AGENT_CVSS_SCORE
-          - CONDITION_AGENT_PATCH_LAST_INSTALLED
-          - CONDITION_NMS_CPU
-          - CONDITION_NMS_MEMORY
-          - CONDITION_NMS_NETWORK_TRAFFIC_BITS
-          - CONDITION_NMS_NETWORK_TRAFFIC_PERCENT
-          - CONDITION_NMS_NETWORK_STATUS
-          - CONDITION_NMS_NETWORK_STATUS_CHANGE
-          - CONDITION_NMS_SYSTEM_UPTIME
-          - CONDITION_PING
-          - CONDITION_PING_LATENCY
-          - CONDITION_PING_PACKET_LOSS
-          - CONDITION_PING_RESPONSE
-          - CONDITION_SYSTEM_UPTIME
-          - CONDITION_SMART_STATUS_DEGRATED
-          - CONDITION_RAID_HEALTH_STATUS
-          - CONDITION_SCRIPT_RESULT
-          - CONDITION_HTTP
-          - CONDITION_HTTP_RESPONSE
-          - CONDITION_PORT
-          - CONDITION_PORT_SCAN
-          - CONDITION_SYSLOG
-          - CONDITION_CONFIGURATION_FILE
-          - CONDITION_SNMPTRAP
-          - CONDITION_CRITICAL_EVENT
-          - CONDITION_DNS
-          - CONDITION_EMAIL
-          - CONDITION_CUSTOM_SNMP
-          - CONDITION_COMPOUND
-          - SHADOWPROTECT_BACKUPJOB_CREATE
-          - SHADOWPROTECT_BACKUPJOB_UPDATE
-          - SHADOWPROTECT_BACKUPJOB_DELETE
-          - SHADOWPROTECT_BACKUPJOB_EXECUTE
-          - IMAGEMANAGER_MANAGEDFOLDER_CREATE
-          - IMAGEMANAGER_MANAGEDFOLDER_UPDATE
-          - IMAGEMANAGER_MANAGEDFOLDER_DELETE
-          - IMAGEMANAGER_MANAGEDFOLDER_EXECUTE
-          - TEAMVIEWER_CONNECTION
-          - RETRIEVE_AGENT_LOGS
-          - SCHEDULED_TASK
-          - CONDITION_WINDOWS_EVENT_LOG_TRIGGERED
-          - CONDITION_WINDOWS_SERVICE_STATE_CHANGED
-          - UI_MESSAGE_ACTION_REBOOT
-          - UI_MESSAGE_BD_INSTALLATION_ISSUES
-          - GRAVITYZONE_UI_MESSAGE_INSTALLATION_ISSUES
-          - AV_QUARANTINE_THREAT
-          - AV_RESTORE_THREAT
-          - AV_DELETE_THREAT
-          - AV_REMOVE_THREAT
-          - BITDEFENDER_RESTORE_THREAT
-          - BITDEFENDER_DELETE_THREAT
-          - CONDITION_BITLOCKER_STATUS
-          - CONDITION_FILEVAULT_STATUS
-          - CONDITION_LINUX_PROCESS
-          - CONDITION_LINUX_Daemon
-          - CONDITION_LINUX_PROCESS_RESOURCE
-          - CONDITION_LINUX_PROCESS_RESOURCE_CPU
-          - CONDITION_LINUX_PROCESS_RESOURCE_MEMORY
-          - CONDITION_LINUX_DISK_FREE_SPACE
-          - CONDITION_LINUX_DISK_USAGE
-          - CONDITION_VM_AGGREGATE_CPU_USAGE
-          - CONDITION_VM_DISK_USAGE
-          - CONDITION_VM_HOST_DATASTORE
-          - CONDITION_VM_HOST_UPTIME
-          - CONDITION_VM_HOST_DEVICE_DOWN
-          - CONDITION_VM_HOST_BAD_SENSORS
-          - CONDITION_VM_HOST_SENSOR_HEALTH
-          - CONDITION_VM_GUEST_GUEST_OPERATIONAL_MODE
-          - CONDITION_VM_GUEST_SNAPSHOT_SIZE
-          - CONDITION_VM_GUEST_SNAPSHOT_LIFESPAN
-          - CONDITION_VM_GUEST_TOOLS_NOT_RUNNING
-          - CONDITION_HV_GUEST_CHECKPOINT_SIZE
-          - CONDITION_HV_GUEST_CHECKPOINT_LIFESPAN
-          - CONDITION_SOFTWARE
-          - CONDITION_WINDOWS_PROCESS_STATE
-          - CONDITION_WINDOWS_PROCESS_RESOURCE_CPU
-          - CONDITION_WINDOWS_PROCESS_RESOURCE_MEMORY
-          - CONDITION_MAC_PROCESS_STATE
-          - CONDITION_MAC_PROCESS_RESOURCE_CPU
-          - CONDITION_MAC_PROCESS_RESOURCE_MEMORY
-          - CONDITION_MAC_DEAMON
-          - CONDITION_CUSTOM_FIELD
-          - CONDITION_PENDING_REBOOT
-        sourceConfigUid:
-          type: string
-          description: Source configuration/policy element reference
-          format: uuid
-        sourceName:
-          type: string
-          description: Source configuration/policy element name
-        subject:
-          type: string
-          description: Alert subject
-        userId:
-          type: integer
-          description: User identifier
-          format: int32
-        psaTicketId:
-          type: object
-          description: Related PSA ticket ID
-        ticketTemplateId:
-          type: integer
-          description: PSA ticket template
-          format: int32
-        data:
-          type: object
-          additionalProperties: true
-          description: Alert data
-        device:
-          $ref: '#/components/schemas/NodeWithDetailedReferences'
-    Maintenance:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Maintenance mode status
-          enum:
-          - PENDING
-          - IN_MAINTENANCE
-          - FAILED
-        start:
-          type: number
-          description: Maintenance mode start time
-          format: double
-        end:
-          type: number
-          description: Maintenance mode end time
-          format: double
-      description: Maintenance mode status
-    NodeActivitiesResponse:
-      type: object
-      properties:
-        lastActivityId:
-          type: integer
-          description: Last recorded activity ID for account
-          format: int64
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Activity'
-        lastNodeActivityId:
-          type: integer
-          description: Last recorded activity ID for device
-          format: int64
     User:
       type: object
       properties:
@@ -2644,188 +2826,6 @@ components:
             type: string
             description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
       description: Assigned device owner
-    Note:
-      type: object
-      properties:
-        text:
-          type: string
-          description: Note text
-      description: Device Notes
-    Policy:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Policy identifier
-          format: int32
-        parentPolicyId:
-          type: integer
-          description: Parent Policy identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        updated:
-          type: number
-          description: Last update timestamp
-          format: double
-        nodeClassDefault:
-          type: boolean
-          description: Is Default Policy for Node Class
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-      description: Assigned policy (overrides organization and location policy mapping)
-    Organization:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Organization full name
-        description:
-          type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
-          type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Organization identifier
-          format: int32
-      description: Organization
-    Volume:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name
-        driveLetter:
-          type: string
-          description: Drive Letter
-        label:
-          type: string
-          description: Volume Label
-        deviceType:
-          type: string
-          description: Device Type
-        fileSystem:
-          type: string
-          description: File System Type
-        autoMount:
-          type: boolean
-          description: Automatically Mounted
-        compressed:
-          type: boolean
-          description: Compressed
-        capacity:
-          type: integer
-          description: Capacity (bytes)
-          format: int64
-        freeSpace:
-          type: integer
-          description: Free Space (bytes)
-          format: int64
-        serialNumber:
-          type: string
-          description: Serial Number
-        bitLockerStatus:
-          $ref: '#/components/schemas/VolumeBitLockerStatus'
-      description: Disk Volumes
-    OSPatch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier
-          format: uuid
-        name:
-          type: string
-          description: Name
-        severity:
-          type: string
-          description: Severity
-        status:
-          type: string
-          description: Status
-        type:
-          type: string
-          description: Type
-        installedAt:
-          type: number
-          description: Installation attempt timestamp
-          format: double
-        kbNumber:
-          type: string
-          description: KB Number
   securitySchemes:
     oauth2:
       type: http
