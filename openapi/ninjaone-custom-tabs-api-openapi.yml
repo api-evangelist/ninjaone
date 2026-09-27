@@ -308,22 +308,18 @@ paths:
           description: Returns a list of the affected tabs (as CustomTabLabelPublicApiDTO) with updated order data
 components:
   schemas:
-    AttributeContentAdvancedSettingsNumericRange:
+    AttributeContentValue:
       type: object
       properties:
-        min:
-          type: number
-        max:
-          type: number
-    EndUserCustomization:
-      type: object
-      properties:
+        id:
+          type: string
+          format: uuid
         name:
           type: string
-        description:
-          type: string
-        label:
-          type: string
+        active:
+          type: boolean
+        system:
+          type: boolean
     CustomTabPublicApiDTO:
       type: object
       properties:
@@ -363,15 +359,160 @@ components:
         isDefault:
           type: boolean
           description: True if this is a default tab, false otherwise
-    CustomTabsOrderPublicApiDTO:
+    UpdateTabNamePublicApiRequest:
+      required:
+      - name
       type: object
       properties:
         tabId:
+          minimum: 1
           type: integer
           format: int32
+        name:
+          type: string
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    AttributeContentAdvancedSettingsComplexityRules:
+      type: object
+      properties:
+        mustContainOneInteger:
+          type: boolean
+        mustContainOneLowercaseLetter:
+          type: boolean
+        mustContainOneUppercaseLetter:
+          type: boolean
+        greaterOrEqualThanSixCharacters:
+          type: boolean
+    EndUserCustomization:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        label:
+          type: string
+    NewCustomTabPublicApiRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: The display name to use for the custom tab
+        entityType:
+          type: string
+          description: The type to use for the custom tab. Organizations and Locations share the same type of tab
+          enum:
+          - NODE_ROLE
+          - ORGANIZATION
+          - END_USER
+        entityId:
+          minimum: 1
+          type: integer
+          description: For tab types that require an id to create (currently, only NODE_ROLE types), this field is the ID of the entity
+          format: int32
+        items:
+          type: array
+          description: The initial list of content items to include in the tab
+          items:
+            $ref: '#/components/schemas/AttributeFormContentItemPublicApiDTO'
         position:
           type: integer
           format: int32
+    AttributeContentAdvancedSettings:
+      type: object
+      properties:
+        fileMaxSize:
+          type: integer
+          format: int32
+        fileExtensions:
+          type: array
+          items:
+            type: string
+        dateFilters:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
+        maxCharacters:
+          type: integer
+          format: int32
+        complexityRules:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
+        numericRange:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
+        org:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+        nodeClass:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - WINDOWS_SERVER
+            - WINDOWS_WORKSTATION
+            - LINUX_WORKSTATION
+            - MAC
+            - ANDROID
+            - APPLE_IOS
+            - APPLE_IPADOS
+            - VMWARE_VM_HOST
+            - VMWARE_VM_GUEST
+            - HYPERV_VMM_HOST
+            - HYPERV_VMM_GUEST
+            - LINUX_SERVER
+            - MAC_SERVER
+            - CLOUD_MONITOR_TARGET
+            - NMS_SWITCH
+            - NMS_ROUTER
+            - NMS_FIREWALL
+            - NMS_PRIVATE_NETWORK_GATEWAY
+            - NMS_PRINTER
+            - NMS_SCANNER
+            - NMS_DIAL_MANAGER
+            - NMS_WAP
+            - NMS_IPSLA
+            - NMS_COMPUTER
+            - NMS_VM_HOST
+            - NMS_APPLIANCE
+            - NMS_OTHER
+            - NMS_SERVER
+            - NMS_PHONE
+            - NMS_VIRTUAL_MACHINE
+            - NMS_NETWORK_MANAGEMENT_AGENT
+            - UNMANAGED_DEVICE
+            - MANAGED_DEVICE
+        ipAddressType:
+          type: string
+          enum:
+          - ALL
+          - IPV4
+          - IPV6
+        expandLargeValueOnRender:
+          type: boolean
+    AttributeContentAdvancedSettingsNumericRange:
+      type: object
+      properties:
+        min:
+          type: number
+        max:
+          type: number
     AttributeFormContentItemPublicApiDTO:
       type: object
       properties:
@@ -404,6 +545,39 @@ components:
         uiElementUpdateTime:
           type: number
           format: double
+    CustomTabsVisibilityPublicApiDTO:
+      type: object
+      properties:
+        tabId:
+          type: integer
+          format: int32
+        hidden:
+          type: boolean
+    AttributeContentPublicApiDTO:
+      type: object
+      properties:
+        customizeForEndUser:
+          type: boolean
+          description: Whether the attribute should be customized for end users
+        endUserCustomization:
+          $ref: '#/components/schemas/EndUserCustomization'
+        values:
+          type: array
+          description: For multi-select attributes, this is the list of values available
+          items:
+            $ref: '#/components/schemas/AttributeContentValue'
+        required:
+          type: boolean
+          description: Boolean representing whether the attribute is required or not
+        footerText:
+          type: string
+          description: Text to include after rendering the attribute
+        tooltipText:
+          type: string
+          description: Text to use as a tooltip for the attribute
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: For multi-select attributes, these are the available content options
     AttributeFormContentCommonItemPublicApiDTO:
       type: object
       properties:
@@ -538,94 +712,6 @@ components:
           description: For UI elements, timestamp of when the element was last updated (unix epoch)
           format: double
       description: This object represents either an attribute, or a UI Element. The available attributes will depend on which type it is
-    AttributeContentAdvancedSettings:
-      type: object
-      properties:
-        fileMaxSize:
-          type: integer
-          format: int32
-        fileExtensions:
-          type: array
-          items:
-            type: string
-        dateFilters:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
-        maxCharacters:
-          type: integer
-          format: int32
-        complexityRules:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
-        numericRange:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
-        org:
-          uniqueItems: true
-          type: array
-          items:
-            type: integer
-            format: int32
-        nodeClass:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - WINDOWS_SERVER
-            - WINDOWS_WORKSTATION
-            - LINUX_WORKSTATION
-            - MAC
-            - ANDROID
-            - APPLE_IOS
-            - APPLE_IPADOS
-            - VMWARE_VM_HOST
-            - VMWARE_VM_GUEST
-            - HYPERV_VMM_HOST
-            - HYPERV_VMM_GUEST
-            - LINUX_SERVER
-            - MAC_SERVER
-            - CLOUD_MONITOR_TARGET
-            - NMS_SWITCH
-            - NMS_ROUTER
-            - NMS_FIREWALL
-            - NMS_PRIVATE_NETWORK_GATEWAY
-            - NMS_PRINTER
-            - NMS_SCANNER
-            - NMS_DIAL_MANAGER
-            - NMS_WAP
-            - NMS_IPSLA
-            - NMS_COMPUTER
-            - NMS_VM_HOST
-            - NMS_APPLIANCE
-            - NMS_OTHER
-            - NMS_SERVER
-            - NMS_PHONE
-            - NMS_VIRTUAL_MACHINE
-            - NMS_NETWORK_MANAGEMENT_AGENT
-            - UNMANAGED_DEVICE
-            - MANAGED_DEVICE
-        ipAddressType:
-          type: string
-          enum:
-          - ALL
-          - IPV4
-          - IPV6
-        expandLargeValueOnRender:
-          type: boolean
-    AttributeContentAdvancedSettingsDateFilters:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - NONE
-          - INCLUDE
-          - EXCLUDE
-          - PAST_DATES_ONLY
-          - FUTURE_DATES_ONLY
-          - RANGE
-        selected:
-          type: array
-          items:
-            type: string
     UpdateCustomTabPublicApiRequest:
       type: object
       properties:
@@ -640,101 +726,15 @@ components:
         position:
           type: integer
           format: int32
-    AttributeContentValue:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        active:
-          type: boolean
-        system:
-          type: boolean
-    AttributeContentPublicApiDTO:
-      type: object
-      properties:
-        customizeForEndUser:
-          type: boolean
-          description: Whether the attribute should be customized for end users
-        endUserCustomization:
-          $ref: '#/components/schemas/EndUserCustomization'
-        values:
-          type: array
-          description: For multi-select attributes, this is the list of values available
-          items:
-            $ref: '#/components/schemas/AttributeContentValue'
-        required:
-          type: boolean
-          description: Boolean representing whether the attribute is required or not
-        footerText:
-          type: string
-          description: Text to include after rendering the attribute
-        tooltipText:
-          type: string
-          description: Text to use as a tooltip for the attribute
-        advancedSettings:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
-      description: For multi-select attributes, these are the available content options
-    AttributeContentAdvancedSettingsComplexityRules:
-      type: object
-      properties:
-        mustContainOneInteger:
-          type: boolean
-        mustContainOneLowercaseLetter:
-          type: boolean
-        mustContainOneUppercaseLetter:
-          type: boolean
-        greaterOrEqualThanSixCharacters:
-          type: boolean
-    UpdateTabNamePublicApiRequest:
-      required:
-      - name
+    CustomTabsOrderPublicApiDTO:
       type: object
       properties:
         tabId:
-          minimum: 1
           type: integer
           format: int32
-        name:
-          type: string
-    NewCustomTabPublicApiRequest:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          description: The display name to use for the custom tab
-        entityType:
-          type: string
-          description: The type to use for the custom tab. Organizations and Locations share the same type of tab
-          enum:
-          - NODE_ROLE
-          - ORGANIZATION
-          - END_USER
-        entityId:
-          minimum: 1
-          type: integer
-          description: For tab types that require an id to create (currently, only NODE_ROLE types), this field is the ID of the entity
-          format: int32
-        items:
-          type: array
-          description: The initial list of content items to include in the tab
-          items:
-            $ref: '#/components/schemas/AttributeFormContentItemPublicApiDTO'
         position:
           type: integer
           format: int32
-    CustomTabsVisibilityPublicApiDTO:
-      type: object
-      properties:
-        tabId:
-          type: integer
-          format: int32
-        hidden:
-          type: boolean
   securitySchemes:
     oauth2:
       type: http

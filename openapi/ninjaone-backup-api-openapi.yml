@@ -158,39 +158,6 @@ paths:
                 $ref: '#/components/schemas/BackupJobReport'
 components:
   schemas:
-    Cursor:
-      type: object
-      properties:
-        name:
-          type: string
-        offset:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-        expires:
-          type: number
-          format: double
-    BackupJobReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/BackupJob'
-    LockhartIntegrityCheckJobCreationRequest:
-      type: object
-      properties:
-        deviceId:
-          type: integer
-          format: int32
-        planUid:
-          type: string
-          format: uuid
-      description: Request of the Integrity Check Job creation.
     LockhartIntegrityCheckJobCreationResponse:
       type: object
       properties:
@@ -215,6 +182,20 @@ components:
         planType:
           type: string
       description: Response of the Integrity Check Job creation.
+    Cursor:
+      type: object
+      properties:
+        name:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+        expires:
+          type: number
+          format: double
     BackupJob:
       type: object
       properties:
@@ -259,6 +240,25 @@ components:
           type: integer
           description: Device id
           format: int32
+    BackupJobReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/BackupJob'
+    LockhartIntegrityCheckJobCreationRequest:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        planUid:
+          type: string
+          format: uuid
+      description: Request of the Integrity Check Job creation.
   securitySchemes:
     oauth2:
       type: http

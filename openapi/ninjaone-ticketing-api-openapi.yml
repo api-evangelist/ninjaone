@@ -349,19 +349,638 @@ paths:
                   $ref: '#/components/schemas/AppUserAndContactPublicApiDTO'
 components:
   schemas:
-    TicketStatusPublicApiDTO:
+    TicketLogEntryPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        appUserContactUid:
+          type: string
+          format: uuid
+        appUserContactId:
+          type: integer
+          format: int32
+        appUserContactType:
+          type: string
+          enum:
+          - TECHNICIAN
+          - END_USER
+          - CONTACT
+        type:
+          type: string
+          enum:
+          - DESCRIPTION
+          - COMMENT
+          - CONDITION
+          - SAVE
+          - DELETE
+          - PRODUCT
+        body:
+          type: string
+        htmlBody:
+          type: string
+        fullEmailBody:
+          type: string
+        publicEntry:
+          type: boolean
+        system:
+          type: boolean
+        createTime:
+          type: number
+          format: double
+        changeDiff:
+          type: object
+        activityId:
+          type: integer
+          format: int64
+        timeTracked:
+          type: integer
+          format: int32
+        technicianTagged:
+          type: array
+          items:
+            type: integer
+            format: int32
+        techniciansTaggedMetadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechniciansTaggedMetadataDTO'
+        automation:
+          $ref: '#/components/schemas/TicketLogEntryAutomationDTO'
+        blockedByInvoice:
+          type: boolean
+        ticketTimeEntry:
+          $ref: '#/components/schemas/TicketTimeEntryDTO'
+        emailResponse:
+          type: boolean
+    TicketTimeEntryDTO:
+      type: object
+      properties:
+        ticketLogEntryId:
+          type: integer
+          format: int32
+        invoiceId:
+          type: integer
+          format: int32
+        startDate:
+          type: integer
+          format: int64
+        remote:
+          type: boolean
+        billing:
+          type: string
+          enum:
+          - BILLABLE
+          - NOT_BILLABLE
+          - NO_CHARGE
+        billingStatus:
+          type: string
+          enum:
+          - BILLED
+          - PENDING
+          - NOT_BILLABLE
+        agreementOriginType:
+          type: string
+          enum:
+          - NONE
+          - SELF
+          - TICKET
+        price:
+          type: number
+        timeTracked:
+          type: integer
+          format: int32
+        agreement:
+          $ref: '#/components/schemas/AgreementDTO'
+        agreementProduct:
+          $ref: '#/components/schemas/AgreementProductTimeEntryDTO'
+    NewTicket:
+      required:
+      - clientId
+      - status
+      - subject
+      - ticketFormId
+      type: object
+      properties:
+        clientId:
+          type: integer
+          description: Client (Organization) identifier
+          format: int32
+          example: 1
+        ticketFormId:
+          type: integer
+          description: Ticket form identifier
+          format: int32
+          example: 1
+        locationId:
+          type:
+          - integer
+          - 'null'
+          description: Location identifier
+          format: int32
+          example: 1
+        nodeId:
+          type:
+          - integer
+          - 'null'
+          description: Device identifier
+          format: int32
+          example: 1
+        subject:
+          maxLength: 200
+          minLength: 0
+          type: string
+          example: CPU with problems
+        description:
+          $ref: '#/components/schemas/NewTicketLogEntry'
+        status:
+          type: string
+          default: '1000'
+        type:
+          type:
+          - string
+          - 'null'
+          description: Type of ticket
+          example: PROBLEM
+          enum:
+          - PROBLEM
+          - QUESTION
+          - INCIDENT
+          - TASK
+        cc:
+          $ref: '#/components/schemas/CarbonCopy'
+        assignedAppUserId:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        requesterUid:
+          type: string
+          format: uuid
+        severity:
+          type:
+          - string
+          - 'null'
+          default: NONE
+          enum:
+          - NONE
+          - MINOR
+          - MODERATE
+          - MAJOR
+          - CRITICAL
+        priority:
+          type:
+          - string
+          - 'null'
+          default: NONE
+          enum:
+          - NONE
+          - LOW
+          - MEDIUM
+          - HIGH
+        parentTicketId:
+          type:
+          - integer
+          - 'null'
+          description: Ticket parent identifier
+          format: int32
+          example: 1
+        tags:
+          type:
+          - array
+          - 'null'
+          example:
+          - tag1
+          - tag2
+          items:
+            type:
+            - string
+            - 'null'
+            example: '["tag1","tag2"]'
+        attributes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TicketingAttributeValue'
+        additionalAssignedTechnicianIds:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          description: Additional assigned technician identifiers
+          example:
+          - 300
+          - 789
+          items:
+            type:
+            - integer
+            - 'null'
+            description: Additional assigned technician identifiers
+            format: int32
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    EndUserCustomization:
       type: object
       properties:
         name:
           type: string
+        description:
+          type: string
+        label:
+          type: string
+    TicketLogEntryAutomationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        system:
+          type: boolean
+        type:
+          type: string
+    ContactResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        clientId:
+          type: integer
+          format: int32
+        clientName:
+          type: string
+        uid:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        jobTitle:
+          type: string
         displayName:
           type: string
-        parentId:
+        createTime:
+          type: number
+          format: double
+        updateTime:
+          type: number
+          format: double
+    CarbonCopy:
+      type:
+      - object
+      - 'null'
+      properties:
+        uids:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          description: List of user uids to be carbon-copied
+          example:
+          - 1fa74a18-a329-40d8-b5b7-0a22624f7800
+          - b0558cb6-3c4e-438c-b8fd-5247c648bbbe
+          items:
+            type:
+            - string
+            - 'null'
+            description: List of user uids to be carbon-copied
+            format: uuid
+        emails:
+          uniqueItems: true
+          type:
+          - array
+          - 'null'
+          description: emails
+          example:
+          - example1@example.com
+          - example2@example.com
+          items:
+            type:
+            - string
+            - 'null'
+            description: emails
+            example: '["example1@example.com","example2@example.com"]'
+    AgreementProductTimeEntryDTO:
+      type: object
+      properties:
+        id:
           type: integer
           format: int32
-        statusId:
+        name:
+          type: string
+    AttributeContent:
+      type: object
+      properties:
+        customizeForEndUser:
+          type: boolean
+        endUserCustomization:
+          $ref: '#/components/schemas/EndUserCustomization'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeContentValue'
+        required:
+          type: boolean
+        footerText:
+          type: string
+        tooltipText:
+          type: string
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+    TicketBoardScrollingRequestDTO:
+      type: object
+      properties:
+        sortBy:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortBy'
+        filters:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        pageSize:
           type: integer
           format: int32
+        searchCriteria:
+          maxLength: 512
+          minLength: 0
+          type: string
+        includeColumns:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        lastCursorId:
+          type: integer
+          format: int32
+    TicketMetadata:
+      type: object
+      properties:
+        columns:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        sortBy:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortBy'
+        attributes:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeData'
+        filters:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        allRequiredColumns:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        allColumns:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        columnNamesForExporting:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    TicketFormContent:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: integer
+            format: int32
+        timerSettings:
+          $ref: '#/components/schemas/TimerSettings'
+    TicketDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        version:
+          type: integer
+          format: int32
+        nodeId:
+          type: integer
+          format: int32
+        clientId:
+          type: integer
+          format: int32
+        locationId:
+          type: integer
+          format: int32
+        assignedAppUserId:
+          type: integer
+          format: int32
+        requesterUid:
+          type: string
+          format: uuid
+        subject:
+          type: string
+        status:
+          $ref: '#/components/schemas/TicketStatusPublicApiDTO'
+        type:
+          type: string
+          enum:
+          - PROBLEM
+          - QUESTION
+          - INCIDENT
+          - TASK
+        priority:
+          type: string
+          enum:
+          - NONE
+          - LOW
+          - MEDIUM
+          - HIGH
+        severity:
+          type: string
+          enum:
+          - NONE
+          - MINOR
+          - MODERATE
+          - MAJOR
+          - CRITICAL
+        ticketFormId:
+          type: integer
+          format: int32
+        source:
+          type: string
+          enum:
+          - TECHNICIAN
+          - EMAIL
+          - WEB_FORM
+          - HELP_REQUEST
+          - END_USER
+          - CONDITION
+          - SCHEDULED_SCRIPT
+          - ACTIVITY
+        tags:
+          type: array
+          items:
+            type: string
+        ccList:
+          $ref: '#/components/schemas/CcList'
+        createTime:
+          type: number
+          format: double
+        deleted:
+          type: boolean
+        attributeValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValueDTO'
+        additionalAssignedTechnicianIds:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+    TimerSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        mode:
+          type: string
+          enum:
+          - MANUAL
+          - AUTO_START
+    NewTicketLogEntry:
+      required:
+      - public
+      type: object
+      properties:
+        public:
+          type: boolean
+          default: true
+        body:
+          type:
+          - string
+          - 'null'
+          example: new comment
+        htmlBody:
+          type:
+          - string
+          - 'null'
+          example: <p>new comment</p>
+        timeTracked:
+          type:
+          - integer
+          - 'null'
+          description: time in seconds
+          format: int32
+          example: 60
+        duplicateInIncidents:
+          type: boolean
+    TechniciansTaggedMetadataDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        email:
+          type: string
+        displayName:
+          type: string
+        deleted:
+          type: boolean
+        permitted:
+          type: boolean
+    AppUserAndContactPublicApiDTO:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: Global identifier for the user
+          format: uuid
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        clientId:
+          type: integer
+          description: Client identifier
+          format: int32
+        firstName:
+          type: string
+          description: The user's first name
+        lastName:
+          type: string
+          description: The user's last name
+        email:
+          type: string
+          description: The user's email address
+        userType:
+          type: string
+          description: System User Type
+          enum:
+          - TECHNICIAN
+          - END_USER
+          - CONTACT
+        naturalId:
+          type: string
+          description: Last User Identifier
+    TicketFormPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        endUserTitle:
+          type: string
+        content:
+          $ref: '#/components/schemas/TicketFormContent'
+        active:
+          type: boolean
+        createTime:
+          type: number
+          format: double
+        updateTime:
+          type: number
+          format: double
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/TicketingAttributePublicApiDTO'
+        default:
+          type: boolean
     UpdateTicket:
       required:
       - clientId
@@ -491,16 +1110,51 @@ components:
             - 'null'
             description: Additional assigned technician identifiers
             format: int32
-    SortBy:
+    AttributeContentValue:
       type: object
       properties:
-        field:
+        id:
           type: string
-        direction:
+          format: uuid
+        name:
+          type: string
+        active:
+          type: boolean
+        system:
+          type: boolean
+    AttributeData:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
           type: string
           enum:
-          - ASC
-          - DESC
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
     TicketingAttributePublicApiDTO:
       type: object
       properties:
@@ -535,232 +1189,51 @@ components:
         updateTime:
           type: number
           format: double
-    AttributeData:
+    TicketStatusPublicApiDTO:
       type: object
       properties:
         name:
           type: string
-        type:
+        displayName:
           type: string
-          enum:
-          - DROPDOWN
-          - MULTI_SELECT
-          - CHECKBOX
-          - TEXT
-          - TEXT_MULTILINE
-          - TEXT_ENCRYPTED
-          - NUMERIC
-          - DECIMAL
-          - DATE
-          - DATE_TIME
-          - TIME
-          - ATTACHMENT
-          - NODE_DROPDOWN
-          - NODE_MULTI_SELECT
-          - CLIENT_DROPDOWN
-          - CLIENT_MULTI_SELECT
-          - CLIENT_LOCATION_DROPDOWN
-          - CLIENT_LOCATION_MULTI_SELECT
-          - CLIENT_DOCUMENT_DROPDOWN
-          - CLIENT_DOCUMENT_MULTI_SELECT
-          - EMAIL
-          - PHONE
-          - IP_ADDRESS
-          - WYSIWYG
-          - URL
-    TicketDashboardPublicApiDTO:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: object
-        metadata:
-          $ref: '#/components/schemas/TicketMetadata'
-    Condition:
-      type: object
-      properties:
-        any:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        all:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-    TicketBoardScrollingRequestDTO:
-      type: object
-      properties:
-        sortBy:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortBy'
-        filters:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        pageSize:
+        parentId:
           type: integer
           format: int32
-        searchCriteria:
-          maxLength: 512
-          minLength: 0
-          type: string
-        includeColumns:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        lastCursorId:
+        statusId:
           type: integer
           format: int32
-    Rule:
+    TicketingAttributeValue:
+      required:
+      - attributeId
+      - value
+      type:
+      - object
+      - 'null'
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+          example: 1
+        attributeId:
+          type: integer
+          description: Attribute identifier
+          format: int32
+          example: 1
+        value:
+          type: string
+          description: Attribute value
+    SortBy:
       type: object
       properties:
         field:
           type: string
-        operator:
+        direction:
           type: string
-        value:
-          type: string
-    NewTicket:
-      required:
-      - clientId
-      - status
-      - subject
-      - ticketFormId
-      type: object
-      properties:
-        clientId:
-          type: integer
-          description: Client (Organization) identifier
-          format: int32
-          example: 1
-        ticketFormId:
-          type: integer
-          description: Ticket form identifier
-          format: int32
-          example: 1
-        locationId:
-          type:
-          - integer
-          - 'null'
-          description: Location identifier
-          format: int32
-          example: 1
-        nodeId:
-          type:
-          - integer
-          - 'null'
-          description: Device identifier
-          format: int32
-          example: 1
-        subject:
-          maxLength: 200
-          minLength: 0
-          type: string
-          example: CPU with problems
-        description:
-          $ref: '#/components/schemas/NewTicketLogEntry'
-        status:
-          type: string
-          default: '1000'
-        type:
-          type:
-          - string
-          - 'null'
-          description: Type of ticket
-          example: PROBLEM
           enum:
-          - PROBLEM
-          - QUESTION
-          - INCIDENT
-          - TASK
-        cc:
-          $ref: '#/components/schemas/CarbonCopy'
-        assignedAppUserId:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        requesterUid:
-          type: string
-          format: uuid
-        severity:
-          type:
-          - string
-          - 'null'
-          default: NONE
-          enum:
-          - NONE
-          - MINOR
-          - MODERATE
-          - MAJOR
-          - CRITICAL
-        priority:
-          type:
-          - string
-          - 'null'
-          default: NONE
-          enum:
-          - NONE
-          - LOW
-          - MEDIUM
-          - HIGH
-        parentTicketId:
-          type:
-          - integer
-          - 'null'
-          description: Ticket parent identifier
-          format: int32
-          example: 1
-        tags:
-          type:
-          - array
-          - 'null'
-          example:
-          - tag1
-          - tag2
-          items:
-            type:
-            - string
-            - 'null'
-            example: '["tag1","tag2"]'
-        attributes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/TicketingAttributeValue'
-        additionalAssignedTechnicianIds:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          description: Additional assigned technician identifiers
-          example:
-          - 300
-          - 789
-          items:
-            type:
-            - integer
-            - 'null'
-            description: Additional assigned technician identifiers
-            format: int32
-    EndUserCustomization:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        label:
-          type: string
+          - ASC
+          - DESC
     AttributeContentAdvancedSettings:
       type: object
       properties:
@@ -833,6 +1306,50 @@ components:
           - IPV6
         expandLargeValueOnRender:
           type: boolean
+    Rule:
+      type: object
+      properties:
+        field:
+          type: string
+        operator:
+          type: string
+        value:
+          type: string
+    Condition:
+      type: object
+      properties:
+        any:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        all:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+    AttributeValueDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        attributeId:
+          type: integer
+          format: int32
+        value:
+          type: object
+    TicketDashboardPublicApiDTO:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+        metadata:
+          $ref: '#/components/schemas/TicketMetadata'
     AttributeContentAdvancedSettingsComplexityRules:
       type: object
       properties:
@@ -844,308 +1361,6 @@ components:
           type: boolean
         greaterOrEqualThanSixCharacters:
           type: boolean
-    TicketLogEntryAutomationDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        system:
-          type: boolean
-        type:
-          type: string
-    AgreementProductTimeEntryDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-    TicketFormContent:
-      type: object
-      properties:
-        fields:
-          type: array
-          items:
-            type: integer
-            format: int32
-        timerSettings:
-          $ref: '#/components/schemas/TimerSettings'
-    TicketTimeEntryDTO:
-      type: object
-      properties:
-        ticketLogEntryId:
-          type: integer
-          format: int32
-        invoiceId:
-          type: integer
-          format: int32
-        startDate:
-          type: integer
-          format: int64
-        remote:
-          type: boolean
-        billing:
-          type: string
-          enum:
-          - BILLABLE
-          - NOT_BILLABLE
-          - NO_CHARGE
-        billingStatus:
-          type: string
-          enum:
-          - BILLED
-          - PENDING
-          - NOT_BILLABLE
-        agreementOriginType:
-          type: string
-          enum:
-          - NONE
-          - SELF
-          - TICKET
-        price:
-          type: number
-        timeTracked:
-          type: integer
-          format: int32
-        agreement:
-          $ref: '#/components/schemas/AgreementDTO'
-        agreementProduct:
-          $ref: '#/components/schemas/AgreementProductTimeEntryDTO'
-    AttributeContentAdvancedSettingsNumericRange:
-      type: object
-      properties:
-        min:
-          type: number
-        max:
-          type: number
-    TicketMetadata:
-      type: object
-      properties:
-        columns:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        sortBy:
-          type: array
-          items:
-            $ref: '#/components/schemas/SortBy'
-        attributes:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AttributeData'
-        filters:
-          uniqueItems: true
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        allRequiredColumns:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        allColumns:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-        columnNamesForExporting:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-    TimerSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        mode:
-          type: string
-          enum:
-          - MANUAL
-          - AUTO_START
-    TicketDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        version:
-          type: integer
-          format: int32
-        nodeId:
-          type: integer
-          format: int32
-        clientId:
-          type: integer
-          format: int32
-        locationId:
-          type: integer
-          format: int32
-        assignedAppUserId:
-          type: integer
-          format: int32
-        requesterUid:
-          type: string
-          format: uuid
-        subject:
-          type: string
-        status:
-          $ref: '#/components/schemas/TicketStatusPublicApiDTO'
-        type:
-          type: string
-          enum:
-          - PROBLEM
-          - QUESTION
-          - INCIDENT
-          - TASK
-        priority:
-          type: string
-          enum:
-          - NONE
-          - LOW
-          - MEDIUM
-          - HIGH
-        severity:
-          type: string
-          enum:
-          - NONE
-          - MINOR
-          - MODERATE
-          - MAJOR
-          - CRITICAL
-        ticketFormId:
-          type: integer
-          format: int32
-        source:
-          type: string
-          enum:
-          - TECHNICIAN
-          - EMAIL
-          - WEB_FORM
-          - HELP_REQUEST
-          - END_USER
-          - CONDITION
-          - SCHEDULED_SCRIPT
-          - ACTIVITY
-        tags:
-          type: array
-          items:
-            type: string
-        ccList:
-          $ref: '#/components/schemas/CcList'
-        createTime:
-          type: number
-          format: double
-        deleted:
-          type: boolean
-        attributeValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeValueDTO'
-        additionalAssignedTechnicianIds:
-          uniqueItems: true
-          type: array
-          items:
-            type: integer
-            format: int32
-    NewTicketLogEntry:
-      required:
-      - public
-      type: object
-      properties:
-        public:
-          type: boolean
-          default: true
-        body:
-          type:
-          - string
-          - 'null'
-          example: new comment
-        htmlBody:
-          type:
-          - string
-          - 'null'
-          example: <p>new comment</p>
-        timeTracked:
-          type:
-          - integer
-          - 'null'
-          description: time in seconds
-          format: int32
-          example: 60
-        duplicateInIncidents:
-          type: boolean
-    AttributeContentAdvancedSettingsDateFilters:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - NONE
-          - INCLUDE
-          - EXCLUDE
-          - PAST_DATES_ONLY
-          - FUTURE_DATES_ONLY
-          - RANGE
-        selected:
-          type: array
-          items:
-            type: string
-    TicketFormPublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        description:
-          type: string
-        endUserTitle:
-          type: string
-        content:
-          $ref: '#/components/schemas/TicketFormContent'
-        active:
-          type: boolean
-        createTime:
-          type: number
-          format: double
-        updateTime:
-          type: number
-          format: double
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/TicketingAttributePublicApiDTO'
-        default:
-          type: boolean
-    TicketingAttributeValue:
-      required:
-      - attributeId
-      - value
-      type:
-      - object
-      - 'null'
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-          example: 1
-        attributeId:
-          type: integer
-          description: Attribute identifier
-          format: int32
-          example: 1
-        value:
-          type: string
-          description: Attribute value
     CcList:
       type: object
       properties:
@@ -1160,138 +1375,13 @@ components:
           type: array
           items:
             type: string
-    CarbonCopy:
-      type:
-      - object
-      - 'null'
-      properties:
-        uids:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          description: List of user uids to be carbon-copied
-          example:
-          - 1fa74a18-a329-40d8-b5b7-0a22624f7800
-          - b0558cb6-3c4e-438c-b8fd-5247c648bbbe
-          items:
-            type:
-            - string
-            - 'null'
-            description: List of user uids to be carbon-copied
-            format: uuid
-        emails:
-          uniqueItems: true
-          type:
-          - array
-          - 'null'
-          description: emails
-          example:
-          - example1@example.com
-          - example2@example.com
-          items:
-            type:
-            - string
-            - 'null'
-            description: emails
-            example: '["example1@example.com","example2@example.com"]'
-    AgreementDTO:
+    AttributeContentAdvancedSettingsNumericRange:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-    ContactResponseDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        clientId:
-          type: integer
-          format: int32
-        clientName:
-          type: string
-        uid:
-          type: string
-          format: uuid
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        jobTitle:
-          type: string
-        displayName:
-          type: string
-        createTime:
+        min:
           type: number
-          format: double
-        updateTime:
+        max:
           type: number
-          format: double
-    AttributeValueDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        attributeId:
-          type: integer
-          format: int32
-        value:
-          type: object
-    AttributeContentValue:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        active:
-          type: boolean
-        system:
-          type: boolean
-    AppUserAndContactPublicApiDTO:
-      type: object
-      properties:
-        uid:
-          type: string
-          description: Global identifier for the user
-          format: uuid
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        clientId:
-          type: integer
-          description: Client identifier
-          format: int32
-        firstName:
-          type: string
-          description: The user's first name
-        lastName:
-          type: string
-          description: The user's last name
-        email:
-          type: string
-          description: The user's email address
-        userType:
-          type: string
-          description: System User Type
-          enum:
-          - TECHNICIAN
-          - END_USER
-          - CONTACT
-        naturalId:
-          type: string
-          description: Last User Identifier
     TicketingBoardPublicApiDTO:
       type: object
       properties:
@@ -1330,104 +1420,14 @@ components:
         ticketCount:
           type: integer
           format: int32
-    AttributeContent:
-      type: object
-      properties:
-        customizeForEndUser:
-          type: boolean
-        endUserCustomization:
-          $ref: '#/components/schemas/EndUserCustomization'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeContentValue'
-        required:
-          type: boolean
-        footerText:
-          type: string
-        tooltipText:
-          type: string
-        advancedSettings:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
-    TechniciansTaggedMetadataDTO:
+    AgreementDTO:
       type: object
       properties:
         id:
           type: integer
           format: int32
-        email:
+        name:
           type: string
-        displayName:
-          type: string
-        deleted:
-          type: boolean
-        permitted:
-          type: boolean
-    TicketLogEntryPublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        appUserContactUid:
-          type: string
-          format: uuid
-        appUserContactId:
-          type: integer
-          format: int32
-        appUserContactType:
-          type: string
-          enum:
-          - TECHNICIAN
-          - END_USER
-          - CONTACT
-        type:
-          type: string
-          enum:
-          - DESCRIPTION
-          - COMMENT
-          - CONDITION
-          - SAVE
-          - DELETE
-          - PRODUCT
-        body:
-          type: string
-        htmlBody:
-          type: string
-        fullEmailBody:
-          type: string
-        publicEntry:
-          type: boolean
-        system:
-          type: boolean
-        createTime:
-          type: number
-          format: double
-        changeDiff:
-          type: object
-        activityId:
-          type: integer
-          format: int64
-        timeTracked:
-          type: integer
-          format: int32
-        technicianTagged:
-          type: array
-          items:
-            type: integer
-            format: int32
-        techniciansTaggedMetadata:
-          type: array
-          items:
-            $ref: '#/components/schemas/TechniciansTaggedMetadataDTO'
-        automation:
-          $ref: '#/components/schemas/TicketLogEntryAutomationDTO'
-        blockedByInvoice:
-          type: boolean
-        ticketTimeEntry:
-          $ref: '#/components/schemas/TicketTimeEntryDTO'
-        emailResponse:
-          type: boolean
   securitySchemes:
     oauth2:
       type: http

@@ -196,7 +196,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-devices-api
-  name: NinjaOne devices API
+  name: NinjaOne Devices API
   description: Devices
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -250,7 +250,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-groups-api
-  name: NinjaOne groups API
+  name: NinjaOne Groups API
   description: Groups/Search
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -330,7 +330,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-management-api
-  name: NinjaOne management API
+  name: NinjaOne Management API
   description: Management
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -358,7 +358,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-organization-api
-  name: NinjaOne organization API
+  name: NinjaOne Organization API
   description: Organizations
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -438,7 +438,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-queries-api
-  name: NinjaOne queries API
+  name: NinjaOne Queries API
   description: Queries
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -494,7 +494,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-system-api
-  name: NinjaOne system API
+  name: NinjaOne System API
   description: Core system Entities and Resources
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -522,7 +522,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-ticketing-api
-  name: NinjaOne ticketing API
+  name: NinjaOne Ticketing API
   description: ticketing
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2
@@ -630,7 +630,7 @@ apis:
   - type: Webhooks
     url: asyncapi/ninjaone-webhooks.yml
 - aid: ninjaone:ninjaone-webhooks-api
-  name: NinjaOne webhooks API
+  name: NinjaOne Webhooks API
   description: Webhook Endpoints
   humanURL: https://app.ninjarmm.com/apidocs/
   baseURL: https://app.ninjarmm.com/v2

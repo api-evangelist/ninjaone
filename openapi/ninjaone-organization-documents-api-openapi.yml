@@ -323,9 +323,13 @@ paths:
                 $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
 components:
   schemas:
-    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
+    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
       type: object
       properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
         documentName:
           type: string
           description: Document Name
@@ -338,14 +342,6 @@ components:
             type: object
             description: Fields
           description: Fields
-        documentTemplateId:
-          type: integer
-          description: Document Template Identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization Identifier
-          format: int32
     ClientDocumentWithAttributeValuesPublicApiRequest:
       type: object
       properties:
@@ -427,6 +423,29 @@ components:
           type: integer
           description: Organization Identifier
           format: int32
+    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
     ClientDocumentAttributeWithValuePublicApiDTO:
       type: object
       properties:
@@ -441,25 +460,6 @@ components:
           description: Value Last Updated
           format: double
       description: Updated Fields
-    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
-      type: object
-      properties:
-        documentId:
-          type: integer
-          description: Document Identifier
-          format: int32
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
   securitySchemes:
     oauth2:
       type: http

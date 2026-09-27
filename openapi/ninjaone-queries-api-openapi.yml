@@ -1031,695 +1031,6 @@ paths:
                 $ref: '#/components/schemas/WindowsServiceReport'
 components:
   schemas:
-    Cursor:
-      type: object
-      properties:
-        name:
-          type: string
-        offset:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-        expires:
-          type: number
-          format: double
-    DeviceSoftwarePatch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier
-          format: uuid
-        productIdentifier:
-          type: string
-          description: Software product identifier
-          format: uuid
-        title:
-          type: string
-          description: Patch title
-        impact:
-          type: string
-          description: Impact
-        status:
-          type: string
-          description: Status
-        type:
-          type: string
-          description: Patch type
-        installedAt:
-          type: number
-          description: Installation attempt timestamp
-          format: double
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    BackupUsage:
-      type: object
-      properties:
-        revisionsCurrentSize:
-          type: integer
-          description: Revisions current size
-          format: int64
-        revisionsPreviousSize:
-          type: integer
-          description: Revisions previous size
-          format: int64
-        revisionsDeletedSize:
-          type: integer
-          description: Revisions deleted size
-          format: int64
-        localFileFolderSize:
-          type: integer
-          description: Revisions local file folder size
-          format: int64
-        localImageSize:
-          type: integer
-          description: Revisions local image size
-          format: int64
-        localImageV2Size:
-          type: integer
-          description: Revisions local image v2 size
-          format: int64
-        cloudFileFolderSize:
-          type: integer
-          description: Revisions cloud file folder size
-          format: int64
-        cloudImageSize:
-          type: integer
-          description: Revisions cloud image size
-          format: int64
-        cloudImageV2Size:
-          type: integer
-          description: Revisions cloud image v2 size
-          format: int64
-        lastSuccessfulBackupJob:
-          type: number
-          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        lastFailedBackupJob:
-          type: number
-          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        revisionsTotalSize:
-          type: integer
-          description: Revisions total size
-          format: int64
-          readOnly: true
-        cloudTotalSize:
-          type: integer
-          description: Revisions cloud total size
-          format: int64
-          readOnly: true
-        localTotalSize:
-          type: integer
-          description: Revisions local total size
-          format: int64
-          readOnly: true
-      description: Device Backup Usage
-    AntivirusStatusReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceAntivirusStatus'
-    ComputerSystemsReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceComputerSystem'
-    Organization:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Organization full name
-        description:
-          type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
-          type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Organization identifier
-          format: int32
-      description: Organization
-    WarrantyDates:
-      type: object
-      properties:
-        startDate:
-          type: number
-          description: Warranty Start Date (Seconds)
-          format: double
-        endDate:
-          type: number
-          description: Warranty End Date (Seconds)
-          format: double
-        manufacturerFulfillmentDate:
-          type: number
-          description: Manufacturer Fulfillment Date
-          format: double
-      description: Warranty Info
-    DeviceOperatingSystem:
-      type: object
-      properties:
-        manufacturer:
-          type: string
-          description: Manufacturer
-        name:
-          type: string
-          description: Name
-        architecture:
-          type: string
-          description: Architecture
-        lastBootTime:
-          type: number
-          description: Last boot time
-          format: double
-        buildNumber:
-          type: string
-          description: Build number
-        releaseId:
-          type: string
-          description: Release ID
-        servicePackMajorVersion:
-          type: integer
-          description: Service Pack Major Version
-          format: int32
-        servicePackMinorVersion:
-          type: integer
-          description: Service Pack Minor Version
-          format: int32
-        locale:
-          type: string
-          description: Locale
-        language:
-          type: string
-          description: Language
-        needsReboot:
-          type: boolean
-          description: Operating system has pending reboot requests
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    NodeReferences:
-      type: object
-      properties:
-        organization:
-          $ref: '#/components/schemas/Organization'
-        location:
-          $ref: '#/components/schemas/Location'
-        rolePolicy:
-          $ref: '#/components/schemas/Policy'
-        policy:
-          $ref: '#/components/schemas/Policy'
-        role:
-          $ref: '#/components/schemas/NodeRole'
-        backupUsage:
-          $ref: '#/components/schemas/BackupUsage'
-        warranty:
-          $ref: '#/components/schemas/WarrantyDates'
-        assignedOwner:
-          $ref: '#/components/schemas/User'
-      description: Expanded entity references
-    RAIDControllerReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceRAIDController'
-    WindowsServiceReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceWindowsService'
-    OSPatchReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceOSPatch'
-    NodeAttributesDetailedReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NodeAttributesDetailed'
-    DeviceNetworkInterfaces:
-      type: object
-      properties:
-        adapterName:
-          type: string
-          description: Adapter Name
-        defaultGateway:
-          type: string
-          description: Default Gateway
-        interfaceType:
-          type: string
-          description: Interface Type
-        dnsHostName:
-          type: string
-          description: DNS HostName
-        dnsServers:
-          type: string
-          description: DNS Servers
-        interfaceIndex:
-          type: string
-          description: Interface Index
-        interfaceName:
-          type: string
-          description: Interface Name
-        ipAddress:
-          type: array
-          description: IP Address
-          items:
-            type: string
-            description: IP Address
-        linkSpeed:
-          type: string
-          description: Link Speed
-        macAddress:
-          type: array
-          description: MAC Address
-          items:
-            type: string
-            description: MAC Address
-        mtu:
-          type: string
-          description: MTU
-        status:
-          type: string
-          description: Status
-        subnetMask:
-          type: string
-          description: Subnet Mask
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-    DeviceVolume:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name
-        driveLetter:
-          type: string
-          description: Drive Letter
-        label:
-          type: string
-          description: Volume Label
-        deviceType:
-          type: string
-          description: Device Type
-        fileSystem:
-          type: string
-          description: File System Type
-        autoMount:
-          type: boolean
-          description: Automatically Mounted
-        compressed:
-          type: boolean
-          description: Compressed
-        capacity:
-          type: integer
-          description: Capacity (bytes)
-          format: int64
-        freeSpace:
-          type: integer
-          description: Free Space (bytes)
-          format: int64
-        serialNumber:
-          type: string
-          description: Serial Number
-        bitLockerStatus:
-          $ref: '#/components/schemas/VolumeBitLockerStatus'
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    DeviceWindowsService:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name
-        displayName:
-          type: string
-          description: Display Name
-        description:
-          type: string
-          description: Description
-        startType:
-          type: string
-          description: Start Type
-          enum:
-          - AUTO_START
-          - AUTO_START_DELAYED
-          - BOOT_START
-          - DEMAND_START
-          - DISABLED
-          - SYSTEM_START
-        userName:
-          type: string
-          description: User Name
-        state:
-          type: string
-          description: State
-          enum:
-          - UNKNOWN
-          - STOPPED
-          - START_PENDING
-          - RUNNING
-          - STOP_PENDING
-          - PAUSE_PENDING
-          - PAUSED
-          - CONTINUE_PENDING
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    ScopedAttributesDetailed:
-      type: object
-      properties:
-        scope:
-          type: string
-          description: Value definition scope (entity type)
-          enum:
-          - NODE
-          - END_USER
-          - LOCATION
-          - ORGANIZATION
-        entityId:
-          type: integer
-          description: Entity identifier (device, organization, location)
-          format: int32
-        fields:
-          type: array
-          description: Field values
-          items:
-            $ref: '#/components/schemas/NodeAttributeInfo'
-    PolicyOverridesReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DevicePolicyOverrides'
-    VolumesReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceVolume'
-    DeviceOSPatch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier
-          format: uuid
-        name:
-          type: string
-          description: Name
-        severity:
-          type: string
-          description: Severity
-        status:
-          type: string
-          description: Status
-        type:
-          type: string
-          description: Type
-        installedAt:
-          type: number
-          description: Installation attempt timestamp
-          format: double
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-        kbNumber:
-          type: string
-          description: KB Number
-    NodeAttributes:
-      type: object
-      properties:
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Field values
-          description: Field values
-    ProcessorReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceProcessor'
-    Location:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Location name
-        address:
-          type: string
-          description: Address
-        description:
-          type: string
-          description: Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Location identifier
-          format: int32
-      description: Location
-    ScopedAttributes:
-      type: object
-      properties:
-        scope:
-          type: string
-          description: Value definition scope (entity type)
-          enum:
-          - NODE
-          - END_USER
-          - LOCATION
-          - ORGANIZATION
-        entityId:
-          type: integer
-          description: Entity identifier (device, organization, location)
-          format: int32
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Field values
-          description: Field values
-    DeviceHealthReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceHealthSummary'
-    DeviceAntivirusStatus:
-      type: object
-      properties:
-        productName:
-          type: string
-          description: Product name
-        productState:
-          type: string
-          description: Product state
-        definitionStatus:
-          type: string
-          description: Definition Status
-        version:
-          type: string
-          description: Product Version
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    ScopedAttributesDetailedReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScopedAttributesDetailed'
-    NetworkInterfacesReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceNetworkInterfaces'
-    AttributeValueUpdatedByInfo:
-      type: object
-      properties:
-        source:
-          type: string
-          enum:
-          - API
-          - USER
-          - SCRIPT
-        user:
-          $ref: '#/components/schemas/UserBasicInfo'
-      description: Value source (who/what updated the value)
-    DeviceUsageReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NodeWithDetailedReferences'
-    ScopedAttributesReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScopedAttributes'
-    DeviceProcessor:
-      type: object
-      properties:
-        architecture:
-          type: string
-          description: Architecture
-        maxClockSpeed:
-          type: integer
-          description: Max Clock Speed
-          format: int64
-        clockSpeed:
-          type: integer
-          description: Current Clock Speed
-          format: int64
-        name:
-          type: string
-          description: Name
-        numCores:
-          type: integer
-          description: Number of Cores
-          format: int32
-        numLogicalCores:
-          type: integer
-          description: Number of Logical Cores]
-          format: int32
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
     NodeWithDetailedReferences:
       type: object
       properties:
@@ -1850,6 +1161,231 @@ components:
         references:
           $ref: '#/components/schemas/NodeReferences'
       description: Device information.
+    DeviceHealthReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceHealthSummary'
+    NodeAttributesReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeAttributes'
+    DeviceOSPatch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        name:
+          type: string
+          description: Name
+        severity:
+          type: string
+          description: Severity
+        status:
+          type: string
+          description: Status
+        type:
+          type: string
+          description: Type
+        installedAt:
+          type: number
+          description: Installation attempt timestamp
+          format: double
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+        kbNumber:
+          type: string
+          description: KB Number
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        enabled:
+          type: boolean
+        administrator:
+          type: boolean
+        permitAllClients:
+          type: boolean
+        notifyAllClients:
+          type: boolean
+        mustChangePw:
+          type: boolean
+        mfaConfigured:
+          type: boolean
+        userType:
+          type: string
+          enum:
+          - TECHNICIAN
+          - END_USER
+        invitationStatus:
+          type: string
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        organizationId:
+          type: integer
+          description: Identifier of organization for end-users
+          format: int32
+        deviceIds:
+          type: array
+          description: Device IDs which end-user is authorized to access
+          items:
+            type: integer
+            description: Device IDs which end-user is authorized to access
+            format: int32
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        roles:
+          type: array
+          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+      description: Assigned device owner
+    ProcessorReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceProcessor'
+    ScopedAttributesReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopedAttributes'
+    NodeReferences:
+      type: object
+      properties:
+        organization:
+          $ref: '#/components/schemas/Organization'
+        location:
+          $ref: '#/components/schemas/Location'
+        rolePolicy:
+          $ref: '#/components/schemas/Policy'
+        policy:
+          $ref: '#/components/schemas/Policy'
+        role:
+          $ref: '#/components/schemas/NodeRole'
+        backupUsage:
+          $ref: '#/components/schemas/BackupUsage'
+        warranty:
+          $ref: '#/components/schemas/WarrantyDates'
+        assignedOwner:
+          $ref: '#/components/schemas/User'
+      description: Expanded entity references
+    DeviceOperatingSystem:
+      type: object
+      properties:
+        manufacturer:
+          type: string
+          description: Manufacturer
+        name:
+          type: string
+          description: Name
+        architecture:
+          type: string
+          description: Architecture
+        lastBootTime:
+          type: number
+          description: Last boot time
+          format: double
+        buildNumber:
+          type: string
+          description: Build number
+        releaseId:
+          type: string
+          description: Release ID
+        servicePackMajorVersion:
+          type: integer
+          description: Service Pack Major Version
+          format: int32
+        servicePackMinorVersion:
+          type: integer
+          description: Service Pack Minor Version
+          format: int32
+        locale:
+          type: string
+          description: Locale
+        language:
+          type: string
+          description: Language
+        needsReboot:
+          type: boolean
+          description: Operating system has pending reboot requests
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    SoftwarePatchReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceSoftwarePatch'
     Policy:
       type: object
       properties:
@@ -1924,7 +1460,7 @@ components:
             description: Custom Fields
           description: Custom Fields
       description: Assigned policy (overrides organization and location policy mapping)
-    DiskDriveReport:
+    OSPatchReport:
       type: object
       properties:
         cursor:
@@ -1932,41 +1468,104 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/DeviceDiskDrive'
-    DeviceAntivirusThreat:
+            $ref: '#/components/schemas/DeviceOSPatch'
+    Organization:
       type: object
       properties:
         name:
           type: string
-          description: Threat name
-        productCode:
+          description: Organization full name
+        description:
           type: string
-          description: AntiVirus vendor product code
-        quarantineId:
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
           type: string
-          description: Threat Quarantine ID
-        status:
-          type: string
-          description: Threat Status (vendor specific)
-        type:
-          type: string
-          description: Type of Threat
-        threatId:
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
           type: integer
-          description: Threat ID
+          description: Organization identifier
+          format: int32
+      description: Organization
+    DeviceRAIDController:
+      type: object
+      properties:
+        backupBatteryStatus:
+          type: string
+          description: Backup Battery Status
+        batteryTemperature:
+          type: integer
+          description: Battery Temperature
+          format: int32
+        biosVersion:
+          type: string
+          description: BIOS Version
+        cacheSize:
+          type: integer
+          description: Cache size (bytes)
           format: int64
-        category:
+        controllerIndex:
+          type: integer
+          description: Controller Index
+          format: int32
+        driverName:
           type: string
-          description: Threat Category
-        level:
+          description: Device Driver Name
+        driverVersion:
           type: string
-          description: Threat Level
-        detectionSource:
+          description: Driver Version
+        family:
           type: string
-          description: Detection source
-        traceList:
+          description: Family
+        firmwareVersion:
           type: string
-          description: Trace list (Files, Cookies, etc. Vendor specific)
+          description: Firmware Version
+        hardwareRevision:
+          type: string
+          description: Hardware Revision
+        manufacturer:
+          type: string
+          description: Manufacturer
+        manufacturingDate:
+          type: number
+          description: Manufacturing date
+          format: double
+        model:
+          type: string
+          description: Model
+        physicalDriveCount:
+          type: integer
+          description: Physical drive count
+          format: int32
+        slot:
+          type: string
+          description: Slot
+        systemHealthStatus:
+          type: string
+          description: System Health Status
+        virtualDriveCount:
+          type: integer
+          description: Virtual drive count
+          format: int32
         deviceId:
           type: integer
           description: Device identifier
@@ -1975,6 +1574,98 @@ components:
           type: number
           description: Date/Time when data was collected/updated
           format: double
+    NodeAttributeInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Field name
+        value:
+          type: object
+          description: Field Value
+        updated:
+          type: number
+          description: Last field update timestamp
+          format: double
+          writeOnly: true
+        updatedBy:
+          $ref: '#/components/schemas/AttributeValueUpdatedByInfo'
+        updateTime:
+          type: number
+          format: double
+      description: Field values
+    ComputerSystemsReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceComputerSystem'
+    BackupUsage:
+      type: object
+      properties:
+        revisionsCurrentSize:
+          type: integer
+          description: Revisions current size
+          format: int64
+        revisionsPreviousSize:
+          type: integer
+          description: Revisions previous size
+          format: int64
+        revisionsDeletedSize:
+          type: integer
+          description: Revisions deleted size
+          format: int64
+        localFileFolderSize:
+          type: integer
+          description: Revisions local file folder size
+          format: int64
+        localImageSize:
+          type: integer
+          description: Revisions local image size
+          format: int64
+        localImageV2Size:
+          type: integer
+          description: Revisions local image v2 size
+          format: int64
+        cloudFileFolderSize:
+          type: integer
+          description: Revisions cloud file folder size
+          format: int64
+        cloudImageSize:
+          type: integer
+          description: Revisions cloud image size
+          format: int64
+        cloudImageV2Size:
+          type: integer
+          description: Revisions cloud image v2 size
+          format: int64
+        lastSuccessfulBackupJob:
+          type: number
+          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        lastFailedBackupJob:
+          type: number
+          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        revisionsTotalSize:
+          type: integer
+          description: Revisions total size
+          format: int64
+          readOnly: true
+        cloudTotalSize:
+          type: integer
+          description: Revisions cloud total size
+          format: int64
+          readOnly: true
+        localTotalSize:
+          type: integer
+          description: Revisions local total size
+          format: int64
+          readOnly: true
+      description: Device Backup Usage
     Maintenance:
       type: object
       properties:
@@ -1994,7 +1685,7 @@ components:
           description: Maintenance mode end time
           format: double
       description: Maintenance mode status
-    NodeAttributesReport:
+    WindowsServiceReport:
       type: object
       properties:
         cursor:
@@ -2002,8 +1693,8 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/NodeAttributes'
-    OperatingSystemsReport:
+            $ref: '#/components/schemas/DeviceWindowsService'
+    DeviceUsageReport:
       type: object
       properties:
         cursor:
@@ -2011,7 +1702,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/DeviceOperatingSystem'
+            $ref: '#/components/schemas/NodeWithDetailedReferences'
     DeviceRAIDDrive:
       type: object
       properties:
@@ -2064,7 +1755,63 @@ components:
           type: number
           description: Date/Time when data was collected/updated
           format: double
-    AntivirusThreatsReport:
+    DeviceAntivirusStatus:
+      type: object
+      properties:
+        productName:
+          type: string
+          description: Product name
+        productState:
+          type: string
+          description: Product state
+        definitionStatus:
+          type: string
+          description: Definition Status
+        version:
+          type: string
+          description: Product Version
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    DeviceProcessor:
+      type: object
+      properties:
+        architecture:
+          type: string
+          description: Architecture
+        maxClockSpeed:
+          type: integer
+          description: Max Clock Speed
+          format: int64
+        clockSpeed:
+          type: integer
+          description: Current Clock Speed
+          format: int64
+        name:
+          type: string
+          description: Name
+        numCores:
+          type: integer
+          description: Number of Cores
+          format: int32
+        numLogicalCores:
+          type: integer
+          description: Number of Logical Cores]
+          format: int32
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    NodeAttributesDetailedReport:
       type: object
       properties:
         cursor:
@@ -2072,7 +1819,66 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/DeviceAntivirusThreat'
+            $ref: '#/components/schemas/NodeAttributesDetailed'
+    DeviceLoggedOnUser:
+      type: object
+      properties:
+        userName:
+          type: string
+          description: User name
+        logonTime:
+          type: number
+          description: Time of logon
+          format: double
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+    DeviceWindowsService:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        displayName:
+          type: string
+          description: Display Name
+        description:
+          type: string
+          description: Description
+        startType:
+          type: string
+          description: Start Type
+          enum:
+          - AUTO_START
+          - AUTO_START_DELAYED
+          - BOOT_START
+          - DEMAND_START
+          - DISABLED
+          - SYSTEM_START
+        userName:
+          type: string
+          description: User Name
+        state:
+          type: string
+          description: State
+          enum:
+          - UNKNOWN
+          - STOPPED
+          - START_PENDING
+          - RUNNING
+          - STOP_PENDING
+          - PAUSE_PENDING
+          - PAUSED
+          - CONTINUE_PENDING
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
     DevicePolicyOverrides:
       type: object
       properties:
@@ -2086,96 +1892,57 @@ components:
           type: integer
           description: Device identifier
           format: int32
-    DeviceComputerSystem:
+    UserBasicInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+    Cursor:
       type: object
       properties:
         name:
           type: string
-          description: Name
-        manufacturer:
-          type: string
-          description: Manufacturer
-        model:
-          type: string
-          description: Model
-        biosSerialNumber:
-          type: string
-          description: Bios Serial Number
-        serialNumber:
-          type: string
-          description: Serial Number
-        domain:
-          type: string
-        domainRole:
-          type: string
-        numberOfProcessors:
+        offset:
           type: integer
           format: int32
-        totalPhysicalMemory:
+        count:
           type: integer
-          format: int64
-        virtualMachine:
-          type: boolean
-        chassisType:
-          type: string
-        deviceId:
-          type: integer
-          description: Device identifier
           format: int32
-        timestamp:
+        expires:
           type: number
-          description: Date/Time when data was collected/updated
           format: double
-    DeviceDiskDrive:
+    VolumesReport:
       type: object
       properties:
-        bytesPerSector:
-          type: integer
-          description: Number of bytes per sector
-          format: int32
-        description:
-          type: string
-          description: Description
-        interfaceType:
-          type: string
-          description: Interface type
-        manufacturer:
-          type: string
-          description: Manufacturer
-        mediaType:
-          type: string
-          description: Media Type
-        model:
-          type: string
-          description: Model
-        name:
-          type: string
-          description: Name
-        partitionCount:
-          type: integer
-          description: Number of partitions
-          format: int32
-        serialNumber:
-          type: string
-          description: Serial number
-        size:
-          type: integer
-          description: Size (Bytes)
-          format: int64
-        smartCapable:
-          type: boolean
-          description: Is S.M.A.R.T. capable?
-        status:
-          type: string
-          description: Status
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceVolume'
+    PolicyOverridesReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DevicePolicyOverrides'
+    NetworkInterfacesReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceNetworkInterfaces'
     NodeRole:
       type: object
       properties:
@@ -2261,6 +2028,200 @@ components:
           type: string
           description: Icon
       description: Device Role
+    ScopedAttributes:
+      type: object
+      properties:
+        scope:
+          type: string
+          description: Value definition scope (entity type)
+          enum:
+          - NODE
+          - END_USER
+          - LOCATION
+          - ORGANIZATION
+        entityId:
+          type: integer
+          description: Entity identifier (device, organization, location)
+          format: int32
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Field values
+          description: Field values
+    AntivirusThreatsReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceAntivirusThreat'
+    DeviceNetworkInterfaces:
+      type: object
+      properties:
+        adapterName:
+          type: string
+          description: Adapter Name
+        defaultGateway:
+          type: string
+          description: Default Gateway
+        interfaceType:
+          type: string
+          description: Interface Type
+        dnsHostName:
+          type: string
+          description: DNS HostName
+        dnsServers:
+          type: string
+          description: DNS Servers
+        interfaceIndex:
+          type: string
+          description: Interface Index
+        interfaceName:
+          type: string
+          description: Interface Name
+        ipAddress:
+          type: array
+          description: IP Address
+          items:
+            type: string
+            description: IP Address
+        linkSpeed:
+          type: string
+          description: Link Speed
+        macAddress:
+          type: array
+          description: MAC Address
+          items:
+            type: string
+            description: MAC Address
+        mtu:
+          type: string
+          description: MTU
+        status:
+          type: string
+          description: Status
+        subnetMask:
+          type: string
+          description: Subnet Mask
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+    WarrantyDates:
+      type: object
+      properties:
+        startDate:
+          type: number
+          description: Warranty Start Date (Seconds)
+          format: double
+        endDate:
+          type: number
+          description: Warranty End Date (Seconds)
+          format: double
+        manufacturerFulfillmentDate:
+          type: number
+          description: Manufacturer Fulfillment Date
+          format: double
+      description: Warranty Info
+    AttributeValueUpdatedByInfo:
+      type: object
+      properties:
+        source:
+          type: string
+          enum:
+          - API
+          - USER
+          - SCRIPT
+        user:
+          $ref: '#/components/schemas/UserBasicInfo'
+      description: Value source (who/what updated the value)
+    DeviceComputerSystem:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        manufacturer:
+          type: string
+          description: Manufacturer
+        model:
+          type: string
+          description: Model
+        biosSerialNumber:
+          type: string
+          description: Bios Serial Number
+        serialNumber:
+          type: string
+          description: Serial Number
+        domain:
+          type: string
+        domainRole:
+          type: string
+        numberOfProcessors:
+          type: integer
+          format: int32
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+        virtualMachine:
+          type: boolean
+        chassisType:
+          type: string
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    DeviceSoftwarePatch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        productIdentifier:
+          type: string
+          description: Software product identifier
+          format: uuid
+        title:
+          type: string
+          description: Patch title
+        impact:
+          type: string
+          description: Impact
+        status:
+          type: string
+          description: Status
+        type:
+          type: string
+          description: Patch type
+        installedAt:
+          type: number
+          description: Installation attempt timestamp
+          format: double
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    LoggedOnUsersReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceLoggedOnUser'
     VolumeBitLockerStatus:
       type: object
       properties:
@@ -2307,6 +2268,186 @@ components:
           type: boolean
           description: Is initialized for protection
       description: BitLocker Status
+    AntivirusStatusReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceAntivirusStatus'
+    ScopedAttributesDetailed:
+      type: object
+      properties:
+        scope:
+          type: string
+          description: Value definition scope (entity type)
+          enum:
+          - NODE
+          - END_USER
+          - LOCATION
+          - ORGANIZATION
+        entityId:
+          type: integer
+          description: Entity identifier (device, organization, location)
+          format: int32
+        fields:
+          type: array
+          description: Field values
+          items:
+            $ref: '#/components/schemas/NodeAttributeInfo'
+    DeviceAntivirusThreat:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Threat name
+        productCode:
+          type: string
+          description: AntiVirus vendor product code
+        quarantineId:
+          type: string
+          description: Threat Quarantine ID
+        status:
+          type: string
+          description: Threat Status (vendor specific)
+        type:
+          type: string
+          description: Type of Threat
+        threatId:
+          type: integer
+          description: Threat ID
+          format: int64
+        category:
+          type: string
+          description: Threat Category
+        level:
+          type: string
+          description: Threat Level
+        detectionSource:
+          type: string
+          description: Detection source
+        traceList:
+          type: string
+          description: Trace list (Files, Cookies, etc. Vendor specific)
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    SoftwareReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceApplication'
+    OperatingSystemsReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceOperatingSystem'
+    Location:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Location identifier
+          format: int32
+      description: Location
+    DeviceVolume:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        driveLetter:
+          type: string
+          description: Drive Letter
+        label:
+          type: string
+          description: Volume Label
+        deviceType:
+          type: string
+          description: Device Type
+        fileSystem:
+          type: string
+          description: File System Type
+        autoMount:
+          type: boolean
+          description: Automatically Mounted
+        compressed:
+          type: boolean
+          description: Compressed
+        capacity:
+          type: integer
+          description: Capacity (bytes)
+          format: int64
+        freeSpace:
+          type: integer
+          description: Free Space (bytes)
+          format: int64
+        serialNumber:
+          type: string
+          description: Serial Number
+        bitLockerStatus:
+          $ref: '#/components/schemas/VolumeBitLockerStatus'
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
+          type: number
+          description: Date/Time when data was collected/updated
+          format: double
+    NodeAttributes:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Field values
+          description: Field values
     NodeAttributesDetailed:
       type: object
       properties:
@@ -2331,105 +2472,99 @@ components:
         entityId:
           type: integer
           format: int32
-    User:
+    DeviceDiskDrive:
       type: object
       properties:
-        id:
+        bytesPerSector:
           type: integer
-          description: User identifier
+          description: Number of bytes per sector
           format: int32
-        uid:
+        description:
           type: string
-          description: User universally unique identifier
-          format: uuid
-        firstName:
+          description: Description
+        interfaceType:
           type: string
-        lastName:
+          description: Interface type
+        manufacturer:
           type: string
-        email:
+          description: Manufacturer
+        mediaType:
           type: string
-        phone:
+          description: Media Type
+        model:
           type: string
-        enabled:
-          type: boolean
-        administrator:
-          type: boolean
-        permitAllClients:
-          type: boolean
-        notifyAllClients:
-          type: boolean
-        mustChangePw:
-          type: boolean
-        mfaConfigured:
-          type: boolean
-        userType:
-          type: string
-          enum:
-          - TECHNICIAN
-          - END_USER
-        invitationStatus:
-          type: string
-          enum:
-          - REGISTERED
-          - PENDING
-          - EXPIRED
-        organizationId:
-          type: integer
-          description: Identifier of organization for end-users
-          format: int32
-        deviceIds:
-          type: array
-          description: Device IDs which end-user is authorized to access
-          items:
-            type: integer
-            description: Device IDs which end-user is authorized to access
-            format: int32
-        assignedDeviceIds:
-          type: array
-          description: Device IDs which user is assigned
-          items:
-            type: integer
-            description: Device IDs which user is assigned
-            format: int32
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        roles:
-          type: array
-          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-          items:
-            type: string
-            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-      description: Assigned device owner
-    NodeAttributeInfo:
-      type: object
-      properties:
+          description: Model
         name:
           type: string
-          description: Field name
-        value:
-          type: object
-          description: Field Value
-        updated:
+          description: Name
+        partitionCount:
+          type: integer
+          description: Number of partitions
+          format: int32
+        serialNumber:
+          type: string
+          description: Serial number
+        size:
+          type: integer
+          description: Size (Bytes)
+          format: int64
+        smartCapable:
+          type: boolean
+          description: Is S.M.A.R.T. capable?
+        status:
+          type: string
+          description: Status
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
           type: number
-          description: Last field update timestamp
+          description: Date/Time when data was collected/updated
           format: double
-          writeOnly: true
-        updatedBy:
-          $ref: '#/components/schemas/AttributeValueUpdatedByInfo'
-        updateTime:
+    RAIDControllerReport:
+      type: object
+      properties:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceRAIDController'
+    DeviceApplication:
+      type: object
+      properties:
+        installDate:
+          type: string
+          description: Installation Date
+          format: date-time
+        location:
+          type: string
+          description: Location
+        name:
+          type: string
+          description: Product Name
+        publisher:
+          type: string
+          description: Publisher
+        size:
+          type: integer
+          description: Size on disk
+          format: int64
+        version:
+          type: string
+          description: Version
+        productCode:
+          type: string
+          description: Product Code
+        deviceId:
+          type: integer
+          description: Device identifier
+          format: int32
+        timestamp:
           type: number
+          description: Date/Time when data was collected/updated
           format: double
-      description: Field values
     DeviceHealthSummary:
       type: object
       properties:
@@ -2528,101 +2663,6 @@ components:
           type: integer
           description: Device identifier
           format: int32
-    DeviceRAIDController:
-      type: object
-      properties:
-        backupBatteryStatus:
-          type: string
-          description: Backup Battery Status
-        batteryTemperature:
-          type: integer
-          description: Battery Temperature
-          format: int32
-        biosVersion:
-          type: string
-          description: BIOS Version
-        cacheSize:
-          type: integer
-          description: Cache size (bytes)
-          format: int64
-        controllerIndex:
-          type: integer
-          description: Controller Index
-          format: int32
-        driverName:
-          type: string
-          description: Device Driver Name
-        driverVersion:
-          type: string
-          description: Driver Version
-        family:
-          type: string
-          description: Family
-        firmwareVersion:
-          type: string
-          description: Firmware Version
-        hardwareRevision:
-          type: string
-          description: Hardware Revision
-        manufacturer:
-          type: string
-          description: Manufacturer
-        manufacturingDate:
-          type: number
-          description: Manufacturing date
-          format: double
-        model:
-          type: string
-          description: Model
-        physicalDriveCount:
-          type: integer
-          description: Physical drive count
-          format: int32
-        slot:
-          type: string
-          description: Slot
-        systemHealthStatus:
-          type: string
-          description: System Health Status
-        virtualDriveCount:
-          type: integer
-          description: Virtual drive count
-          format: int32
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    LoggedOnUsersReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceLoggedOnUser'
-    SoftwarePatchReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceSoftwarePatch'
-    SoftwareReport:
-      type: object
-      properties:
-        cursor:
-          $ref: '#/components/schemas/Cursor'
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceApplication'
     RAIDDriveReport:
       type: object
       properties:
@@ -2632,64 +2672,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeviceRAIDDrive'
-    UserBasicInfo:
+    ScopedAttributesDetailedReport:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        email:
-          type: string
-    DeviceApplication:
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScopedAttributesDetailed'
+    DiskDriveReport:
       type: object
       properties:
-        installDate:
-          type: string
-          description: Installation Date
-          format: date-time
-        location:
-          type: string
-          description: Location
-        name:
-          type: string
-          description: Product Name
-        publisher:
-          type: string
-          description: Publisher
-        size:
-          type: integer
-          description: Size on disk
-          format: int64
-        version:
-          type: string
-          description: Version
-        productCode:
-          type: string
-          description: Product Code
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
-        timestamp:
-          type: number
-          description: Date/Time when data was collected/updated
-          format: double
-    DeviceLoggedOnUser:
-      type: object
-      properties:
-        userName:
-          type: string
-          description: User name
-        logonTime:
-          type: number
-          description: Time of logon
-          format: double
-        deviceId:
-          type: integer
-          description: Device identifier
-          format: int32
+        cursor:
+          $ref: '#/components/schemas/Cursor'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceDiskDrive'
   securitySchemes:
     oauth2:
       type: http

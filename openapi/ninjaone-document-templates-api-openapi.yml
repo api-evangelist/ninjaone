@@ -210,172 +210,6 @@ paths:
                 $ref: '#/components/schemas/DocumentTemplatePublicApiDTO'
 components:
   schemas:
-    DocumentTemplatePublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Identifier
-          format: int32
-        name:
-          type: string
-          description: Name of the template (must be unique)
-        description:
-          type: string
-          description: Description of the template
-        allowMultiple:
-          type: boolean
-          description: Indicates if multiple instances of the document template is allowed
-        mandatory:
-          type: boolean
-          description: Indicates if the document template is mandatory
-        createTime:
-          type: number
-          description: Creation time
-          format: double
-        updateTime:
-          type: number
-          description: Last updated time
-          format: double
-        fields:
-          type: array
-          description: Document template fields
-          items:
-            $ref: '#/components/schemas/DocumentItemPublicApiDTO'
-        availableToAllTechnicians:
-          type: boolean
-          description: Indicates if the document template is available to all technicians
-        allowedTechnicianRoles:
-          type: array
-          description: List of allowed technician role ids
-          items:
-            type: integer
-            description: List of allowed technician role ids
-            format: int32
-        archived:
-          type: boolean
-          description: Indicates if the document template is archived
-        archivedTime:
-          type: number
-          description: Indicates the time the template was archived
-          format: double
-        archivedBy:
-          $ref: '#/components/schemas/ArchiveUserInfo'
-    AttributeContentAdvancedSettingsNumericRange:
-      type: object
-      properties:
-        min:
-          type: number
-        max:
-          type: number
-    AttributeContentAdvancedSettings:
-      type: object
-      properties:
-        fileMaxSize:
-          type: integer
-          format: int32
-        fileExtensions:
-          type: array
-          items:
-            type: string
-        dateFilters:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
-        maxCharacters:
-          type: integer
-          format: int32
-        complexityRules:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
-        numericRange:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
-        org:
-          uniqueItems: true
-          type: array
-          items:
-            type: integer
-            format: int32
-        nodeClass:
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-            enum:
-            - WINDOWS_SERVER
-            - WINDOWS_WORKSTATION
-            - LINUX_WORKSTATION
-            - MAC
-            - ANDROID
-            - APPLE_IOS
-            - APPLE_IPADOS
-            - VMWARE_VM_HOST
-            - VMWARE_VM_GUEST
-            - HYPERV_VMM_HOST
-            - HYPERV_VMM_GUEST
-            - LINUX_SERVER
-            - MAC_SERVER
-            - CLOUD_MONITOR_TARGET
-            - NMS_SWITCH
-            - NMS_ROUTER
-            - NMS_FIREWALL
-            - NMS_PRIVATE_NETWORK_GATEWAY
-            - NMS_PRINTER
-            - NMS_SCANNER
-            - NMS_DIAL_MANAGER
-            - NMS_WAP
-            - NMS_IPSLA
-            - NMS_COMPUTER
-            - NMS_VM_HOST
-            - NMS_APPLIANCE
-            - NMS_OTHER
-            - NMS_SERVER
-            - NMS_PHONE
-            - NMS_VIRTUAL_MACHINE
-            - NMS_NETWORK_MANAGEMENT_AGENT
-            - UNMANAGED_DEVICE
-            - MANAGED_DEVICE
-        ipAddressType:
-          type: string
-          enum:
-          - ALL
-          - IPV4
-          - IPV6
-        expandLargeValueOnRender:
-          type: boolean
-    AttributeContentAdvancedSettingsDateFilters:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - NONE
-          - INCLUDE
-          - EXCLUDE
-          - PAST_DATES_ONLY
-          - FUTURE_DATES_ONLY
-          - RANGE
-        selected:
-          type: array
-          items:
-            type: string
-    DocumentAttributeContentPublicApi:
-      type: object
-      properties:
-        values:
-          type: array
-          description: Used for dropdown options
-          items:
-            $ref: '#/components/schemas/DocumentAttributeContentValuePublicApi'
-        required:
-          type: boolean
-          description: Indicates if the field is required
-        footerText:
-          type: string
-          description: Footer text
-        tooltipText:
-          type: string
-          description: Tooltip text
-        advancedSettings:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
-      description: Field content
     DocumentItemPublicApiDTO:
       type: object
       properties:
@@ -475,17 +309,6 @@ components:
           description: Last updated time
           format: double
       description: Document template fields
-    ArchiveUserInfo:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        displayName:
-          type: string
-        deleted:
-          type: boolean
-      description: Indicates who archived the template
     NewDocumentTemplatePublicApiRequest:
       required:
       - name
@@ -518,6 +341,33 @@ components:
             type: integer
             description: List of allowed technician role ids
             format: int32
+    ArchiveUserInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        displayName:
+          type: string
+        deleted:
+          type: boolean
+      description: Indicates who archived the template
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
     AttributeContentAdvancedSettingsComplexityRules:
       type: object
       properties:
@@ -615,6 +465,119 @@ components:
           type: string
           description: UI element value
       description: List of fields and ui elements
+    AttributeContentAdvancedSettings:
+      type: object
+      properties:
+        fileMaxSize:
+          type: integer
+          format: int32
+        fileExtensions:
+          type: array
+          items:
+            type: string
+        dateFilters:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsDateFilters'
+        maxCharacters:
+          type: integer
+          format: int32
+        complexityRules:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsComplexityRules'
+        numericRange:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettingsNumericRange'
+        org:
+          uniqueItems: true
+          type: array
+          items:
+            type: integer
+            format: int32
+        nodeClass:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+            - WINDOWS_SERVER
+            - WINDOWS_WORKSTATION
+            - LINUX_WORKSTATION
+            - MAC
+            - ANDROID
+            - APPLE_IOS
+            - APPLE_IPADOS
+            - VMWARE_VM_HOST
+            - VMWARE_VM_GUEST
+            - HYPERV_VMM_HOST
+            - HYPERV_VMM_GUEST
+            - LINUX_SERVER
+            - MAC_SERVER
+            - CLOUD_MONITOR_TARGET
+            - NMS_SWITCH
+            - NMS_ROUTER
+            - NMS_FIREWALL
+            - NMS_PRIVATE_NETWORK_GATEWAY
+            - NMS_PRINTER
+            - NMS_SCANNER
+            - NMS_DIAL_MANAGER
+            - NMS_WAP
+            - NMS_IPSLA
+            - NMS_COMPUTER
+            - NMS_VM_HOST
+            - NMS_APPLIANCE
+            - NMS_OTHER
+            - NMS_SERVER
+            - NMS_PHONE
+            - NMS_VIRTUAL_MACHINE
+            - NMS_NETWORK_MANAGEMENT_AGENT
+            - UNMANAGED_DEVICE
+            - MANAGED_DEVICE
+        ipAddressType:
+          type: string
+          enum:
+          - ALL
+          - IPV4
+          - IPV6
+        expandLargeValueOnRender:
+          type: boolean
+    AttributeContentAdvancedSettingsNumericRange:
+      type: object
+      properties:
+        min:
+          type: number
+        max:
+          type: number
+    DocumentAttributeContentValuePublicApi:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier
+          format: uuid
+        name:
+          type: string
+          description: Dropdown option name
+        active:
+          type: boolean
+          description: Indicates if a dropdown option is active
+      description: Used for dropdown options
+    DocumentAttributeContentPublicApi:
+      type: object
+      properties:
+        values:
+          type: array
+          description: Used for dropdown options
+          items:
+            $ref: '#/components/schemas/DocumentAttributeContentValuePublicApi'
+        required:
+          type: boolean
+          description: Indicates if the field is required
+        footerText:
+          type: string
+          description: Footer text
+        tooltipText:
+          type: string
+          description: Tooltip text
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+      description: Field content
     UpdateDocumentTemplatePublicApiRequest:
       type: object
       properties:
@@ -642,19 +605,12 @@ components:
             type: integer
             description: List of allowed technician role ids
             format: int32
-    DocumentAttributeContentValuePublicApi:
+    NewDocumentAttributeContentValuePublicApi:
       type: object
       properties:
-        id:
-          type: string
-          description: Identifier
-          format: uuid
         name:
           type: string
           description: Dropdown option name
-        active:
-          type: boolean
-          description: Indicates if a dropdown option is active
       description: Used for dropdown options
     NewDocumentAttributeContentPublicApi:
       type: object
@@ -676,13 +632,57 @@ components:
         advancedSettings:
           $ref: '#/components/schemas/AttributeContentAdvancedSettings'
       description: Field content
-    NewDocumentAttributeContentValuePublicApi:
+    DocumentTemplatePublicApiDTO:
       type: object
       properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
         name:
           type: string
-          description: Dropdown option name
-      description: Used for dropdown options
+          description: Name of the template (must be unique)
+        description:
+          type: string
+          description: Description of the template
+        allowMultiple:
+          type: boolean
+          description: Indicates if multiple instances of the document template is allowed
+        mandatory:
+          type: boolean
+          description: Indicates if the document template is mandatory
+        createTime:
+          type: number
+          description: Creation time
+          format: double
+        updateTime:
+          type: number
+          description: Last updated time
+          format: double
+        fields:
+          type: array
+          description: Document template fields
+          items:
+            $ref: '#/components/schemas/DocumentItemPublicApiDTO'
+        availableToAllTechnicians:
+          type: boolean
+          description: Indicates if the document template is available to all technicians
+        allowedTechnicianRoles:
+          type: array
+          description: List of allowed technician role ids
+          items:
+            type: integer
+            description: List of allowed technician role ids
+            format: int32
+        archived:
+          type: boolean
+          description: Indicates if the document template is archived
+        archivedTime:
+          type: number
+          description: Indicates the time the template was archived
+          format: double
+        archivedBy:
+          $ref: '#/components/schemas/ArchiveUserInfo'
     UpdateDocumentItemPublicApiRequest:
       type: object
       properties:
