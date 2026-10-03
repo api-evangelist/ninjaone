@@ -82,6 +82,47 @@ paths:
           description: An Unmanaged Device with the provided nodeId was not found
 components:
   schemas:
+    CreateUnmanagedDevicePublicApiRequest:
+      required:
+      - locationId
+      - name
+      - orgId
+      - roleId
+      - serialNumber
+      type: object
+      properties:
+        name:
+          maxLength: 200
+          minLength: 0
+          type: string
+          description: The display name of the device to be created
+        orgId:
+          type: integer
+          description: The id of the organization the device belongs to
+          format: int32
+        locationId:
+          type: integer
+          description: The id of the location the device belongs to
+          format: int32
+        roleId:
+          type: integer
+          description: 'The id of the role to use for this device. Must be a sub-role of Unmanaged Device '
+          format: int32
+        serialNumber:
+          type: string
+          description: The serial number of the device
+        assignedUserUid:
+          type: string
+          description: The UUID of the user this device is assigned to
+          format: uuid
+        warrantyStartDate:
+          type: number
+          description: The warranty start date for the device, in unix epoch seconds
+          format: double
+        warrantyEndDate:
+          type: number
+          description: The warranty end date for the device, in unix epoch seconds
+          format: double
     CreateUnmanagedDevicePublicApiResponseDTO:
       type: object
       properties:
@@ -108,47 +149,6 @@ components:
         locationId:
           type: integer
           description: The id of the location the device belongs to
-          format: int32
-        serialNumber:
-          type: string
-          description: The serial number of the device
-        assignedUserUid:
-          type: string
-          description: The UUID of the user this device is assigned to
-          format: uuid
-        warrantyStartDate:
-          type: number
-          description: The warranty start date for the device, in unix epoch seconds
-          format: double
-        warrantyEndDate:
-          type: number
-          description: The warranty end date for the device, in unix epoch seconds
-          format: double
-    CreateUnmanagedDevicePublicApiRequest:
-      required:
-      - locationId
-      - name
-      - orgId
-      - roleId
-      - serialNumber
-      type: object
-      properties:
-        name:
-          maxLength: 200
-          minLength: 0
-          type: string
-          description: The display name of the device to be created
-        orgId:
-          type: integer
-          description: The id of the organization the device belongs to
-          format: int32
-        locationId:
-          type: integer
-          description: The id of the location the device belongs to
-          format: int32
-        roleId:
-          type: integer
-          description: 'The id of the role to use for this device. Must be a sub-role of Unmanaged Device '
           format: int32
         serialNumber:
           type: string

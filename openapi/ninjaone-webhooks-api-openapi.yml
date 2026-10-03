@@ -50,6 +50,16 @@ paths:
           description: Failed to disable PSA
 components:
   schemas:
+    HTTPHeader:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Header name
+        value:
+          type: string
+          description: Header value
+      description: Custom HTTP Headers (i.e. Authorization)
     WebhookConfiguration:
       type: object
       properties:
@@ -84,16 +94,6 @@ components:
             type: integer
             description: List of organization id to be filtered
             format: int32
-    HTTPHeader:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Header name
-        value:
-          type: string
-          description: Header value
-      description: Custom HTTP Headers (i.e. Authorization)
   securitySchemes:
     oauth2:
       type: http

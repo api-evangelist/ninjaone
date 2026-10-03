@@ -684,6 +684,117 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    RoleMember:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        email:
+          type: string
+          description: User email
+        name:
+          type: string
+          description: User full name
+        source:
+          type: string
+          description: Source of role assignment
+      description: Role members
+    AttributeContentAdvancedSettingsDateFilters:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - NONE
+          - INCLUDE
+          - EXCLUDE
+          - PAST_DATES_ONLY
+          - FUTURE_DATES_ONLY
+          - RANGE
+        selected:
+          type: array
+          items:
+            type: string
+    ScheduledTask:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Scheduled Task identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        enabled:
+          type: boolean
+          description: Is Enabled ?
+        created:
+          type: number
+          description: Timestamp of Scheduled Task creation
+          format: double
+        lastRun:
+          type: number
+          description: Timestamp of last Scheduled Task run
+          format: double
+        runCount:
+          type: integer
+          description: Number of times scheduled task ran
+          format: int32
+    OrganizationSettings:
+      type: object
+      properties:
+        trayicon:
+          $ref: '#/components/schemas/FeatureSettings'
+        splashtop:
+          $ref: '#/components/schemas/FeatureSettings'
+        teamviewer:
+          $ref: '#/components/schemas/FeatureSettings'
+        backup:
+          $ref: '#/components/schemas/FeatureSettings'
+        psa:
+          $ref: '#/components/schemas/FeatureSettings'
+      description: Organization settings
+    LocationWithOrganizationRef:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Location identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
     NodeWithDetailedReferences:
       type: object
       properties:
@@ -814,421 +925,50 @@ components:
         references:
           $ref: '#/components/schemas/NodeReferences'
       description: Device information.
-    AttributePublicApiDTO:
+    ScriptVariable:
       type: object
       properties:
-        entityType:
+        id:
           type: string
-          description: Entity Type
-          enum:
-          - USER
-          - NODE
-          - TICKET
-          - DOCUMENT
-        scope:
-          type: string
-          description: Scope
-          enum:
-          - NODE_GLOBAL
-          - NODE_ROLE
-          - NODE_CLASS
-        definitionScope:
-          uniqueItems: true
-          type: array
-          description: Definition Scope
-          items:
-            type: string
-            description: Definition Scope
-            enum:
-            - NODE
-            - END_USER
-            - LOCATION
-            - ORGANIZATION
-        type:
-          type: string
-          description: Type
-          enum:
-          - DROPDOWN
-          - MULTI_SELECT
-          - CHECKBOX
-          - TEXT
-          - TEXT_MULTILINE
-          - TEXT_ENCRYPTED
-          - NUMERIC
-          - DECIMAL
-          - DATE
-          - DATE_TIME
-          - TIME
-          - ATTACHMENT
-          - NODE_DROPDOWN
-          - NODE_MULTI_SELECT
-          - CLIENT_DROPDOWN
-          - CLIENT_MULTI_SELECT
-          - CLIENT_LOCATION_DROPDOWN
-          - CLIENT_LOCATION_MULTI_SELECT
-          - CLIENT_DOCUMENT_DROPDOWN
-          - CLIENT_DOCUMENT_MULTI_SELECT
-          - EMAIL
-          - PHONE
-          - IP_ADDRESS
-          - WYSIWYG
-          - URL
-        label:
-          type: string
-          description: Label
-        description:
-          type: string
-          description: Description
+          description: Script Variable ID
         name:
           type: string
-          description: Name
+          description: Script Variable Name
+        description:
+          type: string
+          description: Script Variable Description
+        type:
+          type: string
+          description: Script Variable Type
+          enum:
+          - CHECKBOX
+          - DATE
+          - DATETIME
+          - DECIMAL
+          - INTEGER
+          - IPADDRESS
+          - DROPDOWN
+          - TEXT
+          - OTHER
+        source:
+          type: string
+          description: Script Variable Source
+          enum:
+          - LITERAL
+          - OTHER
         defaultValue:
           type: string
-          description: Default Value
-        endUserPermission:
-          type: string
-          description: End User Permission
-          enum:
-          - HIDDEN
-          - EDITABLE_OPTIONAL
-          - EDITABLE_REQUIRED
-          - READ_ONLY
-        technicianPermission:
-          type: string
-          description: Technician Permission
-          enum:
-          - NONE
-          - EDITABLE
-          - READ_ONLY
-        scriptPermission:
-          type: string
-          description: Script Permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        apiPermission:
-          type: string
-          description: Public API Permission
-          enum:
-          - NONE
-          - READ_ONLY
-          - WRITE_ONLY
-          - READ_WRITE
-        content:
-          $ref: '#/components/schemas/AttributeContent'
-        system:
-          type: boolean
-          description: System
-        active:
-          type: boolean
-          description: Active
-        createTime:
-          type: number
-          description: Create Time
-          format: double
-        updateTime:
-          type: number
-          description: Update Time
-          format: double
-    LocationWithOrganizationRef:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Location name
-        address:
-          type: string
-          description: Address
-        description:
-          type: string
-          description: Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Location identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-    AttributeContentAdvancedSettingsDateFilters:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - NONE
-          - INCLUDE
-          - EXCLUDE
-          - PAST_DATES_ONLY
-          - FUTURE_DATES_ONLY
-          - RANGE
-        selected:
-          type: array
-          items:
-            type: string
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        uid:
-          type: string
-          description: User universally unique identifier
-          format: uuid
-        firstName:
-          type: string
-        lastName:
-          type: string
-        email:
-          type: string
-        phone:
-          type: string
-        enabled:
-          type: boolean
-        administrator:
-          type: boolean
-        permitAllClients:
-          type: boolean
-        notifyAllClients:
-          type: boolean
-        mustChangePw:
-          type: boolean
-        mfaConfigured:
-          type: boolean
-        userType:
-          type: string
-          enum:
-          - TECHNICIAN
-          - END_USER
-        invitationStatus:
-          type: string
-          enum:
-          - REGISTERED
-          - PENDING
-          - EXPIRED
-        organizationId:
-          type: integer
-          description: Identifier of organization for end-users
-          format: int32
-        deviceIds:
-          type: array
-          description: Device IDs which end-user is authorized to access
-          items:
-            type: integer
-            description: Device IDs which end-user is authorized to access
-            format: int32
-        assignedDeviceIds:
-          type: array
-          description: Device IDs which user is assigned
-          items:
-            type: integer
-            description: Device IDs which user is assigned
-            format: int32
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        roles:
-          type: array
-          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-          items:
-            type: string
-            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-      description: Assigned device owner
-    EndUserCustomization:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        label:
-          type: string
-    AttributeContent:
-      type: object
-      properties:
-        customizeForEndUser:
-          type: boolean
-        endUserCustomization:
-          $ref: '#/components/schemas/EndUserCustomization'
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttributeContentValue'
+          description: Script Variable Default Value
         required:
           type: boolean
-        footerText:
-          type: string
-        tooltipText:
-          type: string
-        advancedSettings:
-          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
-    NodeReferences:
-      type: object
-      properties:
-        organization:
-          $ref: '#/components/schemas/Organization'
-        location:
-          $ref: '#/components/schemas/Location'
-        rolePolicy:
-          $ref: '#/components/schemas/Policy'
-        policy:
-          $ref: '#/components/schemas/Policy'
-        role:
-          $ref: '#/components/schemas/NodeRole'
-        backupUsage:
-          $ref: '#/components/schemas/BackupUsage'
-        warranty:
-          $ref: '#/components/schemas/WarrantyDates'
-        assignedOwner:
-          $ref: '#/components/schemas/User'
-      description: Expanded entity references
-    Policy:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Policy identifier
-          format: int32
-        parentPolicyId:
-          type: integer
-          description: Parent Policy identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        updated:
-          type: number
-          description: Last update timestamp
-          format: double
-        nodeClassDefault:
-          type: boolean
-          description: Is Default Policy for Node Class
-        tags:
+          description: Script Variable is Required
+        valueList:
           type: array
-          description: Tags
+          description: Script Variable List of Possible Values
           items:
             type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-      description: Assigned policy (overrides organization and location policy mapping)
-    Organization:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Organization full name
-        description:
-          type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
-          type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Organization identifier
-          format: int32
-      description: Organization
-    Note:
-      type: object
-      properties:
-        text:
-          type: string
-          description: Note text
-      description: Device Notes
+            description: Script Variable List of Possible Values
+      description: Script Variables
     Technician:
       type: object
       properties:
@@ -1299,405 +1039,12 @@ components:
           items:
             type: string
             description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
-    NodeRolePolicyAssignment:
-      type: object
-      properties:
-        nodeRoleId:
-          type: integer
-          description: Node Role Identifier
-          format: int32
-        policyId:
-          type: integer
-          description: Policy Identifier
-          format: int32
-      description: Node role policy assignments
-    DeviceSearchMatch:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Node (Device) identifier
-          format: int32
-        uid:
-          type: string
-          description: Node (Device) UUID
-          format: uuid
-        assignedOwnerUid:
-          type: string
-          description: Node (Device) Owner UUID
-          format: uuid
-        parentDeviceId:
-          type: integer
-          description: Parent Node identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        nodeRoleId:
-          type: integer
-          description: Node Role identifier
-          format: int32
-        rolePolicyId:
-          type: integer
-          description: Node Role policy ID based on organization and location Policy Mapping
-          format: int32
-        policyId:
-          type: integer
-          description: Assigned policy ID (overrides organization and location policy mapping)
-          format: int32
-        approvalStatus:
-          type: string
-          description: Approval Status
-          enum:
-          - PENDING
-          - APPROVED
-        offline:
-          type: boolean
-          description: Is Offline?
-        displayName:
-          type: string
-          description: Display Name
-        systemName:
-          type: string
-          description: System Name
-        dnsName:
-          type: string
-          description: DNS Name
-        netbiosName:
-          type: string
-          description: NETBIOS Name
-        created:
-          type: number
-          description: Created
-          format: double
-        lastContact:
-          type: number
-          description: Last Contact
-          format: double
-        lastUpdate:
-          type: number
-          description: Last data submission timestamp
-          format: double
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        maintenance:
-          $ref: '#/components/schemas/Maintenance'
-        references:
-          $ref: '#/components/schemas/NodeReferences'
-        score:
-          type: integer
-          description: Match score
-          format: int32
-        matchAttr:
-          type: string
-          description: Name of the attribute that matched the query
-        matchAttrValue:
-          type: string
-          description: Value of that attribute that matched
-      description: Devices matching search query
-    BackupUsage:
-      type: object
-      properties:
-        revisionsCurrentSize:
-          type: integer
-          description: Revisions current size
-          format: int64
-        revisionsPreviousSize:
-          type: integer
-          description: Revisions previous size
-          format: int64
-        revisionsDeletedSize:
-          type: integer
-          description: Revisions deleted size
-          format: int64
-        localFileFolderSize:
-          type: integer
-          description: Revisions local file folder size
-          format: int64
-        localImageSize:
-          type: integer
-          description: Revisions local image size
-          format: int64
-        localImageV2Size:
-          type: integer
-          description: Revisions local image v2 size
-          format: int64
-        cloudFileFolderSize:
-          type: integer
-          description: Revisions cloud file folder size
-          format: int64
-        cloudImageSize:
-          type: integer
-          description: Revisions cloud image size
-          format: int64
-        cloudImageV2Size:
-          type: integer
-          description: Revisions cloud image v2 size
-          format: int64
-        lastSuccessfulBackupJob:
-          type: number
-          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        lastFailedBackupJob:
-          type: number
-          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
-          format: double
-        revisionsTotalSize:
-          type: integer
-          description: Revisions total size
-          format: int64
-          readOnly: true
-        cloudTotalSize:
-          type: integer
-          description: Revisions cloud total size
-          format: int64
-          readOnly: true
-        localTotalSize:
-          type: integer
-          description: Revisions local total size
-          format: int64
-          readOnly: true
-      description: Device Backup Usage
-    ScheduledTask:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Scheduled Task identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        enabled:
-          type: boolean
-          description: Is Enabled ?
-        created:
-          type: number
-          description: Timestamp of Scheduled Task creation
-          format: double
-        lastRun:
-          type: number
-          description: Timestamp of last Scheduled Task run
-          format: double
-        runCount:
-          type: integer
-          description: Number of times scheduled task ran
-          format: int32
-    Maintenance:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Maintenance mode status
-          enum:
-          - PENDING
-          - IN_MAINTENANCE
-          - FAILED
-        start:
-          type: number
-          description: Maintenance mode start time
-          format: double
-        end:
-          type: number
-          description: Maintenance mode end time
-          format: double
-      description: Maintenance mode status
-    RoleMember:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        email:
-          type: string
-          description: User email
-        name:
-          type: string
-          description: User full name
-        source:
-          type: string
-          description: Source of role assignment
-      description: Role members
-    EndUser:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        uid:
-          type: string
-          description: User universally unique identifier
-          format: uuid
-        enabled:
-          type: boolean
-          description: User access status
-        firstName:
-          type: string
-          description: First name
-        lastName:
-          type: string
-          description: Last name
-        email:
-          type: string
-          description: Email address
-        phone:
-          type: string
-          description: Phone number
-        organizationId:
-          type: integer
-          description: Identifier of organization for end-users
-          format: int32
-        fullPortalAccess:
-          type: boolean
-          description: Has full portal access
-        mustChangePw:
-          type: boolean
-          description: Must change password during next login
-        mfaConfigured:
-          type: boolean
-          description: At least one MFA method is configured
-        scimUser:
-          type: boolean
-          description: User created by SCIM
-        authType:
-          type: string
-          description: Authentication type, NATIVE or SSO
-        invitationStatus:
-          type: string
-          description: User invitation status
-          enum:
-          - REGISTERED
-          - PENDING
-          - EXPIRED
-        assignedDeviceIds:
-          type: array
-          description: Device IDs which user is assigned
-          items:
-            type: integer
-            description: Device IDs which user is assigned
-            format: int32
-        accessibleDeviceIds:
-          type: array
-          description: Device IDs which user has access to
-          items:
-            type: integer
-            description: Device IDs which user has access to
-            format: int32
-        roles:
-          type: array
-          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-          items:
-            type: string
-            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-    AttributeContentValue:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        active:
-          type: boolean
-        system:
-          type: boolean
-    ActivitiesResponse:
-      type: object
-      properties:
-        lastActivityId:
-          type: integer
-          description: Last recorded activity ID for account
-          format: int64
-        activities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Activity'
-    SoftwareProduct:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Product identifier
-          format: uuid
-        vendorName:
-          type: string
-          description: Vendor Name
-        productName:
-          type: string
-          description: Product Name
-        installable:
-          type: boolean
-          description: Installable
-        active:
-          type: boolean
-          description: Active
-    Alert:
+    Job:
       type: object
       properties:
         uid:
           type: string
-          description: Alert UID (activity series UID)
+          description: Task/Job UID (activity series UID)
           format: uuid
         deviceId:
           type: integer
@@ -1705,18 +1052,18 @@ components:
           format: int32
         message:
           type: string
-          description: Alert message
+          description: Job message
         createTime:
           type: number
-          description: Alert creation timestamp
+          description: Job start timestamp
           format: double
         updateTime:
           type: number
-          description: Alert last updated
+          description: Job last updated
           format: double
         sourceType:
           type: string
-          description: Alert origin
+          description: Job origin
           enum:
           - AGENT_OFFLINE
           - CONDITION_AGENT_CPU
@@ -1817,7 +1164,7 @@ components:
           description: Source configuration/policy element name
         subject:
           type: string
-          description: Alert subject
+          description: Job subject
         userId:
           type: integer
           description: User identifier
@@ -1832,73 +1179,330 @@ components:
         data:
           type: object
           additionalProperties: true
-          description: Alert data
+          description: Job data
         device:
           $ref: '#/components/schemas/NodeWithDetailedReferences'
-    NodeRole:
+        jobStatus:
+          type: string
+          description: Job Status
+          enum:
+          - START_REQUESTED
+          - STARTED
+          - IN_PROCESS
+          - COMPLETED
+          - CANCEL_REQUESTED
+          - CANCELLED
+          - WAITING_FOR_USER_RESPONSE
+          - TRIGGERED
+          - RESET
+          - ACKNOWLEDGED
+          - DISABLED
+        jobResult:
+          type: string
+          description: Job result
+          enum:
+          - SUCCESS
+          - FAILURE
+          - UNSUPPORTED
+          - UNCOMPLETED
+        jobType:
+          type: string
+          description: Job Type
+          enum:
+          - ACTIONSET
+          - ACTION
+          - CONDITION
+          - CONDITION_ACTIONSET
+          - CONDITION_ACTION
+          - ANTIVIRUS
+          - PATCH_MANAGEMENT
+          - TEAMVIEWER
+          - MONITOR
+          - SYSTEM
+          - COMMENT
+          - SHADOWPROTECT
+          - IMAGEMANAGER
+          - HELP_REQUEST
+          - SOFTWARE_PATCH_MANAGEMENT
+          - SPLASHTOP
+          - CLOUDBERRY
+          - CLOUDBERRY_BACKUP
+          - SCHEDULED_TASK
+          - RDP
+          - SCRIPTING
+          - SECURITY
+          - REMOTE_TOOLS
+          - VIRTUALIZATION
+          - PSA
+          - MDM
+          - NINJA_REMOTE
+          - NINJA_QUICK_CONNECT
+          - NINJA_NETWORK_DISCOVERY
+          - NINJA_BACKUP
+          - NINJA_TICKETING
+          - KNOWLEDGE_BASE
+          - RELATED_ITEM
+          - CLIENT_CHECKLIST
+          - CHECKLIST_TEMPLATE
+          - DOCUMENTATION
+          - MICROSOFT_INTUNE
+    WarrantyDates:
+      type: object
+      properties:
+        startDate:
+          type: number
+          description: Warranty Start Date (Seconds)
+          format: double
+        endDate:
+          type: number
+          description: Warranty End Date (Seconds)
+          format: double
+        manufacturerFulfillmentDate:
+          type: number
+          description: Manufacturer Fulfillment Date
+          format: double
+      description: Warranty Info
+    Organization:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Organization full name
+        description:
+          type: string
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Organization identifier
+          format: int32
+      description: Organization
+    DeviceSearchResults:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search query
+        devices:
+          type: array
+          description: Devices matching search query
+          items:
+            $ref: '#/components/schemas/DeviceSearchMatch'
+    User:
       type: object
       properties:
         id:
           type: integer
-          description: Device Role identifier
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        enabled:
+          type: boolean
+        administrator:
+          type: boolean
+        permitAllClients:
+          type: boolean
+        notifyAllClients:
+          type: boolean
+        mustChangePw:
+          type: boolean
+        mfaConfigured:
+          type: boolean
+        userType:
+          type: string
+          enum:
+          - TECHNICIAN
+          - END_USER
+        invitationStatus:
+          type: string
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        organizationId:
+          type: integer
+          description: Identifier of organization for end-users
+          format: int32
+        deviceIds:
+          type: array
+          description: Device IDs which end-user is authorized to access
+          items:
+            type: integer
+            description: Device IDs which end-user is authorized to access
+            format: int32
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        roles:
+          type: array
+          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+      description: Assigned device owner
+    AttributeContentAdvancedSettingsComplexityRules:
+      type: object
+      properties:
+        mustContainOneInteger:
+          type: boolean
+        mustContainOneLowercaseLetter:
+          type: boolean
+        mustContainOneUppercaseLetter:
+          type: boolean
+        greaterOrEqualThanSixCharacters:
+          type: boolean
+    EndUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: User identifier
+          format: int32
+        uid:
+          type: string
+          description: User universally unique identifier
+          format: uuid
+        enabled:
+          type: boolean
+          description: User access status
+        firstName:
+          type: string
+          description: First name
+        lastName:
+          type: string
+          description: Last name
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+        organizationId:
+          type: integer
+          description: Identifier of organization for end-users
+          format: int32
+        fullPortalAccess:
+          type: boolean
+          description: Has full portal access
+        mustChangePw:
+          type: boolean
+          description: Must change password during next login
+        mfaConfigured:
+          type: boolean
+          description: At least one MFA method is configured
+        scimUser:
+          type: boolean
+          description: User created by SCIM
+        authType:
+          type: string
+          description: Authentication type, NATIVE or SSO
+        invitationStatus:
+          type: string
+          description: User invitation status
+          enum:
+          - REGISTERED
+          - PENDING
+          - EXPIRED
+        assignedDeviceIds:
+          type: array
+          description: Device IDs which user is assigned
+          items:
+            type: integer
+            description: Device IDs which user is assigned
+            format: int32
+        accessibleDeviceIds:
+          type: array
+          description: Device IDs which user has access to
+          items:
+            type: integer
+            description: Device IDs which user has access to
+            format: int32
+        roles:
+          type: array
+          description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+          items:
+            type: string
+            description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
+    Group:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Group identifier
           format: int32
         name:
           type: string
-          description: Name
+          description: Group Name
         description:
           type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        custom:
+          description: Group description
+        shared:
           type: boolean
-          description: Is custom node role?
-        chassisType:
-          type: string
-          description: Chassis Type
-          enum:
-          - UNKNOWN
-          - DESKTOP
-          - LAPTOP
-          - MOBILE
+          description: Group is shared with all users?
         created:
           type: number
-          description: Date created
+          description: Timestamp of group creation
+          format: double
+        updated:
+          type: number
+          description: Timestamp last update
+          format: double
+        deviceCount:
+          type: integer
+          description: Estimated/Last known device count.  Can be `null` if group membership has not been evaluated recently
+          format: int32
+        lastEvaluated:
+          type: number
+          description: Last evaluation time of group membership for nodes (search)
           format: double
         tags:
           type: array
@@ -1912,14 +1516,18 @@ components:
             type: object
             description: Custom Fields
           description: Custom Fields
-        nodeRoleParentId:
+    NodeRolePolicyAssignment:
+      type: object
+      properties:
+        nodeRoleId:
           type: integer
-          description: Node Role Parent Id
+          description: Node Role Identifier
           format: int32
-        icon:
-          type: string
-          description: Icon
-      description: Device Role
+        policyId:
+          type: integer
+          description: Policy Identifier
+          format: int32
+      description: Node role policy assignments
     AttributeContentAdvancedSettings:
       type: object
       properties:
@@ -1992,273 +1600,80 @@ components:
           - IPV6
         expandLargeValueOnRender:
           type: boolean
-    OrganizationDetailed:
+    EndUserCustomization:
       type: object
       properties:
         name:
           type: string
-          description: Organization full name
         description:
           type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
+        label:
           type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
+    ActivitiesResponse:
+      type: object
+      properties:
+        lastActivityId:
           type: integer
-          description: Organization identifier
-          format: int32
-        locations:
+          description: Last recorded activity ID for account
+          format: int64
+        activities:
           type: array
-          description: List of locations
           items:
-            $ref: '#/components/schemas/Location'
-        policies:
-          type: array
-          description: Node role policy assignments
-          items:
-            $ref: '#/components/schemas/NodeRolePolicyAssignment'
-        settings:
-          $ref: '#/components/schemas/OrganizationSettings'
-    NotificationChannel:
+            $ref: '#/components/schemas/Activity'
+    NodeReferences:
+      type: object
+      properties:
+        organization:
+          $ref: '#/components/schemas/Organization'
+        location:
+          $ref: '#/components/schemas/Location'
+        rolePolicy:
+          $ref: '#/components/schemas/Policy'
+        policy:
+          $ref: '#/components/schemas/Policy'
+        role:
+          $ref: '#/components/schemas/NodeRole'
+        backupUsage:
+          $ref: '#/components/schemas/BackupUsage'
+        warranty:
+          $ref: '#/components/schemas/WarrantyDates'
+        assignedOwner:
+          $ref: '#/components/schemas/User'
+      description: Expanded entity references
+    Contact:
       type: object
       properties:
         id:
           type: integer
-          description: Notification Channel ID
-          format: int32
-        name:
-          type: string
-          description: Notification Channel Name
-        description:
-          type: string
-          description: Notification Channel Description
-        enabled:
-          type: boolean
-          description: Notification Channel Enabled
-        type:
-          type: string
-          description: Notification Channel Type
-          enum:
-          - EMAIL
-          - META_CHANNEL
-          - PAGER_DUTY
-          - SLACK
-          - SMS
-          - MICROSOFT_TEAMS
-          - WEBHOOK
-          - OTHER
-    FeatureSettings:
-      type: object
-      properties:
-        product:
-          type: string
-          description: Configured product code
-        enabled:
-          type: boolean
-          description: Is enabled
-        targets:
-          type: array
-          description: Feature deployment targets
-          items:
-            type: string
-            description: Feature deployment targets
-        options:
-          type: object
-          additionalProperties:
-            type: object
-            description: Feature options
-          description: Feature options
-      description: Feature/product/integration configuration settings
-    ScriptVariable:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Script Variable ID
-        name:
-          type: string
-          description: Script Variable Name
-        description:
-          type: string
-          description: Script Variable Description
-        type:
-          type: string
-          description: Script Variable Type
-          enum:
-          - CHECKBOX
-          - DATE
-          - DATETIME
-          - DECIMAL
-          - INTEGER
-          - IPADDRESS
-          - DROPDOWN
-          - TEXT
-          - OTHER
-        source:
-          type: string
-          description: Script Variable Source
-          enum:
-          - LITERAL
-          - OTHER
-        defaultValue:
-          type: string
-          description: Script Variable Default Value
-        required:
-          type: boolean
-          description: Script Variable is Required
-        valueList:
-          type: array
-          description: Script Variable List of Possible Values
-          items:
-            type: string
-            description: Script Variable List of Possible Values
-      description: Script Variables
-    WarrantyDates:
-      type: object
-      properties:
-        startDate:
-          type: number
-          description: Warranty Start Date (Seconds)
-          format: double
-        endDate:
-          type: number
-          description: Warranty End Date (Seconds)
-          format: double
-        manufacturerFulfillmentDate:
-          type: number
-          description: Manufacturer Fulfillment Date
-          format: double
-      description: Warranty Info
-    Device:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Node (Device) identifier
-          format: int32
-        uid:
-          type: string
-          description: Node (Device) UUID
-          format: uuid
-        assignedOwnerUid:
-          type: string
-          description: Node (Device) Owner UUID
-          format: uuid
-        parentDeviceId:
-          type: integer
-          description: Parent Node identifier
           format: int32
         organizationId:
           type: integer
-          description: Organization identifier
           format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        nodeClass:
+        uid:
           type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        nodeRoleId:
-          type: integer
-          description: Node Role identifier
-          format: int32
-        rolePolicyId:
-          type: integer
-          description: Node Role policy ID based on organization and location Policy Mapping
-          format: int32
-        policyId:
-          type: integer
-          description: Assigned policy ID (overrides organization and location policy mapping)
-          format: int32
-        approvalStatus:
+          format: uuid
+        firstName:
           type: string
-          description: Approval Status
-          enum:
-          - PENDING
-          - APPROVED
-        offline:
-          type: boolean
-          description: Is Offline?
-        displayName:
+        lastName:
           type: string
-          description: Display Name
-        systemName:
+        email:
           type: string
-          description: System Name
-        dnsName:
+        phone:
           type: string
-          description: DNS Name
-        netbiosName:
+        jobTitle:
           type: string
-          description: NETBIOS Name
-        created:
-          type: number
-          description: Created
-          format: double
-        lastContact:
-          type: number
-          description: Last Contact
-          format: double
-        lastUpdate:
-          type: number
-          description: Last data submission timestamp
-          format: double
+    Location:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
         userData:
           type: object
           additionalProperties: true
@@ -2275,145 +1690,93 @@ components:
             type: object
             description: Custom Fields
           description: Custom Fields
-        maintenance:
-          $ref: '#/components/schemas/Maintenance'
-        references:
-          $ref: '#/components/schemas/NodeReferences'
-        ipAddresses:
-          type: array
-          description: Device IP addresses
-          items:
-            type: string
-            description: Device IP addresses
-        macAddresses:
-          type: array
-          description: Device MAC addresses
-          items:
-            type: string
-            description: Device MAC addresses
-        publicIP:
-          type: string
-          description: Device Public IP Address
-        notes:
-          type: array
-          description: Device Notes
-          items:
-            $ref: '#/components/schemas/Note'
-        deviceType:
-          type: string
-      discriminator:
-        propertyName: deviceType
-    AutomationScript:
+        id:
+          type: integer
+          description: Location identifier
+          format: int32
+      description: Location
+    BackupUsage:
+      type: object
+      properties:
+        revisionsCurrentSize:
+          type: integer
+          description: Revisions current size
+          format: int64
+        revisionsPreviousSize:
+          type: integer
+          description: Revisions previous size
+          format: int64
+        revisionsDeletedSize:
+          type: integer
+          description: Revisions deleted size
+          format: int64
+        localFileFolderSize:
+          type: integer
+          description: Revisions local file folder size
+          format: int64
+        localImageSize:
+          type: integer
+          description: Revisions local image size
+          format: int64
+        localImageV2Size:
+          type: integer
+          description: Revisions local image v2 size
+          format: int64
+        cloudFileFolderSize:
+          type: integer
+          description: Revisions cloud file folder size
+          format: int64
+        cloudImageSize:
+          type: integer
+          description: Revisions cloud image size
+          format: int64
+        cloudImageV2Size:
+          type: integer
+          description: Revisions cloud image v2 size
+          format: int64
+        lastSuccessfulBackupJob:
+          type: number
+          description: Last successful job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        lastFailedBackupJob:
+          type: number
+          description: Last failed job. This is provided when the 'includeLastBackupJobTimes' query parameter is set to 'true'
+          format: double
+        revisionsTotalSize:
+          type: integer
+          description: Revisions total size
+          format: int64
+          readOnly: true
+        cloudTotalSize:
+          type: integer
+          description: Revisions cloud total size
+          format: int64
+          readOnly: true
+        localTotalSize:
+          type: integer
+          description: Revisions local total size
+          format: int64
+          readOnly: true
+      description: Device Backup Usage
+    SoftwareProduct:
       type: object
       properties:
         id:
-          type: integer
-          description: Script ID
-          format: int32
-        name:
           type: string
-          description: Script Name
-        description:
+          description: Product identifier
+          format: uuid
+        vendorName:
           type: string
-          description: Script Description
+          description: Vendor Name
+        productName:
+          type: string
+          description: Product Name
+        installable:
+          type: boolean
+          description: Installable
         active:
           type: boolean
-          description: Script is Active
-        language:
-          type: string
-          description: Script Language
-        architecture:
-          uniqueItems: true
-          type: array
-          description: Applicable Architectures
-          items:
-            type: string
-            description: Applicable Architectures
-        operatingSystems:
-          uniqueItems: true
-          type: array
-          description: Applicable Operating Systems
-          items:
-            type: string
-            description: Applicable Operating Systems
-        scriptParameters:
-          type: array
-          description: Script Parameters
-          items:
-            type: string
-            description: Script Parameters
-        scriptVariables:
-          type: array
-          description: Script Variables
-          items:
-            $ref: '#/components/schemas/ScriptVariable'
-        createdBy:
-          type: string
-          description: Script Created By
-        lastUpdatedBy:
-          type: string
-          description: Script Last Updated By
-        createdOn:
-          type: number
-          description: Script date of creation
-          format: double
-        updatedOn:
-          type: number
-          description: Script last updated date
-          format: double
-    UserRole:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Role identifier
-          format: int32
-        name:
-          type: string
-          description: Role name
-        type:
-          type: string
-          description: Role type
-        description:
-          type: string
-          description: Role description
-        members:
-          type: array
-          description: Role members
-          items:
-            $ref: '#/components/schemas/RoleMember'
-    OrganizationSettings:
-      type: object
-      properties:
-        trayicon:
-          $ref: '#/components/schemas/FeatureSettings'
-        splashtop:
-          $ref: '#/components/schemas/FeatureSettings'
-        teamviewer:
-          $ref: '#/components/schemas/FeatureSettings'
-        backup:
-          $ref: '#/components/schemas/FeatureSettings'
-        psa:
-          $ref: '#/components/schemas/FeatureSettings'
-      description: Organization settings
-    AttributeContentAdvancedSettingsComplexityRules:
-      type: object
-      properties:
-        mustContainOneInteger:
-          type: boolean
-        mustContainOneLowercaseLetter:
-          type: boolean
-        mustContainOneUppercaseLetter:
-          type: boolean
-        greaterOrEqualThanSixCharacters:
-          type: boolean
-    AttributeContentAdvancedSettingsNumericRange:
-      type: object
-      properties:
-        min:
-          type: number
-        max:
-          type: number
+          description: Active
     Activity:
       type: object
       properties:
@@ -3200,18 +2563,196 @@ components:
           type: object
           additionalProperties: true
           description: Activity data
-    Location:
+    AttributeContent:
       type: object
       properties:
+        customizeForEndUser:
+          type: boolean
+        endUserCustomization:
+          $ref: '#/components/schemas/EndUserCustomization'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeContentValue'
+        required:
+          type: boolean
+        footerText:
+          type: string
+        tooltipText:
+          type: string
+        advancedSettings:
+          $ref: '#/components/schemas/AttributeContentAdvancedSettings'
+    FeatureSettings:
+      type: object
+      properties:
+        product:
+          type: string
+          description: Configured product code
+        enabled:
+          type: boolean
+          description: Is enabled
+        targets:
+          type: array
+          description: Feature deployment targets
+          items:
+            type: string
+            description: Feature deployment targets
+        options:
+          type: object
+          additionalProperties:
+            type: object
+            description: Feature options
+          description: Feature options
+      description: Feature/product/integration configuration settings
+    AttributeContentValue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
         name:
           type: string
-          description: Location name
-        address:
+        active:
+          type: boolean
+        system:
+          type: boolean
+    NotificationChannel:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Notification Channel ID
+          format: int32
+        name:
           type: string
-          description: Address
+          description: Notification Channel Name
         description:
           type: string
-          description: Description
+          description: Notification Channel Description
+        enabled:
+          type: boolean
+          description: Notification Channel Enabled
+        type:
+          type: string
+          description: Notification Channel Type
+          enum:
+          - EMAIL
+          - META_CHANNEL
+          - PAGER_DUTY
+          - SLACK
+          - SMS
+          - MICROSOFT_TEAMS
+          - WEBHOOK
+          - OTHER
+    Device:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Node (Device) identifier
+          format: int32
+        uid:
+          type: string
+          description: Node (Device) UUID
+          format: uuid
+        assignedOwnerUid:
+          type: string
+          description: Node (Device) Owner UUID
+          format: uuid
+        parentDeviceId:
+          type: integer
+          description: Parent Node identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        nodeRoleId:
+          type: integer
+          description: Node Role identifier
+          format: int32
+        rolePolicyId:
+          type: integer
+          description: Node Role policy ID based on organization and location Policy Mapping
+          format: int32
+        policyId:
+          type: integer
+          description: Assigned policy ID (overrides organization and location policy mapping)
+          format: int32
+        approvalStatus:
+          type: string
+          description: Approval Status
+          enum:
+          - PENDING
+          - APPROVED
+        offline:
+          type: boolean
+          description: Is Offline?
+        displayName:
+          type: string
+          description: Display Name
+        systemName:
+          type: string
+          description: System Name
+        dnsName:
+          type: string
+          description: DNS Name
+        netbiosName:
+          type: string
+          description: NETBIOS Name
+        created:
+          type: number
+          description: Created
+          format: double
+        lastContact:
+          type: number
+          description: Last Contact
+          format: double
+        lastUpdate:
+          type: number
+          description: Last data submission timestamp
+          format: double
         userData:
           type: object
           additionalProperties: true
@@ -3228,50 +2769,393 @@ components:
             type: object
             description: Custom Fields
           description: Custom Fields
-        id:
-          type: integer
-          description: Location identifier
-          format: int32
-      description: Location
-    DeviceSearchResults:
-      type: object
-      properties:
-        query:
-          type: string
-          description: Search query
-        devices:
+        maintenance:
+          $ref: '#/components/schemas/Maintenance'
+        references:
+          $ref: '#/components/schemas/NodeReferences'
+        ipAddresses:
           type: array
-          description: Devices matching search query
+          description: Device IP addresses
           items:
-            $ref: '#/components/schemas/DeviceSearchMatch'
-    Contact:
+            type: string
+            description: Device IP addresses
+        macAddresses:
+          type: array
+          description: Device MAC addresses
+          items:
+            type: string
+            description: Device MAC addresses
+        publicIP:
+          type: string
+          description: Device Public IP Address
+        notes:
+          type: array
+          description: Device Notes
+          items:
+            $ref: '#/components/schemas/Note'
+        deviceType:
+          type: string
+      discriminator:
+        propertyName: deviceType
+    Policy:
       type: object
       properties:
         id:
           type: integer
+          description: Policy identifier
+          format: int32
+        parentPolicyId:
+          type: integer
+          description: Parent Policy identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        updated:
+          type: number
+          description: Last update timestamp
+          format: double
+        nodeClassDefault:
+          type: boolean
+          description: Is Default Policy for Node Class
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+      description: Assigned policy (overrides organization and location policy mapping)
+    UserRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Role identifier
+          format: int32
+        name:
+          type: string
+          description: Role name
+        type:
+          type: string
+          description: Role type
+        description:
+          type: string
+          description: Role description
+        members:
+          type: array
+          description: Role members
+          items:
+            $ref: '#/components/schemas/RoleMember'
+    Maintenance:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Maintenance mode status
+          enum:
+          - PENDING
+          - IN_MAINTENANCE
+          - FAILED
+        start:
+          type: number
+          description: Maintenance mode start time
+          format: double
+        end:
+          type: number
+          description: Maintenance mode end time
+          format: double
+      description: Maintenance mode status
+    Note:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Note text
+      description: Device Notes
+    DeviceSearchMatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Node (Device) identifier
+          format: int32
+        uid:
+          type: string
+          description: Node (Device) UUID
+          format: uuid
+        assignedOwnerUid:
+          type: string
+          description: Node (Device) Owner UUID
+          format: uuid
+        parentDeviceId:
+          type: integer
+          description: Parent Node identifier
           format: int32
         organizationId:
           type: integer
+          description: Organization identifier
           format: int32
-        uid:
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        nodeClass:
           type: string
-          format: uuid
-        firstName:
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        nodeRoleId:
+          type: integer
+          description: Node Role identifier
+          format: int32
+        rolePolicyId:
+          type: integer
+          description: Node Role policy ID based on organization and location Policy Mapping
+          format: int32
+        policyId:
+          type: integer
+          description: Assigned policy ID (overrides organization and location policy mapping)
+          format: int32
+        approvalStatus:
           type: string
-        lastName:
+          description: Approval Status
+          enum:
+          - PENDING
+          - APPROVED
+        offline:
+          type: boolean
+          description: Is Offline?
+        displayName:
           type: string
-        email:
+          description: Display Name
+        systemName:
           type: string
-        phone:
+          description: System Name
+        dnsName:
           type: string
-        jobTitle:
+          description: DNS Name
+        netbiosName:
           type: string
-    Job:
+          description: NETBIOS Name
+        created:
+          type: number
+          description: Created
+          format: double
+        lastContact:
+          type: number
+          description: Last Contact
+          format: double
+        lastUpdate:
+          type: number
+          description: Last data submission timestamp
+          format: double
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        maintenance:
+          $ref: '#/components/schemas/Maintenance'
+        references:
+          $ref: '#/components/schemas/NodeReferences'
+        score:
+          type: integer
+          description: Match score
+          format: int32
+        matchAttr:
+          type: string
+          description: Name of the attribute that matched the query
+        matchAttrValue:
+          type: string
+          description: Value of that attribute that matched
+      description: Devices matching search query
+    NodeRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Device Role identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        custom:
+          type: boolean
+          description: Is custom node role?
+        chassisType:
+          type: string
+          description: Chassis Type
+          enum:
+          - UNKNOWN
+          - DESKTOP
+          - LAPTOP
+          - MOBILE
+        created:
+          type: number
+          description: Date created
+          format: double
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        nodeRoleParentId:
+          type: integer
+          description: Node Role Parent Id
+          format: int32
+        icon:
+          type: string
+          description: Icon
+      description: Device Role
+    AttributeContentAdvancedSettingsNumericRange:
+      type: object
+      properties:
+        min:
+          type: number
+        max:
+          type: number
+    Alert:
       type: object
       properties:
         uid:
           type: string
-          description: Task/Job UID (activity series UID)
+          description: Alert UID (activity series UID)
           format: uuid
         deviceId:
           type: integer
@@ -3279,18 +3163,18 @@ components:
           format: int32
         message:
           type: string
-          description: Job message
+          description: Alert message
         createTime:
           type: number
-          description: Job start timestamp
+          description: Alert creation timestamp
           format: double
         updateTime:
           type: number
-          description: Job last updated
+          description: Alert last updated
           format: double
         sourceType:
           type: string
-          description: Job origin
+          description: Alert origin
           enum:
           - AGENT_OFFLINE
           - CONDITION_AGENT_CPU
@@ -3391,7 +3275,7 @@ components:
           description: Source configuration/policy element name
         subject:
           type: string
-          description: Job subject
+          description: Alert subject
         userId:
           type: integer
           description: User identifier
@@ -3406,105 +3290,147 @@ components:
         data:
           type: object
           additionalProperties: true
-          description: Job data
+          description: Alert data
         device:
           $ref: '#/components/schemas/NodeWithDetailedReferences'
-        jobStatus:
-          type: string
-          description: Job Status
-          enum:
-          - START_REQUESTED
-          - STARTED
-          - IN_PROCESS
-          - COMPLETED
-          - CANCEL_REQUESTED
-          - CANCELLED
-          - WAITING_FOR_USER_RESPONSE
-          - TRIGGERED
-          - RESET
-          - ACKNOWLEDGED
-          - DISABLED
-        jobResult:
-          type: string
-          description: Job result
-          enum:
-          - SUCCESS
-          - FAILURE
-          - UNSUPPORTED
-          - UNCOMPLETED
-        jobType:
-          type: string
-          description: Job Type
-          enum:
-          - ACTIONSET
-          - ACTION
-          - CONDITION
-          - CONDITION_ACTIONSET
-          - CONDITION_ACTION
-          - ANTIVIRUS
-          - PATCH_MANAGEMENT
-          - TEAMVIEWER
-          - MONITOR
-          - SYSTEM
-          - COMMENT
-          - SHADOWPROTECT
-          - IMAGEMANAGER
-          - HELP_REQUEST
-          - SOFTWARE_PATCH_MANAGEMENT
-          - SPLASHTOP
-          - CLOUDBERRY
-          - CLOUDBERRY_BACKUP
-          - SCHEDULED_TASK
-          - RDP
-          - SCRIPTING
-          - SECURITY
-          - REMOTE_TOOLS
-          - VIRTUALIZATION
-          - PSA
-          - MDM
-          - NINJA_REMOTE
-          - NINJA_QUICK_CONNECT
-          - NINJA_NETWORK_DISCOVERY
-          - NINJA_BACKUP
-          - NINJA_TICKETING
-          - KNOWLEDGE_BASE
-          - RELATED_ITEM
-          - CLIENT_CHECKLIST
-          - CHECKLIST_TEMPLATE
-          - DOCUMENTATION
-          - MICROSOFT_INTUNE
-    Group:
+    AttributePublicApiDTO:
       type: object
       properties:
-        id:
-          type: integer
-          description: Group identifier
-          format: int32
-        name:
+        entityType:
           type: string
-          description: Group Name
+          description: Entity Type
+          enum:
+          - USER
+          - NODE
+          - TICKET
+          - DOCUMENT
+        scope:
+          type: string
+          description: Scope
+          enum:
+          - NODE_GLOBAL
+          - NODE_ROLE
+          - NODE_CLASS
+        definitionScope:
+          uniqueItems: true
+          type: array
+          description: Definition Scope
+          items:
+            type: string
+            description: Definition Scope
+            enum:
+            - NODE
+            - END_USER
+            - LOCATION
+            - ORGANIZATION
+        type:
+          type: string
+          description: Type
+          enum:
+          - DROPDOWN
+          - MULTI_SELECT
+          - CHECKBOX
+          - TEXT
+          - TEXT_MULTILINE
+          - TEXT_ENCRYPTED
+          - NUMERIC
+          - DECIMAL
+          - DATE
+          - DATE_TIME
+          - TIME
+          - ATTACHMENT
+          - NODE_DROPDOWN
+          - NODE_MULTI_SELECT
+          - CLIENT_DROPDOWN
+          - CLIENT_MULTI_SELECT
+          - CLIENT_LOCATION_DROPDOWN
+          - CLIENT_LOCATION_MULTI_SELECT
+          - CLIENT_DOCUMENT_DROPDOWN
+          - CLIENT_DOCUMENT_MULTI_SELECT
+          - EMAIL
+          - PHONE
+          - IP_ADDRESS
+          - WYSIWYG
+          - URL
+        label:
+          type: string
+          description: Label
         description:
           type: string
-          description: Group description
-        shared:
+          description: Description
+        name:
+          type: string
+          description: Name
+        defaultValue:
+          type: string
+          description: Default Value
+        endUserPermission:
+          type: string
+          description: End User Permission
+          enum:
+          - HIDDEN
+          - EDITABLE_OPTIONAL
+          - EDITABLE_REQUIRED
+          - READ_ONLY
+        technicianPermission:
+          type: string
+          description: Technician Permission
+          enum:
+          - NONE
+          - EDITABLE
+          - READ_ONLY
+        scriptPermission:
+          type: string
+          description: Script Permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        apiPermission:
+          type: string
+          description: Public API Permission
+          enum:
+          - NONE
+          - READ_ONLY
+          - WRITE_ONLY
+          - READ_WRITE
+        content:
+          $ref: '#/components/schemas/AttributeContent'
+        system:
           type: boolean
-          description: Group is shared with all users?
-        created:
+          description: System
+        active:
+          type: boolean
+          description: Active
+        createTime:
           type: number
-          description: Timestamp of group creation
+          description: Create Time
           format: double
-        updated:
+        updateTime:
           type: number
-          description: Timestamp last update
+          description: Update Time
           format: double
-        deviceCount:
-          type: integer
-          description: Estimated/Last known device count.  Can be `null` if group membership has not been evaluated recently
-          format: int32
-        lastEvaluated:
-          type: number
-          description: Last evaluation time of group membership for nodes (search)
-          format: double
+    OrganizationDetailed:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Organization full name
+        description:
+          type: string
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
         tags:
           type: array
           description: Tags
@@ -3517,6 +3443,80 @@ components:
             type: object
             description: Custom Fields
           description: Custom Fields
+        id:
+          type: integer
+          description: Organization identifier
+          format: int32
+        locations:
+          type: array
+          description: List of locations
+          items:
+            $ref: '#/components/schemas/Location'
+        policies:
+          type: array
+          description: Node role policy assignments
+          items:
+            $ref: '#/components/schemas/NodeRolePolicyAssignment'
+        settings:
+          $ref: '#/components/schemas/OrganizationSettings'
+    AutomationScript:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Script ID
+          format: int32
+        name:
+          type: string
+          description: Script Name
+        description:
+          type: string
+          description: Script Description
+        active:
+          type: boolean
+          description: Script is Active
+        language:
+          type: string
+          description: Script Language
+        architecture:
+          uniqueItems: true
+          type: array
+          description: Applicable Architectures
+          items:
+            type: string
+            description: Applicable Architectures
+        operatingSystems:
+          uniqueItems: true
+          type: array
+          description: Applicable Operating Systems
+          items:
+            type: string
+            description: Applicable Operating Systems
+        scriptParameters:
+          type: array
+          description: Script Parameters
+          items:
+            type: string
+            description: Script Parameters
+        scriptVariables:
+          type: array
+          description: Script Variables
+          items:
+            $ref: '#/components/schemas/ScriptVariable'
+        createdBy:
+          type: string
+          description: Script Created By
+        lastUpdatedBy:
+          type: string
+          description: Script Last Updated By
+        createdOn:
+          type: number
+          description: Script date of creation
+          format: double
+        updatedOn:
+          type: number
+          description: Script last updated date
+          format: double
   securitySchemes:
     oauth2:
       type: http

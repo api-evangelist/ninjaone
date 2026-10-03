@@ -323,25 +323,6 @@ paths:
                 $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
 components:
   schemas:
-    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
-      type: object
-      properties:
-        documentId:
-          type: integer
-          description: Document Identifier
-          format: int32
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
     ClientDocumentWithAttributeValuesPublicApiRequest:
       type: object
       properties:
@@ -357,39 +338,6 @@ components:
             type: object
             description: Fields
           description: Fields
-    ClientDocumentWithUpdatedAttributeValuesPublicApiDTO:
-      type: object
-      properties:
-        documentId:
-          type: integer
-          description: Document Identifier
-          format: int32
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        documentUpdateTime:
-          type: number
-          description: Document Last Updated
-          format: double
-        updatedFields:
-          type: array
-          description: Updated Fields
-          items:
-            $ref: '#/components/schemas/ClientDocumentAttributeWithValuePublicApiDTO'
-        documentTemplateId:
-          type: integer
-          description: Document Template Identifier
-          format: int32
-        documentTemplateName:
-          type: string
-          description: Document Template Name
-        organizationId:
-          type: integer
-          description: Organization Identifier
-          format: int32
     ClientDocumentWithAttributeValuesPublicApiDTO:
       type: object
       properties:
@@ -410,6 +358,53 @@ components:
         fields:
           type: array
           description: Fields
+          items:
+            $ref: '#/components/schemas/ClientDocumentAttributeWithValuePublicApiDTO'
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        documentTemplateName:
+          type: string
+          description: Document Template Name
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+    ClientDocumentAttributeWithValuePublicApiDTO:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name
+        value:
+          type: object
+          description: Value
+        valueUpdateTime:
+          type: number
+          description: Value Last Updated
+          format: double
+      description: Updated Fields
+    ClientDocumentWithUpdatedAttributeValuesPublicApiDTO:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        documentUpdateTime:
+          type: number
+          description: Document Last Updated
+          format: double
+        updatedFields:
+          type: array
+          description: Updated Fields
           items:
             $ref: '#/components/schemas/ClientDocumentAttributeWithValuePublicApiDTO'
         documentTemplateId:
@@ -446,20 +441,25 @@ components:
           type: integer
           description: Organization Identifier
           format: int32
-    ClientDocumentAttributeWithValuePublicApiDTO:
+    ClientDocumentWithAttributeValuesBulkUpdatePublicApiRequest:
       type: object
       properties:
-        name:
+        documentId:
+          type: integer
+          description: Document Identifier
+          format: int32
+        documentName:
           type: string
-          description: Name
-        value:
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
           type: object
-          description: Value
-        valueUpdateTime:
-          type: number
-          description: Value Last Updated
-          format: double
-      description: Updated Fields
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
   securitySchemes:
     oauth2:
       type: http

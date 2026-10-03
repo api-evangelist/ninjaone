@@ -175,69 +175,6 @@ paths:
                   $ref: '#/components/schemas/ChecklistTemplatePublicApiDTO'
 components:
   schemas:
-    UpdateChecklistTemplatePublicApiRequest:
-      type: object
-      properties:
-        id:
-          minimum: 1
-          type: integer
-          description: Checklist template identifier
-          format: int32
-        name:
-          type: string
-          description: Checklist template name (must be unique)
-        description:
-          $ref: '#/components/schemas/ChecklistDescription'
-        tasks:
-          type: array
-          description: Checklist's tasks
-          items:
-            $ref: '#/components/schemas/ChecklistTemplateTaskPublicApiRequest'
-        required:
-          type: boolean
-          description: Indicates if the checklist is required
-    ChecklistUserResponseDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        firstName:
-          type: string
-        lastName:
-          type: string
-        deleted:
-          type: boolean
-      description: Archive by user
-    ChecklistDescription:
-      type: object
-      properties:
-        text:
-          type: string
-        html:
-          type: string
-      description: Task description
-    RestoreChecklistTemplatesRequest:
-      type: object
-      properties:
-        checklistTemplateIds:
-          type: array
-          items:
-            type: integer
-            format: int32
-    ChecklistTemplateTaskPublicApiRequest:
-      type: object
-      properties:
-        position:
-          type: integer
-          description: Position of the task
-          format: int32
-        name:
-          type: string
-          description: Task name
-        description:
-          $ref: '#/components/schemas/ChecklistDescription'
-      description: Checklist's tasks
     CreateChecklistTemplatePublicApiRequest:
       type: object
       properties:
@@ -310,6 +247,69 @@ components:
           type: number
           description: Archive time
           format: double
+    UpdateChecklistTemplatePublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Checklist template identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist template name (must be unique)
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        tasks:
+          type: array
+          description: Checklist's tasks
+          items:
+            $ref: '#/components/schemas/ChecklistTemplateTaskPublicApiRequest'
+        required:
+          type: boolean
+          description: Indicates if the checklist is required
+    ChecklistUserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        deleted:
+          type: boolean
+      description: Archive by user
+    ChecklistDescription:
+      type: object
+      properties:
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
+    ChecklistTemplateTaskPublicApiRequest:
+      type: object
+      properties:
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+      description: Checklist's tasks
+    RestoreChecklistTemplatesRequest:
+      type: object
+      properties:
+        checklistTemplateIds:
+          type: array
+          items:
+            type: integer
+            format: int32
   securitySchemes:
     oauth2:
       type: http

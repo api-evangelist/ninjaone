@@ -295,6 +295,55 @@ paths:
                   $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
 components:
   schemas:
+    ArchiveClientChecklistRequest:
+      type: object
+      properties:
+        clientChecklistIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+    ClientChecklistTaskPublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Identifier
+          format: int32
+        position:
+          type: integer
+          description: Position of the task
+          format: int32
+        name:
+          type: string
+          description: Task name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist task
+          format: int32
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        completed:
+          type: boolean
+          description: Indicates if the checklist is completed
+      description: Checklist tasks
+    PromoteClientChecklistWithNamePublicApiRequest:
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name
     ClientChecklistPublicApiDTO:
       type: object
       properties:
@@ -358,36 +407,6 @@ components:
           type: number
           description: Archive time
           format: double
-    ClientChecklistTaskPublicApiRequest:
-      type: object
-      properties:
-        id:
-          minimum: 1
-          type: integer
-          description: Identifier
-          format: int32
-        position:
-          type: integer
-          description: Position of the task
-          format: int32
-        name:
-          type: string
-          description: Task name
-        description:
-          $ref: '#/components/schemas/ChecklistDescription'
-        assignedToUserId:
-          minimum: 1
-          type: integer
-          description: User identifier assigned to the checklist task
-          format: int32
-        dueDate:
-          type: number
-          description: Due date
-          format: double
-        completed:
-          type: boolean
-          description: Indicates if the checklist is completed
-      description: Checklist tasks
     CreateClientChecklistAndTasksPublicApiRequest:
       type: object
       properties:
@@ -436,25 +455,6 @@ components:
         deleted:
           type: boolean
       description: Archive by user
-    ChecklistDescription:
-      type: object
-      properties:
-        text:
-          type: string
-        html:
-          type: string
-      description: Task description
-    PromoteClientChecklistWithNamePublicApiRequest:
-      type: object
-      properties:
-        id:
-          minimum: 1
-          type: integer
-          description: Identifier
-          format: int32
-        name:
-          type: string
-          description: Checklist name
     UpdateClientChecklistAndTasksPublicApiRequest:
       type: object
       properties:
@@ -485,14 +485,14 @@ components:
           description: Checklist tasks
           items:
             $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
-    ArchiveClientChecklistRequest:
+    ChecklistDescription:
       type: object
       properties:
-        clientChecklistIds:
-          type: array
-          items:
-            type: integer
-            format: int32
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
     ClientChecklistTaskPublicApiDTO:
       type: object
       properties:
