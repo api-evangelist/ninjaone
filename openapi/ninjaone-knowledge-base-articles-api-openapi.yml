@@ -457,49 +457,51 @@ paths:
                 type: string
 components:
   schemas:
-    FormDataContentDisposition:
+    MovePublicApiRequest:
       type: object
       properties:
-        type:
-          type: string
-        parameters:
-          type: object
-          additionalProperties:
-            type: string
-        fileName:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        modificationDate:
-          type: string
-          format: date-time
-        readDate:
-          type: string
-          format: date-time
-        size:
+        folderIds:
+          type: array
+          description: Folders to move
+          items:
+            type: integer
+            description: Folders to move
+            format: int32
+        documentIds:
+          type: array
+          description: Documents to move
+          items:
+            type: integer
+            description: Documents to move
+            format: int32
+        destinationFolderId:
           type: integer
-          format: int64
-        name:
-          type: string
-    AttachmentMetadataPublicApiDTO:
+          description: Destination folder
+          format: int32
+        destinationOrganizationId:
+          type: integer
+          description: Destination client. Use when the root folder of the client does not exist.
+          format: int32
+    KnowledgeBaseArticleBulkCreatePublicApiRequest:
       type: object
       properties:
         name:
           type: string
-          description: name
-        mimeType:
+          description: Article name
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
+        destinationFolderId:
+          type: integer
+          description: Destination folder identifier
+          format: int32
+        destinationFolderPath:
           type: string
-          description: Mime type
-        size:
-          type: string
-          description: Size in bytes
-        extension:
-          type: string
-          description: File extension
-        contentId:
-          type: string
-          description: Content identifier
+          description: Folder path, each folder name separated by '|'
+          example: Folder 1|Folder 2|Folder 3|Folder 4
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
     KnowledgeBaseFolderItemPublicApiDTO:
       type: object
       properties:
@@ -551,94 +553,6 @@ components:
           description: Item last updated time
           format: double
       description: Folder content
-    MovePublicApiRequest:
-      type: object
-      properties:
-        folderIds:
-          type: array
-          description: Folders to move
-          items:
-            type: integer
-            description: Folders to move
-            format: int32
-        documentIds:
-          type: array
-          description: Documents to move
-          items:
-            type: integer
-            description: Documents to move
-            format: int32
-        destinationFolderId:
-          type: integer
-          description: Destination folder
-          format: int32
-        destinationOrganizationId:
-          type: integer
-          description: Destination client. Use when the root folder of the client does not exist.
-          format: int32
-    ContentDisposition:
-      type: object
-      properties:
-        type:
-          type: string
-        parameters:
-          type: object
-          additionalProperties:
-            type: string
-        fileName:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        modificationDate:
-          type: string
-          format: date-time
-        readDate:
-          type: string
-          format: date-time
-        size:
-          type: integer
-          format: int64
-    BodyPart:
-      type: object
-      properties:
-        contentDisposition:
-          $ref: '#/components/schemas/ContentDisposition'
-        entity:
-          type: object
-        headers:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-        mediaType:
-          type: object
-          properties:
-            type:
-              type: string
-            subtype:
-              type: string
-            parameters:
-              type: object
-              additionalProperties:
-                type: string
-            wildcardType:
-              type: boolean
-            wildcardSubtype:
-              type: boolean
-        messageBodyWorkers:
-          $ref: '#/components/schemas/MessageBodyWorkers'
-        parent:
-          $ref: '#/components/schemas/MultiPart'
-        providers:
-          type: object
-        parameterizedHeaders:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/ParameterizedHeader'
     KnowledgeBaseAttachmentPublicApiDTO:
       type: object
       properties:
@@ -657,52 +571,6 @@ components:
         metadata:
           $ref: '#/components/schemas/AttachmentMetadata'
       description: Lists the files associated with the article
-    KnowledgeBaseArticlePublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        parentFolderId:
-          type: integer
-          description: Parent folder identifier
-          format: int32
-        name:
-          type: string
-          description: Article name
-        isNinjaArticle:
-          type: boolean
-          description: Indicates if the article was created in ninja
-        isArchived:
-          type: boolean
-          description: Indicates if the article is archived
-        attachments:
-          type: array
-          description: Lists the files associated with the article
-          items:
-            $ref: '#/components/schemas/KnowledgeBaseAttachmentPublicApiDTO'
-        content:
-          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
-        createTime:
-          type: number
-          description: Article created time
-          format: double
-        updateTime:
-          type: number
-          description: Article last updated time
-          format: double
-        archivedTime:
-          type: number
-          description: Article archived time
-          format: double
-        path:
-          type: string
-          description: Article path
     KnowledgeBaseArticlePublicApiContent:
       type: object
       properties:
@@ -713,18 +581,6 @@ components:
           type: string
           description: Article content text
       description: Article content
-    KnowledgeBaseArticleBulkUpdatePublicApiRequest:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Article identifier
-          format: int32
-        name:
-          type: string
-          description: Article name
-        content:
-          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
     AttachmentMetadata:
       type: object
       properties:
@@ -741,55 +597,6 @@ components:
         inline:
           type: boolean
       description: Attachment metadata
-    ParameterizedHeader:
-      type: object
-      properties:
-        value:
-          type: string
-        parameters:
-          type: object
-          additionalProperties:
-            type: string
-    MessageBodyWorkers:
-      type: object
-    KnowledgeBaseFolderPublicApiDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Identifier
-          format: int32
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        parentFolderId:
-          type: integer
-          description: Parent folder identifier
-          format: int32
-        name:
-          type: string
-          description: Article name
-        isArchived:
-          type: boolean
-          description: Indicates if the article is archived
-        createTime:
-          type: number
-          description: Folder created time
-          format: double
-        updateTime:
-          type: number
-          description: Folder last updated time
-          format: double
-        archivedTime:
-          type: number
-          description: Folder archived time
-          format: double
-        content:
-          type: array
-          description: Folder content
-          items:
-            $ref: '#/components/schemas/KnowledgeBaseFolderItemPublicApiDTO'
     FormDataBodyPart:
       type: object
       properties:
@@ -838,6 +645,66 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/ParameterizedHeader'
+    FormDataContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+        name:
+          type: string
+    ContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+    KnowledgeBaseArticleBulkUpdatePublicApiRequest:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Article identifier
+          format: int32
+        name:
+          type: string
+          description: Article name
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
     MultiPart:
       type: object
       properties:
@@ -882,26 +749,159 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/ParameterizedHeader'
-    KnowledgeBaseArticleBulkCreatePublicApiRequest:
+    BodyPart:
+      type: object
+      properties:
+        contentDisposition:
+          $ref: '#/components/schemas/ContentDisposition'
+        entity:
+          type: object
+        headers:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mediaType:
+          type: object
+          properties:
+            type:
+              type: string
+            subtype:
+              type: string
+            parameters:
+              type: object
+              additionalProperties:
+                type: string
+            wildcardType:
+              type: boolean
+            wildcardSubtype:
+              type: boolean
+        messageBodyWorkers:
+          $ref: '#/components/schemas/MessageBodyWorkers'
+        parent:
+          $ref: '#/components/schemas/MultiPart'
+        providers:
+          type: object
+        parameterizedHeaders:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ParameterizedHeader'
+    MessageBodyWorkers:
+      type: object
+    ParameterizedHeader:
+      type: object
+      properties:
+        value:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+    KnowledgeBaseArticlePublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        parentFolderId:
+          type: integer
+          description: Parent folder identifier
+          format: int32
+        name:
+          type: string
+          description: Article name
+        isNinjaArticle:
+          type: boolean
+          description: Indicates if the article was created in ninja
+        isArchived:
+          type: boolean
+          description: Indicates if the article is archived
+        attachments:
+          type: array
+          description: Lists the files associated with the article
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseAttachmentPublicApiDTO'
+        content:
+          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
+        createTime:
+          type: number
+          description: Article created time
+          format: double
+        updateTime:
+          type: number
+          description: Article last updated time
+          format: double
+        archivedTime:
+          type: number
+          description: Article archived time
+          format: double
+        path:
+          type: string
+          description: Article path
+    AttachmentMetadataPublicApiDTO:
       type: object
       properties:
         name:
           type: string
-          description: Article name
+          description: name
+        mimeType:
+          type: string
+          description: Mime type
+        size:
+          type: string
+          description: Size in bytes
+        extension:
+          type: string
+          description: File extension
+        contentId:
+          type: string
+          description: Content identifier
+    KnowledgeBaseFolderPublicApiDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identifier
+          format: int32
         organizationId:
           type: integer
-          description: Organization Identifier
+          description: Organization identifier
           format: int32
-        destinationFolderId:
+        parentFolderId:
           type: integer
-          description: Destination folder identifier
+          description: Parent folder identifier
           format: int32
-        destinationFolderPath:
+        name:
           type: string
-          description: Folder path, each folder name separated by '|'
-          example: Folder 1|Folder 2|Folder 3|Folder 4
+          description: Article name
+        isArchived:
+          type: boolean
+          description: Indicates if the article is archived
+        createTime:
+          type: number
+          description: Folder created time
+          format: double
+        updateTime:
+          type: number
+          description: Folder last updated time
+          format: double
+        archivedTime:
+          type: number
+          description: Folder archived time
+          format: double
         content:
-          $ref: '#/components/schemas/KnowledgeBaseArticlePublicApiContent'
+          type: array
+          description: Folder content
+          items:
+            $ref: '#/components/schemas/KnowledgeBaseFolderItemPublicApiDTO'
   securitySchemes:
     oauth2:
       type: http

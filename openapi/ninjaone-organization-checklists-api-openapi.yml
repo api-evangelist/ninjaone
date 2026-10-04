@@ -295,19 +295,94 @@ paths:
                   $ref: '#/components/schemas/ClientChecklistPublicApiDTO'
 components:
   schemas:
-    ArchiveClientChecklistRequest:
+    UpdateClientChecklistAndTasksPublicApiRequest:
       type: object
       properties:
-        clientChecklistIds:
+        checklistId:
+          minimum: 1
+          type: integer
+          description: Checklist identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist
+          format: int32
+        tasks:
           type: array
+          description: Checklist tasks
           items:
-            type: integer
-            format: int32
-    ClientChecklistTaskPublicApiRequest:
+            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
+    CreateClientChecklistAndTasksPublicApiRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Checklist name
+        description:
+          $ref: '#/components/schemas/ChecklistDescription'
+        required:
+          type: boolean
+          description: Indicates if the checklist completion is required
+        dueDate:
+          type: number
+          description: Due date
+          format: double
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist
+          format: int32
+        organizationId:
+          minimum: 1
+          type: integer
+          description: Organization identifier
+          format: int32
+        checklistTemplateId:
+          minimum: 1
+          type: integer
+          description: Checklist template identifier
+          format: int32
+        tasks:
+          type: array
+          description: Checklist tasks
+          items:
+            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
+    ChecklistDescription:
+      type: object
+      properties:
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
+    PromoteClientChecklistWithNamePublicApiRequest:
       type: object
       properties:
         id:
           minimum: 1
+          type: integer
+          description: Identifier
+          format: int32
+        name:
+          type: string
+          description: Checklist name
+    ClientChecklistTaskPublicApiDTO:
+      type: object
+      properties:
+        id:
           type: integer
           description: Identifier
           format: int32
@@ -320,11 +395,8 @@ components:
           description: Task name
         description:
           $ref: '#/components/schemas/ChecklistDescription'
-        assignedToUserId:
-          minimum: 1
-          type: integer
-          description: User identifier assigned to the checklist task
-          format: int32
+        assignedTo:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
         dueDate:
           type: number
           description: Due date
@@ -332,18 +404,26 @@ components:
         completed:
           type: boolean
           description: Indicates if the checklist is completed
-      description: Checklist tasks
-    PromoteClientChecklistWithNamePublicApiRequest:
+        completedOn:
+          type: number
+          description: Date of completion
+          format: double
+        completedBy:
+          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+      description: Checklist's tasks
+    ChecklistUserResponseDTO:
       type: object
       properties:
         id:
-          minimum: 1
           type: integer
-          description: Identifier
           format: int32
-        name:
+        firstName:
           type: string
-          description: Checklist name
+        lastName:
+          type: string
+        deleted:
+          type: boolean
+      description: Archive by user
     ClientChecklistPublicApiDTO:
       type: object
       properties:
@@ -407,96 +487,11 @@ components:
           type: number
           description: Archive time
           format: double
-    CreateClientChecklistAndTasksPublicApiRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Checklist name
-        description:
-          $ref: '#/components/schemas/ChecklistDescription'
-        required:
-          type: boolean
-          description: Indicates if the checklist completion is required
-        dueDate:
-          type: number
-          description: Due date
-          format: double
-        assignedToUserId:
-          minimum: 1
-          type: integer
-          description: User identifier assigned to the checklist
-          format: int32
-        organizationId:
-          minimum: 1
-          type: integer
-          description: Organization identifier
-          format: int32
-        checklistTemplateId:
-          minimum: 1
-          type: integer
-          description: Checklist template identifier
-          format: int32
-        tasks:
-          type: array
-          description: Checklist tasks
-          items:
-            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
-    ChecklistUserResponseDTO:
+    ClientChecklistTaskPublicApiRequest:
       type: object
       properties:
         id:
-          type: integer
-          format: int32
-        firstName:
-          type: string
-        lastName:
-          type: string
-        deleted:
-          type: boolean
-      description: Archive by user
-    UpdateClientChecklistAndTasksPublicApiRequest:
-      type: object
-      properties:
-        checklistId:
           minimum: 1
-          type: integer
-          description: Checklist identifier
-          format: int32
-        name:
-          type: string
-          description: Checklist name
-        description:
-          $ref: '#/components/schemas/ChecklistDescription'
-        required:
-          type: boolean
-          description: Indicates if the checklist completion is required
-        dueDate:
-          type: number
-          description: Due date
-          format: double
-        assignedToUserId:
-          minimum: 1
-          type: integer
-          description: User identifier assigned to the checklist
-          format: int32
-        tasks:
-          type: array
-          description: Checklist tasks
-          items:
-            $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
-    ChecklistDescription:
-      type: object
-      properties:
-        text:
-          type: string
-        html:
-          type: string
-      description: Task description
-    ClientChecklistTaskPublicApiDTO:
-      type: object
-      properties:
-        id:
           type: integer
           description: Identifier
           format: int32
@@ -509,8 +504,11 @@ components:
           description: Task name
         description:
           $ref: '#/components/schemas/ChecklistDescription'
-        assignedTo:
-          $ref: '#/components/schemas/ChecklistUserResponseDTO'
+        assignedToUserId:
+          minimum: 1
+          type: integer
+          description: User identifier assigned to the checklist task
+          format: int32
         dueDate:
           type: number
           description: Due date
@@ -518,13 +516,15 @@ components:
         completed:
           type: boolean
           description: Indicates if the checklist is completed
-        completedOn:
-          type: number
-          description: Date of completion
-          format: double
-        completedBy:
-          $ref: '#/components/schemas/ChecklistUserResponseDTO'
-      description: Checklist's tasks
+      description: Checklist tasks
+    ArchiveClientChecklistRequest:
+      type: object
+      properties:
+        clientChecklistIds:
+          type: array
+          items:
+            type: integer
+            format: int32
   securitySchemes:
     oauth2:
       type: http

@@ -1256,106 +1256,37 @@ paths:
           description: Role or members not found
 components:
   schemas:
-    RoleMember:
+    GenerateInstallerRequestDto:
       type: object
       properties:
-        id:
-          type: integer
-          description: User identifier
-          format: int32
-        email:
-          type: string
-          description: User email
-        name:
-          type: string
-          description: User full name
-        source:
-          type: string
-          description: Source of role assignment
-      description: Role members
-    RebootRequest:
-      type: object
-      properties:
-        reason:
-          type: string
-          description: Stated reboot reason
-    OrganizationSettings:
-      type: object
-      properties:
-        trayicon:
-          $ref: '#/components/schemas/FeatureSettings'
-        splashtop:
-          $ref: '#/components/schemas/FeatureSettings'
-        teamviewer:
-          $ref: '#/components/schemas/FeatureSettings'
-        backup:
-          $ref: '#/components/schemas/FeatureSettings'
-        psa:
-          $ref: '#/components/schemas/FeatureSettings'
-      description: Organization settings
-    ContactPatchRequest:
-      type: object
-      properties:
-        firstName:
-          maxLength: 150
-          type: string
-          description: First name should be between 0 and 150 characters
-        lastName:
-          maxLength: 150
-          type: string
-          description: Last name should be between 0 and 150 characters
-        email:
-          type: string
-          description: Email address
-        jobTitle:
-          maxLength: 150
-          type: string
-          description: Job title should be between 0 and 150 characters
         organizationId:
           type: integer
           description: Organization identifier
           format: int32
-        phone:
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        installerType:
           type: string
-          description: Phone number
-      description: Patch contact request payload
-    UpdateTechnicianRequest:
-      type: object
-      properties:
-        firstName:
-          type: string
-          description: First name
-        lastName:
-          type: string
-          description: Last name
-      description: Update technician request payload
-    WindowsServiceConfiguration:
-      type: object
-      properties:
-        startType:
-          type: string
-          description: Start Type
+          description: Agent installer type
           enum:
-          - AUTO_START
-          - AUTO_START_DELAYED
-          - BOOT_START
-          - DEMAND_START
-          - DISABLED
-          - SYSTEM_START
-        userName:
-          type: string
-          description: Username
-    WindowsServiceControlRequest:
-      type: object
-      properties:
-        action:
-          type: string
-          description: Action
-          enum:
-          - START
-          - PAUSE
-          - STOP
-          - RESTART
+          - WINDOWS_MSI
+          - MAC_DMG
+          - MAC_PKG
+          - LINUX_DEB
+          - LINUX_RPM
+          - LINUX_ARM64_DEB
+          - LINUX_ARMV7A_DEB
+          - LINUX_ARM64_RPM
+          - LINUX_ARMV7A_RPM
+        usageLimit:
+          type: integer
+          description: Usage limit
+          format: int32
+          readOnly: true
+        content:
+          $ref: '#/components/schemas/InstallerContent'
     Technician:
       type: object
       properties:
@@ -1426,216 +1357,153 @@ components:
           items:
             type: string
             description: A list of role names assigned to the technician. This is provided when the 'includeRoles' query parameter is set to 'true'
-    ScriptCategory:
+    EndUserPatchRequest:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        name:
+        firstName:
+          maxLength: 150
+          minLength: 1
           type: string
-        internal:
-          type: boolean
-    Link:
-      type: object
-      properties:
-        url:
+          description: First name should be between 1 and 150 characters
+        lastName:
+          maxLength: 150
+          minLength: 1
           type: string
-          description: URL
-    PolicyConditionScriptVariable:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Policy condition script variable Id
-        value:
-          maxLength: 65535
-          minLength: 0
-          type: string
-          description: Policy condition script variable value
-      description: Policy condition script variable
-    CustomFieldPolicyConditionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Policy condition id
-        conditionName:
-          type: string
-          description: Policy condition name
-        displayName:
-          type: string
-          description: Policy condition display name
-        enabled:
-          type: boolean
-          description: Policy condition enabled
-        severity:
-          type: string
-          description: Policy condition severity
-          enum:
-          - NONE
-          - MINOR
-          - MODERATE
-          - MAJOR
-          - CRITICAL
-        priority:
-          type: string
-          description: Policy condition priority
-          enum:
-          - NONE
-          - LOW
-          - MEDIUM
-          - HIGH
-        channels:
-          uniqueItems: true
-          type: array
-          description: Policy condition notification channels
-          items:
-            type: integer
-            description: Policy condition notification channels
-            format: int32
-        scripts:
-          type: array
-          description: Policy condition scripts
-          items:
-            $ref: '#/components/schemas/PolicyConditionScript'
-        notificationAction:
-          type: string
-          description: Policy condition notification action
-          enum:
-          - NONE
-          - SEND
-        notifyOnReset:
-          type: boolean
-          description: Policy condition notify on reset
-        resetThreshold:
-          type: integer
-          description: Policy condition reset threshold (seconds)
-          format: int32
-        inheritance:
-          $ref: '#/components/schemas/PolicyConditionInheritanceStatus'
-        matchAll:
-          type: array
-          description: Custom field value must meet all conditions
-          items:
-            $ref: '#/components/schemas/PolicyConditionCustomField'
-        matchAny:
-          type: array
-          description: Custom field value must meet any conditions
-          items:
-            $ref: '#/components/schemas/PolicyConditionCustomField'
-      description: Custom fields policy condition response payload
-    WarrantyDates:
-      type: object
-      properties:
-        startDate:
-          type: number
-          description: Warranty Start Date (Seconds)
-          format: double
-        endDate:
-          type: number
-          description: Warranty End Date (Seconds)
-          format: double
-        manufacturerFulfillmentDate:
-          type: number
-          description: Manufacturer Fulfillment Date
-          format: double
-      description: Warranty Info
-    DeviceMutableProperties:
-      type: object
-      properties:
-        displayName:
-          type: string
-          description: Display name (User assigned)
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeRoleId:
-          type: integer
-          description: Node Role identifier
-          format: int32
-        policyId:
-          type: integer
-          description: Assigned policy ID (overrides organization policy mapping, or reverts to organization policy if Null)
-          format: int32
+          description: Last name should be between 1 and 150 characters
         organizationId:
           type: integer
           description: Organization identifier
           format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        warranty:
-          $ref: '#/components/schemas/WarrantyDates'
-    DeviceScriptingOptions:
+        fullPortalAccess:
+          type: boolean
+          description: Gives end user full portal access
+      description: Patch end user request payload
+    OrganizationModel:
       type: object
       properties:
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScriptCategory'
-        scripts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Script'
-        credentials:
-          $ref: '#/components/schemas/DeviceCredentialOptions'
-    PolicyConditionCustomField:
-      required:
-      - fieldName
-      - operator
-      - value
-      type: object
-      properties:
-        fieldName:
-          maxLength: 250
-          minLength: 0
+        name:
           type: string
-          description: Custom field name
-        operator:
+          description: Organization full name
+        description:
           type: string
-          description: Custom field operator
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
           enum:
-          - EQUALS
-          - NOT_EQUALS
-          - LESS_THAN
-          - LESS_OR_EQUAL_THAN
-          - GREATER_THAN
-          - GREATER_OR_EQUAL_THAN
-          - IS_NOT_NULL
-          - CONTAINS
-          - CONTAINS_NONE
-          - CONTAINS_ANY
-        value:
-          maxLength: 65535
-          minLength: 0
-          type: string
-          description: Custom field value
-      description: Policy condition custom field
-    MaintenanceSettings:
-      type: object
-      properties:
-        disabledFeatures:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
+        tags:
           type: array
-          description: List of features that will be disabled during maintenance
+          description: Tags
           items:
             type: string
-            description: List of features that will be disabled during maintenance
-            enum:
-            - ALERTS
-            - PATCHING
-            - AVSCANS
-            - TASKS
-        start:
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+    CreateTechnicianRequest:
+      type: object
+      properties:
+        firstName:
+          maxLength: 150
+          minLength: 1
+          type: string
+          description: First name should be between 1 and 150 characters
+        lastName:
+          maxLength: 150
+          minLength: 1
+          type: string
+          description: Last name should be between 1 and 150 characters
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+      description: Create technician request payload
+    Policy:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Policy identifier
+          format: int32
+        parentPolicyId:
+          type: integer
+          description: Parent Policy identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        updated:
           type: number
-          description: Maintenance window start (optional, defaults to now)
+          description: Last update timestamp
           format: double
-        end:
-          type: number
-          description: Maintenance window end
-          format: double
+        nodeClassDefault:
+          type: boolean
+          description: Is Default Policy for Node Class
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+      description: Assigned policy (overrides organization and location policy mapping)
     WindowsEventPolicyConditionText:
       type: object
       properties:
@@ -1663,6 +1531,195 @@ components:
           - ALL
           - ANY
       description: Windows event policy condition text
+    ContactPatchRequest:
+      type: object
+      properties:
+        firstName:
+          maxLength: 150
+          type: string
+          description: First name should be between 0 and 150 characters
+        lastName:
+          maxLength: 150
+          type: string
+          description: Last name should be between 0 and 150 characters
+        email:
+          type: string
+          description: Email address
+        jobTitle:
+          maxLength: 150
+          type: string
+          description: Job title should be between 0 and 150 characters
+        organizationId:
+          type: integer
+          description: Organization identifier
+          format: int32
+        phone:
+          type: string
+          description: Phone number
+      description: Patch contact request payload
+    OrganizationDetailed:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Organization full name
+        description:
+          type: string
+          description: Organization Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Organization identifier
+          format: int32
+        locations:
+          type: array
+          description: List of locations
+          items:
+            $ref: '#/components/schemas/Location'
+        policies:
+          type: array
+          description: Node role policy assignments
+          items:
+            $ref: '#/components/schemas/NodeRolePolicyAssignment'
+        settings:
+          $ref: '#/components/schemas/OrganizationSettings'
+    PolicyConditionScript:
+      type: object
+      properties:
+        scriptId:
+          type: integer
+          description: Policy condition script id
+          format: int32
+        runAs:
+          type: string
+          description: Policy condition script runAs
+          default: SYSTEM
+          enum:
+          - SYSTEM
+          - LOGGED_ON_USER
+          - LOCAL_ADMIN
+          - DOMAIN_ADMIN
+          - PREFERRED_CREDENTIAL_MAC
+          - PREFERRED_CREDENTIAL_LINUX
+        scriptParam:
+          type: string
+          description: Policy condition script parameter
+        scriptVariables:
+          maxItems: 20
+          minItems: 0
+          type: array
+          description: Policy condition script variables
+          items:
+            $ref: '#/components/schemas/PolicyConditionScriptVariable'
+      description: Policy condition script
+    PolicyConditionScriptVariable:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Policy condition script variable Id
+        value:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: Policy condition script variable value
+      description: Policy condition script variable
+    Location:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+        id:
+          type: integer
+          description: Location identifier
+          format: int32
+      description: Location
+    NodeRolePolicyAssignment:
+      type: object
+      properties:
+        nodeRoleId:
+          type: integer
+          description: Node Role Identifier
+          format: int32
+        policyId:
+          type: integer
+          description: Policy Identifier
+          format: int32
+      description: Node role policy assignments
+    CredentialReference:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - SNMPV12C
+          - SNMPV3
+          - TELNET_SSH
+          - NETWORK_LOCATION
+          - ENCRYPTION_KEY
+          - BASIC
+          - SNMPV1
+          - SNMPV2
+    UpdateTechnicianRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name
+        lastName:
+          type: string
+          description: Last name
+      description: Update technician request payload
     InstallerContent:
       type: object
       properties:
@@ -1671,6 +1728,68 @@ components:
           description: Identifier for the nodeRole target of this installer. Acceptable values include integers, 'auto', or an empty string. If the value is omitted, or an empty string, it defaults to 'auto'.
           default: auto
       description: content
+    ScriptCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        internal:
+          type: boolean
+    WindowsEventPolicyConditionOccurrence:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          description: Occurrence enabled
+          default: false
+        threshold:
+          type: integer
+          description: Occurrence threshold
+          format: int32
+          default: 2
+        duration:
+          type: integer
+          description: Occurrence duration
+          format: int32
+          default: 5
+      description: Windows event policy condition occurrence
+    LocationModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Location name
+        address:
+          type: string
+          description: Address
+        description:
+          type: string
+          description: Description
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
+        tags:
+          type: array
+          description: Tags
+          items:
+            type: string
+            description: Tags
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Custom Fields
+          description: Custom Fields
+    Link:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL
     EndUser:
       type: object
       properties:
@@ -1743,201 +1862,289 @@ components:
           items:
             type: string
             description: A list of role names assigned to the user. This is provided when the 'includeRoles' query parameter is set to 'true'
-    DeviceCredentialOptions:
+    WindowsServiceConfiguration:
       type: object
       properties:
-        roles:
-          type: array
-          items:
-            type: string
-        credentials:
-          type: array
-          items:
-            $ref: '#/components/schemas/CredentialReference'
-    NodeRolePolicyAssignment:
+        startType:
+          type: string
+          description: Start Type
+          enum:
+          - AUTO_START
+          - AUTO_START_DELAYED
+          - BOOT_START
+          - DEMAND_START
+          - DISABLED
+          - SYSTEM_START
+        userName:
+          type: string
+          description: Username
+    DeviceMutableProperties:
       type: object
       properties:
+        displayName:
+          type: string
+          description: Display name (User assigned)
+        userData:
+          type: object
+          additionalProperties: true
+          description: Custom attributes
         nodeRoleId:
           type: integer
-          description: Node Role Identifier
+          description: Node Role identifier
           format: int32
         policyId:
           type: integer
-          description: Policy Identifier
+          description: Assigned policy ID (overrides organization policy mapping, or reverts to organization policy if Null)
           format: int32
-      description: Node role policy assignments
-    LocationModel:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Location name
-        address:
-          type: string
-          description: Address
-        description:
-          type: string
-          description: Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-    OrganizationModel:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Organization full name
-        description:
-          type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
-          type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-    CreateContactRequest:
-      type: object
-      properties:
         organizationId:
           type: integer
           description: Organization identifier
           format: int32
-        firstName:
-          maxLength: 150
-          minLength: 1
+        locationId:
+          type: integer
+          description: Location identifier
+          format: int32
+        warranty:
+          $ref: '#/components/schemas/WarrantyDates'
+    WindowsEventPolicyConditionResponse:
+      type: object
+      properties:
+        id:
           type: string
-          description: First name should be between 1 and 150 characters
-        lastName:
-          maxLength: 150
-          minLength: 1
+          description: Policy condition id
+        conditionName:
           type: string
-          description: First name should be between 1 and 150 characters
-        email:
+          description: Policy condition name
+        displayName:
           type: string
-          description: Email address
-        phone:
+          description: Policy condition display name
+        enabled:
+          type: boolean
+          description: Policy condition enabled
+        severity:
           type: string
-          description: Contact Phone number
-        jobTitle:
-          maxLength: 150
+          description: Policy condition severity
+          enum:
+          - NONE
+          - MINOR
+          - MODERATE
+          - MAJOR
+          - CRITICAL
+        priority:
           type: string
-          description: Job title should be between 0 and 150 characters
-      description: Create contact request payload
-    Contact:
+          description: Policy condition priority
+          enum:
+          - NONE
+          - LOW
+          - MEDIUM
+          - HIGH
+        channels:
+          uniqueItems: true
+          type: array
+          description: Policy condition notification channels
+          items:
+            type: integer
+            description: Policy condition notification channels
+            format: int32
+        scripts:
+          type: array
+          description: Policy condition scripts
+          items:
+            $ref: '#/components/schemas/PolicyConditionScript'
+        notificationAction:
+          type: string
+          description: Policy condition notification action
+          enum:
+          - NONE
+          - SEND
+        notifyOnReset:
+          type: boolean
+          description: Policy condition notify on reset
+        resetThreshold:
+          type: integer
+          description: Policy condition reset threshold (seconds)
+          format: int32
+        inheritance:
+          $ref: '#/components/schemas/PolicyConditionInheritanceStatus'
+        source:
+          type: string
+          description: Event Source
+        eventIds:
+          uniqueItems: true
+          type: array
+          description: Event IDs
+          items:
+            type: integer
+            description: Event IDs
+            format: int32
+        text:
+          $ref: '#/components/schemas/WindowsEventPolicyConditionText'
+        occurrence:
+          $ref: '#/components/schemas/WindowsEventPolicyConditionOccurrence'
+      description: Windows event policy condition response payload
+    DeviceLink:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL
+        expires:
+          type: number
+          description: Link expiration time
+          format: double
+    RoleMember:
       type: object
       properties:
         id:
           type: integer
+          description: User identifier
           format: int32
-        organizationId:
-          type: integer
-          format: int32
-        uid:
-          type: string
-          format: uuid
-        firstName:
-          type: string
-        lastName:
-          type: string
         email:
           type: string
-        phone:
-          type: string
-        jobTitle:
-          type: string
-    OrganizationDetailed:
-      type: object
-      properties:
+          description: User email
         name:
           type: string
-          description: Organization full name
+          description: User full name
+        source:
+          type: string
+          description: Source of role assignment
+      description: Role members
+    UserRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Role identifier
+          format: int32
+        name:
+          type: string
+          description: Role name
+        type:
+          type: string
+          description: Role type
         description:
           type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
-          type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
+          description: Role description
+        members:
           type: array
-          description: Tags
+          description: Role members
+          items:
+            $ref: '#/components/schemas/RoleMember'
+    FeatureSettings:
+      type: object
+      properties:
+        product:
+          type: string
+          description: Configured product code
+        enabled:
+          type: boolean
+          description: Is enabled
+        targets:
+          type: array
+          description: Feature deployment targets
           items:
             type: string
-            description: Tags
-        fields:
+            description: Feature deployment targets
+        options:
           type: object
           additionalProperties:
             type: object
-            description: Custom Fields
-          description: Custom Fields
-        id:
-          type: integer
-          description: Organization identifier
-          format: int32
-        locations:
-          type: array
-          description: List of locations
-          items:
-            $ref: '#/components/schemas/Location'
-        policies:
-          type: array
-          description: Node role policy assignments
-          items:
-            $ref: '#/components/schemas/NodeRolePolicyAssignment'
-        settings:
-          $ref: '#/components/schemas/OrganizationSettings'
-    PolicyConditionInheritanceStatus:
+            description: Feature options
+          description: Feature options
+      description: Feature/product/integration configuration settings
+    DeviceIDList:
       type: object
       properties:
-        inherited:
+        devices:
+          type: array
+          items:
+            type: integer
+            format: int32
+    CustomFieldPolicyConditionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Policy condition id
+        conditionName:
+          type: string
+          description: Policy condition name
+        displayName:
+          type: string
+          description: Policy condition display name
+        enabled:
           type: boolean
-          description: Is policy condition inherited
-        overridden:
+          description: Policy condition enabled
+        severity:
+          type: string
+          description: Policy condition severity
+          enum:
+          - NONE
+          - MINOR
+          - MODERATE
+          - MAJOR
+          - CRITICAL
+        priority:
+          type: string
+          description: Policy condition priority
+          enum:
+          - NONE
+          - LOW
+          - MEDIUM
+          - HIGH
+        channels:
+          uniqueItems: true
+          type: array
+          description: Policy condition notification channels
+          items:
+            type: integer
+            description: Policy condition notification channels
+            format: int32
+        scripts:
+          type: array
+          description: Policy condition scripts
+          items:
+            $ref: '#/components/schemas/PolicyConditionScript'
+        notificationAction:
+          type: string
+          description: Policy condition notification action
+          enum:
+          - NONE
+          - SEND
+        notifyOnReset:
           type: boolean
-          description: Is policy condition overridden
-        sourcePolicyId:
+          description: Policy condition notify on reset
+        resetThreshold:
           type: integer
-          description: Parent policy Id
+          description: Policy condition reset threshold (seconds)
           format: int32
-      description: Policy condition inheritance status
+        inheritance:
+          $ref: '#/components/schemas/PolicyConditionInheritanceStatus'
+        matchAll:
+          type: array
+          description: Custom field value must meet all conditions
+          items:
+            $ref: '#/components/schemas/PolicyConditionCustomField'
+        matchAny:
+          type: array
+          description: Custom field value must meet any conditions
+          items:
+            $ref: '#/components/schemas/PolicyConditionCustomField'
+      description: Custom fields policy condition response payload
+    OrganizationSettings:
+      type: object
+      properties:
+        trayicon:
+          $ref: '#/components/schemas/FeatureSettings'
+        splashtop:
+          $ref: '#/components/schemas/FeatureSettings'
+        teamviewer:
+          $ref: '#/components/schemas/FeatureSettings'
+        backup:
+          $ref: '#/components/schemas/FeatureSettings'
+        psa:
+          $ref: '#/components/schemas/FeatureSettings'
+      description: Organization settings
     CustomFieldsPolicyConditionCreateRequest:
       type: object
       properties:
@@ -2017,269 +2224,28 @@ components:
           items:
             $ref: '#/components/schemas/PolicyConditionCustomField'
       description: Custom fields policy condition create request payload
-    CredentialReference:
+    MaintenanceSettings:
       type: object
       properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - SNMPV12C
-          - SNMPV3
-          - TELNET_SSH
-          - NETWORK_LOCATION
-          - ENCRYPTION_KEY
-          - BASIC
-          - SNMPV1
-          - SNMPV2
-    CreateTechnicianRequest:
-      type: object
-      properties:
-        firstName:
-          maxLength: 150
-          minLength: 1
-          type: string
-          description: First name should be between 1 and 150 characters
-        lastName:
-          maxLength: 150
-          minLength: 1
-          type: string
-          description: Last name should be between 1 and 150 characters
-        email:
-          type: string
-          description: Email address
-        phone:
-          type: string
-          description: Phone number
-      description: Create technician request payload
-    WindowsEventPolicyConditionOccurrence:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          description: Occurrence enabled
-          default: false
-        threshold:
-          type: integer
-          description: Occurrence threshold
-          format: int32
-          default: 2
-        duration:
-          type: integer
-          description: Occurrence duration
-          format: int32
-          default: 5
-      description: Windows event policy condition occurrence
-    CreateEndUserRequest:
-      type: object
-      properties:
-        firstName:
-          maxLength: 150
-          minLength: 1
-          type: string
-          description: First name should be between 1 and 150 characters
-        lastName:
-          maxLength: 150
-          minLength: 1
-          type: string
-          description: Last name should be between 1 and 150 characters
-        email:
-          type: string
-          description: Email address
-        phone:
-          type: string
-          description: Phone number
-        organizationId:
-          type: integer
-          description: Organization identifier
-          format: int32
-        fullPortalAccess:
-          type: boolean
-          description: Gives end user full portal access
-      description: Create end user request payload
-    FeatureSettings:
-      type: object
-      properties:
-        product:
-          type: string
-          description: Configured product code
-        enabled:
-          type: boolean
-          description: Is enabled
-        targets:
+        disabledFeatures:
           type: array
-          description: Feature deployment targets
+          description: List of features that will be disabled during maintenance
           items:
             type: string
-            description: Feature deployment targets
-        options:
-          type: object
-          additionalProperties:
-            type: object
-            description: Feature options
-          description: Feature options
-      description: Feature/product/integration configuration settings
-    PolicyConditionScript:
-      type: object
-      properties:
-        scriptId:
-          type: integer
-          description: Policy condition script id
-          format: int32
-        runAs:
-          type: string
-          description: Policy condition script runAs
-          default: SYSTEM
-          enum:
-          - SYSTEM
-          - LOGGED_ON_USER
-          - LOCAL_ADMIN
-          - DOMAIN_ADMIN
-          - PREFERRED_CREDENTIAL_MAC
-          - PREFERRED_CREDENTIAL_LINUX
-        scriptParam:
-          type: string
-          description: Policy condition script parameter
-        scriptVariables:
-          maxItems: 20
-          minItems: 0
-          type: array
-          description: Policy condition script variables
-          items:
-            $ref: '#/components/schemas/PolicyConditionScriptVariable'
-      description: Policy condition script
-    PolicyInfo:
-      type: object
-      properties:
-        parentPolicyId:
-          type: integer
-          description: Parent Policy identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        enabled:
-          type: boolean
-          description: Policy Enabled Flag
-          default: true
-    Policy:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Policy identifier
-          format: int32
-        parentPolicyId:
-          type: integer
-          description: Parent Policy identifier
-          format: int32
-        name:
-          type: string
-          description: Name
-        description:
-          type: string
-          description: Description
-        nodeClass:
-          type: string
-          description: Node Class
-          enum:
-          - WINDOWS_SERVER
-          - WINDOWS_WORKSTATION
-          - LINUX_WORKSTATION
-          - MAC
-          - ANDROID
-          - APPLE_IOS
-          - APPLE_IPADOS
-          - VMWARE_VM_HOST
-          - VMWARE_VM_GUEST
-          - HYPERV_VMM_HOST
-          - HYPERV_VMM_GUEST
-          - LINUX_SERVER
-          - MAC_SERVER
-          - CLOUD_MONITOR_TARGET
-          - NMS_SWITCH
-          - NMS_ROUTER
-          - NMS_FIREWALL
-          - NMS_PRIVATE_NETWORK_GATEWAY
-          - NMS_PRINTER
-          - NMS_SCANNER
-          - NMS_DIAL_MANAGER
-          - NMS_WAP
-          - NMS_IPSLA
-          - NMS_COMPUTER
-          - NMS_VM_HOST
-          - NMS_APPLIANCE
-          - NMS_OTHER
-          - NMS_SERVER
-          - NMS_PHONE
-          - NMS_VIRTUAL_MACHINE
-          - NMS_NETWORK_MANAGEMENT_AGENT
-          - UNMANAGED_DEVICE
-          - MANAGED_DEVICE
-        updated:
+            description: List of features that will be disabled during maintenance
+            enum:
+            - ALERTS
+            - PATCHING
+            - AVSCANS
+            - TASKS
+        start:
           type: number
-          description: Last update timestamp
+          description: Maintenance window start (optional, defaults to now)
           format: double
-        nodeClassDefault:
-          type: boolean
-          description: Is Default Policy for Node Class
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-      description: Assigned policy (overrides organization and location policy mapping)
+        end:
+          type: number
+          description: Maintenance window end
+          format: double
     Script:
       type: object
       properties:
@@ -2317,199 +2283,34 @@ components:
           type: integer
           description: Script Category identifier
           format: int32
-    WindowsEventPolicyConditionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Policy condition id
-        conditionName:
-          type: string
-          description: Policy condition name
-        displayName:
-          type: string
-          description: Policy condition display name
-        enabled:
-          type: boolean
-          description: Policy condition enabled
-        severity:
-          type: string
-          description: Policy condition severity
-          enum:
-          - NONE
-          - MINOR
-          - MODERATE
-          - MAJOR
-          - CRITICAL
-        priority:
-          type: string
-          description: Policy condition priority
-          enum:
-          - NONE
-          - LOW
-          - MEDIUM
-          - HIGH
-        channels:
-          uniqueItems: true
-          type: array
-          description: Policy condition notification channels
-          items:
-            type: integer
-            description: Policy condition notification channels
-            format: int32
-        scripts:
-          type: array
-          description: Policy condition scripts
-          items:
-            $ref: '#/components/schemas/PolicyConditionScript'
-        notificationAction:
-          type: string
-          description: Policy condition notification action
-          enum:
-          - NONE
-          - SEND
-        notifyOnReset:
-          type: boolean
-          description: Policy condition notify on reset
-        resetThreshold:
-          type: integer
-          description: Policy condition reset threshold (seconds)
-          format: int32
-        inheritance:
-          $ref: '#/components/schemas/PolicyConditionInheritanceStatus'
-        source:
-          type: string
-          description: Event Source
-        eventIds:
-          uniqueItems: true
-          type: array
-          description: Event IDs
-          items:
-            type: integer
-            description: Event IDs
-            format: int32
-        text:
-          $ref: '#/components/schemas/WindowsEventPolicyConditionText'
-        occurrence:
-          $ref: '#/components/schemas/WindowsEventPolicyConditionOccurrence'
-      description: Windows event policy condition response payload
-    UserRole:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Role identifier
-          format: int32
-        name:
-          type: string
-          description: Role name
-        type:
-          type: string
-          description: Role type
-        description:
-          type: string
-          description: Role description
-        members:
-          type: array
-          description: Role members
-          items:
-            $ref: '#/components/schemas/RoleMember'
-    GenerateInstallerRequestDto:
+    CreateContactRequest:
       type: object
       properties:
         organizationId:
           type: integer
           description: Organization identifier
           format: int32
-        locationId:
-          type: integer
-          description: Location identifier
-          format: int32
-        installerType:
+        firstName:
+          maxLength: 150
+          minLength: 1
           type: string
-          description: Agent installer type
-          enum:
-          - WINDOWS_MSI
-          - MAC_DMG
-          - MAC_PKG
-          - LINUX_DEB
-          - LINUX_RPM
-          - LINUX_ARM64_DEB
-          - LINUX_ARMV7A_DEB
-          - LINUX_ARM64_RPM
-          - LINUX_ARMV7A_RPM
-        usageLimit:
-          type: integer
-          description: Usage limit
-          format: int32
-          readOnly: true
-        content:
-          $ref: '#/components/schemas/InstallerContent'
-    OrganizationWithLocationsAndPolicyAssignmentsModel:
-      type: object
-      properties:
-        name:
+          description: First name should be between 1 and 150 characters
+        lastName:
+          maxLength: 150
+          minLength: 1
           type: string
-          description: Organization full name
-        description:
+          description: First name should be between 1 and 150 characters
+        email:
           type: string
-          description: Organization Description
-        userData:
-          type: object
-          additionalProperties: true
-          description: Custom attributes
-        nodeApprovalMode:
+          description: Email address
+        phone:
           type: string
-          description: Device Approval Mode
-          enum:
-          - AUTOMATIC
-          - MANUAL
-          - REJECT
-        tags:
-          type: array
-          description: Tags
-          items:
-            type: string
-            description: Tags
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Custom Fields
-          description: Custom Fields
-        locations:
-          type: array
-          description: List of locations
-          items:
-            $ref: '#/components/schemas/LocationModel'
-        policies:
-          type: array
-          description: Node role policy assignments
-          items:
-            $ref: '#/components/schemas/NodeRolePolicyAssignment'
-    RunScriptRequest:
-      type: object
-      properties:
-        type:
+          description: Contact Phone number
+        jobTitle:
+          maxLength: 150
           type: string
-          description: Type
-          enum:
-          - ACTION
-          - SCRIPT
-        id:
-          type: integer
-          description: Script identifier
-          format: int32
-        uid:
-          type: string
-          description: Built-in action identifier
-          format: uuid
-        parameters:
-          type: string
-          description: Action/Script parameters
-        runAs:
-          type: string
-          description: Credential role/identifier
+          description: Job title should be between 0 and 150 characters
+      description: Create contact request payload
     WindowsEventPolicyConditionCreateRequest:
       required:
       - eventIds
@@ -2597,7 +2398,72 @@ components:
         occurrence:
           $ref: '#/components/schemas/WindowsEventPolicyConditionOccurrence'
       description: Windows event policy condition create request payload
-    EndUserPatchRequest:
+    RebootRequest:
+      type: object
+      properties:
+        reason:
+          type: string
+          description: Stated reboot reason
+    PolicyConditionCustomField:
+      required:
+      - fieldName
+      - operator
+      - value
+      type: object
+      properties:
+        fieldName:
+          maxLength: 250
+          minLength: 0
+          type: string
+          description: Custom field name
+        operator:
+          type: string
+          description: Custom field operator
+          enum:
+          - EQUALS
+          - NOT_EQUALS
+          - LESS_THAN
+          - LESS_OR_EQUAL_THAN
+          - GREATER_THAN
+          - GREATER_OR_EQUAL_THAN
+          - IS_NOT_NULL
+          - CONTAINS
+          - CONTAINS_NONE
+          - CONTAINS_ANY
+        value:
+          maxLength: 65535
+          minLength: 0
+          type: string
+          description: Custom field value
+      description: Policy condition custom field
+    WarrantyDates:
+      type: object
+      properties:
+        startDate:
+          type: number
+          description: Warranty Start Date (Seconds)
+          format: double
+        endDate:
+          type: number
+          description: Warranty End Date (Seconds)
+          format: double
+        manufacturerFulfillmentDate:
+          type: number
+          description: Manufacturer Fulfillment Date
+          format: double
+      description: Warranty Info
+    DeviceCredentialOptions:
+      type: object
+      properties:
+        roles:
+          type: array
+          items:
+            type: string
+        credentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialReference'
+    CreateEndUserRequest:
       type: object
       properties:
         firstName:
@@ -2610,6 +2476,12 @@ components:
           minLength: 1
           type: string
           description: Last name should be between 1 and 150 characters
+        email:
+          type: string
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
         organizationId:
           type: integer
           description: Organization identifier
@@ -2617,41 +2489,153 @@ components:
         fullPortalAccess:
           type: boolean
           description: Gives end user full portal access
-      description: Patch end user request payload
-    DeviceLink:
+      description: Create end user request payload
+    DeviceScriptingOptions:
       type: object
       properties:
-        url:
-          type: string
-          description: URL
-        expires:
-          type: number
-          description: Link expiration time
-          format: double
-    DeviceIDList:
-      type: object
-      properties:
-        devices:
+        categories:
           type: array
           items:
-            type: integer
-            format: int32
-    Location:
+            $ref: '#/components/schemas/ScriptCategory'
+        scripts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Script'
+        credentials:
+          $ref: '#/components/schemas/DeviceCredentialOptions'
+    PolicyConditionInheritanceStatus:
+      type: object
+      properties:
+        inherited:
+          type: boolean
+          description: Is policy condition inherited
+        overridden:
+          type: boolean
+          description: Is policy condition overridden
+        sourcePolicyId:
+          type: integer
+          description: Parent policy Id
+          format: int32
+      description: Policy condition inheritance status
+    PolicyInfo:
+      type: object
+      properties:
+        parentPolicyId:
+          type: integer
+          description: Parent Policy identifier
+          format: int32
+        name:
+          type: string
+          description: Name
+        description:
+          type: string
+          description: Description
+        nodeClass:
+          type: string
+          description: Node Class
+          enum:
+          - WINDOWS_SERVER
+          - WINDOWS_WORKSTATION
+          - LINUX_WORKSTATION
+          - MAC
+          - ANDROID
+          - APPLE_IOS
+          - APPLE_IPADOS
+          - VMWARE_VM_HOST
+          - VMWARE_VM_GUEST
+          - HYPERV_VMM_HOST
+          - HYPERV_VMM_GUEST
+          - LINUX_SERVER
+          - MAC_SERVER
+          - CLOUD_MONITOR_TARGET
+          - NMS_SWITCH
+          - NMS_ROUTER
+          - NMS_FIREWALL
+          - NMS_PRIVATE_NETWORK_GATEWAY
+          - NMS_PRINTER
+          - NMS_SCANNER
+          - NMS_DIAL_MANAGER
+          - NMS_WAP
+          - NMS_IPSLA
+          - NMS_COMPUTER
+          - NMS_VM_HOST
+          - NMS_APPLIANCE
+          - NMS_OTHER
+          - NMS_SERVER
+          - NMS_PHONE
+          - NMS_VIRTUAL_MACHINE
+          - NMS_NETWORK_MANAGEMENT_AGENT
+          - UNMANAGED_DEVICE
+          - MANAGED_DEVICE
+        enabled:
+          type: boolean
+          description: Policy Enabled Flag
+          default: true
+    RunScriptRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Type
+          enum:
+          - ACTION
+          - SCRIPT
+        id:
+          type: integer
+          description: Script identifier
+          format: int32
+        uid:
+          type: string
+          description: Built-in action identifier
+          format: uuid
+        parameters:
+          type: string
+          description: Action/Script parameters
+        runAs:
+          type: string
+          description: Credential role/identifier
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        organizationId:
+          type: integer
+          format: int32
+        uid:
+          type: string
+          format: uuid
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        jobTitle:
+          type: string
+    OrganizationWithLocationsAndPolicyAssignmentsModel:
       type: object
       properties:
         name:
           type: string
-          description: Location name
-        address:
-          type: string
-          description: Address
+          description: Organization full name
         description:
           type: string
-          description: Description
+          description: Organization Description
         userData:
           type: object
           additionalProperties: true
           description: Custom attributes
+        nodeApprovalMode:
+          type: string
+          description: Device Approval Mode
+          enum:
+          - AUTOMATIC
+          - MANUAL
+          - REJECT
         tags:
           type: array
           description: Tags
@@ -2664,11 +2648,27 @@ components:
             type: object
             description: Custom Fields
           description: Custom Fields
-        id:
-          type: integer
-          description: Location identifier
-          format: int32
-      description: Location
+        locations:
+          type: array
+          description: List of locations
+          items:
+            $ref: '#/components/schemas/LocationModel'
+        policies:
+          type: array
+          description: Node role policy assignments
+          items:
+            $ref: '#/components/schemas/NodeRolePolicyAssignment'
+    WindowsServiceControlRequest:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Action
+          enum:
+          - START
+          - PAUSE
+          - STOP
+          - RESTART
   securitySchemes:
     oauth2:
       type: http

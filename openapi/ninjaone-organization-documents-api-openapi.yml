@@ -323,21 +323,20 @@ paths:
                 $ref: '#/components/schemas/ClientDocumentWithUpdatedAttributeValuesPublicApiDTO'
 components:
   schemas:
-    ClientDocumentWithAttributeValuesPublicApiRequest:
+    ClientDocumentAttributeWithValuePublicApiDTO:
       type: object
       properties:
-        documentName:
+        name:
           type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
+          description: Name
+        value:
           type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
+          description: Value
+        valueUpdateTime:
+          type: number
+          description: Value Last Updated
+          format: double
+      description: Updated Fields
     ClientDocumentWithAttributeValuesPublicApiDTO:
       type: object
       properties:
@@ -371,20 +370,44 @@ components:
           type: integer
           description: Organization Identifier
           format: int32
-    ClientDocumentAttributeWithValuePublicApiDTO:
+    ClientDocumentWithAttributeValuesPublicApiRequest:
       type: object
       properties:
-        name:
+        documentName:
           type: string
-          description: Name
-        value:
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
           type: object
-          description: Value
-        valueUpdateTime:
-          type: number
-          description: Value Last Updated
-          format: double
-      description: Updated Fields
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
+      type: object
+      properties:
+        documentName:
+          type: string
+          description: Document Name
+        documentDescription:
+          type: string
+          description: Document Description
+        fields:
+          type: object
+          additionalProperties:
+            type: object
+            description: Fields
+          description: Fields
+        documentTemplateId:
+          type: integer
+          description: Document Template Identifier
+          format: int32
+        organizationId:
+          type: integer
+          description: Organization Identifier
+          format: int32
     ClientDocumentWithUpdatedAttributeValuesPublicApiDTO:
       type: object
       properties:
@@ -414,29 +437,6 @@ components:
         documentTemplateName:
           type: string
           description: Document Template Name
-        organizationId:
-          type: integer
-          description: Organization Identifier
-          format: int32
-    ClientDocumentWithAttributeValuesBulkCreatePublicApiRequest:
-      type: object
-      properties:
-        documentName:
-          type: string
-          description: Document Name
-        documentDescription:
-          type: string
-          description: Document Description
-        fields:
-          type: object
-          additionalProperties:
-            type: object
-            description: Fields
-          description: Fields
-        documentTemplateId:
-          type: integer
-          description: Document Template Identifier
-          format: int32
         organizationId:
           type: integer
           description: Organization Identifier

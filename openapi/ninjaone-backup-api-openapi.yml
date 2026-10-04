@@ -158,6 +158,54 @@ paths:
                 $ref: '#/components/schemas/BackupJobReport'
 components:
   schemas:
+    Cursor:
+      type: object
+      properties:
+        name:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+        expires:
+          type: number
+          format: double
+    LockhartIntegrityCheckJobCreationRequest:
+      type: object
+      properties:
+        deviceId:
+          type: integer
+          format: int32
+        planUid:
+          type: string
+          format: uuid
+      description: Request of the Integrity Check Job creation.
+    LockhartIntegrityCheckJobCreationResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+          - UNSUPPORTED
+          - UNCOMPLETED
+        jobUid:
+          type: string
+          format: uuid
+        deviceId:
+          type: integer
+          format: int32
+        planGuid:
+          type: string
+          format: uuid
+        planName:
+          type: string
+        planType:
+          type: string
+      description: Response of the Integrity Check Job creation.
     BackupJob:
       type: object
       properties:
@@ -211,54 +259,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BackupJob'
-    Cursor:
-      type: object
-      properties:
-        name:
-          type: string
-        offset:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-        expires:
-          type: number
-          format: double
-    LockhartIntegrityCheckJobCreationResponse:
-      type: object
-      properties:
-        result:
-          type: string
-          enum:
-          - SUCCESS
-          - FAILURE
-          - UNSUPPORTED
-          - UNCOMPLETED
-        jobUid:
-          type: string
-          format: uuid
-        deviceId:
-          type: integer
-          format: int32
-        planGuid:
-          type: string
-          format: uuid
-        planName:
-          type: string
-        planType:
-          type: string
-      description: Response of the Integrity Check Job creation.
-    LockhartIntegrityCheckJobCreationRequest:
-      type: object
-      properties:
-        deviceId:
-          type: integer
-          format: int32
-        planUid:
-          type: string
-          format: uuid
-      description: Request of the Integrity Check Job creation.
   securitySchemes:
     oauth2:
       type: http
