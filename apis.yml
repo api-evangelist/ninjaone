@@ -663,6 +663,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/ninjaone-capability-edges.yml
+  name: NinjaOne Business Capability Map
 - type: Overlay
   url: overlays/ninjaone-openapi-overlay.yaml
 - type: TrustCenter
