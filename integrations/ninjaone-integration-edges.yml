@@ -1,7 +1,9 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- crowdstrike/integrations/crowdstrike-integration-edges.yml
 - https://azuremarketplace.microsoft.com/
+- okta/integrations/okta-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -20,3 +22,266 @@ edges:
   seller_name: NinjaOne, LLC
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: CrowdStrike (own)
+  partner: crowdstrike
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.crowdstrike.com/listings/ninjaone-backup/
+  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
+  apps:
+  - "NinjaOne Backup</title>\n    \n    <meta name=\"description\" content=\"Data protection for endpoints, servers,\
+    \ Microsoft 365, Google Workspace, and email archives. \"/>\n    <meta name=\"template\" content=\"crowdstrike-marketplace-partner-details-page\"\
+    />\n    <meta name=\"MobileOptimized\" content=\"width\"/>\n    <meta name=\"HandheldFriendly\" content=\"true\"\
+    />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <meta http-equiv=\"\
+    x-ua-compatible\" content=\"ie=edge\"/>\n    \n    <meta property=\"twitter:card\" content=\"summary\"/>\n \
+    \   <meta name=\"robots\" content=\"index, follow\"/>\n    \n    <meta name=\"content-page-ref\" content=\"\
+    bAV1NaGYBbsXe2-ZwxFTQYqiKsyA0ZafMyEAD4X8eg_Pw-QxChJfO8fhs3D9a0mTCwLLfLysKJt5ytnbNgpjLdhV-Emzmh4SkEZf1HdTEFujpQ364-3qd0Avtm1H_XJ0vLGLdSDqmQgYd9vc3vxTRA\"\
+    />\n<script defer=\"defer\" type=\"text/javascript\" src=\"/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js\"></script>\n\
+    <link rel=\"canonical\" href=\"https://marketplace.crowdstrike.com/listings/ninjaone-backup/\"/>\n    \n   \
+    \ \n\n    \n<meta name=\"og:type\" content=\"website\"/>\n<meta name=\"twitter:title\" content=\"NinjaOne Backup\"\
+    />\n<meta name=\"og:site_name\" content=\"CrowdStrike MarketPlace\"/>\n<meta name=\"keywords\" content=\"crowdstrike\
+    \ store, crowdstrike marketplace, crowdstrike app store, security apps, cybersecurity apps, cybersecurity marketplace,\
+    \ threat intelligence apps, crowdstrike falcon app, buy crowdstrike\"/>\n<meta name=\"twitter:description\"\
+    \ content=\"Data protection for endpoints, servers, Microsoft 365, Google Workspace, and email archives. \"\
+    />\n<meta name=\"og:title\" content=\"NinjaOne Backup\"/>\n<meta name=\"og:locale\" content=\"en-US\"/>\n<meta\
+    \ name=\"og:url\" content=\"https://marketplace.crowdstrike.com/listings/ninjaone-backup/\"/>\n<meta name=\"\
+    og:updated_time\" content=\"2026-01-07T14:11:43\"/>\n<meta name=\"og:description\" content=\"Data protection\
+    \ for endpoints, servers, Microsoft 365, Google Workspace, and email archives. \"/>\n\n    \n\n\n\n<!-- FPID\
+    \ Cookie setting from the FPID js SDK -->\n\n    <script type=\"text/javascript\" src=\"https://ms.crowdstrike.com/js/fpid.js\"\
+    \ async data-cfasync=\"false\"></script>\n\n\n\n<!-- OneTrust Cookies Consent Notice start for default -->\n\
+    \n    \n        \n            <script type=\"text/javascript\" src=\"https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js\"\
+    \ data-cfasync=\"false\"></script>\n        \n    \n    <script src=\"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js\"\
+    \ data-document-language=\"true\" type=\"text/javascript\" charset=\"UTF-8\" data-domain-script=\"bee15b7c-b632-450e-9003-9c8b60b3b978\"\
+    \ data-cfasync=\"false\">\n        </script>\n        <script type=\"text/javascript\" data-cfasync=\"false\"\
+    >\n            function OptanonWrapper() { }\n        </script>\n    \n\n<!-- OneTrust Cookies Consent Notice\
+    \ end for default -->\n\n\n\n\n    <script type=\"text/javascript\" data-cfasync=\"false\">\n    !function(e,a,n,t){var\
+    \ i=e.head;if(i){\n    if (a) return;\n    var o=e.createElement(\"style\");\n    o.id=\"alloy-prehiding\",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}\n\
+    \    (document, document.location.href.indexOf(\"adobe_authoring_enabled\") !== -1, \"[data-target-location='true']\
+    \ { opacity: 0 !important}\", 3000);\n</script>\n    <script type=\"text/javascript\" src=\"//assets.adobedtm.com/d72cd986aea0/6c9104833b6e/launch-bacc530d480b.min.js\"\
+    \ async></script>\n\n\n<!-- Initialize Analytics JS -->\n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-analytics.lc-3df1fb70f480ba5b88ae47192b16ecff-lc.min.js\"\
+    ></script>\n\n\n\n\n\n<!-- load base css -->\n\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-grid.lc-d75b4ada966a12a0acc4f4483174f716-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-base.lc-d8e9a44764866640e709abbb8b7e48f7-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n\n<!-- Initialize Language Direction -->\n\n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-language.lc-7085071ea35e3fe3f74984b851ee0b98-lc.min.js\"\
+    ></script>\n\n\n\n\n<!-- TODO - Determine how we can preload this -->\n\n    \n<link rel=\"stylesheet\" href=\"\
+    /etc.clientlibs/crowdstrike/clientlibs/crowdstrike-fonts.lc-6948ecef49b977e56a92fb1f07f1dd27-lc.min.css\" type=\"\
+    text/css\">\n\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-39968705ebaffa8af8c834134a4525b2-lc.min.js\"\
+    ></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-2929dd9d69a653da2cf8fe429017e6b6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-common.lc-22f682a39a55d93265e974d2f289ec2e-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-header.lc-f918a7f1f53a3b70145333e063afdff9-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-addsearch.lc-5bd1b6d5b026bc6b7b5cbf7559f4c0b1-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dotcom.lc-36c31b4c04f3f8ba9f17f5b7c61954c6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-event.lc-b383a52a1a03473aa6f81df00cb25068-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n    \n\n    \n    <link rel=\"icon\" href=\"/content/dam/crowdstrike/marketplace/en-us/images/favicon.png\"\
+    />\n    <!-- Custom SEO Scripts -->\n\n    \n        <script>\n    window.Userback = window.Userback"
+  - "NinjaOne for Falcon</title>\n    \n    <meta name=\"description\" content=\"Deploy CrowdStrike to your environment\
+    \ and respond to detected threats quickly, right from the NinjaOne console\"/>\n    <meta name=\"template\"\
+    \ content=\"crowdstrike-marketplace-partner-details-page\"/>\n    <meta name=\"MobileOptimized\" content=\"\
+    width\"/>\n    <meta name=\"HandheldFriendly\" content=\"true\"/>\n    <meta name=\"viewport\" content=\"width=device-width,\
+    \ initial-scale=1.0\"/>\n    <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"/>\n    \n    <meta property=\"\
+    twitter:card\" content=\"summary\"/>\n    <meta name=\"robots\" content=\"index, follow\"/>\n    \n    <meta\
+    \ name=\"content-page-ref\" content=\"bAV1NaGYBbsXe2-ZwxFTQYqiKsyA0ZafMyEAD4X8eg_Pw-QxChJfO8fhs3D9a0mTCwLLfLysKJt5ytnbNgpjLbOHJF1lf1kDxF38wOI8k7GEjCS_WVDDZbcc2MHYaV2NlLuCjYM4BdAta6u7u9uZm4YRYezJ86nFgUY2IOKJxdE\"\
+    />\n<script defer=\"defer\" type=\"text/javascript\" src=\"/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js\"></script>\n\
+    <link rel=\"canonical\" href=\"https://marketplace.crowdstrike.com/listings/ninjaone-endpoint-management/\"\
+    />\n    \n    \n\n    \n<meta name=\"og:type\" content=\"website\"/>\n<meta name=\"twitter:title\" content=\"\
+    NinjaOne for Falcon\"/>\n<meta name=\"og:site_name\" content=\"CrowdStrike MarketPlace\"/>\n<meta name=\"keywords\"\
+    \ content=\"crowdstrike store, crowdstrike marketplace, crowdstrike app store, security apps, cybersecurity\
+    \ apps, cybersecurity marketplace, threat intelligence apps, crowdstrike falcon app, buy crowdstrike\"/>\n<meta\
+    \ name=\"twitter:description\" content=\"Deploy CrowdStrike to your environment and respond to detected threats\
+    \ quickly, right from the NinjaOne console\"/>\n<meta name=\"og:title\" content=\"NinjaOne for Falcon\"/>\n\
+    <meta name=\"og:locale\" content=\"en-US\"/>\n<meta name=\"og:url\" content=\"https://marketplace.crowdstrike.com/listings/ninjaone-endpoint-management/\"\
+    />\n<meta name=\"og:updated_time\" content=\"2025-09-11T13:02:50\"/>\n<meta name=\"og:description\" content=\"\
+    Deploy CrowdStrike to your environment and respond to detected threats quickly, right from the NinjaOne console\"\
+    />\n\n    \n\n\n\n<!-- FPID Cookie setting from the FPID js SDK -->\n\n    <script type=\"text/javascript\"\
+    \ src=\"https://ms.crowdstrike.com/js/fpid.js\" async data-cfasync=\"false\"></script>\n\n\n\n<!-- OneTrust\
+    \ Cookies Consent Notice start for default -->\n\n    \n        \n            <script type=\"text/javascript\"\
+    \ src=\"https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js\" data-cfasync=\"\
+    false\"></script>\n        \n    \n    <script src=\"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js\"\
+    \ data-document-language=\"true\" type=\"text/javascript\" charset=\"UTF-8\" data-domain-script=\"bee15b7c-b632-450e-9003-9c8b60b3b978\"\
+    \ data-cfasync=\"false\">\n        </script>\n        <script type=\"text/javascript\" data-cfasync=\"false\"\
+    >\n            function OptanonWrapper() { }\n        </script>\n    \n\n<!-- OneTrust Cookies Consent Notice\
+    \ end for default -->\n\n\n\n\n    <script type=\"text/javascript\" data-cfasync=\"false\">\n    !function(e,a,n,t){var\
+    \ i=e.head;if(i){\n    if (a) return;\n    var o=e.createElement(\"style\");\n    o.id=\"alloy-prehiding\",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}\n\
+    \    (document, document.location.href.indexOf(\"adobe_authoring_enabled\") !== -1, \"[data-target-location='true']\
+    \ { opacity: 0 !important}\", 3000);\n</script>\n    <script type=\"text/javascript\" src=\"//assets.adobedtm.com/d72cd986aea0/6c9104833b6e/launch-bacc530d480b.min.js\"\
+    \ async></script>\n\n\n<!-- Initialize Analytics JS -->\n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-analytics.lc-3df1fb70f480ba5b88ae47192b16ecff-lc.min.js\"\
+    ></script>\n\n\n\n\n\n<!-- load base css -->\n\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-grid.lc-d75b4ada966a12a0acc4f4483174f716-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-base.lc-d8e9a44764866640e709abbb8b7e48f7-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n\n<!-- Initialize Language Direction -->\n\n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-language.lc-7085071ea35e3fe3f74984b851ee0b98-lc.min.js\"\
+    ></script>\n\n\n\n\n<!-- TODO - Determine how we can preload this -->\n\n    \n<link rel=\"stylesheet\" href=\"\
+    /etc.clientlibs/crowdstrike/clientlibs/crowdstrike-fonts.lc-6948ecef49b977e56a92fb1f07f1dd27-lc.min.css\" type=\"\
+    text/css\">\n\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-39968705ebaffa8af8c834134a4525b2-lc.min.js\"\
+    ></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-2929dd9d69a653da2cf8fe429017e6b6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-common.lc-22f682a39a55d93265e974d2f289ec2e-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-header.lc-f918a7f1f53a3b70145333e063afdff9-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-addsearch.lc-5bd1b6d5b026bc6b7b5cbf7559f4c0b1-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dotcom.lc-36c31b4c04f3f8ba9f17f5b7c61954c6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-event.lc-b383a52a1a03473aa6f81df00cb25068-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n    \n\n    \n    <link rel=\"icon\" href=\"/content/dam/crowdstrike/marketplace/en-us/images/favicon.png\"\
+    />\n    <!-- Custom SEO Scripts -->\n\n    \n        <script>\n    window.Userback = window.Userback"
+  - "NinjaOne MDM</title>\n    \n    <meta name=\"description\" content=\"Mobile Device Management for all your\
+    \ mobile, end-user, and infrastructure endpoints\"/>\n    <meta name=\"template\" content=\"crowdstrike-marketplace-partner-details-page\"\
+    />\n    <meta name=\"MobileOptimized\" content=\"width\"/>\n    <meta name=\"HandheldFriendly\" content=\"true\"\
+    />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <meta http-equiv=\"\
+    x-ua-compatible\" content=\"ie=edge\"/>\n    \n    <meta property=\"twitter:card\" content=\"summary\"/>\n \
+    \   <meta name=\"robots\" content=\"index, follow\"/>\n    \n    <meta name=\"content-page-ref\" content=\"\
+    bAV1NaGYBbsXe2-ZwxFTQYqiKsyA0ZafMyEAD4X8eg_Pw-QxChJfO8fhs3D9a0mTCwLLfLysKJt5ytnbNgpjLdSUs9-JO6MNDqcq2HzjDEWUu4KNgzgF0C1rq7u725mbhhFh7MnzqcWBRjYg4onF0Q\"\
+    />\n<script defer=\"defer\" type=\"text/javascript\" src=\"/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js\"></script>\n\
+    <link rel=\"canonical\" href=\"https://marketplace.crowdstrike.com/listings/ninjaone-mdm/\"/>\n    \n    \n\n\
+    \    \n<meta name=\"og:type\" content=\"website\"/>\n<meta name=\"twitter:title\" content=\"NinjaOne MDM\"/>\n\
+    <meta name=\"og:site_name\" content=\"CrowdStrike MarketPlace\"/>\n<meta name=\"keywords\" content=\"crowdstrike\
+    \ store, crowdstrike marketplace, crowdstrike app store, security apps, cybersecurity apps, cybersecurity marketplace,\
+    \ threat intelligence apps, crowdstrike falcon app, buy crowdstrike\"/>\n<meta name=\"twitter:description\"\
+    \ content=\"Mobile Device Management for all your mobile, end-user, and infrastructure endpoints\"/>\n<meta\
+    \ name=\"og:title\" content=\"NinjaOne MDM\"/>\n<meta name=\"og:locale\" content=\"en-US\"/>\n<meta name=\"\
+    og:url\" content=\"https://marketplace.crowdstrike.com/listings/ninjaone-mdm/\"/>\n<meta name=\"og:updated_time\"\
+    \ content=\"2026-01-12T19:32:21\"/>\n<meta name=\"og:description\" content=\"Mobile Device Management for all\
+    \ your mobile, end-user, and infrastructure endpoints\"/>\n\n    \n\n\n\n<!-- FPID Cookie setting from the FPID\
+    \ js SDK -->\n\n    <script type=\"text/javascript\" src=\"https://ms.crowdstrike.com/js/fpid.js\" async data-cfasync=\"\
+    false\"></script>\n\n\n\n<!-- OneTrust Cookies Consent Notice start for default -->\n\n    \n        \n    \
+    \        <script type=\"text/javascript\" src=\"https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js\"\
+    \ data-cfasync=\"false\"></script>\n        \n    \n    <script src=\"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js\"\
+    \ data-document-language=\"true\" type=\"text/javascript\" charset=\"UTF-8\" data-domain-script=\"bee15b7c-b632-450e-9003-9c8b60b3b978\"\
+    \ data-cfasync=\"false\">\n        </script>\n        <script type=\"text/javascript\" data-cfasync=\"false\"\
+    >\n            function OptanonWrapper() { }\n        </script>\n    \n\n<!-- OneTrust Cookies Consent Notice\
+    \ end for default -->\n\n\n\n\n    <script type=\"text/javascript\" data-cfasync=\"false\">\n    !function(e,a,n,t){var\
+    \ i=e.head;if(i){\n    if (a) return;\n    var o=e.createElement(\"style\");\n    o.id=\"alloy-prehiding\",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}\n\
+    \    (document, document.location.href.indexOf(\"adobe_authoring_enabled\") !== -1, \"[data-target-location='true']\
+    \ { opacity: 0 !important}\", 3000);\n</script>\n    <script type=\"text/javascript\" src=\"//assets.adobedtm.com/d72cd986aea0/6c9104833b6e/launch-bacc530d480b.min.js\"\
+    \ async></script>\n\n\n<!-- Initialize Analytics JS -->\n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-analytics.lc-3df1fb70f480ba5b88ae47192b16ecff-lc.min.js\"\
+    ></script>\n\n\n\n\n\n<!-- load base css -->\n\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-grid.lc-d75b4ada966a12a0acc4f4483174f716-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-base.lc-d8e9a44764866640e709abbb8b7e48f7-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n\n<!-- Initialize Language Direction -->\n\n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-language.lc-7085071ea35e3fe3f74984b851ee0b98-lc.min.js\"\
+    ></script>\n\n\n\n\n<!-- TODO - Determine how we can preload this -->\n\n    \n<link rel=\"stylesheet\" href=\"\
+    /etc.clientlibs/crowdstrike/clientlibs/crowdstrike-fonts.lc-6948ecef49b977e56a92fb1f07f1dd27-lc.min.css\" type=\"\
+    text/css\">\n\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-39968705ebaffa8af8c834134a4525b2-lc.min.js\"\
+    ></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-2929dd9d69a653da2cf8fe429017e6b6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-common.lc-22f682a39a55d93265e974d2f289ec2e-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-header.lc-f918a7f1f53a3b70145333e063afdff9-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-addsearch.lc-5bd1b6d5b026bc6b7b5cbf7559f4c0b1-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dotcom.lc-36c31b4c04f3f8ba9f17f5b7c61954c6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-event.lc-b383a52a1a03473aa6f81df00cb25068-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n    \n\n    \n    <link rel=\"icon\" href=\"/content/dam/crowdstrike/marketplace/en-us/images/favicon.png\"\
+    />\n    <!-- Custom SEO Scripts -->\n\n    \n        <script>\n    window.Userback = window.Userback"
+  - "NinjaOne Patch Management®</title>\n    \n    <meta name=\"description\" content=\"Protect your remote and\
+    \ hybrid endpoints with unified patch management across every operating system.\"/>\n    <meta name=\"template\"\
+    \ content=\"crowdstrike-marketplace-partner-details-page\"/>\n    <meta name=\"MobileOptimized\" content=\"\
+    width\"/>\n    <meta name=\"HandheldFriendly\" content=\"true\"/>\n    <meta name=\"viewport\" content=\"width=device-width,\
+    \ initial-scale=1.0\"/>\n    <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"/>\n    \n    <meta property=\"\
+    twitter:card\" content=\"summary\"/>\n    <meta name=\"robots\" content=\"index, follow\"/>\n    \n    <meta\
+    \ name=\"content-page-ref\" content=\"bAV1NaGYBbsXe2-ZwxFTQYqiKsyA0ZafMyEAD4X8eg_Pw-QxChJfO8fhs3D9a0mTCwLLfLysKJt5ytnbNgpjLSPdJb7p1XfD4EoAtVWtYpq8IX1CveuXopmmDOF10tIInmuWWl_PiDqTS8zA-qwgPQ\"\
+    />\n<script defer=\"defer\" type=\"text/javascript\" src=\"/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js\"></script>\n\
+    <link rel=\"canonical\" href=\"https://marketplace.crowdstrike.com/listings/ninjaone-patch-management-r/\"/>\n\
+    \    \n    \n\n    \n<meta name=\"og:type\" content=\"website\"/>\n<meta name=\"twitter:title\" content=\"NinjaOne\
+    \ Patch Management®\"/>\n<meta name=\"og:site_name\" content=\"CrowdStrike MarketPlace\"/>\n<meta name=\"keywords\"\
+    \ content=\"crowdstrike store, crowdstrike marketplace, crowdstrike app store, security apps, cybersecurity\
+    \ apps, cybersecurity marketplace, threat intelligence apps, crowdstrike falcon app, buy crowdstrike\"/>\n<meta\
+    \ name=\"twitter:description\" content=\"Protect your remote and hybrid endpoints with unified patch management\
+    \ across every operating system.\"/>\n<meta name=\"og:title\" content=\"NinjaOne Patch Management®\"/>\n<meta\
+    \ name=\"og:locale\" content=\"en-US\"/>\n<meta name=\"og:url\" content=\"https://marketplace.crowdstrike.com/listings/ninjaone-patch-management-r/\"\
+    />\n<meta name=\"og:updated_time\" content=\"2025-09-11T13:02:19\"/>\n<meta name=\"og:description\" content=\"\
+    Protect your remote and hybrid endpoints with unified patch management across every operating system.\"/>\n\n\
+    \    \n\n\n\n<!-- FPID Cookie setting from the FPID js SDK -->\n\n    <script type=\"text/javascript\" src=\"\
+    https://ms.crowdstrike.com/js/fpid.js\" async data-cfasync=\"false\"></script>\n\n\n\n<!-- OneTrust Cookies\
+    \ Consent Notice start for default -->\n\n    \n        \n            <script type=\"text/javascript\" src=\"\
+    https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js\" data-cfasync=\"false\"\
+    ></script>\n        \n    \n    <script src=\"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js\" data-document-language=\"\
+    true\" type=\"text/javascript\" charset=\"UTF-8\" data-domain-script=\"bee15b7c-b632-450e-9003-9c8b60b3b978\"\
+    \ data-cfasync=\"false\">\n        </script>\n        <script type=\"text/javascript\" data-cfasync=\"false\"\
+    >\n            function OptanonWrapper() { }\n        </script>\n    \n\n<!-- OneTrust Cookies Consent Notice\
+    \ end for default -->\n\n\n\n\n    <script type=\"text/javascript\" data-cfasync=\"false\">\n    !function(e,a,n,t){var\
+    \ i=e.head;if(i){\n    if (a) return;\n    var o=e.createElement(\"style\");\n    o.id=\"alloy-prehiding\",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}\n\
+    \    (document, document.location.href.indexOf(\"adobe_authoring_enabled\") !== -1, \"[data-target-location='true']\
+    \ { opacity: 0 !important}\", 3000);\n</script>\n    <script type=\"text/javascript\" src=\"//assets.adobedtm.com/d72cd986aea0/6c9104833b6e/launch-bacc530d480b.min.js\"\
+    \ async></script>\n\n\n<!-- Initialize Analytics JS -->\n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-analytics.lc-3df1fb70f480ba5b88ae47192b16ecff-lc.min.js\"\
+    ></script>\n\n\n\n\n\n<!-- load base css -->\n\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-grid.lc-d75b4ada966a12a0acc4f4483174f716-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-base.lc-d8e9a44764866640e709abbb8b7e48f7-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n\n<!-- Initialize Language Direction -->\n\n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-language.lc-7085071ea35e3fe3f74984b851ee0b98-lc.min.js\"\
+    ></script>\n\n\n\n\n<!-- TODO - Determine how we can preload this -->\n\n    \n<link rel=\"stylesheet\" href=\"\
+    /etc.clientlibs/crowdstrike/clientlibs/crowdstrike-fonts.lc-6948ecef49b977e56a92fb1f07f1dd27-lc.min.css\" type=\"\
+    text/css\">\n\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-39968705ebaffa8af8c834134a4525b2-lc.min.js\"\
+    ></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-2929dd9d69a653da2cf8fe429017e6b6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-common.lc-22f682a39a55d93265e974d2f289ec2e-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-header.lc-f918a7f1f53a3b70145333e063afdff9-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-addsearch.lc-5bd1b6d5b026bc6b7b5cbf7559f4c0b1-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dotcom.lc-36c31b4c04f3f8ba9f17f5b7c61954c6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-event.lc-b383a52a1a03473aa6f81df00cb25068-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n    \n\n    \n    <link rel=\"icon\" href=\"/content/dam/crowdstrike/marketplace/en-us/images/favicon.png\"\
+    />\n    <!-- Custom SEO Scripts -->\n\n    \n        <script>\n    window.Userback = window.Userback"
+  - "NinjaOne Remote</title>\n    \n    <meta name=\"description\" content=\"Fast, reliable, single-click remote\
+    \ access\"/>\n    <meta name=\"template\" content=\"crowdstrike-marketplace-partner-details-page\"/>\n    <meta\
+    \ name=\"MobileOptimized\" content=\"width\"/>\n    <meta name=\"HandheldFriendly\" content=\"true\"/>\n   \
+    \ <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n    <meta http-equiv=\"x-ua-compatible\"\
+    \ content=\"ie=edge\"/>\n    \n    <meta property=\"twitter:card\" content=\"summary\"/>\n    <meta name=\"\
+    robots\" content=\"index, follow\"/>\n    \n    <meta name=\"content-page-ref\" content=\"bAV1NaGYBbsXe2-ZwxFTQYqiKsyA0ZafMyEAD4X8eg_Pw-QxChJfO8fhs3D9a0mTCwLLfLysKJt5ytnbNgpjLUaAz9k-gw4FtD9OgX9b5UraXAeh8ti0OafomMiW-hh9vLGLdSDqmQgYd9vc3vxTRA\"\
+    />\n<script defer=\"defer\" type=\"text/javascript\" src=\"/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js\"></script>\n\
+    <link rel=\"canonical\" href=\"https://marketplace.crowdstrike.com/listings/ninjaone-remote/\"/>\n    \n   \
+    \ \n\n    \n<meta name=\"og:type\" content=\"website\"/>\n<meta name=\"twitter:title\" content=\"NinjaOne Remote\"\
+    />\n<meta name=\"og:site_name\" content=\"CrowdStrike MarketPlace\"/>\n<meta name=\"keywords\" content=\"crowdstrike\
+    \ store, crowdstrike marketplace, crowdstrike app store, security apps, cybersecurity apps, cybersecurity marketplace,\
+    \ threat intelligence apps, crowdstrike falcon app, buy crowdstrike\"/>\n<meta name=\"twitter:description\"\
+    \ content=\"Fast, reliable, single-click remote access\"/>\n<meta name=\"og:title\" content=\"NinjaOne Remote\"\
+    />\n<meta name=\"og:locale\" content=\"en-US\"/>\n<meta name=\"og:url\" content=\"https://marketplace.crowdstrike.com/listings/ninjaone-remote/\"\
+    />\n<meta name=\"og:updated_time\" content=\"2026-01-12T19:34:28\"/>\n<meta name=\"og:description\" content=\"\
+    Fast, reliable, single-click remote access\"/>\n\n    \n\n\n\n<!-- FPID Cookie setting from the FPID js SDK\
+    \ -->\n\n    <script type=\"text/javascript\" src=\"https://ms.crowdstrike.com/js/fpid.js\" async data-cfasync=\"\
+    false\"></script>\n\n\n\n<!-- OneTrust Cookies Consent Notice start for default -->\n\n    \n        \n    \
+    \        <script type=\"text/javascript\" src=\"https://cdn.cookielaw.org/consent/bee15b7c-b632-450e-9003-9c8b60b3b978/OtAutoBlock.js\"\
+    \ data-cfasync=\"false\"></script>\n        \n    \n    <script src=\"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js\"\
+    \ data-document-language=\"true\" type=\"text/javascript\" charset=\"UTF-8\" data-domain-script=\"bee15b7c-b632-450e-9003-9c8b60b3b978\"\
+    \ data-cfasync=\"false\">\n        </script>\n        <script type=\"text/javascript\" data-cfasync=\"false\"\
+    >\n            function OptanonWrapper() { }\n        </script>\n    \n\n<!-- OneTrust Cookies Consent Notice\
+    \ end for default -->\n\n\n\n\n    <script type=\"text/javascript\" data-cfasync=\"false\">\n    !function(e,a,n,t){var\
+    \ i=e.head;if(i){\n    if (a) return;\n    var o=e.createElement(\"style\");\n    o.id=\"alloy-prehiding\",o.innerText=n,i.appendChild(o),setTimeout(function(){o.parentNode&&o.parentNode.removeChild(o)},t)}}\n\
+    \    (document, document.location.href.indexOf(\"adobe_authoring_enabled\") !== -1, \"[data-target-location='true']\
+    \ { opacity: 0 !important}\", 3000);\n</script>\n    <script type=\"text/javascript\" src=\"//assets.adobedtm.com/d72cd986aea0/6c9104833b6e/launch-bacc530d480b.min.js\"\
+    \ async></script>\n\n\n<!-- Initialize Analytics JS -->\n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-analytics.lc-3df1fb70f480ba5b88ae47192b16ecff-lc.min.js\"\
+    ></script>\n\n\n\n\n\n<!-- load base css -->\n\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-grid.lc-d75b4ada966a12a0acc4f4483174f716-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-base.lc-d8e9a44764866640e709abbb8b7e48f7-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n\n<!-- Initialize Language Direction -->\n\n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-language.lc-7085071ea35e3fe3f74984b851ee0b98-lc.min.js\"\
+    ></script>\n\n\n\n\n<!-- TODO - Determine how we can preload this -->\n\n    \n<link rel=\"stylesheet\" href=\"\
+    /etc.clientlibs/crowdstrike/clientlibs/crowdstrike-fonts.lc-6948ecef49b977e56a92fb1f07f1dd27-lc.min.css\" type=\"\
+    text/css\">\n\n\n\n\n\n\n\n\n    \n    \n    \n\n    \n\n    \n    \n<script src=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-39968705ebaffa8af8c834134a4525b2-lc.min.js\"\
+    ></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dependencies.lc-2929dd9d69a653da2cf8fe429017e6b6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-common.lc-22f682a39a55d93265e974d2f289ec2e-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-header.lc-f918a7f1f53a3b70145333e063afdff9-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-addsearch.lc-5bd1b6d5b026bc6b7b5cbf7559f4c0b1-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-dotcom.lc-36c31b4c04f3f8ba9f17f5b7c61954c6-lc.min.css\"\
+    \ type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/crowdstrike/clientlibs/crowdstrike-event.lc-b383a52a1a03473aa6f81df00cb25068-lc.min.css\"\
+    \ type=\"text/css\">\n\n\n\n    \n\n    \n    <link rel=\"icon\" href=\"/content/dam/crowdstrike/marketplace/en-us/images/favicon.png\"\
+    />\n    <!-- Custom SEO Scripts -->\n\n    \n        <script>\n    window.Userback = window.Userback"
+  listing_count: 5
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/dev-39381128_ninjaone_1/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - NinjaOne
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Lifecycle Management
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - CREATE
+  - DEACTIVATE
+  - GROUP_PUSH
+  - SAML
+  - UPDATE
+source:
+- crowdstrike/integrations/crowdstrike-integration-edges.yml
+- okta/integrations/okta-integration-edges.yml
