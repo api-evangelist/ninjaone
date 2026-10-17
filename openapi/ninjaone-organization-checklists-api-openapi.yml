@@ -325,6 +325,22 @@ components:
           description: Checklist tasks
           items:
             $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
+    ArchiveClientChecklistRequest:
+      type: object
+      properties:
+        clientChecklistIds:
+          type: array
+          items:
+            type: integer
+            format: int32
+    ChecklistDescription:
+      type: object
+      properties:
+        text:
+          type: string
+        html:
+          type: string
+      description: Task description
     CreateClientChecklistAndTasksPublicApiRequest:
       type: object
       properties:
@@ -360,14 +376,6 @@ components:
           description: Checklist tasks
           items:
             $ref: '#/components/schemas/ClientChecklistTaskPublicApiRequest'
-    ChecklistDescription:
-      type: object
-      properties:
-        text:
-          type: string
-        html:
-          type: string
-      description: Task description
     PromoteClientChecklistWithNamePublicApiRequest:
       type: object
       properties:
@@ -379,6 +387,19 @@ components:
         name:
           type: string
           description: Checklist name
+    ChecklistUserResponseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        firstName:
+          type: string
+        lastName:
+          type: string
+        deleted:
+          type: boolean
+      description: Archive by user
     ClientChecklistTaskPublicApiDTO:
       type: object
       properties:
@@ -411,19 +432,6 @@ components:
         completedBy:
           $ref: '#/components/schemas/ChecklistUserResponseDTO'
       description: Checklist's tasks
-    ChecklistUserResponseDTO:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        firstName:
-          type: string
-        lastName:
-          type: string
-        deleted:
-          type: boolean
-      description: Archive by user
     ClientChecklistPublicApiDTO:
       type: object
       properties:
@@ -517,14 +525,6 @@ components:
           type: boolean
           description: Indicates if the checklist is completed
       description: Checklist tasks
-    ArchiveClientChecklistRequest:
-      type: object
-      properties:
-        clientChecklistIds:
-          type: array
-          items:
-            type: integer
-            format: int32
   securitySchemes:
     oauth2:
       type: http
